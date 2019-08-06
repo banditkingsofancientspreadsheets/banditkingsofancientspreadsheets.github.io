@@ -108,11 +108,11 @@ analytics:
 # Site Author
 author:
   name             : "Nelson Tang"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/bandit.png"
   bio              : "Analyst"
   location         : "Portland, Oregon"
   email            :
-  github           : "banditkingsofancientdata"
+  linkedin         : "tangnelson"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -295,5 +295,13 @@ defaults:
       comments: # true
       share: true
       related: true
+
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
 theme: jekyll-theme-cayman
