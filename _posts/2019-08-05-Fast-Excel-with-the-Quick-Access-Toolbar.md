@@ -9,10 +9,6 @@ mathjax: "true"
 # H1 Heading
 ## H2 Heading
 
-**This is Bold**
-
-Here's some basic body text. But this is *italics*. 
-
 Python code block:
 ```python
     import numpy as np
@@ -30,21 +26,16 @@ R code block:
 
 Here's some inline code: `x+y`.
 
-Here's an image:
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/bandit.png" alt="bandit">
-
 Here's some math:
 
 $$x+y=z$$
 
 And here's some inline math $$ Z = x+y $$
 
-# Excel Quick Access Toolbar Settings I Can’t Live Without
-In corporate finance, you just can’t get away from Excel, so you might as well become faster and more efficient at it. While you can access a lot of excel’s functionality within 3-4 keystrokes (or, god forbid, a few mouse clicks), sometimes there’s a few functions that you keep reusing. You should add it to your Quick Access Toolbar!
+# Fast Excel with the Quick Access Toolbar
+Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!
 
-For example, the shortcut for paste values is alt + e, s, v, and considering that you usually have to hit ctrl + c to copy something first, it ends up being an annoying amount of keypresses if you use this combo as much as I do and you’re under time pressure. So ‘paste values’ becomes my first item on the quick access toolbar, and I just need to hit ALT + 1 and I’ve eliminated two keystrokes for the rest of my analyst career.
-
-Here’s how my quick access toolbar is set up:
+Here's how my quick access toolbar is set up. I primarily work with pro forma Profit and Loss statements from our various business units, so my workflow is tailored for quick 5 minute analyses that gets presented to managers as a formatted PnL or data table in an email to go along with a short writeup.
 
 1. Paste Values – I use this constantly to avoid pasting formulas
 1. Format Painter
