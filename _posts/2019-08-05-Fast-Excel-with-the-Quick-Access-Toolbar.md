@@ -1,36 +1,10 @@
 ---
-title: "test page"
+title: "Fast Excel with the Quick Access Toolbar"
 date: 2019-08-05
-tags: [excel, r, python]
-excerpt: "Some basic markdown"
+tags: [excel]
+excerpt: "Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!"
 mathjax: "true"
 ---
-
-# H1 Heading
-## H2 Heading
-
-Python code block:
-```python
-    import numpy as np
-    def test_function(x, y):
-        z = np.sum(x, y)
-        return z
-```
-
-R code block:
-```r
-    library(tidyverse)
-    df <- read_csv("some_file.csv)
-    head(df)
-```
-
-Here's some inline code: `x+y`.
-
-Here's some math:
-
-$$x+y=z$$
-
-And here's some inline math $$ Z = x+y $$
 
 # Fast Excel with the Quick Access Toolbar
 Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!

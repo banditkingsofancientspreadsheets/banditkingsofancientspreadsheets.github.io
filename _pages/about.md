@@ -1,10 +1,8 @@
 ---
-title: "About"
+title: "About Me"
 permalink: /about/
-header:
-    image: "/assets/images/bandit.png"
 ---
 
-I'm an analyst.
+![alt text](/assets/images/bandit.png "me")
 
-etc, etc, etc
+I'm an analyst. I love learning new ways to work faster and make work more fun!
