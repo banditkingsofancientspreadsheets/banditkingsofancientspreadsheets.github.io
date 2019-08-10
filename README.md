@@ -1,1 +1,1 @@
-Based on Minimal Mistakes Jekyll theme
+Based on the Minimal Mistakes Jekyll theme
