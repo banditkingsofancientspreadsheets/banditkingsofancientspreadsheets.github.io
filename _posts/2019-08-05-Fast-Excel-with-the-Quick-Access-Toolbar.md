@@ -6,7 +6,6 @@ excerpt: "Excel is still the lingua franca of Corporate Finance and is blazing f
 mathjax: "true"
 ---
 
-# Fast Excel with the Quick Access Toolbar
 Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!
 
 Here's how my quick access toolbar is set up. I primarily work with pro forma Profit and Loss statements from our various business units, so my workflow is tailored for quick 5 minute analyses that gets presented to managers as a formatted PnL or data table in an email to go along with a short writeup.
