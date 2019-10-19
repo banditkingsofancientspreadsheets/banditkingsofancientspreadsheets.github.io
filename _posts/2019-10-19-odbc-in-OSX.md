@@ -6,8 +6,6 @@ excerpt: "My local data mart runs on MS SQL Server, and I want to pull data dire
 mathjax: "true"
 ---
 
-# How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R
-
 My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is **really** easy on Windows with its' built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.
 
 * Microsoft Open Database Connectivity (ODBC) Docs: [link](https://docs.microsoft.com/en-us/sql/odbc/reference/what-is-odbc?view=sql-server-ver15)
