@@ -1,5 +1,5 @@
 ---
-title: “Time Series Cheat Sheet in R with `forecast`”
+title: “Time Series Cheat Sheet in R”
 date: 2020-01-26
 tags: [R]
 excerpt: "Getting started using the `forecast` package for time series data in R, as quickly as possible and no explanations."
