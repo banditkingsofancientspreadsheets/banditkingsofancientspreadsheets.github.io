@@ -73,7 +73,8 @@ Residuals should look like white noise and be:
 
 * Uncorrelated
 * Have mean zero
-and ideally have:
+
+And ideally have:
 * Constant variance
 * A normal distribution
 
@@ -84,7 +85,7 @@ and ideally have:
 Train/Test split with window function:
 `window(data, start, end)`: to slice the `ts` data
 
-Use accuracy() on the model and test set
+Use `accuracy()` on the model and test set
 `accuracy(model, testset)`: Provides accuracy measures like MAE, MSE, MAPE, RMSE etc
 
 Backtesting with one step ahead forecasts, aka "Time series cross validation" can be done with a helper function `tsCV()`.
