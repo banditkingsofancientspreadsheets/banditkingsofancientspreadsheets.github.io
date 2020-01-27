@@ -123,7 +123,9 @@ May need to transform the data if it is non-stationary to improve your model pre
 ## ARIMA
 
 **Parameters**: (p,d,q)(P,D,Q)m
----------------------------------
+
+|Parameter|Description          |
+|-------------------------------|
 |p| # of autoregression lags    |
 |d| # of lag-1 differences      |
 |q| # of Moving Average lags    |
@@ -131,7 +133,7 @@ May need to transform the data if it is non-stationary to improve your model pre
 |D| # of seasonal differences   |
 |Q| # of seasonal MA lags       |
 |m| # of observations per year  |
----------------------------------
+|-------------------------------|
 
 `Arima()`: Implementation of the ARIMA function, set `include.constant` = TRUE to include drift aka the constant
 
