@@ -24,17 +24,19 @@ myts <- ts(df, start = c(1981,1), frequency = 12)
 
 ## Exploring and Plotting `ts` Data
 
-autoplot()
+`autoplot()`: Useful function to plot data and forecasts
 
 #### Seasonality
 
-ggseasonplot(): Create a seasonal plot
-ggsubseriesplot(): Create mini plots for each season and show seasonal means
+`ggseasonplot()`: Create a seasonal plot
+
+`ggsubseriesplot()`: Create mini plots for each season and show seasonal means
 
 #### Lags and ACF
 
-gglagplot(): Plot the time series against lags of itself
-ggAcf(): Plot the autocorrelation function (ACF)
+`gglagplot()`: Plot the time series against lags of itself
+
+`ggAcf()`: Plot the autocorrelation function (ACF)
 
 ### White Noise and the Ljung-Box Test
 White Noise is another name for a time series of iid data. Purely random. Ideally your model residuals should look like white noise. 
@@ -65,8 +67,9 @@ accuracy(pred, data)
 
 Benchmarking with naive and seasonal naive models.
 
-naive()
-snaive()
+`naive()`
+
+`snaive()`
 
 ### Residuals
 
@@ -103,7 +106,9 @@ tsCV(data, forecastfunction = naive, h = 1)
 ### ETS
 
 `ses()`: Simple Exponential Smoothing, implement a smoothing parameter alpha on previous data
+
 `holt()`: Holt's linear trend, SES + trend parameter. Use `damped`=TRUE for damped trending
+
 `hw()`: Holt-Winters method, incorporates linear trend and seasonality. Set `seasonal`="additive" for additive version or "multiplicative" for multiplicative version
 
 #### ETS models
@@ -135,10 +140,11 @@ Q: # of seasonal MA lags
 m: # of observations per year
 
 `Arima()`: Implementation of the ARIMA function, set `include.constant` = TRUE to include drift aka the constant
+
 `auto.arima()`: Automatic implentation of the ARIMA function in `forecast`. Estimates parameters using maximum likelihood and does a stepwise search between a subset of all possible models. Can take a `lambda` argument to fit the model to transformed data and the forecasts will be back-transformed onto the original scale. Turn `stepwise` = FALSE to consider more models at the expense of more time. 
 
 ### Dynamic Regression
-Dynamic Regression: Regression model with non-seasonal ARIMA errors, i.e. we allow e_t to be an ARIMA process rather than white noise. 
+Regression model with non-seasonal ARIMA errors, i.e. we allow e_t to be an ARIMA process rather than white noise. 
 
 Usage example:
 ```r
