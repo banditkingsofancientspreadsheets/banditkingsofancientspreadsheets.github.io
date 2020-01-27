@@ -1,7 +1,7 @@
 ---
 title: “Time Series Cheat Sheet in R”
 date: 2020-01-26
-tags: [R]
+tags: [r]
 excerpt: "Getting started using the `forecast` package for time series data in R, as quickly as possible and no explanations."
 mathjax: "true"
 ---
@@ -37,8 +37,7 @@ myts <- ts(df, start = c(1981,1), frequency = 12)
 ## White Noise and the Ljung-Box Test
 White Noise is another name for a time series of iid data. Purely random. Ideally your model residuals should look like white noise. 
 
-You can use the Ljung-Box test to check if a time series is white noise:
-
+You can use the Ljung-Box test to check if a time series is white noise, here's an example with 24 lags:
 ```r
 Box.test(data, lag = 24, type="Lj")
 ```
@@ -61,15 +60,13 @@ accuracy(pred, data)
 
 ## Naive Models
 
-Benchmarking with naive and seasonal naive models.
+Useful to benchmark against naive and seasonal naive models.
 * `naive()`
 * `snaive()`
 
 ## Residuals
 
-Residuals are the difference between the model's fitted values and the actual data. 
-
-Residuals should look like white noise and be:
+Residuals are the difference between the model's fitted values and the actual data. Residuals should look like white noise and be:
 
 * Uncorrelated
 * Have mean zero
@@ -83,17 +80,18 @@ And ideally have:
 ## Evaluating Model Accuracy
 
 Train/Test split with window function:
+
 `window(data, start, end)`: to slice the `ts` data
 
 Use `accuracy()` on the model and test set
+
 `accuracy(model, testset)`: Provides accuracy measures like MAE, MSE, MAPE, RMSE etc
 
 Backtesting with one step ahead forecasts, aka "Time series cross validation" can be done with a helper function `tsCV()`.
 
 `tsCV()`: returns forecast errors given a `forecastfunction` that returns a `forecast` object and number of steps ahead `h`. At `h` = 1 the forecast errors will just be the model residuals.
 
-Here's an example using the `naive()` model:
-
+Here's an example using the `naive()` model, forecasting one period ahead:
 ```r
 tsCV(data, forecastfunction = naive, h = 1)
 ```
