@@ -22,19 +22,17 @@ myts <- ts(df, start = c(1981,1), frequency = 12)
 
 # Exploring and Plotting `ts` Data
 
-`autoplot()`: Useful function to plot data and forecasts
+* `autoplot()`: Useful function to plot data and forecasts
 
 ## Seasonality
 
-`ggseasonplot()`: Create a seasonal plot
-
-`ggsubseriesplot()`: Create mini plots for each season and show seasonal means
+* `ggseasonplot()`: Create a seasonal plot
+* `ggsubseriesplot()`: Create mini plots for each season and show seasonal means
 
 ## Lags and ACF
 
-`gglagplot()`: Plot the time series against lags of itself
-
-`ggAcf()`: Plot the autocorrelation function (ACF)
+* `gglagplot()`: Plot the time series against lags of itself
+* `ggAcf()`: Plot the autocorrelation function (ACF)
 
 ## White Noise and the Ljung-Box Test
 White Noise is another name for a time series of iid data. Purely random. Ideally your model residuals should look like white noise. 
@@ -124,16 +122,16 @@ May need to transform the data if it is non-stationary to improve your model pre
 
 ## ARIMA
 
-Parameters:
-(p,d,q)(P,D,Q)m
-
-p: # of autoregression lags
-d: # of lag-1 differences
-q: # of Moving Average lags
-P: # of seasonal AR lags
-D: # of seasonal differences
-Q: # of seasonal MA lags
-m: # of observations per year
+**Parameters**: (p,d,q)(P,D,Q)m
+---------------------------------
+|p| # of autoregression lags    |
+|d| # of lag-1 differences      |
+|q| # of Moving Average lags    |
+|P| # of seasonal AR lags       |
+|D| # of seasonal differences   |
+|Q| # of seasonal MA lags       |
+|m| # of observations per year  |
+---------------------------------
 
 `Arima()`: Implementation of the ARIMA function, set `include.constant` = TRUE to include drift aka the constant
 
@@ -165,8 +163,8 @@ Automated model that combines exponential smoothing, Box-Cox transformations, an
 Pro: Automated, allows for complex seasonality that changes over time.
 Cons: Slow.
 
-T: Trigonemtric terms for seasonality
-B: Box-Cox transformations for heterogeneity
-A: ARMA errors for short term dynamics
-T: Trend (possibly damped)
-S: Seasonal (including multiple and non-integer periods)
+* T: Trigonemtric terms for seasonality
+* B: Box-Cox transformations for heterogeneity
+* A: ARMA errors for short term dynamics
+* T: Trend (possibly damped)
+* S: Seasonal (including multiple and non-integer periods)
