@@ -1,6 +1,6 @@
 ---
 title: "3 Habits to Improve Critical Thinking (from HBR)"
-date: 2019-05-11`
+date: 2019-05-11
 tags: [meta]
 excerpt: "From [HBR: 3 Habits to Improve Critical Thinking](https://hbr.org/2019/05/3-simple-habits-to-improve-your-critical-thinking) by [Helen Lee Bouygues](hbr.org/search?term=helen%20lee%20bouygues). A good read for anyone looking to keep their critical thinking muscles sharp as told through stories from Bouygues' experience as a board member and consultant. They might seem obvious, but I'll admit that I don't always consider these."
 ---
