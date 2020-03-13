@@ -8,7 +8,7 @@ Have you ever spent weeks of your life building a great data product, only to fi
 
 Enter a secret from project management - you gotta nail the requirements, or the 'problem to be solved'. The analyst needs to ask the right questions to elicit the true requirements from the stakeholder, who often doesn't understand your domain or might be [obscuring the true nature of their problem](https://en.wikipedia.org/wiki/XY_problem).
 
-Caitlin Hudon's (@beeonaposy) is an awesome person and crowdsourced some responses in her [twitter thread on this topic](https://twitter.com/beeonaposy/status/1214973414345195520):
+[Caitlin Hudon](http://caitlinhudon.com/) is an awesome person and crowdsourced some responses in her [twitter thread on this topic](https://twitter.com/beeonaposy/status/1214973414345195520):
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Writing an internal &quot;how to ask a good data question&quot; guide for both technical and non-technical stakeholders. <br><br>What would yours include?</p>&mdash; Caitlin Hudon 👩🏼‍💻 (@beeonaposy) <a href="https://twitter.com/beeonaposy/status/1214973414345195520?ref_src=twsrc%5Etfw">January 8, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
