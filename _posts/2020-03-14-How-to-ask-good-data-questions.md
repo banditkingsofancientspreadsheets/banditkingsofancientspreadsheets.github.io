@@ -1,12 +1,16 @@
 ---
 title: "How to Ask Good Data Questions"
-date: 2019-05-11
+date: 2020-03-14
 tags: [meta]
 excerpt: "Responses from Caitlin Hudon's twitter thread on how to ask a good data question"
 ---
-From Caitlin Hudon's (@beeonaposy) [tweet](https://twitter.com/beeonaposy/status/1214973414345195520) 
+From Caitlin Hudon's (@beeonaposy) [twitter thread on this topic](https://twitter.com/beeonaposy/status/1214973414345195520) 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Writing an internal &quot;how to ask a good data question&quot; guide for both technical and non-technical stakeholders. <br><br>What would yours include?</p>&mdash; Caitlin Hudon 👩🏼‍💻 (@beeonaposy) <a href="https://twitter.com/beeonaposy/status/1214973414345195520?ref_src=twsrc%5Etfw">January 8, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+Here's a great answer to start:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">I wrote something along this lines showing ppl how to break down a business problem into a tangible data problem if it helps! I teach ppl this way at work. <a href="https://t.co/sOZZmXKzi6">https://t.co/sOZZmXKzi6</a></p>&mdash; Laura Ellis (@LittleMissData) <a href="https://twitter.com/LittleMissData/status/1215078949824475137?ref_src=twsrc%5Etfw">January 9, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## My favorite responses:
 
