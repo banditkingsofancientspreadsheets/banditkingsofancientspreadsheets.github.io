@@ -2,6 +2,7 @@
 title: "Fast Excel with the Quick Access Toolbar"
 date: 2019-08-05
 tags: [excel]
+classes: wide
 excerpt: "Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!"
 mathjax: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Make a Basic PnL Dataframe"
 date: 2020-06-30
+classes: wide
 tags: [cheatsheets, python]
 excerpt: "Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas"
 mathjax: "true"
