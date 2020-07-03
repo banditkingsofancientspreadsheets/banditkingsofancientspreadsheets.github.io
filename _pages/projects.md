@@ -1,7 +1,7 @@
 ---
 layout: archive
 permalink: /posts/
-title: "Project Posts by Tags"
+title: "Posts by Tags"
 author_profile: true
 #header:
 #    image: "/assets/images/bandit.png"
