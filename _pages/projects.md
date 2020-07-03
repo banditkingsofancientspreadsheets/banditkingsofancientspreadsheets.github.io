@@ -1,6 +1,6 @@
 ---
 layout: archive
-permalink: /projects/
+permalink: /posts/
 title: "Project Posts by Tags"
 author_profile: true
 #header:
