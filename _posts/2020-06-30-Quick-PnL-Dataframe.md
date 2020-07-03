@@ -12,7 +12,8 @@ This code creates a practice dataframe for instruction in a format that is famil
 ```python
 import pandas as pd
 
-# If using a Jupyter Notebook, display dataframe floats with a dollar sign & round to two decimal places
+# For convenience while using a Jupyter Notebook, 
+# display dataframe floats as currency & round to two decimal places
 pd.options.display.float_format = '${:,.2f}'.format
 
 def make_pnl():
