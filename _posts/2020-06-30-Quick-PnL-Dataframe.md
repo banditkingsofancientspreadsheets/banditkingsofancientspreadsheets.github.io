@@ -54,3 +54,13 @@ Which is the same as using the `query()` method:
 ```python
 df.query("ProductLine=='A' & AccountL1=='Cost of Sales'")
 ```
+
+## Converting from Wide to Long format with pd.melt()
+
+Another useful transformation is to 'unpivot' the data with `pd.melt()`. 
+
+```python
+id_vars = ['ProductLine', 'FunctionalArea', 'AccountL1']
+dfl= df.reset_index().melt(id_vars=id_vars, var_name='Period', value_name='Value')
+```
+![](/assets/images/example_pnl4.png)
