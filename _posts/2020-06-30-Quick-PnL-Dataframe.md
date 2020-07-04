@@ -64,3 +64,39 @@ id_vars = ['ProductLine', 'FunctionalArea', 'AccountL1']
 dfl= df.reset_index().melt(id_vars=id_vars, var_name='Period', value_name='Value')
 ```
 ![](/assets/images/example_pnl4.png)
+
+## Join Previous Cycle for Recons
+
+You'll often need to reconcile PnL data against other time periods, like prior quarters, prior years, actuals vs forecasts, and so on. 
+
+In a spreadsheet you'd manually manipulate and select columns and subsets of data to perform this. In Python, you can perform a SQL-style lookup and join so that you create those reconciliations in a table of data that you can slice and lookup later.
+
+```python
+id_vars = ['ProductLine', 'FunctionalArea', 'AccountL1']
+
+# Pull in data in long format
+dfl = df.reset_index().melt(id_vars=id_vars, var_name='Period', value_name='Value')
+
+# Create new features by parsing text
+dfl['YYYY'] = dfl['Period'].apply(lambda x: x[:4]).astype(int)
+dfl['Q'] = dfl['Period'].apply(lambda x: x[5]).astype(int)
+
+# Use new features to calculate lookup columns
+dfl['Prior_Year_Period'] = ((dfl['YYYY'] - 1) *100 + dfl['Q']).astype(str) + " ACT"
+
+# Create a subset to use as the right dataframe
+df2 = dfl[id_vars + ['Period', 'Value']].rename({'Value': 'PY_Value'}, axis=1)
+
+# Left Join the original dataframe with the right dataframe
+dfNew = dfl.merge(df2,
+                  left_on=id_vars+['Prior_Year_Period'],
+                  right_on=id_vars+['Period'],
+                  how='left',
+                  suffixes=["", "_DROP"])
+
+# Drop duplicate columns
+dfNew.drop(dfNew.filter(regex='_DROP$').columns.tolist(),axis=1, inplace=True)
+```
+And we see the result works. In this example, we don't have 201801 ACT data so it's a `np.nan` value, but you see the rest of the values filled in as expected for prior year values.
+
+![](/assets/images/example_pnl5.png)
