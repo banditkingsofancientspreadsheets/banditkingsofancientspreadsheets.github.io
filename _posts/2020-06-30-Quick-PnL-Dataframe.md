@@ -1,5 +1,5 @@
 ---
-title: "Make a Basic PnL Dataframe"
+title: "Make a Basic PnL Dataframe in Pandas"
 date: 2020-06-30
 classes: wide
 tags: [cheatsheets, python]
@@ -33,3 +33,24 @@ df = make_pnl()
 
 This is a very simplified version of the data that would be familiar to analysts. In reality, there would be many more fields and values, depending on the level of granularity that's available. The columns like '201901 ACT' are time periods in a YYYYQQ format and the last three letters signify whether it is an actual or forecast (POR or Plan of Record) value.
 
+## Multi-Index DataFrame Slicing
+
+It might also be useful to make this a multiindex dataframe for easier grouping/slicing and to reduce the amount of space the dataframe takes up in memory.
+
+```python
+df.set_index(['ProductLine', 'FunctionalArea', 'AccountL1'], inplace=True)
+```
+![](/assets/images/example_pnl2.png)
+
+You may need to use sets to slice among items in your index. Use `slice(None)` to skip levels in your index if needed.
+
+```python
+df.loc[('A', slice(None), 'Cost of Sales')]
+```
+and returns:
+![](/assets/images/example_pnl3.png)
+
+Which is the same as using the `query()` method:
+```python
+df.query("ProductLine=='A' & AccountL1=='Cost of Sales'")
+```
