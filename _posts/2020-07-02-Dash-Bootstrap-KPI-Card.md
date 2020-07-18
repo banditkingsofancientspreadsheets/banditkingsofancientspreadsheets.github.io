@@ -71,7 +71,7 @@ row = html.Div(
 )
 
 app.layout = html.Div([
-    header, 
+    header,
     row,
     row
 ])
@@ -79,6 +79,7 @@ app.layout = html.Div([
 if __name__ == "__main__":
     app.run_server(port=8888, debug=True)
 ```
+Instead of a `dbc.Row` you could use a `dbc.CardDeck` which may be easier.
 
 And some basic CSS styling:
 ```css
