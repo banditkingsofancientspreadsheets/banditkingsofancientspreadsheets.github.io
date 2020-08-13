@@ -5,6 +5,7 @@ tags: [dataviz, UX]
 classes: wide
 excerpt: "Today I learned that there are design studios who specialize in 'Screen Graphics' - the cool visual effects that shows up on computer screens in movies like The Martian and Blade Runner 2049. And then I wonder why our corporate finance dashboards seem to miss the mark."
 ---
+*Update 8/2020*: [This article from dbt does a better job of articulating the issues with dashboards and opportunities to improve them!](https://blog.getdbt.com/are-dashboards-dead/)
 
 # "Screen Graphics" and Future Data Interfaces
 

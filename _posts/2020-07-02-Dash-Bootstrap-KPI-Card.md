@@ -60,11 +60,11 @@ card = dbc.Card(
 
 row = html.Div(
     [
-        dbc.Row(
+        dbc.CardDeck(
             [
-                dbc.Col(card),
-                dbc.Col(card),
-                dbc.Col(card),
+                card,
+                card,
+                card,
             ]
         ),
     ], style={'padding': '25px'}
@@ -79,7 +79,7 @@ app.layout = html.Div([
 if __name__ == "__main__":
     app.run_server(port=8888, debug=True)
 ```
-Instead of a `dbc.Row` you could use a `dbc.CardDeck` which may be easier.
+Instead of `dbc.CardDeck` you can also make a `dbc.Row()` and each card would be a `dbc.Col()` within that row.
 
 And some basic CSS styling:
 ```css
