@@ -1,7 +1,7 @@
 ---
 title: "Quick Bash Script for Complete Newbies"
 date: 2020-11-13
-tags: [bash]
+tags: [zshell]
 classes: wide
 excerpt: "Basic shell scripting for everyday productivity."
 ---
