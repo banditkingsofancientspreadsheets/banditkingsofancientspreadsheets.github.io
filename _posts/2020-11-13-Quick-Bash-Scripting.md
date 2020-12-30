@@ -8,7 +8,7 @@ excerpt: "ggplot2 for Python is definitely a thing."
 
 It's December 2020 and it's time to check out different python plotting packages. I primarily will use pandas dataframe plotting with either seaborn's `sns.set()` or [setting plotly as the plotting backend](https://plotly.com/python/pandas-backend/) during data exploration, but there's nothing in python that matches R's `ggplot2`. I've known about [plotnine](https://plotnine.readthedocs.io/en/stable/) as the python equivalent but last time I tried it it was still lacking in the feature department. I'm happy to say that it's totally viable now.
 
-One chart that I often used in R was a 'tie fighter' (error bar) chart. It's handy to compare accuracy for various predictive models. [Here's a motivating example from 'thecodeforest' where he compares various time serious forecasting models in R](https://thecodeforest.github.io/post/tidy_time_series_forecasting.html).
+One chart that I often used in R was a 'tie fighter' (error bar) chart. It's handy to compare accuracy for various predictive models. [Here's a motivating example from 'thecodeforest' where he compares various time serious forecasting models in R](https://thecodeforest.github.io/post/tidy_time_series_forecasting.html). I'm also motivated to stick with ggplot because then I'd be able to quickly make plots in R, python, and in Julia (given how seamless `RCall` is in Julia and native support of dataframes).
 
 Here's what the syntax for a quick tie fighter chart in `plotnine` using the included [`mtcars` dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html) as a toy example:
 
@@ -33,6 +33,7 @@ p = (ggplot(df, aes('factor(cyl)', 'mean', color='factor(am)'))
 
 p
 ```
+
 ![img](../assets/images/tiefighter1.png)
 
 And what I love about `ggplot2` (and `plotnine`) is the consistent syntax and how easy it is to add or remove customization and complexity compared to the other plotting libraries in python:
@@ -41,6 +42,7 @@ And what I love about `ggplot2` (and `plotnine`) is the consistent syntax and ho
 # Now it's trivial to add or remove stuff to our plots, even in python!
 p + theme(xkcd)
 ```
+
 ![img](../assets/images/tiefighter2.png)
 
-One thing we're still missing is the ability to do subtitles and captions, but maybe someday!
+One thing we're still missing is the ability to do subtitles and captions, but maybe someday. 
