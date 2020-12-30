@@ -57,16 +57,16 @@ Here's the same example as above, but in Altair:
 
 ```python
 import altair as alt
-from plotnine.data import mtcars # for an apples-to-apples comparison
+from plotnine.data import mtcars
 
 points = alt.Chart(mtcars).mark_point().encode(
     x='average(mpg):Q',
     y='cyl:O',
     color='am:N',
-)
+).properties(height=200)
 
 error_bars = alt.Chart(mtcars).mark_errorbar(extent='stderr', ticks=True).encode(
-  x=alt.X('average(mpg):Q'),
+  x=alt.X('average(mpg):Q', scale=alt.Scale(zero=False)),
   y=alt.Y('cyl:O'),
   color='am:N',
 )
@@ -74,6 +74,6 @@ error_bars = alt.Chart(mtcars).mark_errorbar(extent='stderr', ticks=True).encode
 points+error_bars
 ```
 
-![img](../assets/images/tiefighter3.svg)
+![img](../assets/images/tiefighter3.png)
 
 Notice that `Altair` has baked in aggregation and transformations so I didn't have to do my `groupby` and `agg` in `pandas`. And similar to what I like in `ggplot2`/`plotnine` there's the ability to quickly add and remove complexity. But as you can see the result was *so small* on my macbook pro, and I wish there was an easy way to scale the whole thing up to a reasonable aspect ratio (looks like I'd have to scale up each component separately or save as SVG).
