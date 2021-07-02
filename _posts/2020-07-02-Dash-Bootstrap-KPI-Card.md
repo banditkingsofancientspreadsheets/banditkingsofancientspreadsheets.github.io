@@ -5,6 +5,7 @@ classes: wide
 tags: [cheatsheets, python]
 excerpt: "Code snippet to create a starter KPI card with Dash Bootstrap Components"
 ---
+*Updated 2021-07-01 to use Dash 1.19 and fontawesome icons*
 
 [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai) has a fantastic library of plug and play [components](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/card/) that make it easy to get started.
 
@@ -20,21 +21,21 @@ Here's the sketch of the starter KPI dashboard:
 
 Python Code for your `app.py` file:
 ```python
-import dash  # (version 1.12.0) pip install dash
+import dash  # (version 1.19.0) pip install dash
 
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 
-app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
+fontawesome_stylesheet = "https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP, fontawesome_stylesheet])
 
 header = html.Div([
     dbc.Row(dbc.Col(html.H1("H1 Text"))),
 ])
 
-card = dbc.Card(
-    [
-        dbc.CardBody(
-            [
+card = dbc.Card([
+        dbc.CardBody([
                 html.H4("Card title", className="card-title"),
                 html.P(
                     "$10.5 M",
@@ -44,29 +45,20 @@ card = dbc.Card(
                     "Target: $10.0 M",
                     className="card-target",
                 ),
-                html.Span(
-                    "Up ",
-                    className="card-diff-up",
-                ),
-                html.Span(
-                    "5.5% vs Last Year",
-                    className="card-diff-up",
-                ),
+                html.Span([
+                    html.I(className="fas fa-arrow-circle-up up"),
+                    html.Span(" 5.5% vs Last Year",
+                    className="up")
+                ])
+            ])
+        ])
 
-            ]
-        ),
-    ],
-)
-
-row = html.Div(
-    [
-        dbc.CardDeck(
-            [
+row = html.Div([
+        dbc.CardDeck([
                 card,
                 card,
                 card,
-            ]
-        ),
+            ]),
     ], style={'padding': '25px'}
 )
 
@@ -77,11 +69,11 @@ app.layout = html.Div([
 ])
 
 if __name__ == "__main__":
-    app.run_server(port=8888, debug=True)
+    app.run_server(host="0.0.0.0", port=8080, debug=True)
 ```
-Instead of `dbc.CardDeck` you can also make a `dbc.Row()` and each card would be a `dbc.Col()` within that row.
+The 'up' arrow icon is courtesy of fontawesome, which we load with the external stylesheet. Since this is all in python it's simple to turn this into a function and create conditional (i.e. `if`) statements to change the icon and color scheme for your data.
 
-And some basic CSS styling:
+Here is the basic CSS styling that goes with this:
 ```css
 .card {
     text-align: center;
@@ -100,11 +92,11 @@ And some basic CSS styling:
     font-weight: lighter;
 }
 
-.card .card-diff-down {
+.card .down {
     color: red
 }
 
-.card .card-diff-up {
+.card .up {
     color: green
 }
 ```

@@ -1,7 +1,7 @@
 ---
 title: "What I'm Pondering: Screen Graphics and Why My Dashboards Suck"
 date: 2019-12-28
-tags: [dataviz, UX]
+tags: [meta]
 classes: wide
 excerpt: "Today I learned that there are design studios who specialize in 'Screen Graphics' - the cool visual effects that shows up on computer screens in movies like The Martian and Blade Runner 2049. And then I wonder why our corporate finance dashboards seem to miss the mark."
 ---
