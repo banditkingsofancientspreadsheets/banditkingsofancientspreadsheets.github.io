@@ -81,7 +81,8 @@ df = tips()
 df = df[['smoker', 'size', 'tip']].groupby(by=['smoker', 'size'], as_index=False).mean()
 
 # Plot with the new template
-fig = px.bar(df, x='size', y='tip', color='smoker', template='nike', title='Template Example')
+fig = px.bar(df, x='size', y='tip', color='smoker', 
+             template='nike', title='Template Example')
 fig.show()
 ```
 
