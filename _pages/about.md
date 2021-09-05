@@ -23,7 +23,7 @@ I'm now on a journey to answer the question:
 
 > What advice or strategy I could give to that younger me to make the better decisions?
 
-I'm capturing what I learn here, and a few other tips and tricks along the way.
+That's why I'm obsessed with the parts of data science that help me understand the world better and help me build tools to facilitate better decisions. I'm capturing what I learn here, and a few other tips and tricks along the way.
 
 ### Why Bandit Kings?
 
