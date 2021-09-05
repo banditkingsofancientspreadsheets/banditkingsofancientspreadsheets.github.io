@@ -3,27 +3,25 @@ title: "About Me"
 permalink: /about/
 ---
 
-![alt text](/assets/images/bandit.png "me")
-
 ### Why Am I Writing About This Stuff?
 
-I'm fascinated with using data science as a way *to facilitate the best possible decision making*. I'm obsessed with it because I didn't make the best decisions when it mattered.
+I'm fascinated with using data and science *to facilitate the best possible decision making*. Because I didn't make the best decisions when it mattered.
 
-Over a decade ago, I was leading convoys within the capital city of Afghanistan during one of the deadliest years of the war. All throughout the city there were threats - bad guys who were looking to do us harm and to the innocent people around us. As a convoy commander, I needed to plan out which routes to take to get the team from point A to point B (and back safely) while avoiding the bad guys.
+In a past career and past life (i.e. before data science), I led convoys in Kabul during one of the deadliest years of the war. There were plenty of threats - especially bad guys hunting for our convoys hoping to hurt us and anyone nearby. As convoy commander, I was responsible for the lives and safety of my people, and I owned our route planning strategy in hopes of avoiding these bad guys.
 
-So many years later I asked myself:
+I survived, and everyone under my command survived...but a lot of people didn't. People who had *decades* of more experience lost their lives there. Many years later and having left the military behind, I asked myself:
 
-> Am I a good decision maker?
+> Was I a good decision maker?
 
-I survived, but a lot of people didn't. And everyone under my command survived, and a lot of people didn't. Those people who had *decades* of more experience than I did who lost their lives - were they bad decision-makers?
+After pondering this question for a long time, I came to realize that no, I was **not**.
 
-After looking back and pondering this question, I realized that I was **not** a good decision-maker. A good decision should incorporate probabilistic thinking, and instead I ultimately operated primarily through instinct and intuition. Even worse, I vastly under or over-estimated probabilities of events occurring, and it was a tremendous mental burden to carry - one that took years to undo.
+I operated mostly through instinct and intuition and didn't believe that there were quantitative methods that could have helped me make better strategies and see alternatives. And my mental model for dealing with it took years to discover and to undo.
 
 I'm now on a journey to answer the question:
 
-> What advice or strategy I could give to that younger me to make the better decisions?
+> What advice or strategy could I have given to that younger version of myself?
 
-That's why I'm obsessed with the parts of data science that help me understand the world better and help me build tools to facilitate better decisions. I'm capturing what I learn here, and a few other tips and tricks along the way.
+I'm capturing what I learn here, and a few other tips and tricks along the way. If you're able to help me on this journey, let's get in touch!
 
 ### Why Bandit Kings?
 
