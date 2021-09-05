@@ -1,5 +1,4 @@
 baseURL : "https://banditkings.github.io" #copy-paste your domain here
-publishDir: "docs" #over-rides the default setting to build site under the public folder to support github-pages deployment
 languageCode : "en" #used in SEO tags
 title : "Bandit Kings" #actual title of the site used in browser tabs as well as SEO
 theme : "anatole" #name of the directory containing theme files
