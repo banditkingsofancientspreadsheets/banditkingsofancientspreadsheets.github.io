@@ -1,7 +1,8 @@
 ---
 title: "Quick Bash Script for Complete Newbies"
 date: 2020-11-13
-tags: [workflow]
+tags: [command line]
+categories: [workflow]
 summary: "Basic shell scripting for everyday productivity."
 ---
 

@@ -10,7 +10,7 @@ enableRobotsTXT : true #leave true for SEO
 params:
   title : "Bandit Kings" #emphasised line on the homepage
   author : "Nelson Tang"
-  copyright : "2020-2021" #copyright text in the footer
+  copyright : "Nelson Tang 2021" #copyright text in the footer
   description : "(Of Ancient Spreadsheets)" #introduction line on homepage
   profilePicture : "profile.png" #the name of the profile img to be displayed (relative to the static folder)
   keywords : "" #seo keywords for your homepage

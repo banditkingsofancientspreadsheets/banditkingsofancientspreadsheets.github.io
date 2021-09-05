@@ -1,9 +1,8 @@
 ---
-title: "About Me"
 permalink: /about/
 ---
 
-### Why Am I Writing About This Stuff?
+# Why Am I Writing This?
 
 I'm fascinated with using data and science *to facilitate the best possible decision making*. Because I didn't make the best decisions when it mattered.
 
@@ -23,6 +22,6 @@ I'm now on a journey to answer the question:
 
 I'm capturing what I learn here, and a few other tips and tricks along the way. If you're able to help me on this journey, let's get in touch!
 
-### Why Bandit Kings?
+# Why Bandit Kings?
 
 The name of this website is based on an old Koei historical simulation game called [Bandit Kings of Ancient China](https://en.wikipedia.org/wiki/Bandit_Kings_of_Ancient_China), which in turn was based on [The Water Margin](https://en.wikipedia.org/wiki/Water_Margin), the same book that inspired the amazing [Suikoden](https://en.wikipedia.org/wiki/Suikoden) series.

@@ -2,6 +2,7 @@
 title: "How to Ask Good Data Questions"
 date: 2020-01-22
 tags: [workflow]
+categories: [workflow]
 summary: "A collection of responses from Caitlin Hudon's twitter thread on 'how to ask a good data question.' (Updated 2020-03-15)"
 ---
 Have you ever spent weeks of your life building a great data product, only to find that you solved the wrong problem? Or you built a cadillac, when all they needed was a bike? 

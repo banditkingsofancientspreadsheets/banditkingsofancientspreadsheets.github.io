@@ -2,6 +2,7 @@
 title: "KPI Card with Dash Bootstrap Components"
 date: 2020-07-02
 tags: [dash, plotly, python]
+categories: [dataviz]
 summary: "Code snippet to create a starter KPI card with Dash Bootstrap Components"
 ---
 *Updated 2021-07-01 to use Dash 1.19 and fontawesome icons*

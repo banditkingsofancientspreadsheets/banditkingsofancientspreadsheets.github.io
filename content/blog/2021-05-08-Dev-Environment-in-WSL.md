@@ -2,7 +2,8 @@
 title: "Getting Started with WSL for Data Analysis"
 date: 2021-05-08
 tags: [python]
-summary: "Work in Progress - Getting Started with WSL for Data Analysis"
+categories: [workflow]
+summary: "My steps for a fresh install of Windows Subsystem for Linux for Data Analysis"
 ---
 ![img](/images/wsl2_test.png)
 
