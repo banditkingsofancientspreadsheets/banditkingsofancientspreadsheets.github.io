@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python on Bandit Kings</title>
-    <link>http://banditkings.github.io/tags/python/</link>
+    <link>https://www.nelsontang.com/tags/python/</link>
     <description>Recent content in python on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://banditkings.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making a Basic Corporate Plotly Template</title>
-      <link>http://banditkings.github.io/blog/2021-08-01-build-your-first-plotly-template/</link>
+      <link>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-08-01-build-your-first-plotly-template/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</guid>
       
         <description>TLDR on how to make a corporate themed plotly template</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Getting Started with WSL for Data Analysis</title>
-      <link>http://banditkings.github.io/blog/2021-05-08-dev-environment-in-wsl/</link>
+      <link>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-05-08-dev-environment-in-wsl/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</guid>
       
         <description>Work in Progress - Getting Started with WSL for Data Analysis</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Adding Plotly Charts to Markdown</title>
-      <link>http://banditkings.github.io/blog/2021-04-16-plotly-in-markdown/</link>
+      <link>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</link>
       <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-04-16-plotly-in-markdown/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</guid>
       
         <description>Quick reference that shows options to add plotly charts to a markdown document</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>&#39;Tie Fighter&#39; Errorbar Charts in Python with Plotnine and Altair</title>
-      <link>http://banditkings.github.io/blog/2020-12-28-tie-fighter-error-charts-in-python/</link>
+      <link>https://www.nelsontang.com/blog/2020-12-28-tie-fighter-error-charts-in-python/</link>
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-12-28-tie-fighter-error-charts-in-python/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-12-28-tie-fighter-error-charts-in-python/</guid>
       
         <description>ggplot2 for Python is definitely a thing. Oh, and Altair&amp;rsquo;s ok too.</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Clean Sparkline-style Line Chart for Dash Cards</title>
-      <link>http://banditkings.github.io/blog/2020-08-16-dash-clean-line-chart/</link>
+      <link>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-08-16-dash-clean-line-chart/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</guid>
       
         <description>Code snippet to create a clean line chart to go in a Dash Card.</description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>KPI Card with Dash Bootstrap Components</title>
-      <link>http://banditkings.github.io/blog/2020-07-02-dash-bootstrap-kpi-card/</link>
+      <link>https://www.nelsontang.com/blog/2020-07-02-dash-bootstrap-kpi-card/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-07-02-dash-bootstrap-kpi-card/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-07-02-dash-bootstrap-kpi-card/</guid>
       
         <description>Code snippet to create a starter KPI card with Dash Bootstrap Components</description>
       
@@ -75,10 +75,10 @@
     
     <item>
       <title>Make a Basic PnL Dataframe in Pandas</title>
-      <link>http://banditkings.github.io/blog/2020-06-30-quick-pnl-dataframe/</link>
+      <link>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-06-30-quick-pnl-dataframe/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</guid>
       
         <description>Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas</description>
       
@@ -86,10 +86,10 @@
     
     <item>
       <title>How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R</title>
-      <link>http://banditkings.github.io/blog/2019-10-19-odbc-in-osx/</link>
+      <link>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</link>
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-10-19-odbc-in-osx/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</guid>
       
         <description>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is &lt;strong&gt;really&lt;/strong&gt; easy on Windows with its&#39; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</description>
       

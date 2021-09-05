@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>plotly on Bandit Kings</title>
-    <link>http://banditkings.github.io/tags/plotly/</link>
+    <link>https://www.nelsontang.com/tags/plotly/</link>
     <description>Recent content in plotly on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://banditkings.github.io/tags/plotly/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/tags/plotly/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making a Basic Corporate Plotly Template</title>
-      <link>http://banditkings.github.io/blog/2021-08-01-build-your-first-plotly-template/</link>
+      <link>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-08-01-build-your-first-plotly-template/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</guid>
       
         <description>TLDR on how to make a corporate themed plotly template</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Adding Plotly Charts to Markdown</title>
-      <link>http://banditkings.github.io/blog/2021-04-16-plotly-in-markdown/</link>
+      <link>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</link>
       <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-04-16-plotly-in-markdown/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</guid>
       
         <description>Quick reference that shows options to add plotly charts to a markdown document</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Clean Sparkline-style Line Chart for Dash Cards</title>
-      <link>http://banditkings.github.io/blog/2020-08-16-dash-clean-line-chart/</link>
+      <link>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-08-16-dash-clean-line-chart/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</guid>
       
         <description>Code snippet to create a clean line chart to go in a Dash Card.</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>KPI Card with Dash Bootstrap Components</title>
-      <link>http://banditkings.github.io/blog/2020-07-02-dash-bootstrap-kpi-card/</link>
+      <link>https://www.nelsontang.com/blog/2020-07-02-dash-bootstrap-kpi-card/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-07-02-dash-bootstrap-kpi-card/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-07-02-dash-bootstrap-kpi-card/</guid>
       
         <description>Code snippet to create a starter KPI card with Dash Bootstrap Components</description>
       

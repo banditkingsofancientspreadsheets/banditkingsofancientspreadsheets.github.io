@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bandit Kings</title>
-    <link>http://banditkings.github.io/</link>
+    <link>https://www.nelsontang.com/</link>
     <description>Recent content on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://banditkings.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Making a Basic Corporate Plotly Template</title>
-      <link>http://banditkings.github.io/blog/2021-08-01-build-your-first-plotly-template/</link>
+      <link>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</link>
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-08-01-build-your-first-plotly-template/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</guid>
       
         <description>TLDR on how to make a corporate themed plotly template</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Getting Started with WSL for Data Analysis</title>
-      <link>http://banditkings.github.io/blog/2021-05-08-dev-environment-in-wsl/</link>
+      <link>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-05-08-dev-environment-in-wsl/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</guid>
       
         <description>Work in Progress - Getting Started with WSL for Data Analysis</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Adding Plotly Charts to Markdown</title>
-      <link>http://banditkings.github.io/blog/2021-04-16-plotly-in-markdown/</link>
+      <link>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</link>
       <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2021-04-16-plotly-in-markdown/</guid>
+      <guid>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</guid>
       
         <description>Quick reference that shows options to add plotly charts to a markdown document</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>&#39;Tie Fighter&#39; Errorbar Charts in Python with Plotnine and Altair</title>
-      <link>http://banditkings.github.io/blog/2020-12-28-tie-fighter-error-charts-in-python/</link>
+      <link>https://www.nelsontang.com/blog/2020-12-28-tie-fighter-error-charts-in-python/</link>
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-12-28-tie-fighter-error-charts-in-python/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-12-28-tie-fighter-error-charts-in-python/</guid>
       
         <description>ggplot2 for Python is definitely a thing. Oh, and Altair&amp;rsquo;s ok too.</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Quick Bash Script for Complete Newbies</title>
-      <link>http://banditkings.github.io/blog/2020-11-13-quick-bash-scripting/</link>
+      <link>https://www.nelsontang.com/blog/2020-11-13-quick-bash-scripting/</link>
       <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-11-13-quick-bash-scripting/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-11-13-quick-bash-scripting/</guid>
       
         <description>Basic shell scripting for everyday productivity.</description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>Clean Sparkline-style Line Chart for Dash Cards</title>
-      <link>http://banditkings.github.io/blog/2020-08-16-dash-clean-line-chart/</link>
+      <link>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</link>
       <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-08-16-dash-clean-line-chart/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</guid>
       
         <description>Code snippet to create a clean line chart to go in a Dash Card.</description>
       
@@ -75,10 +75,10 @@
     
     <item>
       <title>KPI Card with Dash Bootstrap Components</title>
-      <link>http://banditkings.github.io/blog/2020-07-02-dash-bootstrap-kpi-card/</link>
+      <link>https://www.nelsontang.com/blog/2020-07-02-dash-bootstrap-kpi-card/</link>
       <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-07-02-dash-bootstrap-kpi-card/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-07-02-dash-bootstrap-kpi-card/</guid>
       
         <description>Code snippet to create a starter KPI card with Dash Bootstrap Components</description>
       
@@ -86,10 +86,10 @@
     
     <item>
       <title>Make a Basic PnL Dataframe in Pandas</title>
-      <link>http://banditkings.github.io/blog/2020-06-30-quick-pnl-dataframe/</link>
+      <link>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-06-30-quick-pnl-dataframe/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</guid>
       
         <description>Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas</description>
       
@@ -97,10 +97,10 @@
     
     <item>
       <title>Time Series Cheat Sheet in R</title>
-      <link>http://banditkings.github.io/blog/2020-01-26-time-series-forecasting-in-r/</link>
+      <link>https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r/</link>
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-01-26-time-series-forecasting-in-r/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r/</guid>
       
         <description>Getting started using the &lt;code&gt;forecast&lt;/code&gt; package for time series data in R, as quickly as possible and no explanations.</description>
       
@@ -108,10 +108,10 @@
     
     <item>
       <title>How to Ask Good Data Questions</title>
-      <link>http://banditkings.github.io/blog/2020-01-22-how-to-ask-good-data-questions/</link>
+      <link>https://www.nelsontang.com/blog/2020-01-22-how-to-ask-good-data-questions/</link>
       <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-01-22-how-to-ask-good-data-questions/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-01-22-how-to-ask-good-data-questions/</guid>
       
         <description>A collection of responses from Caitlin Hudon&amp;rsquo;s twitter thread on &amp;lsquo;how to ask a good data question.&amp;rsquo; (Updated 2020-03-15)</description>
       
@@ -119,10 +119,10 @@
     
     <item>
       <title>What I&#39;m Pondering: Screen Graphics and Why My Dashboards Suck</title>
-      <link>http://banditkings.github.io/blog/2019-12-28-screen-graphics-and-dashboard-design/</link>
+      <link>https://www.nelsontang.com/blog/2019-12-28-screen-graphics-and-dashboard-design/</link>
       <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-12-28-screen-graphics-and-dashboard-design/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-12-28-screen-graphics-and-dashboard-design/</guid>
       
         <description>Today I learned that there are design studios who specialize in &amp;lsquo;Screen Graphics&amp;rsquo; - the cool visual effects that shows up on computer screens in movies like The Martian and Blade Runner 2049. And then I wonder why our corporate finance dashboards seem to miss the mark.</description>
       
@@ -130,10 +130,10 @@
     
     <item>
       <title>How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R</title>
-      <link>http://banditkings.github.io/blog/2019-10-19-odbc-in-osx/</link>
+      <link>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</link>
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-10-19-odbc-in-osx/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</guid>
       
         <description>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is &lt;strong&gt;really&lt;/strong&gt; easy on Windows with its&#39; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</description>
       
@@ -141,10 +141,10 @@
     
     <item>
       <title>Fast Excel with the Quick Access Toolbar</title>
-      <link>http://banditkings.github.io/blog/2019-08-05-fast-excel-with-the-quick-access-toolbar/</link>
+      <link>https://www.nelsontang.com/blog/2019-08-05-fast-excel-with-the-quick-access-toolbar/</link>
       <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-08-05-fast-excel-with-the-quick-access-toolbar/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-08-05-fast-excel-with-the-quick-access-toolbar/</guid>
       
         <description>Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!</description>
       
@@ -152,10 +152,10 @@
     
     <item>
       <title>3 Habits to Improve Critical Thinking (from HBR)</title>
-      <link>http://banditkings.github.io/blog/2019-05-11-3-habits-to-improve-critical-thinking/</link>
+      <link>https://www.nelsontang.com/blog/2019-05-11-3-habits-to-improve-critical-thinking/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-05-11-3-habits-to-improve-critical-thinking/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-05-11-3-habits-to-improve-critical-thinking/</guid>
       
         <description>From &lt;a href=&#34;https://hbr.org/2019/05/3-simple-habits-to-improve-your-critical-thinking&#34;&gt;HBR: 3 Habits to Improve Critical Thinking&lt;/a&gt; by &lt;a href=&#34;hbr.org/search?term=helen%20lee%20bouygues&#34;&gt;Helen Lee Bouygues&lt;/a&gt;. A good read for anyone looking to keep their critical thinking muscles sharp as told through stories from Bouygues&#39; experience as a board member and consultant. They might seem obvious, but I&amp;rsquo;ll admit that I don&amp;rsquo;t always consider these.</description>
       
@@ -163,10 +163,10 @@
     
     <item>
       <title>About Me</title>
-      <link>http://banditkings.github.io/about/</link>
+      <link>https://www.nelsontang.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/about/</guid>
+      <guid>https://www.nelsontang.com/about/</guid>
       
         <description>Why Am I Writing About This Stuff? I&amp;rsquo;m fascinated with using data and science to facilitate the best possible decision making. Because I didn&amp;rsquo;t make the best decisions when it mattered.
 In a past career and past life (i.e. before data science), I led convoys in Kabul during one of the deadliest years of the war.</description>
@@ -175,10 +175,10 @@ In a past career and past life (i.e. before data science), I led convoys in Kabu
     
     <item>
       <title>Notes</title>
-      <link>http://banditkings.github.io/notes/</link>
+      <link>https://www.nelsontang.com/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/notes/</guid>
+      <guid>https://www.nelsontang.com/notes/</guid>
       
         <description>WIP</description>
       

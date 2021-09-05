@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>workflow on Bandit Kings</title>
-    <link>http://banditkings.github.io/tags/workflow/</link>
+    <link>https://www.nelsontang.com/tags/workflow/</link>
     <description>Recent content in workflow on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://banditkings.github.io/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quick Bash Script for Complete Newbies</title>
-      <link>http://banditkings.github.io/blog/2020-11-13-quick-bash-scripting/</link>
+      <link>https://www.nelsontang.com/blog/2020-11-13-quick-bash-scripting/</link>
       <pubDate>Fri, 13 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-11-13-quick-bash-scripting/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-11-13-quick-bash-scripting/</guid>
       
         <description>Basic shell scripting for everyday productivity.</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Make a Basic PnL Dataframe in Pandas</title>
-      <link>http://banditkings.github.io/blog/2020-06-30-quick-pnl-dataframe/</link>
+      <link>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</link>
       <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-06-30-quick-pnl-dataframe/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</guid>
       
         <description>Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas</description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>How to Ask Good Data Questions</title>
-      <link>http://banditkings.github.io/blog/2020-01-22-how-to-ask-good-data-questions/</link>
+      <link>https://www.nelsontang.com/blog/2020-01-22-how-to-ask-good-data-questions/</link>
       <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-01-22-how-to-ask-good-data-questions/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-01-22-how-to-ask-good-data-questions/</guid>
       
         <description>A collection of responses from Caitlin Hudon&amp;rsquo;s twitter thread on &amp;lsquo;how to ask a good data question.&amp;rsquo; (Updated 2020-03-15)</description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>What I&#39;m Pondering: Screen Graphics and Why My Dashboards Suck</title>
-      <link>http://banditkings.github.io/blog/2019-12-28-screen-graphics-and-dashboard-design/</link>
+      <link>https://www.nelsontang.com/blog/2019-12-28-screen-graphics-and-dashboard-design/</link>
       <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-12-28-screen-graphics-and-dashboard-design/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-12-28-screen-graphics-and-dashboard-design/</guid>
       
         <description>Today I learned that there are design studios who specialize in &amp;lsquo;Screen Graphics&amp;rsquo; - the cool visual effects that shows up on computer screens in movies like The Martian and Blade Runner 2049. And then I wonder why our corporate finance dashboards seem to miss the mark.</description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R</title>
-      <link>http://banditkings.github.io/blog/2019-10-19-odbc-in-osx/</link>
+      <link>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</link>
       <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-10-19-odbc-in-osx/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</guid>
       
         <description>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is &lt;strong&gt;really&lt;/strong&gt; easy on Windows with its&#39; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>3 Habits to Improve Critical Thinking (from HBR)</title>
-      <link>http://banditkings.github.io/blog/2019-05-11-3-habits-to-improve-critical-thinking/</link>
+      <link>https://www.nelsontang.com/blog/2019-05-11-3-habits-to-improve-critical-thinking/</link>
       <pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2019-05-11-3-habits-to-improve-critical-thinking/</guid>
+      <guid>https://www.nelsontang.com/blog/2019-05-11-3-habits-to-improve-critical-thinking/</guid>
       
         <description>From &lt;a href=&#34;https://hbr.org/2019/05/3-simple-habits-to-improve-your-critical-thinking&#34;&gt;HBR: 3 Habits to Improve Critical Thinking&lt;/a&gt; by &lt;a href=&#34;hbr.org/search?term=helen%20lee%20bouygues&#34;&gt;Helen Lee Bouygues&lt;/a&gt;. A good read for anyone looking to keep their critical thinking muscles sharp as told through stories from Bouygues&#39; experience as a board member and consultant. They might seem obvious, but I&amp;rsquo;ll admit that I don&amp;rsquo;t always consider these.</description>
       

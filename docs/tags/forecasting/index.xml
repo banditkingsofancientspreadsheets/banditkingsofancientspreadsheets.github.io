@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>forecasting on Bandit Kings</title>
-    <link>http://banditkings.github.io/tags/forecasting/</link>
+    <link>https://www.nelsontang.com/tags/forecasting/</link>
     <description>Recent content in forecasting on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://banditkings.github.io/tags/forecasting/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/tags/forecasting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Time Series Cheat Sheet in R</title>
-      <link>http://banditkings.github.io/blog/2020-01-26-time-series-forecasting-in-r/</link>
+      <link>https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r/</link>
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://banditkings.github.io/blog/2020-01-26-time-series-forecasting-in-r/</guid>
+      <guid>https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r/</guid>
       
         <description>Getting started using the &lt;code&gt;forecast&lt;/code&gt; package for time series data in R, as quickly as possible and no explanations.</description>
       
