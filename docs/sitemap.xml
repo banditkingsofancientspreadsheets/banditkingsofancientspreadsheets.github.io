@@ -8,6 +8,12 @@
     <loc>https://www.nelsontang.com/blog/</loc>
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.nelsontang.com/categories/</loc>
+    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/categories/dataviz/</loc>
+    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.nelsontang.com/blog/2021-08-01-build-your-first-plotly-template/</loc>
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
@@ -23,16 +29,19 @@
     <loc>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</loc>
     <lastmod>2021-05-08T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.nelsontang.com/categories/workflow/</loc>
+    <lastmod>2021-05-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</loc>
     <lastmod>2021-04-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/blog/2020-12-28-tie-fighter-error-charts-in-python/</loc>
     <lastmod>2020-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.nelsontang.com/blog/2020-11-13-quick-bash-scripting/</loc>
+    <loc>https://www.nelsontang.com/tags/command-line/</loc>
     <lastmod>2020-11-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.nelsontang.com/tags/workflow/</loc>
+    <loc>https://www.nelsontang.com/blog/2020-11-13-quick-bash-scripting/</loc>
     <lastmod>2020-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/blog/2020-08-16-dash-clean-line-chart/</loc>
@@ -47,7 +56,13 @@
     <loc>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</loc>
     <lastmod>2020-06-30T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.nelsontang.com/tags/workflow/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.nelsontang.com/tags/forecasting/</loc>
+    <lastmod>2020-01-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/categories/modeling/</loc>
     <lastmod>2020-01-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/tags/r/</loc>
@@ -75,8 +90,6 @@
     <lastmod>2019-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/about/</loc>
-  </url><url>
-    <loc>https://www.nelsontang.com/categories/</loc>
   </url><url>
     <loc>https://www.nelsontang.com/notes/</loc>
   </url><url>

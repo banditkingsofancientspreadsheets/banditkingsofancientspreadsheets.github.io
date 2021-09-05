@@ -25,7 +25,7 @@
       
       <guid>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</guid>
       
-        <description>Work in Progress - Getting Started with WSL for Data Analysis</description>
+        <description>My steps for a fresh install of Windows Subsystem for Linux for Data Analysis</description>
       
     </item>
     
@@ -162,25 +162,25 @@
     </item>
     
     <item>
-      <title>About Me</title>
+      <title></title>
       <link>https://www.nelsontang.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.nelsontang.com/about/</guid>
       
-        <description>Why Am I Writing About This Stuff? I&amp;rsquo;m fascinated with using data and science to facilitate the best possible decision making. Because I didn&amp;rsquo;t make the best decisions when it mattered.
+        <description>Why Am I Writing This? I&amp;rsquo;m fascinated with using data and science to facilitate the best possible decision making. Because I didn&amp;rsquo;t make the best decisions when it mattered.
 In a past career and past life (i.e. before data science), I led convoys in Kabul during one of the deadliest years of the war.</description>
       
     </item>
     
     <item>
-      <title>Notes</title>
+      <title></title>
       <link>https://www.nelsontang.com/notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.nelsontang.com/notes/</guid>
       
-        <description>WIP</description>
+        <description>Notes Future home of my learning notebook - links to Jupyter Notebooks rendered in HTML and available through nbviewer to review key concepts.</description>
       
     </item>
     
