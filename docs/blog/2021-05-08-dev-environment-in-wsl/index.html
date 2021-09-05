@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Nelson Tang
+      |
+      Getting Started with WSL for Data Analysis
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.b76636c63dc3996a4ac11c08885c8dd1bc4629b9ea3e80e971ca21d8b1a61947.css"
+    integrity="sha256-t2Y2xj3DmWpKwRwIiFyN0bxGKbnqPoDpccoh2LGmGUc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.f798cbda9aaa38f89eb38be6414bd082cfd71a6780375cbf67b6d2fb2b96491e.css"
+    integrity="sha256-95jL2pqqOPies4vmQUvQgs/XGmeAN1y/Z7bS&#43;yuWSR4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/2021-05-08-dev-environment-in-wsl/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://banditkings.github.io/featured-image.png"/>
+
+<meta name="twitter:title" content="Getting Started with WSL for Data Analysis"/>
+<meta name="twitter:description" content="Work in Progress - Getting Started with WSL for Data Analysis"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Getting Started with WSL for Data Analysis",
+        "headline": "Getting Started with WSL for Data Analysis",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Work in Progress - Getting Started with WSL for Data Analysis
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/banditkings.github.io\/blog\/2021-05-08-dev-environment-in-wsl\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-05-08T00:00:00.00Z",
+        "datePublished": "2021-05-08T00:00:00.00Z",
+        "dateModified": "2021-05-08T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "http://banditkings.github.io",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/banditkings.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "http://banditkings.github.io/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "http:\/\/banditkings.github.io\/blog\/2021-05-08-dev-environment-in-wsl\/",
+        "wordCount" : "502",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "python"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog"
+              
+              title=""
+              >Archives</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+          <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+          </a>
+
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/profile.png" alt="profile picture" />
+        <h3 title=""><a href="/">Bandit Kings</a></h3>
+        <div class="description">
+          <p>(Of Ancient Spreadsheets)</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Getting Started with WSL for Data Analysis</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Sat, May 8, 2021
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">3-minute read</span>
+          </div>
+
+        
+      </div><p><img src="/images/wsl2_test.png" alt="img"></p>
+<p>I spent half an afternoon playing around with WSL2 since I&rsquo;m considering switching from Mac to PC for work, primarily due to my work&rsquo;s heavy reliance on the MS SSAS Tabular models as the &lsquo;system of the truth&rsquo; for our data analysis. You can query these models through python with a little work on a Windows PC but I couldn&rsquo;t get all of the dependencies to work on my Mac.</p>
+<p>So here we are. I&rsquo;m saving this as my checklist of making a decent dev environment using WSL2 where I can do a lot of my ad-hoc analysis in Python/Julia.</p>
+<p>Here are my requirements:</p>
+<ul>
+<li>I primarily do data analysis in Python using Jupyter Notebooks and VSCode</li>
+<li>I need to be able to write Markdown docs and preview LaTEX in Markdown</li>
+<li>I need an installation of Julia for side projects and light data work, primarily in Jupyter Notebooks or via the REPL</li>
+</ul>
+<h2 id="installing-wsl-and-linux-distro">Installing WSL and Linux Distro</h2>
+<p>Follow the <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">official docs from Microsoft</a> to enable WSL2 and install a Linux distribution. I tried both Debian and Ubuntu and chose Ubuntu from the Microsoft Store.</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL Installation Instructions</a></li>
+<li>Windows Terminal
+<ul>
+<li>I use One Half Dark Theme with Acrylic</li>
+</ul>
+</li>
+</ul>
+<h2 id="download-and-install-fonts">Download and Install Fonts</h2>
+<p>I downloaded these manually as .ttf files in Windows since we&rsquo;ll be using them in windows programs (VSCode, Windows Terminal).</p>
+<ul>
+<li><a href="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip">FiraCode NF Download Link</a></li>
+</ul>
+<h2 id="set-up-zshell">Set up Zshell</h2>
+<p>Let&rsquo;s switch from bash to zshell, grab oh my zsh, download fonts, set up Powerlevel10k.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Update apt-get if this is a fresh Linux distro install</span>
+sudo apt-get update
+<span style="color:#75715e"># Install Git </span>
+sudo apt-get install git
+<span style="color:#75715e"># Install Zshell</span>
+sudo apt-get install zsh
+<span style="color:#75715e"># Install oh my zsh</span>
+sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#75715e"># Install powerlevel10k</span>
+git clone --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> https://github.com/romkatv/powerlevel10k.git <span style="color:#e6db74">${</span>ZSH_CUSTOM<span style="color:#66d9ef">:-</span>$HOME/.oh-my-zsh/custom<span style="color:#e6db74">}</span>/themes/powerlevel10k
+<span style="color:#75715e"># Install tree</span>
+sudo apt-get install tree
+</code></pre></div><p>If you run into trouble:</p>
+<ul>
+<li><a href="http://zsh.sourceforge.net/">Zshell docs</a></li>
+<li><a href="https://ohmyz.sh/#install">oh my zsh docs</a></li>
+<li><a href="https://github.com/romkatv/powerlevel10k">Powerlevel10k docs</a></li>
+</ul>
+<h3 id="add-personal-macros">Add personal macros</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch ~/.personal_macros
+echo <span style="color:#e6db74">&#39;source ~/.personal_macros&#39;</span> &gt;&gt; ~/.zshrc
+echo <span style="color:#e6db74">&#39;alias open=&#34;explorer.exe&#34;&#39;</span> &gt;&gt; ~/.personal_macros
+</code></pre></div><h2 id="programming-languages">Programming Languages</h2>
+<p>After the shell&rsquo;s installed, time to add Python through Conda and Julia.</p>
+<h3 id="miniconda">Miniconda</h3>
+<p>I will use Miniconda just for the package and environment management, don&rsquo;t need the rest of the Anaconda stuff.</p>
+<ul>
+<li><a href="https://docs.conda.io/en/latest/miniconda.html#linux-installers">Follow the linux instructions for miniconda here</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 0O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+sh Miniconda3-latest-Linux-x86_64.sh
+</code></pre></div><h3 id="julia-setup">Julia Setup</h3>
+<p>For julia install we&rsquo;ll use <a href="https://github.com/johnnychen94/jill.py">the <code>jill.py</code> method</a> which is a community supported cross-platform way to simply install the latest version of Julia. Handles symlinks so you don&rsquo;t have to futz around with PATH and all the other frustrations with getting started.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install jill --user -U
+echo <span style="color:#e6db74">&#39;export PATH=$PATH:/home/$USERNAME/.local/bin&#39;</span> &gt;&gt; ~/.personal_macros
+source ~/.zshrc
+jill install
+</code></pre></div><p>Helpful to install a few common packages all at once in Julia. Open up Julia, hit the <code>]</code> key to go to Pkg management mode and:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">add Plots Gadfly DataFrames XLSX CSV RDatasets Pluto IJulia
+</code></pre></div><h3 id="vscode">VSCode</h3>
+<p>Now, it&rsquo;s finally time to add VSCode for Windows</p>
+<ul>
+<li><a href="https://code.visualstudio.com/">Download VSCode</a>
+<ul>
+<li>Set Fonts!</li>
+<li>Follow the recommendations for extensions, but add:
+<ul>
+<li>Markdown Preview Enhanced</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="original-inspiration">Original Inspiration</h3>
+<p>Credit: <a href="https://dev.to/johnbwoodruff/far-more-epic-development-environment-using-wsl-2-439g">John Woodruff&rsquo;s Far More Epic Development Environment Using WSL2</a></p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/python/">python</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

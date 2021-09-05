@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Nelson Tang
+      |
+      How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.b76636c63dc3996a4ac11c08885c8dd1bc4629b9ea3e80e971ca21d8b1a61947.css"
+    integrity="sha256-t2Y2xj3DmWpKwRwIiFyN0bxGKbnqPoDpccoh2LGmGUc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.f798cbda9aaa38f89eb38be6414bd082cfd71a6780375cbf67b6d2fb2b96491e.css"
+    integrity="sha256-95jL2pqqOPies4vmQUvQgs/XGmeAN1y/Z7bS&#43;yuWSR4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/2019-10-19-odbc-in-osx/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://banditkings.github.io/featured-image.png"/>
+
+<meta name="twitter:title" content="How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R"/>
+<meta name="twitter:description" content="My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is really easy on Windows with its&#39; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R",
+        "headline": "How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R",
+        "alternativeHeadline": "",
+        "description": "
+      
+        My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is \u003cstrong\u003ereally\u003c\/strong\u003e easy on Windows with its\u0027 built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/banditkings.github.io\/blog\/2019-10-19-odbc-in-osx\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2019",
+        "dateCreated": "2019-10-19T00:00:00.00Z",
+        "datePublished": "2019-10-19T00:00:00.00Z",
+        "dateModified": "2019-10-19T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "http://banditkings.github.io",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/banditkings.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "http://banditkings.github.io/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "http:\/\/banditkings.github.io\/blog\/2019-10-19-odbc-in-osx\/",
+        "wordCount" : "400",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "r"
+
+    
+      
+        ,
+
+      
+      "python"
+
+    
+      
+        ,
+
+      
+      "workflow"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog"
+              
+              title=""
+              >Archives</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+          <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+          </a>
+
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/profile.png" alt="profile picture" />
+        <h3 title=""><a href="/">Bandit Kings</a></h3>
+        <div class="description">
+          <p>(Of Ancient Spreadsheets)</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Sat, Oct 19, 2019
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">2-minute read</span>
+          </div>
+
+        
+      </div><p>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is <strong>really</strong> easy on Windows with its' built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</p>
+<ul>
+<li>Microsoft Open Database Connectivity (ODBC) Docs: <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/what-is-odbc?view=sql-server-ver15">link</a></li>
+</ul>
+<p>Below are my notes for a quickstart setup for getting your MacOS (OSX) machine set up to connect to a Microsoft SQL Server via ODBC for use with R&rsquo;s ODBC library and Python&rsquo;s PyODBC library. This assumes you have <a href="https://brew.sh">homebrew</a> installed to manage your packages and you have the necessary admin rights on your machine.</p>
+<ul>
+<li>Homebrew installation: <a href="https://docs.brew.sh/Installation">link</a></li>
+</ul>
+<h2 id="1-install-unixodbc">1. Install unixodbc</h2>
+<p>I like unixodbc as the ODBC manager, it just works. Install with your shell/terminal:</p>
+<pre tabindex="0"><code class="language-console" data-lang="console">brew install unixodbc
+</code></pre><ul>
+<li>UnixODBC docs: <a href="https://docs.brew.sh/Installation">link</a></li>
+</ul>
+<h2 id="2-install-freetds">2. Install FreeTDS</h2>
+<p>After getting an ODBC manager, you&rsquo;ll need drivers. FreeTDS works.
+In your shell/terminal:</p>
+<pre tabindex="0"><code class="language-console" data-lang="console">brew install FreeTDS
+</code></pre><ul>
+<li>FreeTDS userguide: <a href="https://www.freetds.org/userguide/">link</a></li>
+</ul>
+<h2 id="3-locate-your-odbc-installation-with-odbcinst--j">3. Locate your odbc installation with odbcinst -j</h2>
+<p>After installing unixodbc as your odbc manager and freeTDS for drivers, you&rsquo;ll need to edit your connections in the .odbc.ini file. You can find out where this is by using the <code>odbcinst -j</code> command.</p>
+<p>In your shell/terminal:</p>
+<pre tabindex="0"><code class="language-console" data-lang="console">odbcinst -j
+
+unixODBC 2.3.7
+DRIVERS............: /etc/odbcinst.ini
+SYSTEM DATA SOURCES: /etc/odbc.ini
+FILE DATA SOURCES..: /etc/ODBCDataSources
+USER DATA SOURCES..: /Users/yourname/.odbc.ini
+SQLULEN Size.......: 8
+SQLLEN Size........: 8
+SQLSETPOSIROW Size.: 8
+</code></pre><p>The item in <code>USER DATA SOURCES..:</code> is what you&rsquo;re looking for. Don&rsquo;t know why, but Python and R like to use that one first before looking elsewhere. Navigate there and edit the <code>.odbc.ini</code> file using your favorite text editor. Here&rsquo;s nano:</p>
+<pre tabindex="0"><code class="language-console" data-lang="console">nano /Users/yourname/.odbc.ini
+</code></pre><h2 id="4-update-the-odbcini-file">4. Update the .odbc.ini file</h2>
+<p>Use your text editor and enter in the required server, port, and the Data Source Name (DSN) in brackets. We&rsquo;ll use the DSN to connect</p>
+<pre tabindex="0"><code>[my_server]
+Description = my_server
+TDS_Version = 7.4
+Driver = /usr/local/lib/libtdsodbc.so
+Server = YOUR.SERVERNAME.HERE.com
+Port = 1234
+</code></pre><ul>
+<li>What is a DSN: <a href="https://support.microsoft.com/en-us/help/966849/what-is-a-dsn-data-source-name">link</a></li>
+</ul>
+<h2 id="5-python-to-connect-to-your-ms-sql-server-with-pyodbc">5. Python to connect to your MS SQL Server with pyodbc</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> pyodbc
+
+cnxn <span style="color:#f92672">=</span> pyodbc<span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#39;dsn=my_server;&#39;</span>
+                      <span style="color:#e6db74">&#39;Trusted_Connection=yes;&#39;</span>)
+query<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;yourqueryhere&#34;</span>
+
+res <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_sql_query(query,cnxn)
+
+cnxn<span style="color:#f92672">.</span>close()
+</code></pre></div><h2 id="6-r-to-connect-to-your-ms-sql-server-with-odbc">6. R to connect to your MS SQL Server with odbc</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(odbc)
+con <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">dbConnect</span>(odbc<span style="color:#f92672">::</span><span style="color:#a6e22e">odbc</span>(), <span style="color:#e6db74">&#34;my_server&#34;</span>)
+res <span style="color:#f92672">&lt;-</span> odbc<span style="color:#f92672">::</span><span style="color:#a6e22e">dbGetQuery</span>(con, <span style="color:#e6db74">&#34;your query here&#34;</span>)
+odbc<span style="color:#f92672">::</span><span style="color:#a6e22e">dbDisconnect</span>(con)
+</code></pre></div></div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/r/">r</a><a class="tag" href="/tags/python/">python</a><a class="tag" href="/tags/workflow/">workflow</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

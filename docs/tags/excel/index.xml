@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>excel on Bandit Kings</title>
+    <link>http://banditkings.github.io/tags/excel/</link>
+    <description>Recent content in excel on Bandit Kings</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://banditkings.github.io/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fast Excel with the Quick Access Toolbar</title>
+      <link>http://banditkings.github.io/blog/2019-08-05-fast-excel-with-the-quick-access-toolbar/</link>
+      <pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://banditkings.github.io/blog/2019-08-05-fast-excel-with-the-quick-access-toolbar/</guid>
+      
+        <description>Excel is still the lingua franca of Corporate Finance and is blazing fast for quick, ad-hoc analyses. I learned early on to use excel without a mouse, and with the Quick Access Toolbar and some macros, you can even make Excel feel like a video game!</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,95 @@
+baseURL : "http://banditkings.github.io" #copy-paste your domain here
+publishDir: "docs" #over-rides the default setting to build site under the public folder to support github-pages deployment
+languageCode : "en" #used in SEO tags
+title : "Bandit Kings" #actual title of the site used in browser tabs as well as SEO
+theme : "anatole" #name of the directory containing theme files
+summarylength : 50 #summary length shown on list pages
+enableRobotsTXT : true #leave true for SEO
+#this file instructs search engine crawlers on how to access the site
+
+params:
+  title : "Bandit Kings" #emphasised line on the homepage
+  author : "Nelson Tang"
+  copyright : "2020-2021" #copyright text in the footer
+  description : "(Of Ancient Spreadsheets)" #introduction line on homepage
+  profilePicture : "profile.png" #the name of the profile img to be displayed (relative to the static folder)
+  keywords : "" #seo keywords for your homepage
+  #favicons are small images displayed in the browser tab similar to app icons
+  favicon : "favicons/" #directory name holding the favicons (relative to the static folder)
+  mainSections : ["blog"]
+  #which folder to use to list posts on the homepage (relative to the content dir)
+  images : ["featured-image.png"] #image used for social media previews
+  doNotLoadAnimations : false #set to true to disable animations
+  postSectionName : "blog" #the slug of the "archives" listing page
+  #uncomment this if you want your site to load in dark-mode by default.
+  # displayMode: "dark" 
+
+  ## Social links
+  #the icons are loaded from font-awesome library
+  #find the icon codes here: https://fontawesome.com/icons?d=gallery&p=2
+  # use 'fab' when brand icons, use 'fas' when standard solid icons.
+  socialIcons:
+    - icon : "fab fa-linkedin"
+      title : "Linkedin"
+      url : "https://linkedin.com/in/tangnelson"
+    - icon : "fab fa-github"
+      title : "GitHub"
+      url : "https://github.com/banditkings/"
+    # - icon : "fab fa-instagram"
+    #   title : "instagram"
+      # url : "https://www.instagram.com/"
+    # - icon : "fas fa-envelope"
+    #   title : "e-mail"
+      # url : "mailto:mail@example.com"
+
+  # Google Search Console Verification
+  #googleSiteVerify : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  # Read More links for truncated summaries
+  readMore : true
+
+  ## Math settings
+  math:
+    enable : true  # options: true, false.
+
+## Menu items
+#weight defines which entry is shown first
+menu:
+  main:
+    - name : "Home"
+      identifier : "home"
+      weight : 100
+      url : "/"
+    # - name : "Notes"
+    #   weight : 200
+    #   identifier : "notes"
+    #   url : "/notes"
+    # - name : "Exploration"
+    #   weight : 250
+    #   identifier : "explore"
+    #   url : "/explore"
+    - name : "Archives"
+      weight : 300
+      identifier : "archives"
+      url : "/blog"
+    - name : "About"
+      weight : 400
+      identifier : "about"
+      url : "/about"
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+
+timeout: 30000
+#required to exit out of long posts requiring lot of processing.
+
+minify:
+  disableXML: true
+  minifyOutput: false
+
+# Google Analytics
+# Hugo supports GA4 V8.20 (latest at the time of writing) onwards.
+googleAnalytics : "UA-147973039-1"
+
+publishDir: "docs"

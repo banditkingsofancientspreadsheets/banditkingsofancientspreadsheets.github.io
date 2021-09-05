@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Nelson Tang
+      |
+      &#39;Tie Fighter&#39; Errorbar Charts in Python with Plotnine and Altair
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.b76636c63dc3996a4ac11c08885c8dd1bc4629b9ea3e80e971ca21d8b1a61947.css"
+    integrity="sha256-t2Y2xj3DmWpKwRwIiFyN0bxGKbnqPoDpccoh2LGmGUc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.f798cbda9aaa38f89eb38be6414bd082cfd71a6780375cbf67b6d2fb2b96491e.css"
+    integrity="sha256-95jL2pqqOPies4vmQUvQgs/XGmeAN1y/Z7bS&#43;yuWSR4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/2020-12-28-tie-fighter-error-charts-in-python/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://banditkings.github.io/featured-image.png"/>
+
+<meta name="twitter:title" content="&#39;Tie Fighter&#39; Errorbar Charts in Python with Plotnine and Altair"/>
+<meta name="twitter:description" content="ggplot2 for Python is definitely a thing. Oh, and Altair&rsquo;s ok too."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "\u0027Tie Fighter\u0027 Errorbar Charts in Python with Plotnine and Altair",
+        "headline": "\u0027Tie Fighter\u0027 Errorbar Charts in Python with Plotnine and Altair",
+        "alternativeHeadline": "",
+        "description": "
+      
+        ggplot2 for Python is definitely a thing. Oh, and Altair\u0026rsquo;s ok too.
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/banditkings.github.io\/blog\/2020-12-28-tie-fighter-error-charts-in-python\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2020",
+        "dateCreated": "2020-12-28T00:00:00.00Z",
+        "datePublished": "2020-12-28T00:00:00.00Z",
+        "dateModified": "2020-12-28T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "http://banditkings.github.io",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/banditkings.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "http://banditkings.github.io/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "http:\/\/banditkings.github.io\/blog\/2020-12-28-tie-fighter-error-charts-in-python\/",
+        "wordCount" : "456",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "python"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog"
+              
+              title=""
+              >Archives</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+          <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+          </a>
+
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/profile.png" alt="profile picture" />
+        <h3 title=""><a href="/">Bandit Kings</a></h3>
+        <div class="description">
+          <p>(Of Ancient Spreadsheets)</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>&#39;Tie Fighter&#39; Errorbar Charts in Python with Plotnine and Altair</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Mon, Dec 28, 2020
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">3-minute read</span>
+          </div>
+
+        
+      </div><p>It&rsquo;s December 2020 and it&rsquo;s time to check out different python plotting packages. I primarily will use pandas dataframe plotting with either seaborn&rsquo;s <code>sns.set()</code> or <a href="https://plotly.com/python/pandas-backend/">setting plotly as the plotting backend</a> during data exploration, but there&rsquo;s nothing in python that matches R&rsquo;s <code>ggplot2</code>. I&rsquo;ve known about <a href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> as the python equivalent but last time I tried it it was still lacking in the feature department. I&rsquo;m happy to say that it&rsquo;s totally viable now.</p>
+<p>One chart that I often used in R was a &lsquo;tie fighter&rsquo; (error bar) chart. It&rsquo;s handy to compare accuracy for various predictive models. <a href="https://thecodeforest.github.io/post/tidy_time_series_forecasting.html">Here&rsquo;s a motivating example from &lsquo;thecodeforest&rsquo; where he compares various time serious forecasting models in R</a>. I&rsquo;m also motivated to stick with ggplot because then I&rsquo;d be able to quickly make plots in R, python, and in Julia (given how seamless <code>RCall</code> is in Julia and native support of dataframes).</p>
+<h1 id="plotnine">Plotnine</h1>
+<p>Here&rsquo;s what the syntax for a quick tie fighter chart in <code>plotnine</code> using the included <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html"><code>mtcars</code> dataset</a> as a toy example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> plotnine <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<span style="color:#f92672">from</span> plotnine.data <span style="color:#f92672">import</span> mtcars
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> sem
+ 
+<span style="color:#75715e"># Calc mean, std error of mpg by number of cylinders and whether they&#39;re automatic (0) or manual (1)</span>
+df <span style="color:#f92672">=</span> mtcars<span style="color:#f92672">.</span>groupby([<span style="color:#e6db74">&#39;cyl&#39;</span>, <span style="color:#e6db74">&#39;am&#39;</span>])[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>agg([np<span style="color:#f92672">.</span>mean, sem])<span style="color:#f92672">.</span>reset_index()
+ 
+p <span style="color:#f92672">=</span> (ggplot(df, aes(<span style="color:#e6db74">&#39;factor(cyl)&#39;</span>, <span style="color:#e6db74">&#39;mean&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;factor(am)&#39;</span>))
+<span style="color:#f92672">+</span> geom_point()
+<span style="color:#f92672">+</span> geom_errorbar(aes(ymin <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mean - sem&#39;</span>, ymax <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;mean + sem&#39;</span>))
+<span style="color:#f92672">+</span> coord_flip()
+<span style="color:#f92672">+</span> labs(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A Tie Fighter Chart&#34;</span>,
+        x <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Cylinders&#39;</span>,
+        y <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Mean MPG +/-1 SE&#39;</span>)
+)
+
+p
+</code></pre></div><p><img src="/images/tiefighter1.png" alt="img"></p>
+<p>And what I love about <code>ggplot2</code> (and <code>plotnine</code>) is the consistent syntax and how easy it is to add or remove customization and complexity compared to the other plotting libraries in python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Now it&#39;s trivial to add or remove stuff to our plots, even in python!</span>
+p <span style="color:#f92672">+</span> theme(xkcd)
+</code></pre></div><p><img src="/images/tiefighter2.png" alt="img"></p>
+<p>One thing we&rsquo;re still missing is the ability to do subtitles and captions, but maybe someday.</p>
+<h1 id="altair">Altair</h1>
+<p><a href="https://altair-viz.github.io">Altair</a> is another opinionated plotting package based on Vega-lite that has a very consistent syntax that&rsquo;s worth a look.</p>
+<p>Here&rsquo;s the same example as above, but in Altair:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> altair <span style="color:#66d9ef">as</span> alt
+<span style="color:#f92672">from</span> plotnine.data <span style="color:#f92672">import</span> mtcars
+
+points <span style="color:#f92672">=</span> alt<span style="color:#f92672">.</span>Chart(mtcars)<span style="color:#f92672">.</span>mark_point()<span style="color:#f92672">.</span>encode(
+    x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;average(mpg):Q&#39;</span>,
+    y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cyl:O&#39;</span>,
+    color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;am:N&#39;</span>,
+)<span style="color:#f92672">.</span>properties(height<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>)
+
+error_bars <span style="color:#f92672">=</span> alt<span style="color:#f92672">.</span>Chart(mtcars)<span style="color:#f92672">.</span>mark_errorbar(extent<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;stderr&#39;</span>, ticks<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)<span style="color:#f92672">.</span>encode(
+  x<span style="color:#f92672">=</span>alt<span style="color:#f92672">.</span>X(<span style="color:#e6db74">&#39;average(mpg):Q&#39;</span>, scale<span style="color:#f92672">=</span>alt<span style="color:#f92672">.</span>Scale(zero<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)),
+  y<span style="color:#f92672">=</span>alt<span style="color:#f92672">.</span>Y(<span style="color:#e6db74">&#39;cyl:O&#39;</span>),
+  color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;am:N&#39;</span>,
+)
+
+points<span style="color:#f92672">+</span>error_bars
+</code></pre></div><p><img src="/images/tiefighter3.png" alt="img"></p>
+<p>Notice that <code>Altair</code> has baked in aggregation and transformations so I didn&rsquo;t have to do my <code>groupby</code> and <code>agg</code> in <code>pandas</code>. And similar to what I like in <code>ggplot2</code>/<code>plotnine</code> there&rsquo;s the ability to quickly add and remove complexity. But as you can see the result was <em>so small</em> on my macbook pro, and I wish there was an easy way to scale the whole thing up to a reasonable aspect ratio (looks like I&rsquo;d have to scale up each component separately or save as SVG).</p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/python/">python</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

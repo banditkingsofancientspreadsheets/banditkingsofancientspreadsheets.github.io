@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Nelson Tang
+      |
+      KPI Card with Dash Bootstrap Components
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.b76636c63dc3996a4ac11c08885c8dd1bc4629b9ea3e80e971ca21d8b1a61947.css"
+    integrity="sha256-t2Y2xj3DmWpKwRwIiFyN0bxGKbnqPoDpccoh2LGmGUc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.f798cbda9aaa38f89eb38be6414bd082cfd71a6780375cbf67b6d2fb2b96491e.css"
+    integrity="sha256-95jL2pqqOPies4vmQUvQgs/XGmeAN1y/Z7bS&#43;yuWSR4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/2020-07-02-dash-bootstrap-kpi-card/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://banditkings.github.io/featured-image.png"/>
+
+<meta name="twitter:title" content="KPI Card with Dash Bootstrap Components"/>
+<meta name="twitter:description" content="Code snippet to create a starter KPI card with Dash Bootstrap Components"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "KPI Card with Dash Bootstrap Components",
+        "headline": "KPI Card with Dash Bootstrap Components",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Code snippet to create a starter KPI card with Dash Bootstrap Components
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/banditkings.github.io\/blog\/2020-07-02-dash-bootstrap-kpi-card\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2020",
+        "dateCreated": "2020-07-02T00:00:00.00Z",
+        "datePublished": "2020-07-02T00:00:00.00Z",
+        "dateModified": "2020-07-02T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "http://banditkings.github.io",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/banditkings.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "http://banditkings.github.io/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "http:\/\/banditkings.github.io\/blog\/2020-07-02-dash-bootstrap-kpi-card\/",
+        "wordCount" : "317",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "dash"
+
+    
+      
+        ,
+
+      
+      "plotly"
+
+    
+      
+        ,
+
+      
+      "python"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog"
+              
+              title=""
+              >Archives</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+          <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+          </a>
+
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/profile.png" alt="profile picture" />
+        <h3 title=""><a href="/">Bandit Kings</a></h3>
+        <div class="description">
+          <p>(Of Ancient Spreadsheets)</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>KPI Card with Dash Bootstrap Components</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Thu, Jul 2, 2020
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">2-minute read</span>
+          </div>
+
+        
+      </div><p><em>Updated 2021-07-01 to use Dash 1.19 and fontawesome icons</em></p>
+<p><a href="https://dash-bootstrap-components.opensource.faculty.ai">Dash Bootstrap Components</a> has a fantastic library of plug and play <a href="https://dash-bootstrap-components.opensource.faculty.ai/docs/components/card/">components</a> that make it easy to get started.</p>
+<p>Plotly&rsquo;s documentation is focused on making tables, charts, and graphs, but for executives I find myself relying on KPI cards like this:
+<img src="/images/dbc_kpi1.png" alt="img"></p>
+<p>You can find better styled examples of these all over the place if you google &lsquo;HTML/CSS dashboard examples.&rsquo;</p>
+<p>The magic of using Dash is that you can style these to your heart&rsquo;s content with CSS and all of the values can be generated with Python, and the whole thing can be reproducible and components can be shared across projects. And the flexbox system is just fine rather than fiddling with positioning in PowerBI.</p>
+<p>Here&rsquo;s the sketch of the starter KPI dashboard:
+<img src="/images/dbc_kpi2.png" alt="img"></p>
+<p>Python Code for your <code>app.py</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> dash  <span style="color:#75715e"># (version 1.19.0) pip install dash</span>
+
+<span style="color:#f92672">import</span> dash_bootstrap_components <span style="color:#66d9ef">as</span> dbc
+<span style="color:#f92672">import</span> dash_html_components <span style="color:#66d9ef">as</span> html
+
+fontawesome_stylesheet <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://use.fontawesome.com/releases/v5.8.1/css/all.css&#34;</span>
+
+app <span style="color:#f92672">=</span> dash<span style="color:#f92672">.</span>Dash(external_stylesheets<span style="color:#f92672">=</span>[dbc<span style="color:#f92672">.</span>themes<span style="color:#f92672">.</span>BOOTSTRAP, fontawesome_stylesheet])
+
+header <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>Div([
+    dbc<span style="color:#f92672">.</span>Row(dbc<span style="color:#f92672">.</span>Col(html<span style="color:#f92672">.</span>H1(<span style="color:#e6db74">&#34;H1 Text&#34;</span>))),
+])
+
+card <span style="color:#f92672">=</span> dbc<span style="color:#f92672">.</span>Card([
+        dbc<span style="color:#f92672">.</span>CardBody([
+                html<span style="color:#f92672">.</span>H4(<span style="color:#e6db74">&#34;Card title&#34;</span>, className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-title&#34;</span>),
+                html<span style="color:#f92672">.</span>P(
+                    <span style="color:#e6db74">&#34;$10.5 M&#34;</span>,
+                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-value&#34;</span>,
+                ),
+                html<span style="color:#f92672">.</span>P(
+                    <span style="color:#e6db74">&#34;Target: $10.0 M&#34;</span>,
+                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-target&#34;</span>,
+                ),
+                html<span style="color:#f92672">.</span>Span([
+                    html<span style="color:#f92672">.</span>I(className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-arrow-circle-up up&#34;</span>),
+                    html<span style="color:#f92672">.</span>Span(<span style="color:#e6db74">&#34; 5.5% vs Last Year&#34;</span>,
+                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;up&#34;</span>)
+                ])
+            ])
+        ])
+
+row <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>Div([
+        dbc<span style="color:#f92672">.</span>CardDeck([
+                card,
+                card,
+                card,
+            ]),
+    ], style<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;padding&#39;</span>: <span style="color:#e6db74">&#39;25px&#39;</span>}
+)
+
+app<span style="color:#f92672">.</span>layout <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>Div([
+    header,
+    row,
+    row
+])
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+    app<span style="color:#f92672">.</span>run_server(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span>, debug<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</code></pre></div><p>The &lsquo;up&rsquo; arrow icon is courtesy of fontawesome, which we load with the external stylesheet. Since this is all in python it&rsquo;s simple to turn this into a function and create conditional (i.e. <code>if</code>) statements to change the icon and color scheme for your data.</p>
+<p>Here is the basic CSS styling that goes with this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">card</span> {
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+}
+.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">card-title</span> {
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">left</span>;
+    <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">lighter</span>;
+}
+
+.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">card-value</span> {
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">rem</span>;
+}
+
+.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">card-target</span> {
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">rem</span>;
+    <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">lighter</span>;
+}
+
+.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">down</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>
+}
+
+.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">up</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">green</span>
+}
+</code></pre></div></div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/dash/">dash</a><a class="tag" href="/tags/plotly/">plotly</a><a class="tag" href="/tags/python/">python</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

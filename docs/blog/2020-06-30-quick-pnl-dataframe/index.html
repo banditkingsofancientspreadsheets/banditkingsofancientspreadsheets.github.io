@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Nelson Tang
+      |
+      Make a Basic PnL Dataframe in Pandas
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.b76636c63dc3996a4ac11c08885c8dd1bc4629b9ea3e80e971ca21d8b1a61947.css"
+    integrity="sha256-t2Y2xj3DmWpKwRwIiFyN0bxGKbnqPoDpccoh2LGmGUc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.f798cbda9aaa38f89eb38be6414bd082cfd71a6780375cbf67b6d2fb2b96491e.css"
+    integrity="sha256-95jL2pqqOPies4vmQUvQgs/XGmeAN1y/Z7bS&#43;yuWSR4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/2020-06-30-quick-pnl-dataframe/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://banditkings.github.io/featured-image.png"/>
+
+<meta name="twitter:title" content="Make a Basic PnL Dataframe in Pandas"/>
+<meta name="twitter:description" content="Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Make a Basic PnL Dataframe in Pandas",
+        "headline": "Make a Basic PnL Dataframe in Pandas",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/banditkings.github.io\/blog\/2020-06-30-quick-pnl-dataframe\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2020",
+        "dateCreated": "2020-06-30T00:00:00.00Z",
+        "datePublished": "2020-06-30T00:00:00.00Z",
+        "dateModified": "2020-06-30T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "http://banditkings.github.io",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "http:\/\/banditkings.github.io\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "http://banditkings.github.io/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "http:\/\/banditkings.github.io\/blog\/2020-06-30-quick-pnl-dataframe\/",
+        "wordCount" : "491",
+        "genre" : [ ],
+        "keywords" : [ 
+      
+      "python"
+
+    
+      
+        ,
+
+      
+      "workflow"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog"
+              
+              title=""
+              >Archives</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+          <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+          </a>
+
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/profile.png" alt="profile picture" />
+        <h3 title=""><a href="/">Bandit Kings</a></h3>
+        <div class="description">
+          <p>(Of Ancient Spreadsheets)</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Make a Basic PnL Dataframe in Pandas</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Tue, Jun 30, 2020
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">3-minute read</span>
+          </div>
+
+        
+      </div><p>This code creates a practice dataframe for instruction in a format that is familiar with finance analysts. Analysts typically deal with profit and loss statement data in excel spreadsheets, often pulled or aggregated from an ERP source system and this example shows a toy example that has some relevant fields and formatting.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+
+<span style="color:#75715e"># For convenience while using a Jupyter Notebook, </span>
+<span style="color:#75715e"># display dataframe floats as currency &amp; round to two decimal places</span>
+pd<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>display<span style="color:#f92672">.</span>float_format <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;$</span><span style="color:#e6db74">{:,.2f}</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>format
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_pnl</span>():
+    df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;ProductLine&#39;</span>: [<span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>],
+                            <span style="color:#e6db74">&#39;FunctionalArea&#39;</span>: [<span style="color:#e6db74">&#39;REV&#39;</span>, <span style="color:#e6db74">&#39;COS&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>,
+                            <span style="color:#e6db74">&#39;AccountL1&#39;</span>: [<span style="color:#e6db74">&#39;Revenue&#39;</span>, <span style="color:#e6db74">&#39;Cost of Sales&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>,
+                            <span style="color:#e6db74">&#39;201901 ACT&#39;</span>: [<span style="color:#ae81ff">200.</span>, <span style="color:#ae81ff">100.</span>, <span style="color:#ae81ff">150.</span>, <span style="color:#ae81ff">75.</span>],
+                            <span style="color:#e6db74">&#39;202001 ACT&#39;</span>: [<span style="color:#ae81ff">210.</span>, <span style="color:#ae81ff">105.</span>, <span style="color:#ae81ff">150.</span>, <span style="color:#ae81ff">75.</span>],
+                            <span style="color:#e6db74">&#39;202001 POR&#39;</span>: [<span style="color:#ae81ff">205.</span>, <span style="color:#ae81ff">105.</span>, <span style="color:#ae81ff">150.</span>, <span style="color:#ae81ff">75.</span>]
+                        })
+    <span style="color:#66d9ef">return</span> df
+
+df <span style="color:#f92672">=</span> make_pnl()
+</code></pre></div><p><img src="/images/example_pnl.png" alt="img"></p>
+<p>This is a very simplified version of the data that would be familiar to analysts. In reality, there would be many more fields and values, depending on the level of granularity that&rsquo;s available. The columns like &lsquo;201901 ACT&rsquo; are time periods in a YYYYQQ format and the last three letters signify whether it is an actual or forecast (POR or Plan of Record) value.</p>
+<h2 id="multi-index-dataframe-slicing">Multi-Index DataFrame Slicing</h2>
+<p>It might also be useful to make this a multiindex dataframe for easier grouping/slicing and to reduce the amount of space the dataframe takes up in memory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>set_index([<span style="color:#e6db74">&#39;ProductLine&#39;</span>, <span style="color:#e6db74">&#39;FunctionalArea&#39;</span>, <span style="color:#e6db74">&#39;AccountL1&#39;</span>], inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</code></pre></div><p><img src="/images/example_pnl2.png" alt="img"></p>
+<p>You may need to use sets to slice among items in your index. Use <code>slice(None)</code> to skip levels in your index if needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>loc[(<span style="color:#e6db74">&#39;A&#39;</span>, slice(<span style="color:#66d9ef">None</span>), <span style="color:#e6db74">&#39;Cost of Sales&#39;</span>)]
+</code></pre></div><p>and returns:
+<img src="/images/example_pnl3.png" alt="img"></p>
+<p>Which is the same as using the <code>query()</code> method:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;ProductLine==&#39;A&#39; &amp; AccountL1==&#39;Cost of Sales&#39;&#34;</span>)
+</code></pre></div><h2 id="converting-from-wide-to-long-format-with-pdmelt">Converting from Wide to Long format with pd.melt()</h2>
+<p>Another useful transformation is to &lsquo;unpivot&rsquo; the data with <code>pd.melt()</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">id_vars <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;ProductLine&#39;</span>, <span style="color:#e6db74">&#39;FunctionalArea&#39;</span>, <span style="color:#e6db74">&#39;AccountL1&#39;</span>]
+dfl<span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>melt(id_vars<span style="color:#f92672">=</span>id_vars, var_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Period&#39;</span>, value_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Value&#39;</span>)
+</code></pre></div><p><img src="/images/example_pnl4.png" alt="img"></p>
+<h2 id="join-previous-cycle-for-recons">Join Previous Cycle for Recons</h2>
+<p>You&rsquo;ll often need to reconcile PnL data against other time periods, like prior quarters, prior years, actuals vs forecasts, and so on.</p>
+<p>In a spreadsheet you&rsquo;d manually manipulate and select columns and subsets of data to perform this. In Python, you can perform a SQL-style lookup and join so that you create those reconciliations in a table of data that you can slice and lookup later.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">id_vars <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;ProductLine&#39;</span>, <span style="color:#e6db74">&#39;FunctionalArea&#39;</span>, <span style="color:#e6db74">&#39;AccountL1&#39;</span>]
+
+<span style="color:#75715e"># Pull in data in long format</span>
+dfl <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>reset_index()<span style="color:#f92672">.</span>melt(id_vars<span style="color:#f92672">=</span>id_vars, var_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Period&#39;</span>, value_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Value&#39;</span>)
+
+<span style="color:#75715e"># Create new features by parsing text</span>
+dfl[<span style="color:#e6db74">&#39;YYYY&#39;</span>] <span style="color:#f92672">=</span> dfl[<span style="color:#e6db74">&#39;Period&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[:<span style="color:#ae81ff">4</span>])<span style="color:#f92672">.</span>astype(int)
+dfl[<span style="color:#e6db74">&#39;Q&#39;</span>] <span style="color:#f92672">=</span> dfl[<span style="color:#e6db74">&#39;Period&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">5</span>])<span style="color:#f92672">.</span>astype(int)
+
+<span style="color:#75715e"># Use new features to calculate lookup columns</span>
+dfl[<span style="color:#e6db74">&#39;Prior_Year_Period&#39;</span>] <span style="color:#f92672">=</span> ((dfl[<span style="color:#e6db74">&#39;YYYY&#39;</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span><span style="color:#ae81ff">100</span> <span style="color:#f92672">+</span> dfl[<span style="color:#e6db74">&#39;Q&#39;</span>])<span style="color:#f92672">.</span>astype(str) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; ACT&#34;</span>
+
+<span style="color:#75715e"># Create a subset to use as the right dataframe</span>
+df2 <span style="color:#f92672">=</span> dfl[id_vars <span style="color:#f92672">+</span> [<span style="color:#e6db74">&#39;Period&#39;</span>, <span style="color:#e6db74">&#39;Value&#39;</span>]]<span style="color:#f92672">.</span>rename({<span style="color:#e6db74">&#39;Value&#39;</span>: <span style="color:#e6db74">&#39;PY_Value&#39;</span>}, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e"># Left Join the original dataframe with the right dataframe</span>
+dfNew <span style="color:#f92672">=</span> dfl<span style="color:#f92672">.</span>merge(df2,
+                  left_on<span style="color:#f92672">=</span>id_vars<span style="color:#f92672">+</span>[<span style="color:#e6db74">&#39;Prior_Year_Period&#39;</span>],
+                  right_on<span style="color:#f92672">=</span>id_vars<span style="color:#f92672">+</span>[<span style="color:#e6db74">&#39;Period&#39;</span>],
+                  how<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;left&#39;</span>,
+                  suffixes<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;_DROP&#34;</span>])
+
+<span style="color:#75715e"># Drop duplicate columns</span>
+dfNew<span style="color:#f92672">.</span>drop(dfNew<span style="color:#f92672">.</span>filter(regex<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;_DROP$&#39;</span>)<span style="color:#f92672">.</span>columns<span style="color:#f92672">.</span>tolist(),axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</code></pre></div><p>And we see the result works. In this example, we don&rsquo;t have 201801 ACT data so it&rsquo;s a <code>np.nan</code> value, but you see the rest of the values filled in as expected for prior year values.</p>
+<p><img src="/images/example_pnl5.png" alt="img"></p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/python/">python</a><a class="tag" href="/tags/workflow/">workflow</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2020-2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>
