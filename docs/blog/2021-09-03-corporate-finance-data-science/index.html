@@ -160,15 +160,15 @@
 
     ,
         "url" : "https:\/\/www.nelsontang.com\/blog\/2021-09-03-corporate-finance-data-science\/",
-        "wordCount" : "1356",
+        "wordCount" : "1576",
         "genre" : [ 
       
-      "workflow"
+      "projects"
 
     ],
         "keywords" : [ 
       
-      "workflow"
+      "applied data science"
 
     ]
     }
@@ -341,12 +341,11 @@ if (!doNotTrack) {
               </span
             >
             <em class="fas fa-stopwatch"></em>
-            <span class="reading-time">7-minute read</span>
+            <span class="reading-time">8-minute read</span>
           </div>
 
         
-      </div><h2 id="caution-wip">Caution: WIP</h2>
-<p>There&rsquo;s been plenty of hype around data science over the last decade, and <a href="https://www2.deloitte.com/ca/en/pages/finance-transformation/articles/finance-2020.html">plenty</a> of consultancies have proclaimed that future of finance will involve data science somehow. But in teaching new analysts about these techniques, it&rsquo;s clear to me that the finance community in general is <em>interested</em> in data science but at a loss as to <em>how</em> to do it and <em>what</em> a solution would look like.</p>
+      </div><p>There&rsquo;s been plenty of hype around data science over the last decade, and <a href="https://www2.deloitte.com/ca/en/pages/finance-transformation/articles/finance-2020.html">plenty</a> of consultancies have proclaimed that future of finance will involve data science somehow. But in teaching new analysts about these techniques, it&rsquo;s clear to me that the finance community in general is <em>interested</em> in data science but at a loss as to <em>how</em> to do it and <em>what</em> a solution would look like.</p>
 <p>I get asked this all the time because I&rsquo;m working on applying these skills to support the finance function and working to upskill analysts. So here I will attempt to meander my way around the question of &ldquo;what does data science in corporate finance look like?&rdquo;</p>
 <h2 id="financial-analysts-are-data-analysts">Financial Analysts Are Data Analysts</h2>
 <p>Financial analysts have long been the keepers of financial data, responsible for reporting on the business results and analyzing it to understand the impacts of business decisions. Compared to other parts of the business, financial data is &lsquo;clean&rsquo; thanks to strict regulatory requirements, auditors, and the profession of accounting which exists to correctly count things (<a href="https://vicki.substack.com/p/all-numbers-are-made-up-some-are">which is super hard, as Vicki Boykis skillfully articulates</a>).</p>
@@ -365,26 +364,38 @@ if (!doNotTrack) {
 </blockquote>
 <p>So to sell the idea of DS in finance and to secretly get them to learn math, stats, and programming to be useful, I think it helps to offer some examples of where these techniques have been applied within corporate finance to automate work and improve planning.</p>
 <h2 id="automating-repetitive-work">Automating Repetitive Work</h2>
-<p>Automating work for finance analysts means less manual effort required to do routine analysis, like calculating forecasted vs actual business metrics and presenting it in a pretty graph for stakeholders, or applying business logic to data as it arrives to create a forecast of future performance. I assure you, across every company in the Fortune 500 there are teams of analysts that are manually do all of this by passing around Excel files back and forth and it takes more time than you would think.</p>
+<p>Automating work for finance analysts means less manual effort for routine analysis, like comparing actual business metrics against forecasts and presenting results in a pretty chart for stakeholders, or applying business rules to predict future performance. I assure you, across every company in the Fortune 500 there are teams of analysts that are manually do all of this by passing around Excel files back and forth and it takes more time than you would think.</p>
 <p><a href="https://www.microsoft.com/cms/api/am/binary/RE2IIQU">Microsoft&rsquo;s finance department</a> offers an example of a large-scale automated prediction that incorporated thousands of features to automate their revenue forecasts. While this <a href="https://www.microsoft.com/en-us/modernfinance/">might be pure marketing for their products and their vision of Modern Finance</a>, there&rsquo;s plenty of quick wins to be had in automation. For many analysts, even <a href="https://otexts.com/fpp2/expsmooth.html">simpler methods</a> can be applied with a few lines of code to generate more accurate and automated forecasts based on historical trends. And there&rsquo;s plenty of work that can be automated with python scripts - no machine learning required.</p>
 <h2 id="improving-planning">Improving Planning</h2>
-<p>While process automation is great, a more accurate prediction isn&rsquo;t enough for the business. Business folks have a deterministic view of the world: if I sell more widgets, revenue goes up, and if I fire people, my costs go down, right? People don&rsquo;t just want to know <em>what</em> the number is going to be, they want to know <em>why</em> and <em>how</em> things could happen.</p>
+<p>While process automation is great, a more accurate prediction isn&rsquo;t enough for the business. Business folks have a deterministic view of the world: if I sell more widgets, revenue goes up, and if I lay off headcount, my personnel costs go down, right? People don&rsquo;t just want to know <em>what</em> the number is going to be, they want to know <em>why</em> and <em>how</em> things could happen.</p>
 <p>And when it comes to planning, executives often have a number in their head and the analyst&rsquo;s job is to model the scenario that magically results in that number. Traditional Excel-based financial modeling is more than capable of obliging this view as long as people can convince themselves that point estimates are the way to go.</p>
 <p>Instead, Data Science (and even basic applied stats) can augment our decision making with new types of models on data sets that would be too large or troublesome for Excel. And thanks to advancements in computing and research, people are rediscovering new superpowers in decision support like Bayesian methods and Causal Inference <a href="https://multithreaded.stitchfix.com/blog/2019/12/19/good-marketing-decisions/">(i.e. Stitch Fix)</a>. But this path is <em>much</em> harder and it requires deep business acumen along with the technical skills (and soft skills!) to deliver on a solution. This is where a &lsquo;Finance Data Scientist&rsquo; could come in.</p>
 <p>Taken to the extreme, I look at <a href="(https://eng.uber.com/financial-planning-for-data-scientist/)">Uber&rsquo;s data scientists who are attached to finance teams</a> for inspiration into what an integrated scenario planning platform can offer. <a href="(https://eng.uber.com/transforming-financial-forecasting-machine-learning/)">Their planning platform allows for the integration of their data scientists' work with financial analysts</a> - a revolutionary way to do financial planning, but one that can&rsquo;t magically transform an unprofitable business.</p>
 <h2 id="a-plan-for-solo-finance-data-scientists">A Plan for Solo Finance Data Scientists</h2>
 <p>So let&rsquo;s say you&rsquo;re a brand new Finance Data Scientist, the first of your kind. Congrats! How do you get started?</p>
 <p>Here&rsquo;s the approach that I&rsquo;m taking: We need to examine the business, create a prioritized project pipeline to tackle it, and get free help.</p>
-<p><strong>First</strong> - examine the business. We want to build out a model of the business, sort of a &lsquo;beta&rsquo; version of our integrated financial model in the Uber vein. By modeling the business this way, you get a shared vision of the end product with the business and leverage the collective intelligence of the analysts closest to these problems. Chances are, they&rsquo;ve already built out some of the connections in excel already and have stakeholder buy-in. They get the benefit of having their work being recognized and included in the final product, and the business gets a better model. Where there are gaps, you can target them with additional exploratory project work to build those models.</p>
-<p>Once those gaps are filled, then you can look to improving existing models and driving accuracy or information. Furthermore, by creating the map of the business, you can then start calculating the benefit of filling in the gaps by tying it to cost savings, capital improvements, or even just convenience by making the data more readily available. </p>
-<p><strong>Second</strong> - after modeling out the business and identifying the existing gaps in the model, map out the available data and how you might solve the business problem. Do you have enough data to solve the problem? Do you have the knowhow and talent to model it correctly and know what &lsquo;done&rsquo; looks like? How difficult is the problem to solve - can an analyst do it or do you need a different skillset? Then, we need a method to capture ROI or &lsquo;importance to management&rsquo; so you can rack and stack. An example here could be a combination of &lsquo;technical feasibility&rsquo; and &lsquo;perceived impact&rsquo; that people could vote on or score.</p>
-<p><strong>Finally</strong>, how are we going to do all of this work? We&rsquo;ll need to enlist the help of analysts in finance. There are already a number of people with the acumen and interest to learn python, and from there they can learn additional methods in analysis. In exchange for upskilling them and breaking down problems into bite-sized projects, they get mentorship and a cool thing on their resume.</p>
-<h2 id="wip">WIP</h2>
+<h3 id="model-the-business">Model the Business</h3>
+<p><strong>First</strong> - we want to build out a model of the business, sort of a &lsquo;beta&rsquo; version of our integrated <a href="https://en.wikipedia.org/wiki/Directed_graph">directed graph</a> in the Uber vein. By modeling the business this way, you get a shared vision of the end product with the business and leverage the collective intelligence of the analysts closest to these problems. Chances are, they&rsquo;ve already built out some of the connections in excel already and have stakeholder buy-in. The analysts get the benefit of recognition for their work and in helping create the solution, and the business gets a better model. Where there are gaps, you can target them with additional exploratory project work to build those models.</p>
+<p>Once those gaps are filled, you can look to improve existing models and driving accuracy or increased information. Furthermore, by creating the map of the business, you can then start calculating the benefit of filling in the gaps by tying it to cost savings, capital improvements, or even just convenience by making the data more readily available.</p>
+<p>For a great worked example, see <a href="https://ocw.mit.edu/courses/sloan-school-of-management/15-071-the-analytics-edge-spring-2017/">The Analytics Edge</a> on MIT&rsquo;s open courseware site. <a href="https://ocw.mit.edu/courses/sloan-school-of-management/15-071-the-analytics-edge-spring-2017/linear-regression/">The series on Linear Regression</a> is the perfect introduction to teach analysts how to recognize an opportunity and break a business problem down into parts using the story from <a href="https://www.amazon.com/Moneyball-Art-Winning-Unfair-Game/dp/0393324818">Moneyball</a> as inspiration.</p>
+<h3 id="map-out-needs">Map Out Needs</h3>
+<p><strong>Second</strong> - after modeling the business and identifying the existing gaps in the model, map out the available data and how you might solve the business problem. Do you have enough data to solve the problem? Do you have the knowhow and talent to model it correctly and know what &lsquo;done&rsquo; looks like? How difficult is the problem to solve - can an analyst do it or do you need a different skillset? Then, we need a method to capture ROI or &lsquo;importance to management&rsquo; so you can rack and stack. An example here could be a combination of &lsquo;technical feasibility&rsquo; and &lsquo;perceived impact&rsquo; that people could vote on or score.</p>
+<h3 id="enlist-help-by-upskilling-analysts">Enlist Help By Upskilling Analysts</h3>
+<p><strong>Finally</strong> - how are we going to do all of this work? We&rsquo;ll need to enlist the help of analysts in finance. There are already a number of people with the acumen and interest to learn python, and from there they can learn additional methods in analysis. In exchange for upskilling them and breaking down problems into bite-sized projects, they get mentorship and a cool thing on their resume.</p>
+<h2 id="will-there-be-more-finance-data-scientists">Will There Be More Finance Data Scientists?</h2>
+<p>Finance has a few great things going for it:</p>
+<ul>
+<li>A workforce with business acumen and a tradition of critical thinking</li>
+<li>&lsquo;Clean&rsquo; structured historical data with an entire profession devoted to ensuring accuracy</li>
+<li>A seat at the table when it comes to making business decisions</li>
+</ul>
+<p>I&rsquo;m incredibly fortunate to have a role where I can experiment with applied data science in finance. At my company, Finance is close to the results and is responsible for measuring the impacts of decisions on business performance, and is a key player in strategy and planning. With a healthy set of clean, structured financial data and squads of highly-trained analysts, there&rsquo;s no better seat to help the business make the best possible decisions in the face of uncertainty. It&rsquo;s obvious that there are plenty of opportunities, and organizations are (as of 2021) still early in creating room for these specialties to grow.</p>
+<p>Of course, success is not assured. I&rsquo;ve left out talk about soft skills, org structure, politics, executive sponsorship, infrastructure resourcing, and other complications.</p>
 </div>
     <div class="post-footer">
       <div class="info">
         
-          <span class="separator"><a class="category" href="/categories/workflow/">workflow</a></span>
+          <span class="separator"><a class="category" href="/categories/projects/">projects</a></span>
 
 
 
@@ -392,7 +403,7 @@ if (!doNotTrack) {
         
 
         
-          <span class="separator"><a class="tag" href="/tags/workflow/">workflow</a></span>
+          <span class="separator"><a class="tag" href="/tags/applied-data-science/">applied data science</a></span>
 
 
 

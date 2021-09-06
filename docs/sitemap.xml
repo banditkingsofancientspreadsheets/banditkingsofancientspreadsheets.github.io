@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.nelsontang.com/tags/applied-data-science/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.nelsontang.com/</loc>
     <lastmod>2021-09-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,13 +17,10 @@
     <loc>https://www.nelsontang.com/blog/2021-09-03-corporate-finance-data-science/</loc>
     <lastmod>2021-09-03T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.nelsontang.com/categories/projects/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.nelsontang.com/tags/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/tags/workflow/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/categories/workflow/</loc>
     <lastmod>2021-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/categories/dataviz/</loc>
@@ -36,6 +36,9 @@
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</loc>
+    <lastmod>2021-05-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/categories/workflow/</loc>
     <lastmod>2021-05-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</loc>
@@ -60,6 +63,9 @@
     <lastmod>2020-07-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/tags/workflow/</loc>
     <lastmod>2020-06-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/tags/forecasting/</loc>
