@@ -160,7 +160,7 @@
 
     ,
         "url" : "https:\/\/www.nelsontang.com\/blog\/2021-08-01-build-your-first-plotly-template\/",
-        "wordCount" : "558",
+        "wordCount" : "730",
         "genre" : [ 
       
       "dataviz"
@@ -348,7 +348,7 @@ if (!doNotTrack) {
               </span
             >
             <em class="fas fa-stopwatch"></em>
-            <span class="reading-time">3-minute read</span>
+            <span class="reading-time">4-minute read</span>
           </div>
 
         
@@ -420,8 +420,11 @@ df <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;smo
 fig <span style="color:#f92672">=</span> px<span style="color:#f92672">.</span>bar(df, x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;size&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tip&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;smoker&#39;</span>, 
              template<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nike&#39;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Template Example&#39;</span>)
 fig<span style="color:#f92672">.</span>show()
-</code></pre></div><!-- raw HTML omitted -->
-<p><em>Tested on Plotly 4.14.3</em></p>
+</code></pre></div><p>
+
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: \'local\'};</script>        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>                <div id="fe499a24-e100-447e-9c4c-117badbc9408" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("fe499a24-e100-447e-9c4c-117badbc9408")) {                    Plotly.newPlot(                        "fe499a24-e100-447e-9c4c-117badbc9408",                        [{"alignmentgroup": "True", "hovertemplate": "smoker=No<br>size=%{x}<br>tip=%{y}<extra></extra>", "legendgroup": "No", "marker": {"color": "#ec7424"}, "name": "No", "offsetgroup": "No", "orientation": "v", "showlegend": true, "textposition": "auto", "type": "bar", "x": [1, 2, 3, 4, 5, 6], "xaxis": "x", "y": [1.415, 2.4890000000000003, 3.06923076923077, 4.195769230769232, 5.046666666666667, 5.225], "yaxis": "y"}, {"alignmentgroup": "True", "hovertemplate": "smoker=Yes<br>size=%{x}<br>tip=%{y}<extra></extra>", "legendgroup": "Yes", "marker": {"color": "#a4abab"}, "name": "Yes", "offsetgroup": "Yes", "orientation": "v", "showlegend": true, "textposition": "auto", "type": "bar", "x": [1, 2, 3, 4, 5], "xaxis": "x", "y": [1.46, 2.709545454545454, 4.095, 3.9927272727272727, 2.5], "yaxis": "y"}],                        {"barmode": "relative", "legend": {"title": {"text": "smoker"}, "tracegroupgap": 0}, "template": {"data": {"bar": [{"textfont": {"color": "#FFFFFF", "family": "Helvetica Neue, Helvetica, Sans-serif", "size": 20}, "textposition": "outside", "texttemplate": "%{value:$.2s}", "type": "bar"}]}, "layout": {"colorway": ["#ec7424", "#a4abab"], "font": {"color": "#333", "family": "Helvetica Neue, Helvetica, Sans-serif", "size": 16}, "hovermode": "x unified", "title": {"font": {"color": "#333", "family": "HelveticaNeue-CondensedBold, Helvetica, Sans-serif", "size": 30}}}}, "title": {"text": "Template Example"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "size"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "tip"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+
+<em>Tested on Plotly 4.14.3</em></p>
 <p>Reference:</p>
 <ol>
 <li><a href="https://plotly.com/python/templates/">Plotly Theming and Templates docs</a></li>
