@@ -4,6 +4,8 @@ date: 2021-08-01
 tags: [python, plotly]
 categories: [dataviz]
 summary: "TLDR on how to make a corporate themed plotly template"
+aliases:
+    - /Build-Your-First-Plotly-Template/
 ---
 
 I got a little lost reading the plotly docs on saving a custom plotly template, so here's a basic skeleton of a template inspired by [Nike's 10K](https://investors.nike.com/investors/news-events-and-reports/default.aspx) that you can use to customize basic plot colors, fonts, and show you how the template is structured. I also structured the code to be a little more readible for me since I didn't like their use of both `dict` and their 'magic underscore notation' which made things more confusing. When you make a template IRL they are going to be pretty verbose and magic underscore notation is not helpful.

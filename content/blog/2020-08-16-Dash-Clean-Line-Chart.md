@@ -4,6 +4,8 @@ date: 2020-08-16
 tags: [dash, plotly, python]
 categories: [dataviz]
 summary: "Code snippet to create a clean line chart to go in a Dash Card."
+aliases:
+    - /Dash-Clean-Line-Chart/
 ---
 Inspired by the [FiscalData.treasury.gov website](https://fiscaldata.treasury.gov), I set out to create a clean-looking line chart template that I can insert either as a tooltip or directly into a KPI card. 
 

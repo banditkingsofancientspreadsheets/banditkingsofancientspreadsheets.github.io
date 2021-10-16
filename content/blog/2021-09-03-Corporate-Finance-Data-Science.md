@@ -4,6 +4,8 @@ date: 2021-09-03
 tags: [applied data science]
 categories: [projects]
 summary: "In which I meander through the work of finance data scientists and how data science can be applied to corporate finance."
+aliases:
+    - /Corporate-Finance-Data-Science
 ---
 
 There's been plenty of hype around data science over the last decade, and [plenty](https://www2.deloitte.com/ca/en/pages/finance-transformation/articles/finance-2020.html) of consultancies have proclaimed that future of finance will involve data science somehow. But in teaching new analysts about these techniques, it's clear to me that the finance community in general is *interested* in data science but at a loss as to *how* to do it and *what* a solution would look like. 

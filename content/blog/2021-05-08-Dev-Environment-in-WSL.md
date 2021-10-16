@@ -4,6 +4,8 @@ date: 2021-05-08
 tags: [python]
 categories: [workflow]
 summary: "My steps for a fresh install of Windows Subsystem for Linux for Data Analysis"
+aliases:
+    - /Dev-Environment-in-WSL/
 ---
 ![img](/images/wsl2_test.png)
 

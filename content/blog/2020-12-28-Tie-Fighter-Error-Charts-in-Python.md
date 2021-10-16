@@ -4,6 +4,8 @@ date: 2020-12-28
 tags: [python]
 categories: [dataviz]
 summary: "ggplot2 for Python is definitely a thing. Oh, and Altair's ok too."
+aliases:
+  - /Tie-Fighter-Error-Charts-in-Python/
 ---
 
 It's December 2020 and it's time to check out different python plotting packages. I primarily will use pandas dataframe plotting with either seaborn's `sns.set()` or [setting plotly as the plotting backend](https://plotly.com/python/pandas-backend/) during data exploration, but there's nothing in python that matches R's `ggplot2`. I've known about [plotnine](https://plotnine.readthedocs.io/en/stable/) as the python equivalent but last time I tried it it was still lacking in the feature department. I'm happy to say that it's totally viable now.

@@ -4,6 +4,8 @@ date: 2020-06-30
 tags: [python, workflow]
 categories: [workflow]
 summary: "Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas"
+aliases:
+    - /Quick-PnL-Dataframe/
 ---
 
 This code creates a practice dataframe for instruction in a format that is familiar with finance analysts. Analysts typically deal with profit and loss statement data in excel spreadsheets, often pulled or aggregated from an ERP source system and this example shows a toy example that has some relevant fields and formatting.

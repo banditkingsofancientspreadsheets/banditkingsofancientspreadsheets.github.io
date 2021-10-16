@@ -4,6 +4,8 @@ date: 2021-04-16
 tags: [python, plotly]
 categories: [workflow]
 summary: "Quick reference that shows options to add plotly charts to a markdown document"
+aliases:
+        - /plotly-in-markdown/
 ---
 
 Quick reference that shows options to add plotly charts to a markdown document. 

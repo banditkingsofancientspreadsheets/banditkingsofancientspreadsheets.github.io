@@ -5,6 +5,8 @@ tags: [forecasting, r]
 categories: [modeling]
 summary: "Getting started using the `forecast` package for time series data in R, as quickly as possible and no explanations."
 mathjax: "true"
+aliases:
+    - /time-series-forecasting-in-r/
 ---
 
 Getting started using the `forecast` package for time series data in R, as quickly as possible and no explanations. 
