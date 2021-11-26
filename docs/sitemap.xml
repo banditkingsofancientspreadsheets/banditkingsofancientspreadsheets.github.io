@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.nelsontang.com/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/blog/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/categories/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/categories/projects/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/tags/python/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/blog/2021-11-25-pandas-conditional-merging/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.nelsontang.com/tags/</loc>
+    <lastmod>2021-11-25T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.nelsontang.com/tags/applied-data-science/</loc>
     <lastmod>2021-09-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.nelsontang.com/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/blog/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/categories/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.nelsontang.com/blog/2021-09-03-corporate-finance-data-science/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/categories/projects/</loc>
-    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/tags/</loc>
     <lastmod>2021-09-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/categories/dataviz/</loc>
@@ -30,9 +36,6 @@
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/tags/plotly/</loc>
-    <lastmod>2021-08-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.nelsontang.com/tags/python/</loc>
     <lastmod>2021-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl/</loc>

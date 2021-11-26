@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Nelson Tang
+      |
+      Python Pandas - Merging With Wildcards and Conditions
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.b76636c63dc3996a4ac11c08885c8dd1bc4629b9ea3e80e971ca21d8b1a61947.css"
+    integrity="sha256-t2Y2xj3DmWpKwRwIiFyN0bxGKbnqPoDpccoh2LGmGUc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.f798cbda9aaa38f89eb38be6414bd082cfd71a6780375cbf67b6d2fb2b96491e.css"
+    integrity="sha256-95jL2pqqOPies4vmQUvQgs/XGmeAN1y/Z7bS&#43;yuWSR4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blog/2021-11-25-pandas-conditional-merging/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.nelsontang.com/featured-image.png"/>
+
+<meta name="twitter:title" content="Python Pandas - Merging With Wildcards and Conditions"/>
+<meta name="twitter:description" content="Merging two dataframes with pandas but only if certain conditions are true."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Python Pandas - Merging With Wildcards and Conditions",
+        "headline": "Python Pandas - Merging With Wildcards and Conditions",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Merging two dataframes with pandas but only if certain conditions are true.
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.nelsontang.com\/blog\/2021-11-25-pandas-conditional-merging\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-11-25T00:00:00.00Z",
+        "datePublished": "2021-11-25T00:00:00.00Z",
+        "dateModified": "2021-11-25T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "https://www.nelsontang.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/www.nelsontang.com\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "https://www.nelsontang.com/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "https:\/\/www.nelsontang.com\/blog\/2021-11-25-pandas-conditional-merging\/",
+        "wordCount" : "1233",
+        "genre" : [ 
+      
+      "projects"
+
+    ],
+        "keywords" : [ 
+      
+      "python"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blog"
+              
+              title=""
+              >Archives</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about"
+              
+              title=""
+              >About</a
+            >
+          </li>
+
+        
+        
+      </div>
+      <li>
+        
+          <a class="theme-switch" title="Switch Theme">
+            <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+          </a>
+
+        
+      </li>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/profile.png" alt="profile picture" />
+        <h3 title=""><a href="/">Bandit Kings</a></h3>
+        <div class="description">
+          <p>(Of Ancient Spreadsheets)</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Nelson Tang 2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Python Pandas - Merging With Wildcards and Conditions</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Thu, Nov 25, 2021
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">6-minute read</span>
+          </div>
+
+        
+      </div><p>What happens when you want to merge (join) two dataframes together, but only if certain conditions are true? This is easy to do when you are simply looking for matching key-value pairs in two tables, but I had a real life scenario where I had complex combinations of joins to consider.</p>
+<h2 id="the-challenge">The Challenge</h2>
+<p>Here&rsquo;s a simplified version of the issue I was facing:</p>
+<ol>
+<li>The date in the left table was between two dates (a start and end date) in the second table</li>
+<li>&hellip;AND the values in two other columns matched each other, OR the column on the right table was equal to &lsquo;ANY&rsquo; (aka a &lsquo;wildcard&rsquo; value)</li>
+</ol>
+<p>For a concrete example, let&rsquo;s say you&rsquo;re working for an apparel retailer, and you offer limited-time promotions where the customer can apply for a rebate if they buy a certain brand of jacket during the promotion period. The wrinkle: you also offer a global discount across ANY brand of jacket bought in a separate promotion.</p>
+<p>You have a table of sales volume and you&rsquo;re trying to map that data with a table of promotions that you&rsquo;re offering:</p>
+<h3 id="sales_volume_table"><code>sales_volume_table</code></h3>
+<table>
+<thead>
+<tr>
+<th>date</th>
+<th>quantity</th>
+<th>brand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021-11-15</td>
+<td>1</td>
+<td>Outdoor</td>
+</tr>
+<tr>
+<td>2021-11-20</td>
+<td>2</td>
+<td>Leisure</td>
+</tr>
+<tr>
+<td>2021-11-25</td>
+<td>3</td>
+<td>Athletic</td>
+</tr>
+<tr>
+<td>2021-11-26</td>
+<td>2</td>
+<td>Outdoor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="promos_table"><code>promos_table</code></h3>
+<table>
+<thead>
+<tr>
+<th>start_date</th>
+<th>end_date</th>
+<th>brand</th>
+<th>rebate_per_unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021-11-01</td>
+<td>2021-11-25</td>
+<td>ANY</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2021-11-25</td>
+<td>2021-11-26</td>
+<td>Outdoor</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2021-12-29</td>
+<td>2021-12-30</td>
+<td>Leisure</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>You can&rsquo;t do a simple left join because of the &lsquo;ANY&rsquo; option on the right table. One way of dealing with this is modifying the data in <code>promos_table</code> so that it covers all possible <code>brand</code> categories (i.e. Outdoor, Leisure, Athletic) but for the sake of argument let&rsquo;s imagine that&rsquo;s not feasible in the real-world example.</p>
+<h2 id="merge-everything-you-think-youll-need-and-sort-it-out-later">Merge Everything You Think You&rsquo;ll Need and Sort it Out Later</h2>
+<p>The simplest thing I found is to merge everything you think you&rsquo;ll need and then filter it out later. I tried dictionaries and set logic, but couldn&rsquo;t find anything faster than doing the big join.</p>
+<p>Specifically, you can do a <em>Cartesian Product</em>, and <a href="https://stackoverflow.com/questions/47472207/how-to-merge-with-wildcard-pandas">here&rsquo;s a great example from StackOverflow</a> when faced with having to merge two pandas dataframes with a wildcard value. I&rsquo;ll walk through each step below using the StackOverflow example and our sample scenario:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Create our two dataframes</span>
+sales_volume_table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict([
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-15&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-20&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Leisure&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Athletic&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-26&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>},    
+])
+
+promos_table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict([
+    {<span style="color:#e6db74">&#39;start_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-01&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;ANY&#39;</span>, <span style="color:#e6db74">&#39;rebate_per_unit&#39;</span>:<span style="color:#ae81ff">3</span>},
+    {<span style="color:#e6db74">&#39;start_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-26&#39;</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>, <span style="color:#e6db74">&#39;rebate_per_unit&#39;</span>:<span style="color:#ae81ff">5</span>},
+])
+
+<span style="color:#75715e"># Create a column to join on and save the results with a Cartesian Product</span>
+sales_volume_table[<span style="color:#e6db74">&#39;join&#39;</span>] <span style="color:#f92672">=</span> promos_table[<span style="color:#e6db74">&#39;join&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+results <span style="color:#f92672">=</span> sales_volume_table<span style="color:#f92672">.</span>merge(promos_table, on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;join&#39;</span>)
+</code></pre></div><p>The Cartesian Product matches every row in the right dataframe with every row in the left dataframe. Here&rsquo;s the output below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">date</th>
+<th style="text-align:right">quantity</th>
+<th style="text-align:left">brand_x</th>
+<th style="text-align:right">join</th>
+<th style="text-align:left">start_date</th>
+<th style="text-align:left">end_date</th>
+<th style="text-align:left">brand_y</th>
+<th style="text-align:right">rebate_per_unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2021-11-15</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-15</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-20</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Leisure</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-20</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Leisure</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Athletic</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Athletic</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table>
+<p>And then once the results are joined together in this way, you can then apply all of your conditions using pandas indexing. I like using the <code>query</code> method since it&rsquo;s a little easier to read.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Filter the results where the two columns match, OR the right column is &#39;ANY&#39;</span>
+results <span style="color:#f92672">=</span> results<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;brand_x == brand_y | brand_y==&#39;ANY&#39;&#34;</span>)
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">date</th>
+<th style="text-align:right">quantity</th>
+<th style="text-align:left">brand_x</th>
+<th style="text-align:right">join</th>
+<th style="text-align:left">start_date</th>
+<th style="text-align:left">end_date</th>
+<th style="text-align:left">brand_y</th>
+<th style="text-align:right">rebate_per_unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2021-11-15</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-15</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-20</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Leisure</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Athletic</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table>
+<p>But we&rsquo;re not done yet - we still need to filter out the dates that are relevant, so we edit our above query to incorporate additional conditions, and do a little cleanup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Instead of one long string, we can break up the query into multiple parts</span>
+condition1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(brand_x == brand_y | brand_y==&#39;ANY&#39;)&#34;</span>
+condition2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(start_date &lt;= date &lt;= end_date)&#34;</span>
+qry <span style="color:#f92672">=</span> condition1 <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &amp; &#34;</span> <span style="color:#f92672">+</span> condition2
+results <span style="color:#f92672">=</span> results<span style="color:#f92672">.</span>query(qry)
+</code></pre></div><p>Which gives us our result (skipping the part where you drop some columns for clarity)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">date</th>
+<th style="text-align:right">quantity</th>
+<th style="text-align:left">brand_x</th>
+<th style="text-align:right">join</th>
+<th style="text-align:left">start_date</th>
+<th style="text-align:left">end_date</th>
+<th style="text-align:left">brand_y</th>
+<th style="text-align:right">rebate_per_unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2021-11-15</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-20</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Leisure</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">Athletic</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-01</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">ANY</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">0</td>
+<td style="text-align:left">2021-11-25</td>
+<td style="text-align:left">2021-11-26</td>
+<td style="text-align:left">Outdoor</td>
+<td style="text-align:right">5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="performance">Performance</h2>
+<p>Since we had 4 rows in the left dataframe and 2 in the right, the result of the Cartesian Product is 4x2 or 8 rows long. Something to keep in mind if your datasets get large. So if you had 5K rows of sales data and 1K rows of promotions, you&rsquo;d end up with 5M rows of data after this join.</p>
+<p>But you don&rsquo;t need to do a full Cartesian Product here, the key idea is to get the superset of all the data that would be relevant and then filter it down. In my real-world case I had 55k rows and 15k rows of promotions, and I had about 12 different conditions to check (a mix of date and wildcards). I started with nested for-loops, dictionaries, and set logic and it took about 30s on my 2018 MBP, but with some smarter filtering and joining with this method I was able to get the same operation done in &lt;10s.</p>
+<h2 id="sql-is-faster">SQL Is Faster</h2>
+<p>But instead of doing this in Pandas, it turns out this is trivial to do in SQL. To do a Cartesian Product of the two dataframes in SQL is simply:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">FROM</span> sales_volume, promos
+</code></pre></div><p>And it&rsquo;s even simpler to do your filtering with a <code>WHERE</code> clause, making the entire statement:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> 
+<span style="color:#66d9ef">FROM</span> sales_volume, promos 
+<span style="color:#66d9ef">WHERE</span> (sales_volume.brand<span style="color:#f92672">=</span>promos.brand <span style="color:#66d9ef">or</span> promos.brand<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ANY&#39;</span>)
+<span style="color:#66d9ef">AND</span> (start_date <span style="color:#f92672">&lt;=</span> date <span style="color:#66d9ef">AND</span> date <span style="color:#f92672">&lt;=</span> end_date)
+</code></pre></div><p>On my computer the pandas merging and filtering took about 4.7 ms while the sql query took 700 µs, so a little under 7x improvement in performance.</p>
+<h2 id="key-takeaway">Key Takeaway</h2>
+<p>The bottom line to take away from this is to solve a problem when you want to conditionally join two dataframes and handle things like wildcards, the easiest thing to do is to big join and filter it down from there. Or use SQL instead of Pandas.</p>
+<h3 id="final-pythonpandas-result">Final Python/Pandas Result:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+
+<span style="color:#75715e"># Create our DataFrames</span>
+sales_volume_table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict([
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-15&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-20&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Leisure&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Athletic&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-26&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>},    
+])
+
+promos_table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict([
+    {<span style="color:#e6db74">&#39;start_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-01&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;ANY&#39;</span>, <span style="color:#e6db74">&#39;rebate_per_unit&#39;</span>:<span style="color:#ae81ff">3</span>},
+    {<span style="color:#e6db74">&#39;start_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-26&#39;</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>, <span style="color:#e6db74">&#39;rebate_per_unit&#39;</span>:<span style="color:#ae81ff">5</span>},
+])
+
+<span style="color:#75715e"># Merge it all</span>
+sales_volume_table[<span style="color:#e6db74">&#39;join&#39;</span>] <span style="color:#f92672">=</span> promos_table[<span style="color:#e6db74">&#39;join&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+results <span style="color:#f92672">=</span> sales_volume_table<span style="color:#f92672">.</span>merge(promos_table, on<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;join&#39;</span>)
+<span style="color:#75715e"># And Filter it Down</span>
+results <span style="color:#f92672">=</span> results<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#34;(brand_x == brand_y | brand_y==&#39;ANY&#39;) &amp; start_date &lt;= date &lt;= end_date&#34;</span>)
+</code></pre></div><h3 id="same-thing-but-faster-with-sql-and-sqlite">Same Thing, but Faster with SQL and SQLite</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> sqlite3
+
+<span style="color:#75715e"># Create our dataframes as before</span>
+sales_volume_table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict([
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-15&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-20&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Leisure&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Athletic&#39;</span>},
+    {<span style="color:#e6db74">&#39;date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-26&#39;</span>, <span style="color:#e6db74">&#39;quantity&#39;</span>:<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>},    
+])
+
+promos_table <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame<span style="color:#f92672">.</span>from_dict([
+    {<span style="color:#e6db74">&#39;start_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-01&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;ANY&#39;</span>, <span style="color:#e6db74">&#39;rebate_per_unit&#39;</span>:<span style="color:#ae81ff">3</span>},
+    {<span style="color:#e6db74">&#39;start_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-25&#39;</span>, <span style="color:#e6db74">&#39;end_date&#39;</span>:<span style="color:#e6db74">&#39;2021-11-26&#39;</span>, <span style="color:#e6db74">&#39;brand&#39;</span>:<span style="color:#e6db74">&#39;Outdoor&#39;</span>, <span style="color:#e6db74">&#39;rebate_per_unit&#39;</span>:<span style="color:#ae81ff">5</span>},
+])
+
+<span style="color:#75715e"># Create a SQL connection to our SQLite database</span>
+con <span style="color:#f92672">=</span> sqlite3<span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#34;sales.db&#34;</span>)
+
+<span style="color:#75715e"># Add dataframes as tables in this database</span>
+sales_volume_table<span style="color:#f92672">.</span>to_sql(<span style="color:#e6db74">&#34;sales_volume&#34;</span>, con, index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, if_exists<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;replace&#39;</span>)
+promos_table<span style="color:#f92672">.</span>to_sql(<span style="color:#e6db74">&#34;promos&#34;</span>, con, index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, if_exists<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;replace&#39;</span>)
+
+<span style="color:#75715e"># Results in a 5x speedup from pandas!</span>
+sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;SELECT * 
+</span><span style="color:#e6db74">FROM sales_volume, promos 
+</span><span style="color:#e6db74">WHERE (sales_volume.brand=promos.brand or promos.brand=&#39;ANY&#39;)
+</span><span style="color:#e6db74">AND (start_date &lt;= date AND date &lt;= end_date)&#34;&#34;&#34;</span>
+
+pd<span style="color:#f92672">.</span>read_sql_query(sql, con)
+</code></pre></div></div>
+    <div class="post-footer">
+      <div class="info">
+        
+          <span class="separator"><a class="category" href="/categories/projects/">projects</a></span>
+
+
+
+
+        
+
+        
+          <span class="separator"><a class="tag" href="/tags/python/">python</a></span>
+
+
+
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          Nelson Tang 2021
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

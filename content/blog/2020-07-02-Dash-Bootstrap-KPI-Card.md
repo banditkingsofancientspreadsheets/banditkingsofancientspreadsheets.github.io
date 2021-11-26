@@ -22,6 +22,7 @@ Here's the sketch of the starter KPI dashboard:
 ![img](/images/dbc_kpi2.png)
 
 Python Code for your `app.py` file:
+
 ```python
 import dash  # (version 1.19.0) pip install dash
 
@@ -76,6 +77,7 @@ if __name__ == "__main__":
 The 'up' arrow icon is courtesy of fontawesome, which we load with the external stylesheet. Since this is all in python it's simple to turn this into a function and create conditional (i.e. `if`) statements to change the icon and color scheme for your data.
 
 Here is the basic CSS styling that goes with this:
+
 ```css
 .card {
     text-align: center;
