@@ -43,7 +43,7 @@ You can't do a simple left join because of the 'ANY' option on the right table. 
 
 ## Merge Everything You Think You'll Need and Sort it Out Later
 
-The simplest thing I found is to merge everything you think you'll need and then filter it out later. I tried dictionaries and set logic, but couldn't find anything faster than doing the big join. 
+The simplest thing I found is to merge everything you think you'll need and then filter it out later. I tried dictionaries and set logic, but couldn't find anything faster than doing the big join.
 
 Specifically, you can do a *Cartesian Product*, and [here's a great example from StackOverflow](https://stackoverflow.com/questions/47472207/how-to-merge-with-wildcard-pandas) when faced with having to merge two pandas dataframes with a wildcard value. I'll walk through each step below using the StackOverflow example and our sample scenario:
 
@@ -116,7 +116,7 @@ Which gives us our result (skipping the part where you drop some columns for cla
 
 ## Performance
 
-Since we had 4 rows in the left dataframe and 2 in the right, the result of the Cartesian Product is 4x2 or 8 rows long. Something to keep in mind if your datasets get large. So if you had 5K rows of sales data and 1K rows of promotions, you'd end up with 5M rows of data after this join.
+Since we had $4$ rows in the left dataframe and $2$ in the right, the result of the Cartesian Product is $4 \times 2$ or $8$ rows long. Something to keep in mind if your datasets get large. So if you had 5K rows of sales data and 1K rows of promotions, you'd end up with 5M rows of data after this join.
 
 But you don't need to do a full Cartesian Product here, the key idea is to get the superset of all the data that would be relevant and then filter it down. In my real-world case I had 55k rows and 15k rows of promotions, and I had about 12 different conditions to check (a mix of date and wildcards). I started with nested for-loops, dictionaries, and set logic and it took about 30s on my 2018 MBP, but with some smarter filtering and joining with this method I was able to get the same operation done in <10s.
 
