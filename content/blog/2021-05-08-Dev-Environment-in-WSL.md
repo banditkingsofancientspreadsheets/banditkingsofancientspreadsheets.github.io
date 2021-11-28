@@ -80,15 +80,17 @@ echo 'export PATH=$PATH:/home/$USERNAME/.local/bin' >> ~/.personal_macros
 source ~/.zshrc
 jill install
 ```
+
 Helpful to install a few common packages all at once in Julia. Open up Julia, hit the `]` key to go to Pkg management mode and:
+
 ```julia
-add Plots Gadfly DataFrames XLSX CSV RDatasets Pluto IJulia
+(@v1.6) pkg> add Plots Gadfly DataFrames XLSX CSV RDatasets Parquet Pluto IJulia
 ```
 
 ### VSCode
 Now, it's finally time to add VSCode for Windows
 * [Download VSCode](https://code.visualstudio.com/)
-    * Set Fonts!
+    * Set Fonts (FuraMono Nerd Font)
     * Follow the recommendations for extensions, but add:
         * Markdown Preview Enhanced
 
