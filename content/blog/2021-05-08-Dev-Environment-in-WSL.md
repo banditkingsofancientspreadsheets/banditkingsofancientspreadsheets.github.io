@@ -84,7 +84,7 @@ jill install
 Helpful to install a few common packages all at once in Julia. Open up Julia, hit the `]` key to go to Pkg management mode and:
 
 ```julia
-(@v1.6) pkg> add Plots Gadfly DataFrames XLSX CSV RDatasets Parquet Pluto IJulia
+(@v1.6) pkg> add Plots Gadfly DataFrames XLSX CSV RDatasets Parquet Pluto IJulia DataFramesMeta
 ```
 
 ### VSCode
