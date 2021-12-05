@@ -7,7 +7,7 @@
   <title>
     Nelson Tang
       |
-      Updating Julia in 2021
+      Updating Your Julia Installation (Dec 2021)
 
 
     
@@ -94,7 +94,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.nelsontang.com/featured-image.png"/>
 
-<meta name="twitter:title" content="Updating Julia in 2021"/>
+<meta name="twitter:title" content="Updating Your Julia Installation (Dec 2021)"/>
 <meta name="twitter:description" content="What it takes to update from a previous install of Julia on Mac/Linux"/>
 
 
@@ -111,8 +111,8 @@
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "articleSection": "blog",
-        "name": "Updating Julia in 2021",
-        "headline": "Updating Julia in 2021",
+        "name": "Updating Your Julia Installation (Dec 2021)",
+        "headline": "Updating Your Julia Installation (Dec 2021)",
         "alternativeHeadline": "",
         "description": "
       
@@ -171,7 +171,7 @@
 
     ,
         "url" : "https:\/\/www.nelsontang.com\/blog\/2021-11-27-updating-julia\/",
-        "wordCount" : "357",
+        "wordCount" : "430",
         "genre" : [ 
       
       "workflow"
@@ -337,7 +337,7 @@ if (!doNotTrack) {
     <div class="post-content">
       
       <div class="post-title">
-        <h1>Updating Julia in 2021</h1>
+        <h1>Updating Your Julia Installation (Dec 2021)</h1>
         
           <div class="info">
             <em class="fas fa-calendar-day"></em>
@@ -349,37 +349,40 @@ if (!doNotTrack) {
               </span
             >
             <em class="fas fa-stopwatch"></em>
-            <span class="reading-time">2-minute read</span>
+            <span class="reading-time">3-minute read</span>
           </div>
 
         
       </div><p>Had the hassle of trying to update Julia from 1.6.2 to 1.6.4 this weekend and I gotta say, <em>every</em> time there&rsquo;s always something I forget, so here&rsquo;s my best tips on what it takes to update your installation of Julia in Mac/Linux:</p>
 <h2 id="step-1-use-jillpyjill-to-download--install-julia">Step 1: Use <code>jill</code>/<code>pyjill</code> to Download &amp; Install Julia</h2>
-<p>I used to try to mess with downloading the binaries and install files directly from the <a href="https://julialang.org/downloads/">julialang site</a> and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use <code>pyjill</code> (<a href="https://github.com/johnnychen94/jill.py">https://github.com/johnnychen94/jill.py</a>)</p>
+<p>I used to mess with downloading the binaries and install files directly from the <a href="https://julialang.org/downloads/">julialang site</a> and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use <code>pyjill</code> (<a href="https://github.com/johnnychen94/jill.py),">https://github.com/johnnychen94/jill.py),</a> which works perfectly (note: requires python &gt;=3.6).</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Install or update the latest version of jill (requires python&gt;=3.6)</span>
 pip install jill --user -U
-<span style="color:#75715e"># export the jill PATH somewhere</span>
+<span style="color:#75715e"># export the jill PATH somewhere, if this is your first time installing jill</span>
 echo <span style="color:#e6db74">&#39;export PATH=$PATH:/home/$USERNAME/.local/bin&#39;</span> &gt;&gt; ~/.personal_macros
 source ~/.zshrc
 <span style="color:#75715e"># Install the latest stable release</span>
 jill install
 </code></pre></div><h2 id="step-2-remove-the-old-julia-folder-optional">Step 2: Remove the Old <code>.julia</code> Folder <em>(optional)</em></h2>
-<p>Another time sink I had was realizing that with a fresh update, I couldn&rsquo;t add packages anymore to julia because I didn&rsquo;t have root access to a folder hidden deep within the <code>.julia</code> folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry.</p>
+<p>Another time sink I had was realizing that with a fresh update, I couldn&rsquo;t add packages anymore to julia because I didn&rsquo;t have root access to a folder hidden deep within the <code>.julia</code> folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry. This might not be as much of an issue after Julia 1.7, where they made some changes to how the package registry handles different Julia versions.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Go to your home directory</span>
 cd
 <span style="color:#75715e"># Delete that sucker with prejudice</span>
 sudo rm -rf .julia
 </code></pre></div><h2 id="step-3-update-jupyter-kernels">Step 3: Update Jupyter Kernels</h2>
-<p>Next we&rsquo;ll need to remove the old julia kernel:</p>
+<p>Next we&rsquo;ll need to remove the old julia kernel from Jupyter:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># See the list of existing jupyter kernels and find your old install</span>
 jupyter kernelspec list
 <span style="color:#75715e"># My previous one was called julia-1.6, let&#39;s remove it</span>
 jupyter kernelspec remove julia-1.6
 </code></pre></div><p>Then use IJulia to add a new one. Whenever you change the Julia binary you need to have IJulia rebuild in order to register the new kernel to jupyter, so go back to Julia and go to the Pkg prompt:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> build IJulia
-</code></pre></div><h2 id="update-your-libraries">Update Your Libraries</h2>
-<p>From here on out you&rsquo;ll need to probably build and update your other libraries too, and if you use stuff like <code>PyCall</code>(<a href="https://github.com/JuliaPy/PyCall.jl">link</a>) where it downloads a distribution of python and hides it in your julia folder, have fun managing all of that! I&rsquo;ll do a writeup later when I figure this out a little more.</p>
-</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> add IJulia
+(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> build IJulia
+</code></pre></div><h2 id="step-4-update-your-libraries">Step 4. Update Your Libraries</h2>
+<p>From here on out you&rsquo;ll need to probably <code>build</code> and update your other libraries too, and if you use stuff like <code>PyCall</code>(<a href="https://github.com/JuliaPy/PyCall.jl">link</a>) where it downloads a distribution of python and hides it in your julia folder, have fun managing all of that! I&rsquo;ll do a writeup later when I figure this out a little more.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#75715e"># A few common libraries that I install for data exploration and analysis</span>
+(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> add Plots Gadfly DataFrames DataFramesMeta XLSX CSV RDatasets Parquet Pluto Query
+</code></pre></div></div>
     <div class="post-footer">
       <div class="info">
         
