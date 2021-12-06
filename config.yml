@@ -81,10 +81,10 @@ menu:
       weight : 400
       identifier : "about"
       url : "/about"
-    # - name : "Notes"
-    #   weight : 500
-    #   identifier : "notes"
-    #   url : "/notes"
+    - name : "Notebooks"
+      weight : 500
+      identifier : "notes"
+      url : "/notes"
 
 taxonomies:
   category: categories
