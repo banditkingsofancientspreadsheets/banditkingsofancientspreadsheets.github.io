@@ -6,6 +6,11 @@ permalink: /notes/
 
 Links to Jupyter Notebooks rendered in HTML and available through [nbviewer](https://nbviewer.org) to review key concepts. I don't work in Julia every day so I find it useful to keep a record of basic syntax until this becomes muscle memory.
 
+## Python
+
+* Monte Carlo is Easy and Free in Python [[ipynb]](https://github.com/banditkings/random-python-examples/blob/main/Monte%20Carlo.ipynb) [[html]](https://nbviewer.org/github/banditkings/random-python-examples/blob/main/Monte%20Carlo.ipynb)
+* Waterfall Charts in Plotly for FPnA [[ipynb]](https://github.com/banditkings/random-python-examples/blob/main/plotly%20waterfall.ipynb) [[html]](https://nbviewer.org/github/banditkings/random-python-examples/blob/main/plotly%20waterfall.ipynb)
+
 ## Julia
 
 * Basic Julia DataFrame loading and manipulation, i.e. Subsetting Rows in a DataFrame, pulling a CSV from the web, PyCall [[ipynb]](https://github.com/banditkings/julia-examples/blob/main/Data%20Munging/Julia%20By%20Example.ipynb) [[html]](https://nbviewer.org/github/banditkings/julia-examples/blob/main/Data%20Munging/Julia%20By%20Example.ipynb)
