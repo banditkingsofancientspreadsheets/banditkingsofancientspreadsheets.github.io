@@ -18,7 +18,7 @@ I operated mostly through instinct and intuition and didn't believe that there w
 
 I'm now on a journey to answer the question:
 
-> What advice or strategy could I have given to that younger version of myself?
+> What advice or strategy could I have given to that younger version of myself? What mental models could I have used to make better decisions and better quantify uncertainty and risk?
 
 I'm capturing what I learn here, and a few other tips and tricks along the way. If you're able to help me on this journey, let's get in touch!
 

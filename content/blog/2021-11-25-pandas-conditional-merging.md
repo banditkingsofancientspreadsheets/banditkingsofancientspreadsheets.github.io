@@ -7,6 +7,7 @@ summary: "Merging two dataframes with pandas but only if certain conditions are 
 aliases:
     - /pandas-conditional-merging
 ---
+*Updated 28 Jan 2022 to use a newer pandas crossjoin method with `.merge(how='cross')`, which works on pandas versions >1.2*
 
 What happens when you want to merge (join) two dataframes together, but only if certain conditions are true? This is easy to do when you are simply looking for matching key-value pairs in two tables, but I had a real life scenario where I had complex combinations of joins to consider.
 
@@ -45,9 +46,11 @@ You can't do a simple left join because of the 'ANY' option on the right table. 
 
 The simplest thing I found is to merge everything you think you'll need and then filter it out later. I tried dictionaries and set logic, but couldn't find anything faster than doing the big join.
 
-Specifically, you can do a *Cartesian Product*, and [here's a great example from StackOverflow](https://stackoverflow.com/questions/47472207/how-to-merge-with-wildcard-pandas) when faced with having to merge two pandas dataframes with a wildcard value. I'll walk through each step below using the StackOverflow example and our sample scenario:
+Specifically, you can do a *Cartesian Product* (aka a Cross Join), and [here's a great example from StackOverflow](https://stackoverflow.com/questions/47472207/how-to-merge-with-wildcard-pandas) when faced with having to merge two pandas dataframes with a wildcard value. I'll walk through each step below using the StackOverflow example and our sample scenario:
 
 ```python
+import pandas as pd
+
 # Create our two dataframes
 sales_volume_table = pd.DataFrame.from_dict([
     {'date':'2021-11-15', 'quantity':1, 'brand':'Outdoor'},
@@ -62,22 +65,21 @@ promos_table = pd.DataFrame.from_dict([
 ])
 
 # Create a column to join on and save the results with a Cartesian Product
-sales_volume_table['join'] = promos_table['join'] = 0
-results = sales_volume_table.merge(promos_table, on='join')
+results = sales_volume_table.merge(promos_table, how='cross')
 ```
 
 The Cartesian Product matches every row in the right dataframe with every row in the left dataframe. Here's the output below:
 
-| date       |   quantity | brand_x   |   join | start_date   | end_date   | brand_y   |   rebate_per_unit |
-|:-----------|-----------:|:----------|-------:|:-------------|:-----------|:----------|------------------:|
-| 2021-11-15 |          1 | Outdoor   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-15 |          1 | Outdoor   |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
-| 2021-11-20 |          2 | Leisure   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-20 |          2 | Leisure   |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
-| 2021-11-25 |          3 | Athletic  |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-25 |          3 | Athletic  |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
-| 2021-11-26 |          2 | Outdoor   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-26 |          2 | Outdoor   |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| date       |   quantity | brand_x   | start_date   | end_date   | brand_y   |   rebate_per_unit |
+|:-----------|-----------:|:----------|:-------------|:-----------|:----------|------------------:|
+| 2021-11-15 |          1 | Outdoor   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-15 |          1 | Outdoor   | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| 2021-11-20 |          2 | Leisure   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-20 |          2 | Leisure   | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| 2021-11-25 |          3 | Athletic  | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-25 |          3 | Athletic  | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| 2021-11-26 |          2 | Outdoor   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-26 |          2 | Outdoor   | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
 
 And then once the results are joined together in this way, you can then apply all of your conditions using pandas indexing. I like using the `query` method since it's a little easier to read.
 
@@ -86,14 +88,14 @@ And then once the results are joined together in this way, you can then apply al
 results = results.query("brand_x == brand_y | brand_y=='ANY'")
 ```
 
-| date       |   quantity | brand_x   |   join | start_date   | end_date   | brand_y   |   rebate_per_unit |
-|:-----------|-----------:|:----------|-------:|:-------------|:-----------|:----------|------------------:|
-| 2021-11-15 |          1 | Outdoor   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-15 |          1 | Outdoor   |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
-| 2021-11-20 |          2 | Leisure   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-25 |          3 | Athletic  |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-26 |          2 | Outdoor   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-26 |          2 | Outdoor   |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| date       |   quantity | brand_x   | start_date   | end_date   | brand_y   |   rebate_per_unit |
+|:-----------|-----------:|:----------|:-------------|:-----------|:----------|------------------:|
+| 2021-11-15 |          1 | Outdoor   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-15 |          1 | Outdoor   | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| 2021-11-20 |          2 | Leisure   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-25 |          3 | Athletic  | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-26 |          2 | Outdoor   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-26 |          2 | Outdoor   | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
 
 But we're not done yet - we still need to filter out the dates that are relevant, so we edit our above query to incorporate additional conditions, and do a little cleanup:
 
@@ -107,12 +109,12 @@ results = results.query(qry)
 
 Which gives us our result (skipping the part where you drop some columns for clarity)
 
-| date       |   quantity | brand_x   |   join | start_date   | end_date   | brand_y   |   rebate_per_unit |
-|:-----------|-----------:|:----------|-------:|:-------------|:-----------|:----------|------------------:|
-| 2021-11-15 |          1 | Outdoor   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-20 |          2 | Leisure   |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-25 |          3 | Athletic  |      0 | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
-| 2021-11-26 |          2 | Outdoor   |      0 | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
+| date       |   quantity | brand_x   | start_date   | end_date   | brand_y   |   rebate_per_unit |
+|:-----------|-----------:|:----------|:-------------|:-----------|:----------|------------------:|
+| 2021-11-15 |          1 | Outdoor   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-20 |          2 | Leisure   | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-25 |          3 | Athletic  | 2021-11-01   | 2021-11-25 | ANY       |                 3 |
+| 2021-11-26 |          2 | Outdoor   | 2021-11-25   | 2021-11-26 | Outdoor   |                 5 |
 
 ## Performance
 
@@ -163,8 +165,7 @@ promos_table = pd.DataFrame.from_dict([
 ])
 
 # Merge it all
-sales_volume_table['join'] = promos_table['join'] = 0
-results = sales_volume_table.merge(promos_table, on='join')
+results = sales_volume_table.merge(promos_table, how='cross') # notice you don't need to set a join key!
 # And Filter it Down
 results = results.query("(brand_x == brand_y | brand_y=='ANY') & start_date <= date <= end_date")
 ```
