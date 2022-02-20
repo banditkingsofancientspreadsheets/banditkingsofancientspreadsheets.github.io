@@ -11,6 +11,7 @@ Links to Jupyter Notebooks rendered in HTML and available through [nbviewer](htt
 * Monte Carlo is Easy and Free in Python [[ipynb]](https://github.com/banditkings/random-python-examples/blob/main/Monte%20Carlo.ipynb) [[html]](https://nbviewer.org/github/banditkings/random-python-examples/blob/main/Monte%20Carlo.ipynb)
 * Waterfall Charts in Plotly for FPnA [[ipynb]](https://github.com/banditkings/random-python-examples/blob/main/plotly%20waterfall.ipynb) [[html]](https://nbviewer.org/github/banditkings/random-python-examples/blob/main/plotly%20waterfall.ipynb)
 * Simple Examples of Bayesian Networks with Python `pgmpy` [[ipynb]](https://github.com/banditkings/random-python-examples/blob/main/bayesian_networks/bayesian%20networks.ipynb) [[nbviewer]](https://nbviewer.org/github/banditkings/random-python-examples/blob/main/bayesian_networks/bayesian%20networks.ipynb)
+* Using `pandas` to create Fiscal Calendars and 52/53 (aka 4-4-5) Lookup Calendars in Python [[ipynb]](https://github.com/banditkings/random-python-examples/blob/main/time-series-python/pandas-time-functions.ipynb)[[html]](https://nbviewer.org/github/banditkings/random-python-examples/blob/main/time-series-python/pandas-time-functions.ipynb)
 
 ## Julia
 
