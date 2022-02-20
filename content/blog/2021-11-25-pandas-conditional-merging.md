@@ -2,7 +2,7 @@
 title: "Python Pandas - Merging With Wildcards and Conditions"
 date: 2021-11-25
 tags: [python]
-categories: [projects]
+categories: [modeling]
 summary: "Merging two dataframes with pandas but only if certain conditions are true."
 aliases:
     - /pandas-conditional-merging

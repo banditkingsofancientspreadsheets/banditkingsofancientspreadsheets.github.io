@@ -6,7 +6,18 @@
     <description>Recent content in modeling on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/categories/modeling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/categories/modeling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Pandas - Merging With Wildcards and Conditions</title>
+      <link>https://www.nelsontang.com/blog/2021-11-25-pandas-conditional-merging/</link>
+      <pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.nelsontang.com/blog/2021-11-25-pandas-conditional-merging/</guid>
+      
+        <description>Merging two dataframes with pandas but only if certain conditions are true.</description>
+      
+    </item>
+    
     <item>
       <title>Time Series Cheat Sheet in R</title>
       <link>https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r/</link>

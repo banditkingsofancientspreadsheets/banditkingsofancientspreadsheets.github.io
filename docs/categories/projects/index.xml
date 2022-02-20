@@ -6,18 +6,7 @@
     <description>Recent content in projects on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Python Pandas - Merging With Wildcards and Conditions</title>
-      <link>https://www.nelsontang.com/blog/2021-11-25-pandas-conditional-merging/</link>
-      <pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.nelsontang.com/blog/2021-11-25-pandas-conditional-merging/</guid>
-      
-        <description>Merging two dataframes with pandas but only if certain conditions are true.</description>
-      
-    </item>
-    
+    <lastBuildDate>Fri, 03 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How Data Science Can Be Applied to Corporate Finance</title>
       <link>https://www.nelsontang.com/blog/2021-09-03-corporate-finance-data-science/</link>
