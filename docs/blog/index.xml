@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 27 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Making Custom Fiscal 52/53 Workweek Calendars in Pandas</title>
+      <link>https://www.nelsontang.com/blog/2022-02-20-fiscal-5253-workweek-calendars-in-pandas/</link>
+      <pubDate>Sun, 20 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.nelsontang.com/blog/2022-02-20-fiscal-5253-workweek-calendars-in-pandas/</guid>
+      
+        <description>How to build custom financial calendars that have 52 or 53 workweeks in a fiscal year (aka the 4-4-5 calendar) using &lt;code&gt;pandas&lt;/code&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Updating Your Julia Installation (Dec 2021)</title>
       <link>https://www.nelsontang.com/blog/2021-11-27-updating-julia/</link>
@@ -70,17 +81,6 @@
       <guid>https://www.nelsontang.com/blog/2021-04-16-plotly-in-markdown/</guid>
       
         <description>Quick reference that shows options to add plotly charts to a markdown document</description>
-      
-    </item>
-    
-    <item>
-      <title>Making Custom Fiscal 52/53 Workweek Calendars in Pandas</title>
-      <link>https://www.nelsontang.com/blog/2021-02-20-fiscal-calendars-in-pandas/</link>
-      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.nelsontang.com/blog/2021-02-20-fiscal-calendars-in-pandas/</guid>
-      
-        <description>How to build custom financial calendars that have 52 or 53 workweeks in a fiscal year (aka the 4-4-5 calendar) using &lt;code&gt;pandas&lt;/code&gt;</description>
       
     </item>
     

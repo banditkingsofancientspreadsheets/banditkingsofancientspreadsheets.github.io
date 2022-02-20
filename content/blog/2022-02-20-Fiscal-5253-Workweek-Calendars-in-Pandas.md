@@ -1,6 +1,6 @@
 ---
 title: "Making Custom Fiscal 52/53 Workweek Calendars in Pandas"
-date: 2022-02-22
+date: 2022-02-20
 tags: [python]
 categories: [modeling]
 summary: "How to build custom financial calendars that have 52 or 53 workweeks in a fiscal year (aka the 4-4-5 calendar) using `pandas`"
