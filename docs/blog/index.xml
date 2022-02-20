@@ -74,6 +74,17 @@
     </item>
     
     <item>
+      <title>Making Custom Fiscal 52/53 Workweek Calendars in Pandas</title>
+      <link>https://www.nelsontang.com/blog/2021-02-20-fiscal-calendars-in-pandas/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.nelsontang.com/blog/2021-02-20-fiscal-calendars-in-pandas/</guid>
+      
+        <description>How to build custom financial calendars that have 52 or 53 workweeks in a fiscal year (aka the 4-4-5 calendar) using &lt;code&gt;pandas&lt;/code&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>&#39;Tie Fighter&#39; Errorbar Charts in Python with Plotnine and Altair</title>
       <link>https://www.nelsontang.com/blog/2020-12-28-tie-fighter-error-charts-in-python/</link>
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>

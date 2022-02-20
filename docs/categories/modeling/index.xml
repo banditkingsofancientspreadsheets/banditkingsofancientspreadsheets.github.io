@@ -19,6 +19,17 @@
     </item>
     
     <item>
+      <title>Making Custom Fiscal 52/53 Workweek Calendars in Pandas</title>
+      <link>https://www.nelsontang.com/blog/2021-02-20-fiscal-calendars-in-pandas/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.nelsontang.com/blog/2021-02-20-fiscal-calendars-in-pandas/</guid>
+      
+        <description>How to build custom financial calendars that have 52 or 53 workweeks in a fiscal year (aka the 4-4-5 calendar) using &lt;code&gt;pandas&lt;/code&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Time Series Cheat Sheet in R</title>
       <link>https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r/</link>
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>

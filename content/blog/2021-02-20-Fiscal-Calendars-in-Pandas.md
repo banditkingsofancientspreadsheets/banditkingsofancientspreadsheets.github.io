@@ -1,6 +1,6 @@
 ---
 title: "Making Custom Fiscal 52/53 Workweek Calendars in Pandas"
-date: 2022-02-22
+date: 2021-02-22
 tags: [python]
 categories: [modeling]
 summary: "How to build custom financial calendars that have 52 or 53 workweeks in a fiscal year (aka the 4-4-5 calendar) using `pandas`"
@@ -123,59 +123,6 @@ Let's take a look at the above result - we've generated a `DatetimeIndex` with t
 Notice the new `freq` string. Creating the timeseries offset object generates a new `freq` string that you can use for the `pd.date_range` function. However, unlike the previous examples you can't convert these to `Period` objects to get the quarter, month, etc (you can try it - it'll return an error).
 
 So how can we use this to create a lookup table? We can do it manually with a loop and `pd.date_range`:
-
-```python
-# Create a '1 day' offset:
-d1 = pd.tseries.offsets.DateOffset(n = 1)
-
-# Specify the starting fiscal year
-yr = (yoffset_range[0] - pd.tseries.offsets.DateOffset(n=8)).year +1
-
-# iterate over each item in the date range we created earlier:
-result = pd.DataFrame()
-for i in yoffset_range:
-    # recall each item is a Timestamp that represents the first day of the fiscal year,
-    # so create a date_range from beginning to end of the fiscal year
-    current_range = pd.date_range(i+d1, i+yoffset, freq='D')
-    interim_df = pd.DataFrame(index = current_range)
-    # day of year
-    interim_df['DOY'] = (current_range-current_range[0]).days +1
-    # fiscal year
-    interim_df['FY'] = yr
-    result = result.append(interim_df)
-    yr += 1
-
-# See what we get:
-result.query('FY==2021').tail(10)
-```
-
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>DOY</th>      <th>FY</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-12-16</th>      <td>355</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-17</th>      <td>356</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-18</th>      <td>357</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-19</th>      <td>358</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-20</th>      <td>359</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-21</th>      <td>360</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-22</th>      <td>361</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-23</th>      <td>362</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-24</th>      <td>363</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-25</th>      <td>364</td>      <td>2021</td>    </tr>  </tbody></table>
-
-This loop created a dataframe with the daily `pd.DatetimeIndex` and a few columns that specify where each calendar day falls in the fiscal year.
-
-We can also add more features, like the workweek in the year, which fiscal quarter that day falls under, and more:
-
-```python
-# workweek in year
-result['WW'] = ((result['DOY']-1) //7) + 1
-# fiscal quarter
-result['FQ'] = np.minimum((result['WW']//13) + 1, 4)
-# workweek in quarter
-result['WWinQ'] = result['WW'] - ((result['FQ']-1) * 13)
-# fiscal month
-result['FM'] = ((result['FQ']-1)*3) + np.minimum(((result['WWinQ'] // 4)+1), 3)
-
-# Show the result
-result.query('FY==2021').tail(10)
-```
-
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>DOY</th>      <th>FY</th>      <th>WW</th>      <th>FQ</th>      <th>WWinQ</th>      <th>FM</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-12-16</th>      <td>355</td>      <td>2021</td>      <td>51</td>      <td>4</td>      <td>12</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-17</th>      <td>356</td>      <td>2021</td>      <td>51</td>      <td>4</td>      <td>12</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-18</th>      <td>357</td>      <td>2021</td>      <td>51</td>      <td>4</td>      <td>12</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-19</th>      <td>358</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-20</th>      <td>359</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-21</th>      <td>360</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-22</th>      <td>361</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-23</th>      <td>362</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-24</th>      <td>363</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-25</th>      <td>364</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>  </tbody></table>
-
-# Summary
-
-Great! We can summarize the function a [public gist](https://gist.github.com/banditkings/735fe1885a442b3457d208060ac4b970).
-
-So if you have a pretty clean fiscal calendar, `pandas` has you covered. But if you use a 4-4-5 calendar (aka 52/53 workweek calendar) then you'll mostly be building one from scratch. `pandas` *does* help a little bit with finding the beginning and end dates of each fiscal year, which helps you avoid having to write your own logic to handle leap years and deciding which years have 52 workweeks instead of 53 workweeks.
 
 ## References Used
 
