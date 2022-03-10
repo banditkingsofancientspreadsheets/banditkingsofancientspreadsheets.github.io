@@ -19,7 +19,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -57,17 +57,6 @@
       rel="stylesheet"
       href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
       integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
-      crossorigin="anonymous"
-      media="screen"
-    />
-
-  
-    
-    
-    <link
-      rel="stylesheet"
-      href="/css/syntax.min.dd5b47689eac4082335c3a7a4540adc5c08f2d9d6d6f6ba76a81e9f1901f0f9f.css"
-      integrity="sha256-3VtHaJ6sQIIzXDp6RUCtxcCPLZ1tb2unaoHp8ZAfD58="
       crossorigin="anonymous"
       media="screen"
     />
@@ -111,8 +100,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -285,8 +274,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -406,39 +395,39 @@ if (!doNotTrack) {
       <p>I got a little lost reading the plotly docs on saving a custom plotly template, so here&rsquo;s a basic skeleton of a template inspired by <a href="https://investors.nike.com/investors/news-events-and-reports/default.aspx">Nike&rsquo;s 10K</a> that you can use to customize basic plot colors, fonts, and show you how the template is structured. I also structured the code to be a little more readible for me since I didn&rsquo;t like their use of both <code>dict</code> and their &lsquo;magic underscore notation&rsquo; which made things more confusing. When you make a template IRL they are going to be pretty verbose and magic underscore notation is not helpful.</p>
 <p>Here&rsquo;s the example. Oh, and you should save it as a file like <code>my_template.py</code> so you can share it as an internal package that people can install with pip or something:</p>
 <h3 id="my_templatepy"><code>my_template.py</code>:</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
-
-<span class="n">pio</span><span class="o">.</span><span class="n">templates</span><span class="p">[</span><span class="s2">&#34;nike&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span>
-    <span class="c1"># LAYOUT</span>
-    <span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="c1"># Fonts</span>
-        <span class="c1"># Note - &#39;family&#39; must be a single string, NOT a list or dict!</span>
-        <span class="s1">&#39;title&#39;</span><span class="p">:</span>
-            <span class="p">{</span><span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;HelveticaNeue-CondensedBold, Helvetica, Sans-serif&#39;</span><span class="p">,</span> 
-                      <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span>
-                      <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">}</span>
-            <span class="p">},</span>
-        <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span><span class="p">,</span> 
-                      <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
-                      <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">},</span>
-        <span class="c1"># Colorways</span>
-        <span class="s1">&#39;colorway&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;#ec7424&#39;</span><span class="p">,</span> <span class="s1">&#39;#a4abab&#39;</span><span class="p">],</span>
-        <span class="c1"># Keep adding others as needed below</span>
-        <span class="s1">&#39;hovermode&#39;</span><span class="p">:</span> <span class="s1">&#39;x unified&#39;</span>
-    <span class="p">},</span>
-    <span class="c1"># DATA</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="c1"># Each graph object must be in a tuple or list for each trace</span>
-        <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">texttemplate</span> <span class="o">=</span> <span class="s1">&#39;%{value:$.2s}&#39;</span><span class="p">,</span>
-                       <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>
-                       <span class="n">textfont</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span><span class="p">,</span>
-                                 <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-                                 <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFFFFF&#39;</span>
-                                 <span class="p">})]</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-</code></pre></div><h2 id="layout-choose-fonts-and-colors">Layout: Choose Fonts and Colors</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pio</span><span class="o">.</span><span class="n">templates</span><span class="p">[</span><span class="s2">&#34;nike&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># LAYOUT</span>
+</span></span><span class="line"><span class="cl">    <span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Fonts</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Note - &#39;family&#39; must be a single string, NOT a list or dict!</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;HelveticaNeue-CondensedBold, Helvetica, Sans-serif&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Colorways</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;colorway&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;#ec7424&#39;</span><span class="p">,</span> <span class="s1">&#39;#a4abab&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Keep adding others as needed below</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;hovermode&#39;</span><span class="p">:</span> <span class="s1">&#39;x unified&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># DATA</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Each graph object must be in a tuple or list for each trace</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">texttemplate</span> <span class="o">=</span> <span class="s1">&#39;%{value:$.2s}&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">textfont</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                 <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                 <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFFFFF&#39;</span>
+</span></span><span class="line"><span class="cl">                                 <span class="p">})]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="layout-choose-fonts-and-colors">Layout: Choose Fonts and Colors</h2>
 <p>The first thing I do when building out a template <code>layout</code> is I get inspiration from a company&rsquo;s 10k/10Q financial filings and their branding to get their fonts and colors. Google &lsquo;(company name) investor relations&rsquo; and that&rsquo;ll take you to a site where they have a bunch of their financial statements and letters to shareholders and such.</p>
 <ul>
 <li>
@@ -459,19 +448,19 @@ if (!doNotTrack) {
 <h2 id="protip-practice-with-built-in-plotly-datasets">Protip: Practice with built-in Plotly datasets</h2>
 <p>Plotly has a bunch of built-in datasets that you should practice with when building POC&rsquo;s, but the list is hard to find. <a href="https://plotly.com/python-api-reference/generated/plotly.data.html">Here&rsquo;s the API reference</a>.</p>
 <h2 id="finished-example">Finished Example:</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-<span class="kn">import</span> <span class="nn">my_template</span> <span class="c1"># Import your template here</span>
-
-<span class="c1"># load demo data</span>
-<span class="kn">from</span> <span class="nn">plotly.data</span> <span class="kn">import</span> <span class="n">tips</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">tips</span><span class="p">()</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="c1"># Plot with the new template</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> 
-             <span class="n">template</span><span class="o">=</span><span class="s1">&#39;nike&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Template Example&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">my_template</span> <span class="c1"># Import your template here</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># load demo data</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">plotly.data</span> <span class="kn">import</span> <span class="n">tips</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">tips</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot with the new template</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">             <span class="n">template</span><span class="o">=</span><span class="s1">&#39;nike&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Template Example&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>
 
 <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: \'local\'};</script>        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>                <div id="fe499a24-e100-447e-9c4c-117badbc9408" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("fe499a24-e100-447e-9c4c-117badbc9408")) {                    Plotly.newPlot(                        "fe499a24-e100-447e-9c4c-117badbc9408",                        [{"alignmentgroup": "True", "hovertemplate": "smoker=No<br>size=%{x}<br>tip=%{y}<extra></extra>", "legendgroup": "No", "marker": {"color": "#ec7424"}, "name": "No", "offsetgroup": "No", "orientation": "v", "showlegend": true, "textposition": "auto", "type": "bar", "x": [1, 2, 3, 4, 5, 6], "xaxis": "x", "y": [1.415, 2.4890000000000003, 3.06923076923077, 4.195769230769232, 5.046666666666667, 5.225], "yaxis": "y"}, {"alignmentgroup": "True", "hovertemplate": "smoker=Yes<br>size=%{x}<br>tip=%{y}<extra></extra>", "legendgroup": "Yes", "marker": {"color": "#a4abab"}, "name": "Yes", "offsetgroup": "Yes", "orientation": "v", "showlegend": true, "textposition": "auto", "type": "bar", "x": [1, 2, 3, 4, 5], "xaxis": "x", "y": [1.46, 2.709545454545454, 4.095, 3.9927272727272727, 2.5], "yaxis": "y"}],                        {"barmode": "relative", "legend": {"title": {"text": "smoker"}, "tracegroupgap": 0}, "template": {"data": {"bar": [{"textfont": {"color": "#FFFFFF", "family": "Helvetica Neue, Helvetica, Sans-serif", "size": 20}, "textposition": "outside", "texttemplate": "%{value:$.2s}", "type": "bar"}]}, "layout": {"colorway": ["#ec7424", "#a4abab"], "font": {"color": "#333", "family": "Helvetica Neue, Helvetica, Sans-serif", "size": 16}, "hovermode": "x unified", "title": {"font": {"color": "#333", "family": "HelveticaNeue-CondensedBold, Helvetica, Sans-serif", "size": 30}}}}, "title": {"text": "Template Example"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "size"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "tip"}}},                        {"responsive": true}                    )                };                            </script>        </div>
 
@@ -521,8 +510,8 @@ if (!doNotTrack) {
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">

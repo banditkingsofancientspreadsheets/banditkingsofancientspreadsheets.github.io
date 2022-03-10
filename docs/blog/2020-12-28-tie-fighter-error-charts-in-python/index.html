@@ -19,7 +19,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -57,17 +57,6 @@
       rel="stylesheet"
       href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
       integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
-      crossorigin="anonymous"
-      media="screen"
-    />
-
-  
-    
-    
-    <link
-      rel="stylesheet"
-      href="/css/syntax.min.dd5b47689eac4082335c3a7a4540adc5c08f2d9d6d6f6ba76a81e9f1901f0f9f.css"
-      integrity="sha256-3VtHaJ6sQIIzXDp6RUCtxcCPLZ1tb2unaoHp8ZAfD58="
       crossorigin="anonymous"
       media="screen"
     />
@@ -111,8 +100,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -278,8 +267,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -397,54 +386,54 @@ if (!doNotTrack) {
         </ul>
 
       <p>It&rsquo;s December 2020 and it&rsquo;s time to check out different python plotting packages. I primarily will use pandas dataframe plotting with either seaborn&rsquo;s <code>sns.set()</code> or <a href="https://plotly.com/python/pandas-backend/">setting plotly as the plotting backend</a> during data exploration, but there&rsquo;s nothing in python that matches R&rsquo;s <code>ggplot2</code>. I&rsquo;ve known about <a href="https://plotnine.readthedocs.io/en/stable/">plotnine</a> as the python equivalent but last time I tried it it was still lacking in the feature department. I&rsquo;m happy to say that it&rsquo;s totally viable now.</p>
-<p>One chart that I often used in R was a &lsquo;tie fighter&rsquo; (error bar) chart. It&rsquo;s handy to compare accuracy for various predictive models. <a href="https://thecodeforest.github.io/post/tidy_time_series_forecasting.html">Here&rsquo;s a motivating example from &lsquo;thecodeforest&rsquo; where he compares various time serious forecasting models in R</a>. I&rsquo;m also motivated to stick with ggplot because then I&rsquo;d be able to quickly make plots in R, python, and in Julia (given how seamless <code>RCall</code> is in Julia and native support of dataframes).</p>
+<p>One chart that I often used in R was a &rsquo;tie fighter&rsquo; (error bar) chart. It&rsquo;s handy to compare accuracy for various predictive models. <a href="https://thecodeforest.github.io/post/tidy_time_series_forecasting.html">Here&rsquo;s a motivating example from &rsquo;thecodeforest&rsquo; where he compares various time serious forecasting models in R</a>. I&rsquo;m also motivated to stick with ggplot because then I&rsquo;d be able to quickly make plots in R, python, and in Julia (given how seamless <code>RCall</code> is in Julia and native support of dataframes).</p>
 <h1 id="plotnine">Plotnine</h1>
 <p>Here&rsquo;s what the syntax for a quick tie fighter chart in <code>plotnine</code> using the included <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html"><code>mtcars</code> dataset</a> as a toy example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">mtcars</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
- 
-<span class="c1"># Calc mean, std error of mpg by number of cylinders and whether they&#39;re automatic (0) or manual (1)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">])[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">sem</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
- 
-<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;factor(cyl)&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;factor(am)&#39;</span><span class="p">))</span>
-<span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
-<span class="o">+</span> <span class="n">geom_errorbar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">ymin</span> <span class="o">=</span> <span class="s1">&#39;mean - sem&#39;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s1">&#39;mean + sem&#39;</span><span class="p">))</span>
-<span class="o">+</span> <span class="n">coord_flip</span><span class="p">()</span>
-<span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;A Tie Fighter Chart&#34;</span><span class="p">,</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Cylinders&#39;</span><span class="p">,</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Mean MPG +/-1 SE&#39;</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">p</span>
-</code></pre></div><p><img src="/images/tiefighter1.png" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">mtcars</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># Calc mean, std error of mpg by number of cylinders and whether they&#39;re automatic (0) or manual (1)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">mtcars</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;cyl&#39;</span><span class="p">,</span> <span class="s1">&#39;am&#39;</span><span class="p">])[</span><span class="s1">&#39;mpg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">sem</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;factor(cyl)&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;factor(am)&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="n">geom_errorbar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">ymin</span> <span class="o">=</span> <span class="s1">&#39;mean - sem&#39;</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="s1">&#39;mean + sem&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="n">coord_flip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="o">+</span> <span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&#34;A Tie Fighter Chart&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;Cylinders&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;Mean MPG +/-1 SE&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">p</span>
+</span></span></code></pre></div><p><img src="/images/tiefighter1.png" alt="img"></p>
 <p>And what I love about <code>ggplot2</code> (and <code>plotnine</code>) is the consistent syntax and how easy it is to add or remove customization and complexity compared to the other plotting libraries in python:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Now it&#39;s trivial to add or remove stuff to our plots, even in python!</span>
-<span class="n">p</span> <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">xkcd</span><span class="p">)</span>
-</code></pre></div><p><img src="/images/tiefighter2.png" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Now it&#39;s trivial to add or remove stuff to our plots, even in python!</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">xkcd</span><span class="p">)</span>
+</span></span></code></pre></div><p><img src="/images/tiefighter2.png" alt="img"></p>
 <p>One thing we&rsquo;re still missing is the ability to do subtitles and captions, but maybe someday.</p>
 <h1 id="altair">Altair</h1>
 <p><a href="https://altair-viz.github.io">Altair</a> is another opinionated plotting package based on Vega-lite that has a very consistent syntax that&rsquo;s worth a look.</p>
 <p>Here&rsquo;s the same example as above, but in Altair:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">mtcars</span>
-
-<span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;average(mpg):Q&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;cyl:O&#39;</span><span class="p">,</span>
-    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;am:N&#39;</span><span class="p">,</span>
-<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-
-<span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;stderr&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
-  <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;average(mpg):Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
-  <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;cyl:O&#39;</span><span class="p">),</span>
-  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;am:N&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="n">points</span><span class="o">+</span><span class="n">error_bars</span>
-</code></pre></div><p><img src="/images/tiefighter3.png" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">plotnine.data</span> <span class="kn">import</span> <span class="n">mtcars</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">points</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;average(mpg):Q&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;cyl:O&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;am:N&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">error_bars</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">mtcars</span><span class="p">)</span><span class="o">.</span><span class="n">mark_errorbar</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="s1">&#39;stderr&#39;</span><span class="p">,</span> <span class="n">ticks</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;average(mpg):Q&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;cyl:O&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;am:N&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">points</span><span class="o">+</span><span class="n">error_bars</span>
+</span></span></code></pre></div><p><img src="/images/tiefighter3.png" alt="img"></p>
 <p>Notice that <code>Altair</code> has baked in aggregation and transformations so I didn&rsquo;t have to do my <code>groupby</code> and <code>agg</code> in <code>pandas</code>. And similar to what I like in <code>ggplot2</code>/<code>plotnine</code> there&rsquo;s the ability to quickly add and remove complexity. But as you can see the result was <em>so small</em> on my macbook pro, and I wish there was an easy way to scale the whole thing up to a reasonable aspect ratio (looks like I&rsquo;d have to scale up each component separately or save as SVG).</p>
 </div>
     <div class="post__footer">
@@ -485,8 +474,8 @@ if (!doNotTrack) {
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">

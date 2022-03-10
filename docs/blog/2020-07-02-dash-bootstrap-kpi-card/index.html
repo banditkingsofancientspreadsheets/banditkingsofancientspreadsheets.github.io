@@ -19,7 +19,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -57,17 +57,6 @@
       rel="stylesheet"
       href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
       integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
-      crossorigin="anonymous"
-      media="screen"
-    />
-
-  
-    
-    
-    <link
-      rel="stylesheet"
-      href="/css/syntax.min.dd5b47689eac4082335c3a7a4540adc5c08f2d9d6d6f6ba76a81e9f1901f0f9f.css"
-      integrity="sha256-3VtHaJ6sQIIzXDp6RUCtxcCPLZ1tb2unaoHp8ZAfD58="
       crossorigin="anonymous"
       media="screen"
     />
@@ -111,8 +100,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -292,8 +281,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -419,82 +408,82 @@ if (!doNotTrack) {
 <p>Here&rsquo;s the sketch of the starter KPI dashboard:
 <img src="/images/dbc_kpi2.png" alt="img"></p>
 <p>Python Code for your <code>app.py</code> file:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">dash</span>  <span class="c1"># (version 1.19.0) pip install dash</span>
-
-<span class="kn">import</span> <span class="nn">dash_bootstrap_components</span> <span class="k">as</span> <span class="nn">dbc</span>
-<span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
-
-<span class="n">fontawesome_stylesheet</span> <span class="o">=</span> <span class="s2">&#34;https://use.fontawesome.com/releases/v5.8.1/css/all.css&#34;</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="n">external_stylesheets</span><span class="o">=</span><span class="p">[</span><span class="n">dbc</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">BOOTSTRAP</span><span class="p">,</span> <span class="n">fontawesome_stylesheet</span><span class="p">])</span>
-
-<span class="n">header</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-    <span class="n">dbc</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&#34;H1 Text&#34;</span><span class="p">))),</span>
-<span class="p">])</span>
-
-<span class="n">card</span> <span class="o">=</span> <span class="n">dbc</span><span class="o">.</span><span class="n">Card</span><span class="p">([</span>
-        <span class="n">dbc</span><span class="o">.</span><span class="n">CardBody</span><span class="p">([</span>
-                <span class="n">html</span><span class="o">.</span><span class="n">H4</span><span class="p">(</span><span class="s2">&#34;Card title&#34;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-title&#34;</span><span class="p">),</span>
-                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
-                    <span class="s2">&#34;$10.5 M&#34;</span><span class="p">,</span>
-                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-value&#34;</span><span class="p">,</span>
-                <span class="p">),</span>
-                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
-                    <span class="s2">&#34;Target: $10.0 M&#34;</span><span class="p">,</span>
-                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-target&#34;</span><span class="p">,</span>
-                <span class="p">),</span>
-                <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">([</span>
-                    <span class="n">html</span><span class="o">.</span><span class="n">I</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s2">&#34;fas fa-arrow-circle-up up&#34;</span><span class="p">),</span>
-                    <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="s2">&#34; 5.5% vs Last Year&#34;</span><span class="p">,</span>
-                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;up&#34;</span><span class="p">)</span>
-                <span class="p">])</span>
-            <span class="p">])</span>
-        <span class="p">])</span>
-
-<span class="n">row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-        <span class="n">dbc</span><span class="o">.</span><span class="n">CardDeck</span><span class="p">([</span>
-                <span class="n">card</span><span class="p">,</span>
-                <span class="n">card</span><span class="p">,</span>
-                <span class="n">card</span><span class="p">,</span>
-            <span class="p">]),</span>
-    <span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;25px&#39;</span><span class="p">}</span>
-<span class="p">)</span>
-
-<span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-    <span class="n">header</span><span class="p">,</span>
-    <span class="n">row</span><span class="p">,</span>
-    <span class="n">row</span>
-<span class="p">])</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><p>The &lsquo;up&rsquo; arrow icon is courtesy of fontawesome, which we load with the external stylesheet. Since this is all in python it&rsquo;s simple to turn this into a function and create conditional (i.e. <code>if</code>) statements to change the icon and color scheme for your data.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dash</span>  <span class="c1"># (version 1.19.0) pip install dash</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dash_bootstrap_components</span> <span class="k">as</span> <span class="nn">dbc</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fontawesome_stylesheet</span> <span class="o">=</span> <span class="s2">&#34;https://use.fontawesome.com/releases/v5.8.1/css/all.css&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="n">external_stylesheets</span><span class="o">=</span><span class="p">[</span><span class="n">dbc</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">BOOTSTRAP</span><span class="p">,</span> <span class="n">fontawesome_stylesheet</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">header</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dbc</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&#34;H1 Text&#34;</span><span class="p">))),</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">card</span> <span class="o">=</span> <span class="n">dbc</span><span class="o">.</span><span class="n">Card</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dbc</span><span class="o">.</span><span class="n">CardBody</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">H4</span><span class="p">(</span><span class="s2">&#34;Card title&#34;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-title&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;$10.5 M&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-value&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;Target: $10.0 M&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-target&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">html</span><span class="o">.</span><span class="n">I</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s2">&#34;fas fa-arrow-circle-up up&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="s2">&#34; 5.5% vs Last Year&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;up&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">])</span>
+</span></span><span class="line"><span class="cl">            <span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dbc</span><span class="o">.</span><span class="n">CardDeck</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">                <span class="n">card</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">card</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="n">card</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">]),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;25px&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">    <span class="n">header</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">row</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">row</span>
+</span></span><span class="line"><span class="cl"><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div><p>The &lsquo;up&rsquo; arrow icon is courtesy of fontawesome, which we load with the external stylesheet. Since this is all in python it&rsquo;s simple to turn this into a function and create conditional (i.e. <code>if</code>) statements to change the icon and color scheme for your data.</p>
 <p>Here is the basic CSS styling that goes with this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">card</span> <span class="p">{</span>
-    <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-title</span> <span class="p">{</span>
-    <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">lighter</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-value</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-target</span> <span class="p">{</span>
-    <span class="k">font-size</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
-    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">lighter</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">down</span> <span class="p">{</span>
-    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span>
-<span class="p">}</span>
-
-<span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">up</span> <span class="p">{</span>
-    <span class="k">color</span><span class="p">:</span> <span class="kc">green</span>
-<span class="p">}</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">lighter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-value</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-target</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">lighter</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">down</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">up</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">green</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></div>
     <div class="post__footer">
       
         <span><a class="category" href="/categories/dataviz/">dataviz</a></span>
@@ -533,8 +522,8 @@ if (!doNotTrack) {
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">

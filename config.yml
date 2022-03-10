@@ -6,7 +6,7 @@ theme : "anatole" #name of the directory containing theme files
 summarylength : 50 #summary length shown on list pages
 enableRobotsTXT : true #leave true for SEO
 #this file instructs search engine crawlers on how to access the site
-
+# Syntax highlighting? can't get this to work
 pygmentsCodeFences : true
 pygmentsUseClasses : true
 
@@ -57,8 +57,8 @@ params:
     enable : true  # options: true, false.
     use : "mathjax"
   # syntax highlighting  
-  customCss : ["css/custom.css", "css/syntax.css"]
-  # customCss : ["css/syntax.css"]
+  # customCss : ["css/custom.css", "css/syntax.css"]
+  customCss : ["css/custom.css"]
 
 ## Menu items
 #weight defines which entry is shown first

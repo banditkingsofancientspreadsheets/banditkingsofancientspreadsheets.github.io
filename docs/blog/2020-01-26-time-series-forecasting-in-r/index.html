@@ -19,7 +19,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -57,17 +57,6 @@
       rel="stylesheet"
       href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
       integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
-      crossorigin="anonymous"
-      media="screen"
-    />
-
-  
-    
-    
-    <link
-      rel="stylesheet"
-      href="/css/syntax.min.dd5b47689eac4082335c3a7a4540adc5c08f2d9d6d6f6ba76a81e9f1901f0f9f.css"
-      integrity="sha256-3VtHaJ6sQIIzXDp6RUCtxcCPLZ1tb2unaoHp8ZAfD58="
       crossorigin="anonymous"
       media="screen"
     />
@@ -111,8 +100,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -285,8 +274,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -407,11 +396,11 @@ if (!doNotTrack) {
 <p>Source: <a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a></p>
 <h1 id="data-prep">Data Prep</h1>
 <p>Coerce your data to <code>ts</code> format:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
-
-<span class="n">myts</span> <span class="o">&lt;-</span> <span class="nf">ts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1981</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">frequency</span> <span class="o">=</span> <span class="m">12</span><span class="p">)</span>
-</code></pre></div><h1 id="exploring-and-plotting-ts-data">Exploring and Plotting <code>ts</code> Data</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">myts</span> <span class="o">&lt;-</span> <span class="nf">ts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1981</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">frequency</span> <span class="o">=</span> <span class="m">12</span><span class="p">)</span>
+</span></span></code></pre></div><h1 id="exploring-and-plotting-ts-data">Exploring and Plotting <code>ts</code> Data</h1>
 <ul>
 <li><code>autoplot()</code>: Useful function to plot data and forecasts</li>
 </ul>
@@ -428,17 +417,17 @@ if (!doNotTrack) {
 <h2 id="white-noise-and-the-ljung-box-test">White Noise and the Ljung-Box Test</h2>
 <p>White Noise is another name for a time series of iid data. Purely random. Ideally your model residuals should look like white noise.</p>
 <p>You can use the Ljung-Box test to check if a time series is white noise, here&rsquo;s an example with 24 lags:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">Box.test</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lag</span> <span class="o">=</span> <span class="m">24</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;Lj&#34;</span><span class="p">)</span>
-</code></pre></div><p>p-value &gt; 0.05 suggests data are not significantly different than white noise</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">Box.test</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lag</span> <span class="o">=</span> <span class="m">24</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;Lj&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>p-value &gt; 0.05 suggests data are not significantly different than white noise</p>
 <h1 id="model-selection">Model Selection</h1>
 <p>The <code>forecast</code> package includes a few common models out of the box. Fit the model and create a <code>forecast</code> object, and then use the <code>forecast()</code> function on the object and a number of <code>h</code> periods to predict.</p>
 <p>Example of the workflow:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">train</span> <span class="o">&lt;-</span> <span class="nf">window</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="m">1980</span><span class="p">)</span>
-<span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">naive</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-<span class="nf">checkresiduals</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span>
-<span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-<span class="nf">accuracy</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-</code></pre></div><h2 id="naive-models">Naive Models</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">train</span> <span class="o">&lt;-</span> <span class="nf">window</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="m">1980</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">naive</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">checkresiduals</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">accuracy</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="naive-models">Naive Models</h2>
 <p>Useful to benchmark against naive and seasonal naive models.</p>
 <ul>
 <li><code>naive()</code></li>
@@ -464,8 +453,8 @@ if (!doNotTrack) {
 <p>Backtesting with one step ahead forecasts, aka &ldquo;Time series cross validation&rdquo; can be done with a helper function <code>tsCV()</code>.</p>
 <p><code>tsCV()</code>: returns forecast errors given a <code>forecastfunction</code> that returns a <code>forecast</code> object and number of steps ahead <code>h</code>. At <code>h</code> = 1 the forecast errors will just be the model residuals.</p>
 <p>Here&rsquo;s an example using the <code>naive()</code> model, forecasting one period ahead:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">tsCV</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">forecastfunction</span> <span class="o">=</span> <span class="n">naive</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
-</code></pre></div><h1 id="many-models">Many Models</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">tsCV</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">forecastfunction</span> <span class="o">=</span> <span class="n">naive</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</span></span></code></pre></div><h1 id="many-models">Many Models</h1>
 <h2 id="exponential-models">Exponential Models</h2>
 <ul>
 <li><code>ses()</code>: Simple Exponential Smoothing, implement a smoothing parameter alpha on previous data</li>
@@ -498,16 +487,16 @@ if (!doNotTrack) {
 <h2 id="dynamic-regression">Dynamic Regression</h2>
 <p>Regression model with non-seasonal ARIMA errors, i.e. we allow e_t to be an ARIMA process rather than white noise.</p>
 <p>Usage example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">auto.arima</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="n">xreg_data</span><span class="p">)</span>
-<span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="n">newxreg_data</span><span class="p">)</span>
-</code></pre></div><h2 id="dynamic-harmonic-regression">Dynamic Harmonic Regression</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">auto.arima</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="n">xreg_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="n">newxreg_data</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="dynamic-harmonic-regression">Dynamic Harmonic Regression</h2>
 <p>Dynamic Regression with <code>K</code> fourier terms to model seasonality. With higher <code>K</code> the model becomes more flexible.</p>
 <p>Pro: Allows for any length seasonality, but assumes seasonal pattern is unchanging. <code>Arima()</code> and <code>auto.arima()</code> may run out of memory at large seasonal periods (i.e. &gt;200).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="c1"># Example with K = 1 and predict 4 periods in the future</span>
-<span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">auto.arima</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="nf">fourier</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
-                  <span class="n">seasonal</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lambda</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
-<span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="nf">fourier</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">4</span><span class="p">))</span>
-</code></pre></div><h2 id="tbats">TBATS</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Example with K = 1 and predict 4 periods in the future</span>
+</span></span><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">auto.arima</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="nf">fourier</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">seasonal</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lambda</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="nf">fourier</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">4</span><span class="p">))</span>
+</span></span></code></pre></div><h2 id="tbats">TBATS</h2>
 <p>Automated model that combines exponential smoothing, Box-Cox transformations, and Fourier terms.
 Pro: Automated, allows for complex seasonality that changes over time.
 Cons: Slow.</p>
@@ -557,8 +546,8 @@ Cons: Slow.</p>
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">

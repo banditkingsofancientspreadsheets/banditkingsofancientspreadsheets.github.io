@@ -19,7 +19,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -57,17 +57,6 @@
       rel="stylesheet"
       href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
       integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
-      crossorigin="anonymous"
-      media="screen"
-    />
-
-  
-    
-    
-    <link
-      rel="stylesheet"
-      href="/css/syntax.min.dd5b47689eac4082335c3a7a4540adc5c08f2d9d6d6f6ba76a81e9f1901f0f9f.css"
-      integrity="sha256-3VtHaJ6sQIIzXDp6RUCtxcCPLZ1tb2unaoHp8ZAfD58="
       crossorigin="anonymous"
       media="screen"
     />
@@ -111,8 +100,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -126,7 +115,7 @@
 <meta name="twitter:image" content="https://www.nelsontang.com/featured-image.png"/>
 
 <meta name="twitter:title" content="How to set up ODBC in Mac OS to connect to MS SQL Server for use with Python and R"/>
-<meta name="twitter:description" content="My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is really easy on Windows with its&#39; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019."/>
+<meta name="twitter:description" content="My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is really easy on Windows with its&rsquo; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019."/>
 
 
 
@@ -147,7 +136,7 @@
         "alternativeHeadline": "",
         "description": "
       
-        My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is \u003cstrong\u003ereally\u003c\/strong\u003e easy on Windows with its\u0027 built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.
+        My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is \u003cstrong\u003ereally\u003c\/strong\u003e easy on Windows with its\u0026rsquo; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.
 
 
       
@@ -292,8 +281,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -410,7 +399,7 @@ if (!doNotTrack) {
           </li>
         </ul>
 
-      <p>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is <strong>really</strong> easy on Windows with its' built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</p>
+      <p>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is <strong>really</strong> easy on Windows with its&rsquo; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</p>
 <ul>
 <li>Microsoft Open Database Connectivity (ODBC) Docs: <a href="https://docs.microsoft.com/en-us/sql/odbc/reference/what-is-odbc?view=sql-server-ver15">link</a></li>
 </ul>
@@ -420,33 +409,33 @@ if (!doNotTrack) {
 </ul>
 <h2 id="1-install-unixodbc">1. Install unixodbc</h2>
 <p>I like unixodbc as the ODBC manager, it just works. Install with your shell/terminal:</p>
-<pre tabindex="0"><code class="language-console" data-lang="console">brew install unixodbc
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">brew install unixodbc
+</span></span></span></code></pre></div><ul>
 <li>UnixODBC docs: <a href="https://docs.brew.sh/Installation">link</a></li>
 </ul>
 <h2 id="2-install-freetds">2. Install FreeTDS</h2>
 <p>After getting an ODBC manager, you&rsquo;ll need drivers. FreeTDS works.
 In your shell/terminal:</p>
-<pre tabindex="0"><code class="language-console" data-lang="console">brew install FreeTDS
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">brew install FreeTDS
+</span></span></span></code></pre></div><ul>
 <li>FreeTDS userguide: <a href="https://www.freetds.org/userguide/">link</a></li>
 </ul>
 <h2 id="3-locate-your-odbc-installation-with-odbcinst--j">3. Locate your odbc installation with odbcinst -j</h2>
 <p>After installing unixodbc as your odbc manager and freeTDS for drivers, you&rsquo;ll need to edit your connections in the .odbc.ini file. You can find out where this is by using the <code>odbcinst -j</code> command.</p>
 <p>In your shell/terminal:</p>
-<pre tabindex="0"><code class="language-console" data-lang="console">odbcinst -j
-
-unixODBC 2.3.7
-DRIVERS............: /etc/odbcinst.ini
-SYSTEM DATA SOURCES: /etc/odbc.ini
-FILE DATA SOURCES..: /etc/ODBCDataSources
-USER DATA SOURCES..: /Users/yourname/.odbc.ini
-SQLULEN Size.......: 8
-SQLLEN Size........: 8
-SQLSETPOSIROW Size.: 8
-</code></pre><p>The item in <code>USER DATA SOURCES..:</code> is what you&rsquo;re looking for. Don&rsquo;t know why, but Python and R like to use that one first before looking elsewhere. Navigate there and edit the <code>.odbc.ini</code> file using your favorite text editor. Here&rsquo;s nano:</p>
-<pre tabindex="0"><code class="language-console" data-lang="console">nano /Users/yourname/.odbc.ini
-</code></pre><h2 id="4-update-the-odbcini-file">4. Update the .odbc.ini file</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">odbcinst -j
+</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="go">unixODBC 2.3.7
+</span></span></span><span class="line"><span class="cl"><span class="go">DRIVERS............: /etc/odbcinst.ini
+</span></span></span><span class="line"><span class="cl"><span class="go">SYSTEM DATA SOURCES: /etc/odbc.ini
+</span></span></span><span class="line"><span class="cl"><span class="go">FILE DATA SOURCES..: /etc/ODBCDataSources
+</span></span></span><span class="line"><span class="cl"><span class="go">USER DATA SOURCES..: /Users/yourname/.odbc.ini
+</span></span></span><span class="line"><span class="cl"><span class="go">SQLULEN Size.......: 8
+</span></span></span><span class="line"><span class="cl"><span class="go">SQLLEN Size........: 8
+</span></span></span><span class="line"><span class="cl"><span class="go">SQLSETPOSIROW Size.: 8
+</span></span></span></code></pre></div><p>The item in <code>USER DATA SOURCES..:</code> is what you&rsquo;re looking for. Don&rsquo;t know why, but Python and R like to use that one first before looking elsewhere. Navigate there and edit the <code>.odbc.ini</code> file using your favorite text editor. Here&rsquo;s nano:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">nano /Users/yourname/.odbc.ini
+</span></span></span></code></pre></div><h2 id="4-update-the-odbcini-file">4. Update the .odbc.ini file</h2>
 <p>Use your text editor and enter in the required server, port, and the Data Source Name (DSN) in brackets. We&rsquo;ll use the DSN to connect</p>
 <pre tabindex="0"><code>[my_server]
 Description = my_server
@@ -458,22 +447,22 @@ Port = 1234
 <li>What is a DSN: <a href="https://support.microsoft.com/en-us/help/966849/what-is-a-dsn-data-source-name">link</a></li>
 </ul>
 <h2 id="5-python-to-connect-to-your-ms-sql-server-with-pyodbc">5. Python to connect to your MS SQL Server with pyodbc</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">pyodbc</span>
-
-<span class="n">cnxn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;dsn=my_server;&#39;</span>
-                      <span class="s1">&#39;Trusted_Connection=yes;&#39;</span><span class="p">)</span>
-<span class="n">query</span><span class="o">=</span> <span class="s2">&#34;yourqueryhere&#34;</span>
-
-<span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">cnxn</span><span class="p">)</span>
-
-<span class="n">cnxn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div><h2 id="6-r-to-connect-to-your-ms-sql-server-with-odbc">6. R to connect to your MS SQL Server with odbc</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">odbc</span><span class="p">)</span>
-<span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="n">odbc</span><span class="o">::</span><span class="nf">odbc</span><span class="p">(),</span> <span class="s">&#34;my_server&#34;</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">&lt;-</span> <span class="n">odbc</span><span class="o">::</span><span class="nf">dbGetQuery</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#34;your query here&#34;</span><span class="p">)</span>
-<span class="n">odbc</span><span class="o">::</span><span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
-</code></pre></div></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pyodbc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cnxn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;dsn=my_server;&#39;</span>
+</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;Trusted_Connection=yes;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">query</span><span class="o">=</span> <span class="s2">&#34;yourqueryhere&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">cnxn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cnxn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><h2 id="6-r-to-connect-to-your-ms-sql-server-with-odbc">6. R to connect to your MS SQL Server with odbc</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">odbc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">con</span> <span class="o">&lt;-</span> <span class="nf">dbConnect</span><span class="p">(</span><span class="n">odbc</span><span class="o">::</span><span class="nf">odbc</span><span class="p">(),</span> <span class="s">&#34;my_server&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">&lt;-</span> <span class="n">odbc</span><span class="o">::</span><span class="nf">dbGetQuery</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&#34;your query here&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">odbc</span><span class="o">::</span><span class="nf">dbDisconnect</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+</span></span></code></pre></div></div>
     <div class="post__footer">
       
         <span><a class="category" href="/categories/workflow/">workflow</a></span>
@@ -512,8 +501,8 @@ Port = 1234
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">

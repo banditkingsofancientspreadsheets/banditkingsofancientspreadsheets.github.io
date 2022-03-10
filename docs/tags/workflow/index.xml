@@ -47,7 +47,7 @@
       
       <guid>https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx/</guid>
       
-        <description>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is &lt;strong&gt;really&lt;/strong&gt; easy on Windows with its&#39; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</description>
+        <description>My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is &lt;strong&gt;really&lt;/strong&gt; easy on Windows with its&amp;rsquo; built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019.</description>
       
     </item>
     
@@ -58,7 +58,7 @@
       
       <guid>https://www.nelsontang.com/blog/2019-05-11-3-habits-to-improve-critical-thinking/</guid>
       
-        <description>From &lt;a href=&#34;https://hbr.org/2019/05/3-simple-habits-to-improve-your-critical-thinking&#34;&gt;HBR: 3 Habits to Improve Critical Thinking&lt;/a&gt; by &lt;a href=&#34;hbr.org/search?term=helen%20lee%20bouygues&#34;&gt;Helen Lee Bouygues&lt;/a&gt;. A good read for anyone looking to keep their critical thinking muscles sharp as told through stories from Bouygues&#39; experience as a board member and consultant. They might seem obvious, but I&amp;rsquo;ll admit that I don&amp;rsquo;t always consider these.</description>
+        <description>From &lt;a href=&#34;https://hbr.org/2019/05/3-simple-habits-to-improve-your-critical-thinking&#34;&gt;HBR: 3 Habits to Improve Critical Thinking&lt;/a&gt; by &lt;a href=&#34;hbr.org/search?term=helen%20lee%20bouygues&#34;&gt;Helen Lee Bouygues&lt;/a&gt;. A good read for anyone looking to keep their critical thinking muscles sharp as told through stories from Bouygues&amp;rsquo; experience as a board member and consultant. They might seem obvious, but I&amp;rsquo;ll admit that I don&amp;rsquo;t always consider these.</description>
       
     </item>
     

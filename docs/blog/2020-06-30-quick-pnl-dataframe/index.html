@@ -19,7 +19,7 @@
   </title>
 
   
-  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.88.1" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta
     name="description"
     content="
@@ -57,17 +57,6 @@
       rel="stylesheet"
       href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
       integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
-      crossorigin="anonymous"
-      media="screen"
-    />
-
-  
-    
-    
-    <link
-      rel="stylesheet"
-      href="/css/syntax.min.dd5b47689eac4082335c3a7a4540adc5c08f2d9d6d6f6ba76a81e9f1901f0f9f.css"
-      integrity="sha256-3VtHaJ6sQIIzXDp6RUCtxcCPLZ1tb2unaoHp8ZAfD58="
       crossorigin="anonymous"
       media="screen"
     />
@@ -111,8 +100,8 @@
   
   <script
     type="text/javascript"
-    src="/js/anatole-header.min.46e6a54097480084f8f52c20ca1aa7425b4fad17029a887fd4017b12e311a72d.js"
-    integrity="sha256-RualQJdIAIT49SwgyhqnQltPrRcCmoh/1AF7EuMRpy0="
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
     crossorigin="anonymous"
   ></script>
 
@@ -285,8 +274,8 @@
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
@@ -404,68 +393,68 @@ if (!doNotTrack) {
         </ul>
 
       <p>This code creates a practice dataframe for instruction in a format that is familiar with finance analysts. Analysts typically deal with profit and loss statement data in excel spreadsheets, often pulled or aggregated from an ERP source system and this example shows a toy example that has some relevant fields and formatting.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># For convenience while using a Jupyter Notebook, </span>
-<span class="c1"># display dataframe floats as currency &amp; round to two decimal places</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
-
-<span class="k">def</span> <span class="nf">make_pnl</span><span class="p">():</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
-                            <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REV&#39;</span><span class="p">,</span> <span class="s1">&#39;COS&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
-                            <span class="s1">&#39;AccountL1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Revenue&#39;</span><span class="p">,</span> <span class="s1">&#39;Cost of Sales&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
-                            <span class="s1">&#39;201901 ACT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">200.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">75.</span><span class="p">],</span>
-                            <span class="s1">&#39;202001 ACT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">210.</span><span class="p">,</span> <span class="mf">105.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">75.</span><span class="p">],</span>
-                            <span class="s1">&#39;202001 POR&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">205.</span><span class="p">,</span> <span class="mf">105.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">75.</span><span class="p">]</span>
-                        <span class="p">})</span>
-    <span class="k">return</span> <span class="n">df</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">make_pnl</span><span class="p">()</span>
-</code></pre></div><p><img src="/images/example_pnl.png" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># For convenience while using a Jupyter Notebook, </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># display dataframe floats as currency &amp; round to two decimal places</span>
+</span></span><span class="line"><span class="cl"><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;$</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">make_pnl</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;REV&#39;</span><span class="p">,</span> <span class="s1">&#39;COS&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;AccountL1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Revenue&#39;</span><span class="p">,</span> <span class="s1">&#39;Cost of Sales&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;201901 ACT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">200.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">75.</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;202001 ACT&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">210.</span><span class="p">,</span> <span class="mf">105.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">75.</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;202001 POR&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">205.</span><span class="p">,</span> <span class="mf">105.</span><span class="p">,</span> <span class="mf">150.</span><span class="p">,</span> <span class="mf">75.</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">df</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">make_pnl</span><span class="p">()</span>
+</span></span></code></pre></div><p><img src="/images/example_pnl.png" alt="img"></p>
 <p>This is a very simplified version of the data that would be familiar to analysts. In reality, there would be many more fields and values, depending on the level of granularity that&rsquo;s available. The columns like &lsquo;201901 ACT&rsquo; are time periods in a YYYYQQ format and the last three letters signify whether it is an actual or forecast (POR or Plan of Record) value.</p>
 <h2 id="multi-index-dataframe-slicing">Multi-Index DataFrame Slicing</h2>
 <p>It might also be useful to make this a multiindex dataframe for easier grouping/slicing and to reduce the amount of space the dataframe takes up in memory.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">,</span> <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">,</span> <span class="s1">&#39;AccountL1&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><p><img src="/images/example_pnl2.png" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">,</span> <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">,</span> <span class="s1">&#39;AccountL1&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div><p><img src="/images/example_pnl2.png" alt="img"></p>
 <p>You may need to use sets to slice among items in your index. Use <code>slice(None)</code> to skip levels in your index if needed.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="s1">&#39;Cost of Sales&#39;</span><span class="p">)]</span>
-</code></pre></div><p>and returns:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="s1">&#39;Cost of Sales&#39;</span><span class="p">)]</span>
+</span></span></code></pre></div><p>and returns:
 <img src="/images/example_pnl3.png" alt="img"></p>
 <p>Which is the same as using the <code>query()</code> method:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&#34;ProductLine==&#39;A&#39; &amp; AccountL1==&#39;Cost of Sales&#39;&#34;</span><span class="p">)</span>
-</code></pre></div><h2 id="converting-from-wide-to-long-format-with-pdmelt">Converting from Wide to Long format with pd.melt()</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&#34;ProductLine==&#39;A&#39; &amp; AccountL1==&#39;Cost of Sales&#39;&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="converting-from-wide-to-long-format-with-pdmelt">Converting from Wide to Long format with pd.melt()</h2>
 <p>Another useful transformation is to &lsquo;unpivot&rsquo; the data with <code>pd.melt()</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">,</span> <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">,</span> <span class="s1">&#39;AccountL1&#39;</span><span class="p">]</span>
-<span class="n">dfl</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="n">id_vars</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Period&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
-</code></pre></div><p><img src="/images/example_pnl4.png" alt="img"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">,</span> <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">,</span> <span class="s1">&#39;AccountL1&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfl</span><span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="n">id_vars</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Period&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+</span></span></code></pre></div><p><img src="/images/example_pnl4.png" alt="img"></p>
 <h2 id="join-previous-cycle-for-recons">Join Previous Cycle for Recons</h2>
 <p>You&rsquo;ll often need to reconcile PnL data against other time periods, like prior quarters, prior years, actuals vs forecasts, and so on.</p>
 <p>In a spreadsheet you&rsquo;d manually manipulate and select columns and subsets of data to perform this. In Python, you can perform a SQL-style lookup and join so that you create those reconciliations in a table of data that you can slice and lookup later.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">,</span> <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">,</span> <span class="s1">&#39;AccountL1&#39;</span><span class="p">]</span>
-
-<span class="c1"># Pull in data in long format</span>
-<span class="n">dfl</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="n">id_vars</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Period&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
-
-<span class="c1"># Create new features by parsing text</span>
-<span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;YYYY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-
-<span class="c1"># Use new features to calculate lookup columns</span>
-<span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Prior_Year_Period&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;YYYY&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34; ACT&#34;</span>
-
-<span class="c1"># Create a subset to use as the right dataframe</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">dfl</span><span class="p">[</span><span class="n">id_vars</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="s1">&#39;PY_Value&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Left Join the original dataframe with the right dataframe</span>
-<span class="n">dfNew</span> <span class="o">=</span> <span class="n">dfl</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span>
-                  <span class="n">left_on</span><span class="o">=</span><span class="n">id_vars</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;Prior_Year_Period&#39;</span><span class="p">],</span>
-                  <span class="n">right_on</span><span class="o">=</span><span class="n">id_vars</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">],</span>
-                  <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
-                  <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="s2">&#34;_DROP&#34;</span><span class="p">])</span>
-
-<span class="c1"># Drop duplicate columns</span>
-<span class="n">dfNew</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dfNew</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;_DROP$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><p>And we see the result works. In this example, we don&rsquo;t have 201801 ACT data so it&rsquo;s a <code>np.nan</code> value, but you see the rest of the values filled in as expected for prior year values.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">id_vars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ProductLine&#39;</span><span class="p">,</span> <span class="s1">&#39;FunctionalArea&#39;</span><span class="p">,</span> <span class="s1">&#39;AccountL1&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Pull in data in long format</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfl</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="n">id_vars</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Period&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create new features by parsing text</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;YYYY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use new features to calculate lookup columns</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Prior_Year_Period&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;YYYY&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span><span class="mi">100</span> <span class="o">+</span> <span class="n">dfl</span><span class="p">[</span><span class="s1">&#39;Q&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34; ACT&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a subset to use as the right dataframe</span>
+</span></span><span class="line"><span class="cl"><span class="n">df2</span> <span class="o">=</span> <span class="n">dfl</span><span class="p">[</span><span class="n">id_vars</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">,</span> <span class="s1">&#39;Value&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="s1">&#39;PY_Value&#39;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Left Join the original dataframe with the right dataframe</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfNew</span> <span class="o">=</span> <span class="n">dfl</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">left_on</span><span class="o">=</span><span class="n">id_vars</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;Prior_Year_Period&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">right_on</span><span class="o">=</span><span class="n">id_vars</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;Period&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="s2">&#34;_DROP&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Drop duplicate columns</span>
+</span></span><span class="line"><span class="cl"><span class="n">dfNew</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dfNew</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">regex</span><span class="o">=</span><span class="s1">&#39;_DROP$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></div><p>And we see the result works. In this example, we don&rsquo;t have 201801 ACT data so it&rsquo;s a <code>np.nan</code> value, but you see the rest of the values filled in as expected for prior year values.</p>
 <p><img src="/images/example_pnl5.png" alt="img"></p>
 </div>
     <div class="post__footer">
@@ -506,8 +495,8 @@ if (!doNotTrack) {
   
   <script
     type="text/javascript"
-    src="/js/medium-zoom.min.fae9ac8895995fe91958b3954be11e96025824a04770726a3531e119ddd2d576.js"
-    integrity="sha256-&#43;umsiJWZX&#43;kZWLOVS&#43;EelgJYJKBHcHJqNTHhGd3S1XY="
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
     crossorigin="anonymous"
   ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
     <script type="text/x-mathjax-config">
