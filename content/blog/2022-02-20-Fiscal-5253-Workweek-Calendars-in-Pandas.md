@@ -58,7 +58,12 @@ pd.DataFrame(index=ts,
                    'fiscal_year':tp.qyear})
 ```
 
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>quarter</th>      <th>fiscal_year</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-03-31</th>      <td>1</td>      <td>2021</td>    </tr>    <tr>      <th>2021-06-30</th>      <td>2</td>      <td>2021</td>    </tr>    <tr>      <th>2021-09-30</th>      <td>3</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-31</th>      <td>4</td>      <td>2021</td>    </tr>  </tbody></table>
+|                     |   quarter |   fiscal_year |
+|:--------------------|----------:|--------------:|
+| 2021-03-31 |         1 |          2021 |
+| 2021-06-30 |         2 |          2021 |
+| 2021-09-30 |         3 |          2021 |
+| 2021-12-31 |         4 |          2021 |
 
 However, what if you wanted to use `pandas` to handle fiscal calendars that aren't set to this standard? For example, let's say we have a fiscal calendar that starts on June 1st (i.e. Nike). 
 
@@ -75,7 +80,12 @@ tp = ts.to_period()
 pd.DataFrame(index=ts, data={'quarter':tp.quarter, 'fiscal_year':tp.qyear})
 ```
 
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>quarter</th>      <th>fiscal_year</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-02-28</th>      <td>3</td>      <td>2021</td>    </tr>    <tr>      <th>2021-05-31</th>      <td>4</td>      <td>2021</td>    </tr>    <tr>      <th>2021-08-31</th>      <td>1</td>      <td>2022</td>    </tr>    <tr>      <th>2021-11-30</th>      <td>2</td>      <td>2022</td>    </tr>  </tbody></table>
+|                     |   quarter |   fiscal_year |
+|:--------------------|----------:|--------------:|
+| 2021-02-28 |         3 |          2021 |
+| 2021-05-31 |         4 |          2021 |
+| 2021-08-31 |         1 |          2022 |
+| 2021-11-30 |         2 |          2022 |
 
 So that was easy! And instead of creating the date range with just the end quarters, we can create a daily date range and then use the `to_period()` call to do the fiscal year translation for us, to create a *daily* calendar lookup table:
 
@@ -91,7 +101,13 @@ df = pd.DataFrame(index=ts,
 df.tail()
 ```
 
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>quarter</th>      <th>fiscal_year</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-12-28</th>      <td>3</td>      <td>2022</td>    </tr>    <tr>      <th>2021-12-29</th>      <td>3</td>      <td>2022</td>    </tr>    <tr>      <th>2021-12-30</th>      <td>3</td>      <td>2022</td>    </tr>    <tr>      <th>2021-12-31</th>      <td>3</td>      <td>2022</td>    </tr>    <tr>      <th>2022-01-01</th>      <td>3</td>      <td>2022</td>    </tr>  </tbody></table>
+|            |   quarter |   fiscal_year |
+|:-----------|----------:|--------------:|
+| 2021-12-28 |         3 |          2022 |
+| 2021-12-29 |         3 |          2022 |
+| 2021-12-30 |         3 |          2022 |
+| 2021-12-31 |         3 |          2022 |
+| 2022-01-01 |         3 |          2022 |
 
 We can see that the correct fiscal year and fiscal quarters are represented. Nice!
 
@@ -149,7 +165,18 @@ for i in yoffset_range:
 result.query('FY==2021').tail(10)
 ```
 
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>DOY</th>      <th>FY</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-12-16</th>      <td>355</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-17</th>      <td>356</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-18</th>      <td>357</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-19</th>      <td>358</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-20</th>      <td>359</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-21</th>      <td>360</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-22</th>      <td>361</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-23</th>      <td>362</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-24</th>      <td>363</td>      <td>2021</td>    </tr>    <tr>      <th>2021-12-25</th>      <td>364</td>      <td>2021</td>    </tr>  </tbody></table>
+|             |   DOY |   FY |
+|:------------|------:|-----:|
+| 2021-12-16  |   355 | 2021 |
+| 2021-12-17  |   356 | 2021 |
+| 2021-12-18  |   357 | 2021 |
+| 2021-12-19  |   358 | 2021 |
+| 2021-12-20  |   359 | 2021 |
+| 2021-12-21  |   360 | 2021 |
+| 2021-12-22  |   361 | 2021 |
+| 2021-12-23  |   362 | 2021 |
+| 2021-12-24  |   363 | 2021 |
+| 2021-12-25  |   364 | 2021 |
 
 This loop created a dataframe with the daily `pd.DatetimeIndex` and a few columns that specify where each calendar day falls in the fiscal year.
 
@@ -168,8 +195,20 @@ result['FM'] = ((result['FQ']-1)*3) + np.minimum(((result['WWinQ'] // 4)+1), 3)
 # Show the result
 result.query('FY==2021').tail(10)
 ```
-
-<table border="1" class="dataframe">  <thead>    <tr style="text-align: right;">      <th></th>      <th>DOY</th>      <th>FY</th>      <th>WW</th>      <th>FQ</th>      <th>WWinQ</th>      <th>FM</th>    </tr>  </thead>  <tbody>    <tr>      <th>2021-12-16</th>      <td>355</td>      <td>2021</td>      <td>51</td>      <td>4</td>      <td>12</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-17</th>      <td>356</td>      <td>2021</td>      <td>51</td>      <td>4</td>      <td>12</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-18</th>      <td>357</td>      <td>2021</td>      <td>51</td>      <td>4</td>      <td>12</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-19</th>      <td>358</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-20</th>      <td>359</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-21</th>      <td>360</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-22</th>      <td>361</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-23</th>      <td>362</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-24</th>      <td>363</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>    <tr>      <th>2021-12-25</th>      <td>364</td>      <td>2021</td>      <td>52</td>      <td>4</td>      <td>13</td>      <td>12</td>    </tr>  </tbody></table>
+{{< bootstrap-table "table table-striped table-hover" >}}
+|              |   DOY |   FY |   WW |   FQ |   WWinQ |   FM |
+|:-------------|------:|-----:|-----:|-----:|--------:|-----:|
+| 2021-12-16  |   355 | 2021 |   51 |    4 |      12 |   12 |
+| 2021-12-17  |   356 | 2021 |   51 |    4 |      12 |   12 |
+| 2021-12-18  |   357 | 2021 |   51 |    4 |      12 |   12 |
+| 2021-12-19  |   358 | 2021 |   52 |    4 |      13 |   12 |
+| 2021-12-20  |   359 | 2021 |   52 |    4 |      13 |   12 |
+| 2021-12-21  |   360 | 2021 |   52 |    4 |      13 |   12 |
+| 2021-12-22  |   361 | 2021 |   52 |    4 |      13 |   12 |
+| 2021-12-23  |   362 | 2021 |   52 |    4 |      13 |   12 |
+| 2021-12-24  |   363 | 2021 |   52 |    4 |      13 |   12 |
+| 2021-12-25  |   364 | 2021 |   52 |    4 |      13 |   12 |
+{{< /bootstrap-table >}}
 
 # Summary
 
