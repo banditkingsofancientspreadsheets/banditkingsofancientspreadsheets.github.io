@@ -58,12 +58,14 @@ pd.DataFrame(index=ts,
                    'fiscal_year':tp.qyear})
 ```
 
+{{< bootstrap-table "table table-striped table-hover table-bordered" >}}
 |                     |   quarter |   fiscal_year |
 |:--------------------|----------:|--------------:|
 | 2021-03-31 |         1 |          2021 |
 | 2021-06-30 |         2 |          2021 |
 | 2021-09-30 |         3 |          2021 |
 | 2021-12-31 |         4 |          2021 |
+{{< /bootstrap-table >}}
 
 However, what if you wanted to use `pandas` to handle fiscal calendars that aren't set to this standard? For example, let's say we have a fiscal calendar that starts on June 1st (i.e. Nike). 
 
@@ -80,12 +82,14 @@ tp = ts.to_period()
 pd.DataFrame(index=ts, data={'quarter':tp.quarter, 'fiscal_year':tp.qyear})
 ```
 
+{{< bootstrap-table "table table-striped table-hover table-bordered" >}}
 |                     |   quarter |   fiscal_year |
 |:--------------------|----------:|--------------:|
 | 2021-02-28 |         3 |          2021 |
 | 2021-05-31 |         4 |          2021 |
 | 2021-08-31 |         1 |          2022 |
 | 2021-11-30 |         2 |          2022 |
+{{< /bootstrap-table >}}
 
 So that was easy! And instead of creating the date range with just the end quarters, we can create a daily date range and then use the `to_period()` call to do the fiscal year translation for us, to create a *daily* calendar lookup table:
 
@@ -101,6 +105,7 @@ df = pd.DataFrame(index=ts,
 df.tail()
 ```
 
+{{< bootstrap-table "table table-striped table-hover table-bordered" >}}
 |            |   quarter |   fiscal_year |
 |:-----------|----------:|--------------:|
 | 2021-12-28 |         3 |          2022 |
@@ -108,6 +113,7 @@ df.tail()
 | 2021-12-30 |         3 |          2022 |
 | 2021-12-31 |         3 |          2022 |
 | 2022-01-01 |         3 |          2022 |
+{{< /bootstrap-table >}}
 
 We can see that the correct fiscal year and fiscal quarters are represented. Nice!
 
@@ -165,6 +171,7 @@ for i in yoffset_range:
 result.query('FY==2021').tail(10)
 ```
 
+{{< bootstrap-table "table table-striped table-hover table-bordered" >}}
 |             |   DOY |   FY |
 |:------------|------:|-----:|
 | 2021-12-16  |   355 | 2021 |
@@ -177,6 +184,7 @@ result.query('FY==2021').tail(10)
 | 2021-12-23  |   362 | 2021 |
 | 2021-12-24  |   363 | 2021 |
 | 2021-12-25  |   364 | 2021 |
+{{< /bootstrap-table >}}
 
 This loop created a dataframe with the daily `pd.DatetimeIndex` and a few columns that specify where each calendar day falls in the fiscal year.
 
@@ -195,7 +203,8 @@ result['FM'] = ((result['FQ']-1)*3) + np.minimum(((result['WWinQ'] // 4)+1), 3)
 # Show the result
 result.query('FY==2021').tail(10)
 ```
-{{< bootstrap-table "table table-striped table-hover" >}}
+
+{{< bootstrap-table "table table-striped table-hover table-bordered" >}}
 |              |   DOY |   FY |   WW |   FQ |   WWinQ |   FM |
 |:-------------|------:|-----:|-----:|-----:|--------:|-----:|
 | 2021-12-16  |   355 | 2021 |   51 |    4 |      12 |   12 |

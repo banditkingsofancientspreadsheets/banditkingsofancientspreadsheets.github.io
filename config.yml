@@ -7,6 +7,9 @@ summarylength : 50 #summary length shown on list pages
 enableRobotsTXT : true #leave true for SEO
 #this file instructs search engine crawlers on how to access the site
 
+pygmentsCodeFences : true
+pygmentsUseClasses : true
+
 params:
   title : "Bandit Kings" #emphasised line on the homepage
   author : "Nelson Tang"
@@ -24,6 +27,7 @@ params:
   postSectionName : "blog" #the slug of the "archives" listing page
   #uncomment this if you want your site to load in dark-mode by default.
   # displayMode: "dark" 
+  disableThemeSwitcher : true # set to true to force to either light or dark
 
   ## Social links
   #the icons are loaded from font-awesome library
@@ -52,10 +56,9 @@ params:
   math:
     enable : true  # options: true, false.
     use : "mathjax"
-  # syntax highlighting
-  pygmentsCodeFences : true
-  pygmentsUseClasses : true
-  customCss : ["css/syntax.css"]
+  # syntax highlighting  
+  customCss : ["css/custom.css", "css/syntax.css"]
+  # customCss : ["css/syntax.css"]
 
 ## Menu items
 #weight defines which entry is shown first
