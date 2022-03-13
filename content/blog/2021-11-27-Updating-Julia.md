@@ -1,5 +1,5 @@
 ---
-title: "Updating Your Julia Installation (Dec 2021)"
+title: "Updating Your Julia Installation (Mar 2022)"
 date: 2021-11-27
 tags: [julia]
 categories: [workflow]
@@ -8,11 +8,11 @@ aliases:
     - /updating-julia
 ---
 
-Had the hassle of trying to update Julia from 1.6.2 to 1.6.4 this weekend and I gotta say, *every* time there's always something I forget, so here's my best tips on what it takes to update your installation of Julia in Mac/Linux:
+Had the hassle of trying to update Julia this weekend and I gotta say, *every* time there's always something I forget, so here's my best tips on what it takes to update your installation of Julia in Mac/Linux:
 
 ## Step 1: Use `jill`/`pyjill` to Download & Install Julia
 
-I used to mess with downloading the binaries and install files directly from the [julialang site](https://julialang.org/downloads/) and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use `pyjill` (https://github.com/johnnychen94/jill.py), which works perfectly (note: requires python >=3.6).
+I used to mess with downloading the binaries and install files directly from the [julialang site](https://julialang.org/downloads/) and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use `pyjill` ([Github](https://github.com/johnnychen94/jill.py)), which works perfectly on OSX and Windows (note: requires python >=3.6).
 
 ```bash
 # Install or update the latest version of jill (requires python>=3.6)
@@ -24,9 +24,11 @@ source ~/.zshrc
 jill install
 ```
 
-## Step 2: Remove the Old `.julia` Folder *(optional)*
+Then the next time you need to update Julia, you only need to do `jill install` to get the latest. 
 
-Another time sink I had was realizing that with a fresh update, I couldn't add packages anymore to julia because I didn't have root access to a folder hidden deep within the `.julia` folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry. This might not be as much of an issue after Julia 1.7, where they made some changes to how the package registry handles different Julia versions. 
+## Step 2: Remove the Old `.julia` Folder *(optional, linux/OSX instructions)*
+
+Another time sink I had was realizing that with a fresh update, I couldn't add packages anymore to julia because I didn't have root access to a folder hidden deep within the `.julia` folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry. This might not be as much of an issue after Julia 1.7, where they [changed the manifest and how the package registry handles different Julia versions](https://julialang.org/blog/2021/11/julia-1.7-highlights/#new_manifest_format).
 
 ```bash
 # Go to your home directory
@@ -37,7 +39,7 @@ sudo rm -rf .julia
 
 ## Step 3: Update Jupyter Kernels
 
-Next we'll need to remove the old julia kernel from Jupyter:
+Next we'll need to remove the old julia kernel from Jupyter with `jupyter kernelspec remove {{ kernel name }}`:
 
 ```bash
 # See the list of existing jupyter kernels and find your old install

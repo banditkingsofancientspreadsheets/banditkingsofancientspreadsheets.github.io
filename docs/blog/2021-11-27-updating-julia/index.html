@@ -9,7 +9,7 @@
     
       Nelson Tang
         |
-        Updating Your Julia Installation (Dec 2021)
+        Updating Your Julia Installation (Mar 2022)
 
 
       
@@ -114,7 +114,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://www.nelsontang.com/featured-image.png"/>
 
-<meta name="twitter:title" content="Updating Your Julia Installation (Dec 2021)"/>
+<meta name="twitter:title" content="Updating Your Julia Installation (Mar 2022)"/>
 <meta name="twitter:description" content="What it takes to update from a previous install of Julia on Mac/Linux"/>
 
 
@@ -131,8 +131,8 @@
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "articleSection": "blog",
-        "name": "Updating Your Julia Installation (Dec 2021)",
-        "headline": "Updating Your Julia Installation (Dec 2021)",
+        "name": "Updating Your Julia Installation (Mar 2022)",
+        "headline": "Updating Your Julia Installation (Mar 2022)",
         "alternativeHeadline": "",
         "description": "
       
@@ -191,7 +191,7 @@
 
     ,
         "url" : "https:\/\/www.nelsontang.com\/blog\/2021-11-27-updating-julia\/",
-        "wordCount" : "430",
+        "wordCount" : "460",
         "genre" : [ 
       
       "workflow"
@@ -366,7 +366,7 @@ if (!doNotTrack) {
   >
     
     <div class="post__content">
-      <h1>Updating Your Julia Installation (Dec 2021)</h1>
+      <h1>Updating Your Julia Installation (Mar 2022)</h1>
       
         <ul class="post__meta">
           <li class="post__meta-item">
@@ -385,9 +385,9 @@ if (!doNotTrack) {
           </li>
         </ul>
 
-      <p>Had the hassle of trying to update Julia from 1.6.2 to 1.6.4 this weekend and I gotta say, <em>every</em> time there&rsquo;s always something I forget, so here&rsquo;s my best tips on what it takes to update your installation of Julia in Mac/Linux:</p>
+      <p>Had the hassle of trying to update Julia this weekend and I gotta say, <em>every</em> time there&rsquo;s always something I forget, so here&rsquo;s my best tips on what it takes to update your installation of Julia in Mac/Linux:</p>
 <h2 id="step-1-use-jillpyjill-to-download--install-julia">Step 1: Use <code>jill</code>/<code>pyjill</code> to Download &amp; Install Julia</h2>
-<p>I used to mess with downloading the binaries and install files directly from the <a href="https://julialang.org/downloads/">julialang site</a> and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use <code>pyjill</code> (<a href="https://github.com/johnnychen94/jill.py)">https://github.com/johnnychen94/jill.py)</a>, which works perfectly (note: requires python &gt;=3.6).</p>
+<p>I used to mess with downloading the binaries and install files directly from the <a href="https://julialang.org/downloads/">julialang site</a> and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use <code>pyjill</code> (<a href="https://github.com/johnnychen94/jill.py">Github</a>), which works perfectly on OSX and Windows (note: requires python &gt;=3.6).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Install or update the latest version of jill (requires python&gt;=3.6)</span>
 </span></span><span class="line"><span class="cl">pip install jill --user -U
 </span></span><span class="line"><span class="cl"><span class="c1"># export the jill PATH somewhere, if this is your first time installing jill</span>
@@ -395,14 +395,15 @@ if (!doNotTrack) {
 </span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.zshrc
 </span></span><span class="line"><span class="cl"><span class="c1"># Install the latest stable release</span>
 </span></span><span class="line"><span class="cl">jill install
-</span></span></code></pre></div><h2 id="step-2-remove-the-old-julia-folder-optional">Step 2: Remove the Old <code>.julia</code> Folder <em>(optional)</em></h2>
-<p>Another time sink I had was realizing that with a fresh update, I couldn&rsquo;t add packages anymore to julia because I didn&rsquo;t have root access to a folder hidden deep within the <code>.julia</code> folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry. This might not be as much of an issue after Julia 1.7, where they made some changes to how the package registry handles different Julia versions.</p>
+</span></span></code></pre></div><p>Then the next time you need to update Julia, you only need to do <code>jill install</code> to get the latest.</p>
+<h2 id="step-2-remove-the-old-julia-folder-optional-linuxosx-instructions">Step 2: Remove the Old <code>.julia</code> Folder <em>(optional, linux/OSX instructions)</em></h2>
+<p>Another time sink I had was realizing that with a fresh update, I couldn&rsquo;t add packages anymore to julia because I didn&rsquo;t have root access to a folder hidden deep within the <code>.julia</code> folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry. This might not be as much of an issue after Julia 1.7, where they <a href="https://julialang.org/blog/2021/11/julia-1.7-highlights/#new_manifest_format">changed the manifest and how the package registry handles different Julia versions</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Go to your home directory</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Delete that sucker with prejudice</span>
 </span></span><span class="line"><span class="cl">sudo rm -rf .julia
 </span></span></code></pre></div><h2 id="step-3-update-jupyter-kernels">Step 3: Update Jupyter Kernels</h2>
-<p>Next we&rsquo;ll need to remove the old julia kernel from Jupyter:</p>
+<p>Next we&rsquo;ll need to remove the old julia kernel from Jupyter with <code>jupyter kernelspec remove {{ kernel name }}</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># See the list of existing jupyter kernels and find your old install</span>
 </span></span><span class="line"><span class="cl">jupyter kernelspec list
 </span></span><span class="line"><span class="cl"><span class="c1"># My previous one was called julia-1.6, let&#39;s remove it</span>
