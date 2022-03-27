@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  class="html"
+><head>
+  <title>
+    
+      Nelson Tang
+        |
+        A SQL to Julia DataFrames Cheatsheet
+
+
+      
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.0e75795e04d6f94f6ecb4736097a5bf7a24521657dbb70fed2d82a1f7fe177c8.css"
+      integrity="sha256-DnV5XgTW&#43;U9uy0c2CXpb96JFIWV9u3D&#43;0tgqH3/hd8g="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css"
+    integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
+      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      crossorigin="anonymous"
+      media="screen"
+    />
+
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css"
+    integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css"
+    integrity="sha256-bVheeNKMzhIA05&#43;xM8ku2D3wFzjach0PSPturGLSTgQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css"
+    integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://www.nelsontang.com/blog/2022-03-27-sql-to-julia/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.nelsontang.com/featured-image.png"/>
+
+<meta name="twitter:title" content="A SQL to Julia DataFrames Cheatsheet"/>
+<meta name="twitter:description" content="What would common SQL expressions look like in Julia DataFrames and Julia DataFramesMeta?"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "A SQL to Julia DataFrames Cheatsheet",
+        "headline": "A SQL to Julia DataFrames Cheatsheet",
+        "alternativeHeadline": "",
+        "description": "
+      
+        What would common SQL expressions look like in Julia DataFrames and Julia DataFramesMeta?
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.nelsontang.com\/blog\/2022-03-27-sql-to-julia\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-03-27T00:00:00.00Z",
+        "datePublished": "2022-03-27T00:00:00.00Z",
+        "dateModified": "2022-03-27T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "https://www.nelsontang.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/www.nelsontang.com\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "https://www.nelsontang.com/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "https:\/\/www.nelsontang.com\/blog\/2022-03-27-sql-to-julia\/",
+        "wordCount" : "1002",
+        "genre" : [ 
+      
+      "modeling"
+
+    ],
+        "keywords" : [ 
+      
+      "julia"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body
+    
+      class="body theme--light"
+
+    
+  >
+    <div class="wrapper">
+      <aside class="wrapper__sidebar"><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/profile.png"
+        alt="profile picture"
+      />
+      <h1 class="sidebar__introduction-title">
+        <a href="/">Bandit Kings</a>
+      </h1>
+      <div class="sidebar__introduction-description">
+        <p>(Of Ancient Spreadsheets)</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li class="sidebar__list-item">
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Nelson Tang 2022
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
+    crossorigin="anonymous"
+  ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main class="wrapper__main">
+        <header class="header"><div
+  class="
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/"
+            
+            title=""
+            >Home</a
+          >
+        </li>
+
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/blog"
+            
+            title=""
+            >Archives</a
+          >
+        </li>
+
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/about"
+            
+            title=""
+            >About</a
+          >
+        </li>
+
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/notes"
+            
+            title=""
+            >Notebooks</a
+          >
+        </li>
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    
+    <div class="post__content">
+      <h1>A SQL to Julia DataFrames Cheatsheet</h1>
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                Sun, Mar 27, 2022
+
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">5-minute read</span>
+          </li>
+        </ul>
+
+      <p>A SQL to Julia DataFrames dictionary using DataFrames and DataFramesMeta. In general, I use DataFramesMeta since it abstracts away some lower level nuance and it makes for a tidier workflow when I&rsquo;m constructing queries.</p>
+<h1 id="overview">Overview</h1>
+<h2 id="querying-in-dataframes-and-dataframesmeta">Querying in <code>DataFrames</code> and <code>DataFramesMeta</code></h2>
+
+
+
+
+
+
+
+<div class="data-table">
+  <table class="table table-striped table-hover table-bordered">
+<thead>
+<tr>
+<th>SQL Clause</th>
+<th>DataFrames Equivalent</th>
+<th>DataFramesMeta Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SELECT</code></td>
+<td><code>select</code></td>
+<td><code>@select</code></td>
+</tr>
+<tr>
+<td><code>WHERE</code></td>
+<td><code>subset(df, :colnm =&gt; ByRow(x -&gt; x&gt;1))</code></td>
+<td><code>@rsubset(df, :colnm &gt; 1)</code></td>
+</tr>
+<tr>
+<td><code>LIKE</code></td>
+<td><code>subset(df, :colnm=&gt;ByRow(x -&gt; occursin(r&quot;string&quot;, x)))</code></td>
+<td><code>@rsubset(df, occursin(r&quot;string&quot;, :colnm))</code></td>
+</tr>
+<tr>
+<td><code>GROUP BY</code></td>
+<td><code>gd = groupby(df, :colnm)</code><br><code>combine(gd, :colnm=&gt;sum)</code></td>
+<td><code>gd = groupby(df, :colnm)</code><br><code>@combine(gd, :newcol=sum(:colnm))</code><br>or<br> <code>@by(df, :colnm, :newcol=sum(:colnm))</code></td>
+</tr>
+<tr>
+<td><code>SUM(colnm) OVER (PARTITION BY other_colnm) AS newcol</code></td>
+<td><code>gd = groupby(df, :colnm)</code><br><code>transform(gd, :colnm=&gt;sum)</code></td>
+<td><code>gd = groupby(df, :colnm)</code><br><code>@transform(gd, :newcol=sum(:colnm))</code></td>
+</tr>
+<tr>
+<td><code>ORDER BY colnm ASC</code></td>
+<td><code>sort(df, :colnm)</code></td>
+<td><code>@orderby(df, :colnm)</code></td>
+</tr>
+<tr>
+<td><code>ORDER BY colnm DESC</code></td>
+<td><code>sort(df, :colnm, rev=true)</code></td>
+<td><code>@orderby(df, sort(:colnm, rev=true)</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<h2 id="joins">Joins</h2>
+
+
+
+
+
+
+
+<div class="data-table">
+  <table class="table table-striped table-hover table-bordered">
+<thead>
+<tr>
+<th>SQL Clause</th>
+<th>DataFrames Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INNER JOIN</code></td>
+<td><code>innerjoin(df, df2, on=:colnm)</code><br><code>innerjoin(df, df2, on=[:left=&gt;:right])</code></td>
+</tr>
+<tr>
+<td><code>LEFT JOIN</code></td>
+<td><code>leftjoin(df, df2, on=:colnm)</code><br><code>leftjoin(df, df2, on=[:left=&gt;:right])</code></td>
+</tr>
+<tr>
+<td><code>RIGHT JOIN</code></td>
+<td><code>rightjoin(df, df2, on=:colnm)</code><br><code>rightjoin(df, df2, on=[:left=&gt;:right])</code></td>
+</tr>
+<tr>
+<td><code>OUTER JOIN</code></td>
+<td><code>outerjoin(df, df2, on=:colnm)</code><br><code>outerjoin(df, df2, on=[:left=&gt;:right])</code></td>
+</tr>
+<tr>
+<td><code>SELECT * FROM table1, table2</code> <br>aka cartesian product or crossjoin</td>
+<td><code>crossjoin</code></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<h1 id="a-worked-example">A Worked Example</h1>
+<h2 id="the-dataset">The Dataset</h2>
+<p>We&rsquo;ll manually create a dataset of employees <code>df</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFramesMeta</span><span class="p">,</span> <span class="n">Statistics</span><span class="p">,</span> <span class="n">Dates</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># DataFrame(column=data)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">               <span class="n">first_name</span><span class="o">=</span><span class="p">[</span><span class="s">&#34;Michael&#34;</span><span class="p">,</span> <span class="s">&#34;Dwight&#34;</span><span class="p">,</span> <span class="s">&#34;Angela&#34;</span><span class="p">,</span> <span class="s">&#34;Jim&#34;</span><span class="p">,</span> <span class="s">&#34;Pam&#34;</span><span class="p">,</span> <span class="s">&#34;Oscar&#34;</span><span class="p">,</span> <span class="s">&#34;Meredith&#34;</span><span class="p">,</span> <span class="s">&#34;Creed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">               <span class="n">last_name</span><span class="o">=</span><span class="p">[</span><span class="s">&#34;Scott&#34;</span><span class="p">,</span> <span class="s">&#34;Schrute&#34;</span><span class="p">,</span> <span class="s">&#34;Martin&#34;</span><span class="p">,</span> <span class="s">&#34;Halpert&#34;</span><span class="p">,</span> <span class="s">&#34;Beesly&#34;</span><span class="p">,</span> <span class="s">&#34;Nunez&#34;</span><span class="p">,</span> <span class="s">&#34;Palmer&#34;</span><span class="p">,</span> <span class="s">&#34;Bratton&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">               <span class="n">department</span><span class="o">=</span><span class="p">[</span><span class="s">&#34;Management &amp; Admin&#34;</span><span class="p">,</span> <span class="s">&#34;Sales&#34;</span><span class="p">,</span> <span class="s">&#34;Accounting&#34;</span><span class="p">,</span> <span class="s">&#34;Sales&#34;</span><span class="p">,</span> <span class="s">&#34;Management &amp; Admin&#34;</span><span class="p">,</span> <span class="s">&#34;Accounting&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                           <span class="s">&#34;Purchasing&#34;</span><span class="p">,</span> <span class="s">&#34;Purchasing&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">               <span class="n">salary</span><span class="o">=</span><span class="p">[</span><span class="mi">5100</span><span class="p">,</span> <span class="mi">4200</span><span class="p">,</span> <span class="mi">3750</span><span class="p">,</span> <span class="mi">4300</span><span class="p">,</span> <span class="mi">2200</span><span class="p">,</span> <span class="mi">3400</span><span class="p">,</span> <span class="mi">3300</span><span class="p">,</span> <span class="mi">3200</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">8</span><span class="o">×</span><span class="mi">5</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">id</span>     <span class="n">first_name</span>  <span class="n">last_name</span>  <span class="n">department</span>          <span class="n">salary</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">Int64</span>  <span class="kt">String</span>      <span class="kt">String</span>     <span class="kt">String</span>              <span class="kt">Int64</span>  
+</span></span><span class="line"><span class="cl"><span class="n">─────┼──────────────────────────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span>     <span class="mi">1</span>  <span class="n">Michael</span>     <span class="n">Scott</span>      <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">5100</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span>     <span class="mi">2</span>  <span class="n">Dwight</span>      <span class="n">Schrute</span>    <span class="n">Sales</span>                 <span class="mi">4200</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">3</span> <span class="n">│</span>     <span class="mi">3</span>  <span class="n">Angela</span>      <span class="n">Martin</span>     <span class="n">Accounting</span>            <span class="mi">3750</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">4</span> <span class="n">│</span>     <span class="mi">4</span>  <span class="n">Jim</span>         <span class="n">Halpert</span>    <span class="n">Sales</span>                 <span class="mi">4300</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">5</span> <span class="n">│</span>     <span class="mi">5</span>  <span class="n">Pam</span>         <span class="n">Beesly</span>     <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">2200</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">6</span> <span class="n">│</span>     <span class="mi">6</span>  <span class="n">Oscar</span>       <span class="n">Nunez</span>      <span class="n">Accounting</span>            <span class="mi">3400</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">7</span> <span class="n">│</span>     <span class="mi">7</span>  <span class="n">Meredith</span>    <span class="n">Palmer</span>     <span class="n">Purchasing</span>            <span class="mi">3300</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">8</span> <span class="n">│</span>     <span class="mi">8</span>  <span class="n">Creed</span>       <span class="n">Bratton</span>    <span class="n">Purchasing</span>            <span class="mi">3200</span>
+</span></span></code></pre></div><p>Let&rsquo;s create a sales database called <code>db_sales</code> with client information (thanks to <a href="https://theoffice.fandom.com/wiki/Clients_of_Dunder_Mifflin">this site</a>)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c"># Parse dates as Date objects</span>
+</span></span><span class="line"><span class="cl"><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#34;1-2-2006&#34;</span><span class="p">,</span> <span class="s">&#34;1-29-2006&#34;</span><span class="p">,</span> <span class="s">&#34;2-1-2006&#34;</span><span class="p">,</span> <span class="s">&#34;2-14-2006&#34;</span><span class="p">,</span> <span class="s">&#34;3-1-2006&#34;</span><span class="p">,</span> <span class="s">&#34;3-20-2006&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">dates</span> <span class="o">=</span> <span class="n">parse</span><span class="o">.</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="sa">dateformat</span><span class="s">&#34;m-d-y&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">db_sales</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">transaction_date</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">employee_id</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">quantity</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">250</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                     <span class="n">customer</span><span class="o">=</span><span class="p">[</span><span class="s">&#34;Dunmore High School&#34;</span><span class="p">,</span> <span class="s">&#34;Harper Collins&#34;</span><span class="p">,</span> <span class="s">&#34;Blue Cross of Pennsylvania&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;Apex Technology&#34;</span><span class="p">,</span> <span class="s">&#34;Blue Cross of Pennsylvania&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                                <span class="s">&#34;Stone, Cooper, and Grandy: Attorneys at Law&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">6</span><span class="o">×</span><span class="mi">5</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">id</span>     <span class="n">transaction_date</span>  <span class="n">employee_id</span>  <span class="n">quantity</span>  <span class="n">customer</span>                          
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">Int64</span>  <span class="n">Date</span>              <span class="kt">Int64</span>        <span class="kt">Int64</span>     <span class="kt">String</span>                            
+</span></span><span class="line"><span class="cl"><span class="n">─────┼───────────────────────────────────────────────────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span>     <span class="mi">1</span>  <span class="mi">2006</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span>                  <span class="mi">4</span>       <span class="mi">100</span>  <span class="n">Dunmore</span> <span class="n">High</span> <span class="n">School</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span>     <span class="mi">2</span>  <span class="mi">2006</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">29</span>                  <span class="mi">2</span>       <span class="mi">500</span>  <span class="n">Harper</span> <span class="n">Collins</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">3</span> <span class="n">│</span>     <span class="mi">3</span>  <span class="mi">2006</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span>                  <span class="mi">4</span>       <span class="mi">600</span>  <span class="n">Blue</span> <span class="n">Cross</span> <span class="n">of</span> <span class="n">Pennsylvania</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">4</span> <span class="n">│</span>     <span class="mi">4</span>  <span class="mi">2006</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">14</span>                  <span class="mi">2</span>       <span class="mi">200</span>  <span class="n">Apex</span> <span class="n">Technology</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">5</span> <span class="n">│</span>     <span class="mi">5</span>  <span class="mi">2006</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">01</span>                  <span class="mi">4</span>       <span class="mi">400</span>  <span class="n">Blue</span> <span class="n">Cross</span> <span class="n">of</span> <span class="n">Pennsylvania</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">6</span> <span class="n">│</span>     <span class="mi">6</span>  <span class="mi">2006</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span>                  <span class="mi">2</span>       <span class="mi">250</span>  <span class="n">Stone</span><span class="p">,</span> <span class="n">Cooper</span><span class="p">,</span> <span class="n">and</span> <span class="n">Grandy</span><span class="o">:</span> <span class="n">Attor…</span>
+</span></span></code></pre></div><h2 id="subsetting-rows">Subsetting Rows</h2>
+<p>Subsetting rows is possible in base <code>DataFrames</code>, but the syntax in <code>DataFramesMeta</code> is easier for beginners to follow. The special <code>@rsubset</code> macro saves on having to write anonymous functions so it&rsquo;s one less syntactical thing to keep typing every time.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c">#DataFrames</span>
+</span></span><span class="line"><span class="cl"><span class="n">subset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="ss">:department</span> <span class="o">=&gt;</span> <span class="n">ByRow</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">occursin</span><span class="p">(</span><span class="s">&#34;Admin&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#DataFramesMeta</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@rsubset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">occursin</span><span class="p">(</span><span class="s">&#34;Admin&#34;</span><span class="p">,</span> <span class="ss">:department</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">×</span><span class="mi">5</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">id</span>     <span class="n">first_name</span>  <span class="n">last_name</span>  <span class="n">department</span>          <span class="n">salary</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">Int64</span>  <span class="kt">String</span>      <span class="kt">String</span>     <span class="kt">String</span>              <span class="kt">Int64</span>  
+</span></span><span class="line"><span class="cl"><span class="n">─────┼──────────────────────────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span>     <span class="mi">1</span>  <span class="n">Michael</span>     <span class="n">Scott</span>      <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">5100</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span>     <span class="mi">5</span>  <span class="n">Pam</span>         <span class="n">Beesly</span>     <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">2200</span>
+</span></span></code></pre></div><h3 id="matching-text">Matching Text</h3>
+<p>What if you want to do some string matching with wildcards, i.e. SQL <code>WHERE</code> clause with the <code>LIKE</code> or <code>%</code> operator?</p>
+<p>We can use the <code>occursin()</code> function and pass it as an argument to <code>@rsubset</code>, like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c">#DataFrames</span>
+</span></span><span class="line"><span class="cl"><span class="n">subset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="ss">:department</span> <span class="o">=&gt;</span> <span class="n">ByRow</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">occursin</span><span class="p">(</span><span class="s">&#34;Admin&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#DataFramesMeta</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@rsubset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">occursin</span><span class="p">(</span><span class="s">&#34;Admin&#34;</span><span class="p">,</span> <span class="ss">:department</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">×</span><span class="mi">5</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">id</span>     <span class="n">first_name</span>  <span class="n">last_name</span>  <span class="n">department</span>          <span class="n">salary</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">Int64</span>  <span class="kt">String</span>      <span class="kt">String</span>     <span class="kt">String</span>              <span class="kt">Int64</span>  
+</span></span><span class="line"><span class="cl"><span class="n">─────┼──────────────────────────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span>     <span class="mi">1</span>  <span class="n">Michael</span>     <span class="n">Scott</span>      <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">5100</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span>     <span class="mi">5</span>  <span class="n">Pam</span>         <span class="n">Beesly</span>     <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">2200</span>
+</span></span></code></pre></div><p>Adding the <code>r</code> in front of the string lets you use regex to use wildcards and more complex string matching criteria.</p>
+<h2 id="aggregation">Aggregation</h2>
+<p>i.e. <code>GROUP BY Column</code> and <code>SUM(column)</code></p>
+<p>For regular <code>GROUP BY</code> you first use <code>groupby()</code> and then either <code>combine</code> or <code>@combine</code>, or you can use the <code>@by</code> function as shorthand.</p>
+<h3 id="grouping-with-by">Grouping with <code>@by</code></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="nd">@by</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="ss">:department</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">        <span class="o">:</span><span class="s">&#34;Average Salary&#34;</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="ss">:salary</span><span class="p">),</span>          
+</span></span><span class="line"><span class="cl">        <span class="ss">:count</span><span class="o">=</span><span class="n">length</span><span class="p">(</span><span class="ss">:salary</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">×</span><span class="mi">2</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">department</span>          <span class="n">Average</span> <span class="n">Salary</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">String</span>              <span class="kt">Float64</span>        
+</span></span><span class="line"><span class="cl"><span class="n">─────┼────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span> <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>          <span class="mf">3650.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span> <span class="n">Sales</span>                       <span class="mf">4250.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">3</span> <span class="n">│</span> <span class="n">Accounting</span>                  <span class="mf">3575.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">4</span> <span class="n">│</span> <span class="n">Purchasing</span>                  <span class="mf">3250.0</span>
+</span></span></code></pre></div><h3 id="grouping-with-combine-and-combine">Grouping with <code>combine</code> and <code>@combine</code></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">gd</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="ss">:department</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#DataFrames</span>
+</span></span><span class="line"><span class="cl"><span class="n">combine</span><span class="p">(</span><span class="n">gd</span><span class="p">,</span> <span class="ss">:salary</span> <span class="o">=&gt;</span> <span class="n">mean</span> <span class="o">=&gt;</span> <span class="o">:</span><span class="s">&#34;Average Salary&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">            <span class="ss">:department</span> <span class="o">=&gt;</span> <span class="n">length</span> <span class="o">=&gt;</span> <span class="ss">:count</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#DataFramesMeta</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@combine</span><span class="p">(</span><span class="n">gd</span><span class="p">,</span> <span class="o">:</span><span class="s">&#34;Average Salary&#34;</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="ss">:salary</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">             <span class="ss">:count</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="ss">:department</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">4</span><span class="o">×</span><span class="mi">2</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">department</span>          <span class="n">Average</span> <span class="n">Salary</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">String</span>              <span class="kt">Float64</span>        
+</span></span><span class="line"><span class="cl"><span class="n">─────┼────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span> <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>          <span class="mf">3650.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span> <span class="n">Sales</span>                       <span class="mf">4250.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">3</span> <span class="n">│</span> <span class="n">Accounting</span>                  <span class="mf">3575.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">4</span> <span class="n">│</span> <span class="n">Purchasing</span>                  <span class="mf">3250.0</span>
+</span></span></code></pre></div><h2 id="window-functions-with-transform">Window Functions with <code>@transform</code></h2>
+<p>In SQL:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SUM</span><span class="p">(</span><span class="n">colnm</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">other_colnm</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">newcol</span><span class="w">
+</span></span></span></code></pre></div><p>i.e. the <code>PARTITION BY</code> clause, similar to groupby but it returns a value for each row in your table after doing the aggregations in each partition.</p>
+<p>In Julia, you can use the <code>@transform</code> macro to do this after grouping.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">gd</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="ss">:department</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c">#DataFrames</span>
+</span></span><span class="line"><span class="cl"><span class="n">transform</span><span class="p">(</span><span class="n">gd</span><span class="p">,</span> <span class="ss">:salary</span> <span class="o">=&gt;</span> <span class="n">mean</span> <span class="o">=&gt;</span> <span class="o">:</span><span class="s">&#34;Average Salary&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#DataFramesMeta</span>
+</span></span><span class="line"><span class="cl"><span class="nd">@transform</span><span class="p">(</span><span class="n">gd</span><span class="p">,</span> <span class="o">:</span><span class="s">&#34;Average Salary&#34;</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="ss">:salary</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">8</span><span class="o">×</span><span class="mi">6</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">id</span>     <span class="n">first_name</span>  <span class="n">last_name</span>  <span class="n">department</span>          <span class="n">salary</span>  <span class="n">Average</span> <span class="n">Salary</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">Int64</span>  <span class="kt">String</span>      <span class="kt">String</span>     <span class="kt">String</span>              <span class="kt">Int64</span>   <span class="kt">Float64</span>        
+</span></span><span class="line"><span class="cl"><span class="n">─────┼──────────────────────────────────────────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span>     <span class="mi">1</span>  <span class="n">Michael</span>     <span class="n">Scott</span>      <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">5100</span>          <span class="mf">3650.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span>     <span class="mi">2</span>  <span class="n">Dwight</span>      <span class="n">Schrute</span>    <span class="n">Sales</span>                 <span class="mi">4200</span>          <span class="mf">4250.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">3</span> <span class="n">│</span>     <span class="mi">3</span>  <span class="n">Angela</span>      <span class="n">Martin</span>     <span class="n">Accounting</span>            <span class="mi">3750</span>          <span class="mf">3575.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">4</span> <span class="n">│</span>     <span class="mi">4</span>  <span class="n">Jim</span>         <span class="n">Halpert</span>    <span class="n">Sales</span>                 <span class="mi">4300</span>          <span class="mf">4250.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">5</span> <span class="n">│</span>     <span class="mi">5</span>  <span class="n">Pam</span>         <span class="n">Beesly</span>     <span class="n">Management</span> <span class="o">&amp;</span> <span class="n">Admin</span>    <span class="mi">2200</span>          <span class="mf">3650.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">6</span> <span class="n">│</span>     <span class="mi">6</span>  <span class="n">Oscar</span>       <span class="n">Nunez</span>      <span class="n">Accounting</span>            <span class="mi">3400</span>          <span class="mf">3575.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">7</span> <span class="n">│</span>     <span class="mi">7</span>  <span class="n">Meredith</span>    <span class="n">Palmer</span>     <span class="n">Purchasing</span>            <span class="mi">3300</span>          <span class="mf">3250.0</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">8</span> <span class="n">│</span>     <span class="mi">8</span>  <span class="n">Creed</span>       <span class="n">Bratton</span>    <span class="n">Purchasing</span>            <span class="mi">3200</span>          <span class="mf">3250.0</span>
+</span></span></code></pre></div><p>And we see indeed that we have the same number of rows as the initial dataset.</p>
+<h2 id="putting-together-a-query-with-chain">Putting together a query with <code>@chain</code></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">sales</span> <span class="o">=</span> <span class="nd">@chain</span> <span class="n">db_sales</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">    <span class="n">groupby</span><span class="p">(</span><span class="ss">:employee_id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nd">@combine</span><span class="p">(</span><span class="ss">:total_quantity</span><span class="o">=</span><span class="n">sum</span><span class="p">(</span><span class="ss">:quantity</span><span class="p">),</span> 
+</span></span><span class="line"><span class="cl">             <span class="ss">:number_of_customers</span><span class="o">=</span><span class="n">length</span><span class="p">(</span><span class="ss">:customer</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="nd">@chain</span> <span class="n">df</span> <span class="k">begin</span>
+</span></span><span class="line"><span class="cl">                <span class="nd">@select</span><span class="p">(</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span><span class="p">,</span> <span class="ss">:department</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nd">@rsubset</span><span class="p">(</span><span class="ss">:department</span><span class="o">==</span><span class="s">&#34;Sales&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">leftjoin</span><span class="p">(</span><span class="n">sales</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="ss">:id</span><span class="o">=&gt;:</span><span class="n">employee_id</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                <span class="nd">@orderby</span><span class="p">(</span><span class="n">sort</span><span class="p">(</span><span class="ss">:total_quantity</span><span class="p">,</span> <span class="n">rev</span><span class="o">=</span><span class="nb">true</span><span class="p">))</span>  <span class="c"># descending</span>
+</span></span><span class="line"><span class="cl">          <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="mi">2</span><span class="o">×</span><span class="mi">6</span> <span class="n">DataFrame</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Row</span> <span class="n">│</span> <span class="n">id</span>     <span class="n">first_name</span>  <span class="n">last_name</span>  <span class="n">department</span>  <span class="n">total_quantity</span>  <span class="n">number_of_customers</span> 
+</span></span><span class="line"><span class="cl">     <span class="n">│</span> <span class="kt">Int64</span>  <span class="kt">String</span>      <span class="kt">String</span>     <span class="kt">String</span>      <span class="kt">Int64</span><span class="o">?</span>          <span class="kt">Int64</span><span class="o">?</span>              
+</span></span><span class="line"><span class="cl"><span class="n">─────┼───────────────────────────────────────────────────────────────────────────────</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">1</span> <span class="n">│</span>     <span class="mi">4</span>  <span class="n">Jim</span>         <span class="n">Halpert</span>    <span class="n">Sales</span>                 <span class="mi">1100</span>                    <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">   <span class="mi">2</span> <span class="n">│</span>     <span class="mi">2</span>  <span class="n">Dwight</span>      <span class="n">Schrute</span>    <span class="n">Sales</span>                  <span class="mi">950</span>                    <span class="mi">3</span>
+</span></span></code></pre></div></div>
+    <div class="post__footer">
+      
+        <span><a class="category" href="/categories/modeling/">modeling</a></span>
+
+
+
+
+      
+
+      
+        <span><a class="tag" href="/tags/julia/">julia</a></span>
+
+
+
+
+      
+    </div>
+
+    
+  </div>
+
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Nelson Tang 2022
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
+    crossorigin="anonymous"
+  ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

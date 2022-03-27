@@ -106,3 +106,9 @@ minify:
 googleAnalytics : "UA-147973039-1"
 
 publishDir: "docs"
+
+# enable line breaks in tables
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
