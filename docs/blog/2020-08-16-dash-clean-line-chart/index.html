@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -403,86 +403,86 @@ if (!doNotTrack) {
 <p>Example:
 <img src="/images/clean_line_chart.png" alt="img"></p>
 <p>Here&rsquo;s the code for the figure, using some dummy random data:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_sample</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">xmin</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">xmax</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">ymin</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">ymax</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;plot_bgcolor&#34;</span><span class="p">:</span> <span class="s2">&#34;rgba(0, 0, 0, 0)&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;paper_bgcolor&#34;</span><span class="p">:</span> <span class="s2">&#34;rgba(0, 0, 0, 0)&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;yaxis&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;visible&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;xaxis&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;nticks&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;tickmode&#34;</span><span class="p">:</span> <span class="s2">&#34;array&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;tickvals&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">],</span> 
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ticktext&#34;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ymin</span><span class="si">}</span><span class="s2"> &lt;br&gt; </span><span class="si">{</span><span class="n">xmin</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ymax</span><span class="si">}</span><span class="s2"> &lt;br&gt; </span><span class="si">{</span><span class="n">xmax</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;title_text&#34;</span><span class="p">:</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;showlegend&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;margin&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;l&#34;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&#34;r&#34;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&#34;t&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;pad&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displayModeBar&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># fig.show(config = config)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># dcc.Graph(figure=fig, config = config)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> plotly.express <span style="color:#66d9ef">as</span> px
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(len(y))
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>random_sample(<span style="color:#ae81ff">24</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> px<span style="color:#f92672">.</span>line(x, y)
+</span></span><span style="display:flex;"><span>xmin <span style="color:#f92672">=</span> x[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>xmax <span style="color:#f92672">=</span> x[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>ymin <span style="color:#f92672">=</span> round(y[<span style="color:#ae81ff">0</span>], <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>ymax <span style="color:#f92672">=</span> round(y[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>layout <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;plot_bgcolor&#34;</span>: <span style="color:#e6db74">&#34;rgba(0, 0, 0, 0)&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;paper_bgcolor&#34;</span>: <span style="color:#e6db74">&#34;rgba(0, 0, 0, 0)&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;yaxis&#34;</span>: {<span style="color:#e6db74">&#34;visible&#34;</span>: <span style="color:#66d9ef">False</span>},
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;xaxis&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;nticks&#34;</span>: <span style="color:#ae81ff">2</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tickmode&#34;</span>: <span style="color:#e6db74">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tickvals&#34;</span>: [xmin, xmax], 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;ticktext&#34;</span>: [<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>ymin<span style="color:#e6db74">}</span><span style="color:#e6db74"> &lt;br&gt; </span><span style="color:#e6db74">{</span>xmin<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>ymax<span style="color:#e6db74">}</span><span style="color:#e6db74"> &lt;br&gt; </span><span style="color:#e6db74">{</span>xmax<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;title_text&#34;</span>: <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;showlegend&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;margin&#34;</span>: {<span style="color:#e6db74">&#34;l&#34;</span>:<span style="color:#ae81ff">4</span>,<span style="color:#e6db74">&#34;r&#34;</span>:<span style="color:#ae81ff">4</span>,<span style="color:#e6db74">&#34;t&#34;</span>:<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;b&#34;</span>:<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;pad&#34;</span>: <span style="color:#ae81ff">4</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>config <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;displayModeBar&#39;</span>: <span style="color:#66d9ef">False</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#f92672">.</span>update_layout(layout)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fig.show(config = config)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># dcc.Graph(figure=fig, config = config)</span>
 </span></span></code></pre></div><p>I like having the layout as a dictionary so we can reuse it if we end up using a bunch of these.</p>
 <h2 id="breaking-down-the-layout">Breaking down the layout</h2>
 <p>Hide the plot background:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="s2">&#34;plot_bgcolor&#34;</span><span class="p">:</span> <span class="s2">&#34;rgba(0, 0, 0, 0)&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;paper_bgcolor&#34;</span><span class="p">:</span> <span class="s2">&#34;rgba(0, 0, 0, 0)&#34;</span><span class="p">,</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;plot_bgcolor&#34;</span>: <span style="color:#e6db74">&#34;rgba(0, 0, 0, 0)&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;paper_bgcolor&#34;</span>: <span style="color:#e6db74">&#34;rgba(0, 0, 0, 0)&#34;</span>,
 </span></span></code></pre></div><p>Hide the y-axis entirely:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="s2">&#34;yaxis&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;visible&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;yaxis&#34;</span>: {<span style="color:#e6db74">&#34;visible&#34;</span>: <span style="color:#66d9ef">False</span>},
 </span></span></code></pre></div><p>For the x-axis, show only the first and last ticks, and set the tick text to have that 2-level effect, and hide the x-axis title.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="s2">&#34;xaxis&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;nticks&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;tickmode&#34;</span><span class="p">:</span> <span class="s2">&#34;array&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;tickvals&#34;</span><span class="p">:</span> <span class="p">[</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">],</span> 
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;ticktext&#34;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ymin</span><span class="si">}</span><span class="s2"> &lt;br&gt; </span><span class="si">{</span><span class="n">xmin</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">ymax</span><span class="si">}</span><span class="s2"> &lt;br&gt; </span><span class="si">{</span><span class="n">xmax</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;title_text&#34;</span><span class="p">:</span> <span class="kc">None</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;xaxis&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;nticks&#34;</span>: <span style="color:#ae81ff">2</span>, 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tickmode&#34;</span>: <span style="color:#e6db74">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;tickvals&#34;</span>: [xmin, xmax], 
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;ticktext&#34;</span>: [<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>ymin<span style="color:#e6db74">}</span><span style="color:#e6db74"> &lt;br&gt; </span><span style="color:#e6db74">{</span>xmin<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>ymax<span style="color:#e6db74">}</span><span style="color:#e6db74"> &lt;br&gt; </span><span style="color:#e6db74">{</span>xmax<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;title_text&#34;</span>: <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>        },
 </span></span></code></pre></div><p>And finally, hide the legend and clean up the margins to reduce whitespace in the card. If you don&rsquo;t do this it makes for a really small plot.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="s2">&#34;showlegend&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;margin&#34;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;l&#34;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&#34;r&#34;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s2">&#34;t&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;pad&#34;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;showlegend&#34;</span>: <span style="color:#66d9ef">False</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;margin&#34;</span>: {<span style="color:#e6db74">&#34;l&#34;</span>:<span style="color:#ae81ff">4</span>,<span style="color:#e6db74">&#34;r&#34;</span>:<span style="color:#ae81ff">4</span>,<span style="color:#e6db74">&#34;t&#34;</span>:<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;b&#34;</span>:<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;pad&#34;</span>: <span style="color:#ae81ff">4</span>}
 </span></span></code></pre></div><p>We also need to set up the config to hide the annoying modebar, and this goes either in the <code>fig.show()</code> call or the <code>dcc.Graph()</code> call, depending if you&rsquo;re just using Plotly or using this in Dash.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;displayModeBar&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>config <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;displayModeBar&#39;</span>: <span style="color:#66d9ef">False</span>}
 </span></span></code></pre></div><p>And here&rsquo;s the code for the card:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">card</span> <span class="o">=</span> <span class="n">dbc</span><span class="o">.</span><span class="n">Card</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dbc</span><span class="o">.</span><span class="n">CardBody</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">            <span class="p">[</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">H4</span><span class="p">(</span><span class="s2">&#34;Card title&#34;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-title&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;$10.5 M&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-value&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;Target: $10.0 M&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-target&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">dcc</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;Up &#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-diff-up&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;5.5% vs Last Year&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-diff-up&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">            <span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="p">),</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>card <span style="color:#f92672">=</span> dbc<span style="color:#f92672">.</span>Card(
+</span></span><span style="display:flex;"><span>    [
+</span></span><span style="display:flex;"><span>        dbc<span style="color:#f92672">.</span>CardBody(
+</span></span><span style="display:flex;"><span>            [
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>H4(<span style="color:#e6db74">&#34;Card title&#34;</span>, className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-title&#34;</span>),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>P(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;$10.5 M&#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-value&#34;</span>,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>P(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;Target: $10.0 M&#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-target&#34;</span>,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>                dcc<span style="color:#f92672">.</span>Graph(figure<span style="color:#f92672">=</span>fig, config<span style="color:#f92672">=</span>config),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>Span(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;Up &#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-diff-up&#34;</span>,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>Span(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;5.5% vs Last Year&#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-diff-up&#34;</span>,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div></div>
     <div class="post__footer">
       

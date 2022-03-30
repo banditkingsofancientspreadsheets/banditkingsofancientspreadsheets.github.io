@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -398,24 +398,24 @@ if (!doNotTrack) {
 <p>So what can you do in basic <code>pandas</code>? Well, if your fiscal calendar is the same as the calendar year, you&rsquo;re in luck.</p>
 <p><code>pandas</code> has a variety of functions that let you create and manipulate date ranges that conform to a fiscal calendar that begins on January 1st of every year and ends on Dec 31st of every year, and where every quarter is exactly 3 calendar months long.</p>
 <p>We can see an example of this built-in functionality if we use <code>pandas</code> to give us an array of the <em>last</em> day in each quarter in 2021 using the <code>freq='Q'</code> parameter:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">datetime</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Create a DatetimeIndex with freq=&#39;Q&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># the &#39;Q&#39; indicates the last day of each quarter</span>
-</span></span><span class="line"><span class="cl"><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">ts</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2021</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>end <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2022</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a DatetimeIndex with freq=&#39;Q&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the &#39;Q&#39; indicates the last day of each quarter</span>
+</span></span><span style="display:flex;"><span>ts <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>date_range(start, end, freq<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Q&#39;</span>)
+</span></span><span style="display:flex;"><span>ts
 </span></span></code></pre></div><p>Which returns an iterable <code>DatetimeIndex</code> object with a few extra parameters:</p>
 <pre tabindex="0"><code>DatetimeIndex([&#39;2021-03-31&#39;, &#39;2021-06-30&#39;, &#39;2021-09-30&#39;, &#39;2021-12-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;Q-DEC&#39;)
 </code></pre><p>We can use this index to create a dataframe with columns with various attributes, by converting this stuff to a <code>period</code> object:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">tp</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">to_period</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">             <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quarter&#39;</span><span class="p">:</span><span class="n">tp</span><span class="o">.</span><span class="n">quarter</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                   <span class="s1">&#39;fiscal_year&#39;</span><span class="p">:</span><span class="n">tp</span><span class="o">.</span><span class="n">qyear</span><span class="p">})</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tp <span style="color:#f92672">=</span> ts<span style="color:#f92672">.</span>to_period()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>ts, 
+</span></span><span style="display:flex;"><span>             data<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;quarter&#39;</span>:tp<span style="color:#f92672">.</span>quarter, 
+</span></span><span style="display:flex;"><span>                   <span style="color:#e6db74">&#39;fiscal_year&#39;</span>:tp<span style="color:#f92672">.</span>qyear})
 </span></span></code></pre></div>
 
 
@@ -463,10 +463,10 @@ if (!doNotTrack) {
 <p>Many organizations define quarters relative to the month in which their fiscal year starts and ends. Thus, first quarter of 2011 could start in 2010 or a few months into 2011. Via anchored frequencies, pandas works for all quarterly frequencies <code>Q-JAN</code> through <code>Q-DEC</code>.</p>
 </blockquote>
 <p>So in other words, the default quarter system <code>Q-DEC</code> (and <code>A-DEC</code>) means that it ends in December. So if we wanted to have a fiscal calendar that ends in May and starts in June 1st, we&rsquo;d use <code>Q-MAY</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q-MAY&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">tp</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">to_period</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quarter&#39;</span><span class="p">:</span><span class="n">tp</span><span class="o">.</span><span class="n">quarter</span><span class="p">,</span> <span class="s1">&#39;fiscal_year&#39;</span><span class="p">:</span><span class="n">tp</span><span class="o">.</span><span class="n">qyear</span><span class="p">})</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ts <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>date_range(start, end, freq<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Q-MAY&#39;</span>)
+</span></span><span style="display:flex;"><span>tp <span style="color:#f92672">=</span> ts<span style="color:#f92672">.</span>to_period()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>ts, data<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;quarter&#39;</span>:tp<span style="color:#f92672">.</span>quarter, <span style="color:#e6db74">&#39;fiscal_year&#39;</span>:tp<span style="color:#f92672">.</span>qyear})
 </span></span></code></pre></div>
 
 
@@ -509,15 +509,15 @@ if (!doNotTrack) {
 
 </div>
 <p>So that was easy! And instead of creating the date range with just the end quarters, we can create a daily date range and then use the <code>to_period()</code> call to do the fiscal year translation for us, to create a <em>daily</em> calendar lookup table:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># create a DatetimeIndex with all days between 2021 and 2022</span>
-</span></span><span class="line"><span class="cl"><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2021&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2022&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Create a PeriodIndex from the daily range with our new freq</span>
-</span></span><span class="line"><span class="cl"><span class="n">tp</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q-MAY&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">ts</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                  <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;quarter&#39;</span><span class="p">:</span><span class="n">tp</span><span class="o">.</span><span class="n">quarter</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                        <span class="s1">&#39;fiscal_year&#39;</span><span class="p">:</span><span class="n">tp</span><span class="o">.</span><span class="n">qyear</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># create a DatetimeIndex with all days between 2021 and 2022</span>
+</span></span><span style="display:flex;"><span>ts <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>date_range(start<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2021&#39;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;2022&#39;</span>, freq<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;D&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a PeriodIndex from the daily range with our new freq</span>
+</span></span><span style="display:flex;"><span>tp <span style="color:#f92672">=</span> ts<span style="color:#f92672">.</span>to_period(freq<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Q-MAY&#39;</span>)
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>ts, 
+</span></span><span style="display:flex;"><span>                  data<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;quarter&#39;</span>:tp<span style="color:#f92672">.</span>quarter, 
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#39;fiscal_year&#39;</span>:tp<span style="color:#f92672">.</span>qyear})
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>tail()
 </span></span></code></pre></div>
 
 
@@ -569,40 +569,40 @@ if (!doNotTrack) {
 <p>What if your fiscal calendar follows a <a href="https://en.wikipedia.org/wiki/4%E2%80%934%E2%80%935_calendar">52/53-workweek calendar using the 4-4-5 quarter system</a>? I want to be able to use <code>pandas</code> methods on those, too!</p>
 <p>An exhaustive search in <code>pandas</code> docs comes up with a custom DateOffset class that has the barest minimum in terms of <a href="https://pandas.pydata.org/docs/reference/api/pandas.tseries.offsets.FY5253.html">documentation</a>: <code>pd.tseries.offsets.FY5253</code>.</p>
 <p>We can use the <code>pd.tseries.offsets.FY5253</code> DateOffset type to find the dates of the beginning of each fiscal year:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">variation</span> <span class="o">=</span> <span class="s1">&#39;last&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># create an offset for the Intel fiscal calendar, which ends on the last Saturday of December</span>
-</span></span><span class="line"><span class="cl"><span class="n">yoffset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">tseries</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">FY5253</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">weekday</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">startingMonth</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">variation</span><span class="o">=</span><span class="n">variation</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># use the offset to create a date range with intervals at each fiscal year beginning</span>
-</span></span><span class="line"><span class="cl"><span class="n">yoffset_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2020&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">yoffset</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">yoffset_range</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>variation <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;last&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create an offset for the Intel fiscal calendar, which ends on the last Saturday of December</span>
+</span></span><span style="display:flex;"><span>yoffset <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>tseries<span style="color:#f92672">.</span>offsets<span style="color:#f92672">.</span>FY5253(n<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, weekday<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, startingMonth<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>, variation<span style="color:#f92672">=</span>variation)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># use the offset to create a date range with intervals at each fiscal year beginning</span>
+</span></span><span style="display:flex;"><span>yoffset_range <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>date_range(<span style="color:#e6db74">&#39;2020&#39;</span>, periods<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, freq<span style="color:#f92672">=</span>yoffset)
+</span></span><span style="display:flex;"><span>yoffset_range
 </span></span></code></pre></div><pre tabindex="0"><code>DatetimeIndex([&#39;2020-12-26&#39;, &#39;2021-12-25&#39;, &#39;2022-12-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;RE-L-DEC-SAT&#39;)
 </code></pre><p>Let&rsquo;s take a look at the above result - we&rsquo;ve generated a <code>DatetimeIndex</code> with the <em>last</em> day of each fiscal year. In this case, we are telling <code>pandas</code> to create an offset using a 52/53 workweek calendar where the last day of the fiscal calendar lands on <strong>the last (<code>variation='last'</code>) Saturday (<code>weekday=5</code>) in December (<code>month=12</code>)</strong>. See <a href="https://pandas.pydata.org/docs/reference/api/pandas.tseries.offsets.FY5253.html">documentation</a> for an explainer on the other parameters, and the &rsquo;nearest&rsquo; variation.</p>
 <p>Notice the new <code>freq</code> string. Creating the timeseries offset object generates a new <code>freq</code> string that you can use for the <code>pd.date_range</code> function. However, unlike the previous examples you can&rsquo;t convert these to <code>Period</code> objects to get the quarter, month, etc (you can try it - it&rsquo;ll return an error).</p>
 <p>So how can we use this to create a lookup table? We can do it manually with a loop and <code>pd.date_range</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create a &#39;1 day&#39; offset:</span>
-</span></span><span class="line"><span class="cl"><span class="n">d1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">tseries</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Specify the starting fiscal year</span>
-</span></span><span class="line"><span class="cl"><span class="n">yr</span> <span class="o">=</span> <span class="p">(</span><span class="n">yoffset_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">tseries</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># iterate over each item in the date range we created earlier:</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">yoffset_range</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># recall each item is a Timestamp that represents the first day of the fiscal year,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># so create a date_range from beginning to end of the fiscal year</span>
-</span></span><span class="line"><span class="cl">    <span class="n">current_range</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">d1</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">yoffset</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">interim_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">current_range</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># day of year</span>
-</span></span><span class="line"><span class="cl">    <span class="n">interim_df</span><span class="p">[</span><span class="s1">&#39;DOY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_range</span><span class="o">-</span><span class="n">current_range</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">days</span> <span class="o">+</span><span class="mi">1</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># fiscal year</span>
-</span></span><span class="line"><span class="cl">    <span class="n">interim_df</span><span class="p">[</span><span class="s1">&#39;FY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">yr</span>
-</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interim_df</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">yr</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># See what we get:</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;FY==2021&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create a &#39;1 day&#39; offset:</span>
+</span></span><span style="display:flex;"><span>d1 <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>tseries<span style="color:#f92672">.</span>offsets<span style="color:#f92672">.</span>DateOffset(n <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Specify the starting fiscal year</span>
+</span></span><span style="display:flex;"><span>yr <span style="color:#f92672">=</span> (yoffset_range[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> pd<span style="color:#f92672">.</span>tseries<span style="color:#f92672">.</span>offsets<span style="color:#f92672">.</span>DateOffset(n<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>))<span style="color:#f92672">.</span>year <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># iterate over each item in the date range we created earlier:</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> yoffset_range:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># recall each item is a Timestamp that represents the first day of the fiscal year,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># so create a date_range from beginning to end of the fiscal year</span>
+</span></span><span style="display:flex;"><span>    current_range <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>date_range(i<span style="color:#f92672">+</span>d1, i<span style="color:#f92672">+</span>yoffset, freq<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;D&#39;</span>)
+</span></span><span style="display:flex;"><span>    interim_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(index <span style="color:#f92672">=</span> current_range)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># day of year</span>
+</span></span><span style="display:flex;"><span>    interim_df[<span style="color:#e6db74">&#39;DOY&#39;</span>] <span style="color:#f92672">=</span> (current_range<span style="color:#f92672">-</span>current_range[<span style="color:#ae81ff">0</span>])<span style="color:#f92672">.</span>days <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># fiscal year</span>
+</span></span><span style="display:flex;"><span>    interim_df[<span style="color:#e6db74">&#39;FY&#39;</span>] <span style="color:#f92672">=</span> yr
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>append(interim_df)
+</span></span><span style="display:flex;"><span>    yr <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See what we get:</span>
+</span></span><span style="display:flex;"><span>result<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#39;FY==2021&#39;</span>)<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">10</span>)
 </span></span></code></pre></div>
 
 
@@ -676,17 +676,17 @@ if (!doNotTrack) {
 </div>
 <p>This loop created a dataframe with the daily <code>pd.DatetimeIndex</code> and a few columns that specify where each calendar day falls in the fiscal year.</p>
 <p>We can also add more features, like the workweek in the year, which fiscal quarter that day falls under, and more:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># workweek in year</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="p">[</span><span class="s1">&#39;WW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;DOY&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span><span class="mi">7</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># fiscal quarter</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="p">[</span><span class="s1">&#39;FQ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">((</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;WW&#39;</span><span class="p">]</span><span class="o">//</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># workweek in quarter</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="p">[</span><span class="s1">&#39;WWinQ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;WW&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="p">((</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;FQ&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">13</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># fiscal month</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="p">[</span><span class="s1">&#39;FM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;FQ&#39;</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(((</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;WWinQ&#39;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">4</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Show the result</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;FY==2021&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># workweek in year</span>
+</span></span><span style="display:flex;"><span>result[<span style="color:#e6db74">&#39;WW&#39;</span>] <span style="color:#f92672">=</span> ((result[<span style="color:#e6db74">&#39;DOY&#39;</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">//</span><span style="color:#ae81ff">7</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fiscal quarter</span>
+</span></span><span style="display:flex;"><span>result[<span style="color:#e6db74">&#39;FQ&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>minimum((result[<span style="color:#e6db74">&#39;WW&#39;</span>]<span style="color:#f92672">//</span><span style="color:#ae81ff">13</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># workweek in quarter</span>
+</span></span><span style="display:flex;"><span>result[<span style="color:#e6db74">&#39;WWinQ&#39;</span>] <span style="color:#f92672">=</span> result[<span style="color:#e6db74">&#39;WW&#39;</span>] <span style="color:#f92672">-</span> ((result[<span style="color:#e6db74">&#39;FQ&#39;</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">13</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fiscal month</span>
+</span></span><span style="display:flex;"><span>result[<span style="color:#e6db74">&#39;FM&#39;</span>] <span style="color:#f92672">=</span> ((result[<span style="color:#e6db74">&#39;FQ&#39;</span>]<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>minimum(((result[<span style="color:#e6db74">&#39;WWinQ&#39;</span>] <span style="color:#f92672">//</span> <span style="color:#ae81ff">4</span>)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Show the result</span>
+</span></span><span style="display:flex;"><span>result<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#39;FY==2021&#39;</span>)<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">10</span>)
 </span></span></code></pre></div>
 
 

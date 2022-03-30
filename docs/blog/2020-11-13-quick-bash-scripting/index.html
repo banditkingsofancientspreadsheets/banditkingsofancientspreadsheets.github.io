@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -388,37 +388,37 @@ if (!doNotTrack) {
       <p>At work or grad school, I have to juggle a lot of projects and it always takes me a while to remember which directory I was in and what I named the project environment. I wanted &lsquo;shortcuts&rsquo; in the terminal that would automate the things I was typing out manually each time. To do this, I saved these custom functions and <code>source</code> them into <code>.zshrc</code>.</p>
 <h2 id="1-create-a-file-for-your-custom-scripts">1. Create a file for your custom scripts</h2>
 <p>I store a file for these personal macros, let&rsquo;s create one here:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /usr/local/bin/
-</span></span><span class="line"><span class="cl">touch personal_macros.
-</span></span><span class="line"><span class="cl">vi personal_macros
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /usr/local/bin/
+</span></span><span style="display:flex;"><span>touch personal_macros.
+</span></span><span style="display:flex;"><span>vi personal_macros
 </span></span></code></pre></div><p>This navigates to your <code>/usr/local/bin/</code> directory, creates the <code>personal_macros</code> file with <code>touch</code> and uses vim to open it with <code>vi</code>.</p>
 <h2 id="2-write-functions">2. Write functions</h2>
 <p>Once your blank file is created you need to add in your functions. The first line that starts with the <code>#!</code> (shebang) tells bash that this is a zshell script. I don&rsquo;t remember if this is absolutely necessary but I had it here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env zsh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="k">function</span> explore<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> ~/Documents/Analysis
-</span></span><span class="line"><span class="cl">  conda activate explore
-</span></span><span class="line"><span class="cl">  code .
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">function</span> workmode<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">cd</span> ~/Documents/Analysis/GT/ISYE6501
-</span></span><span class="line"><span class="cl">  open .
-</span></span><span class="line"><span class="cl">  open ISYE6501.Rproj
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env zsh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> explore<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  cd ~/Documents/Analysis
+</span></span><span style="display:flex;"><span>  conda activate explore
+</span></span><span style="display:flex;"><span>  code .
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> workmode<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  cd ~/Documents/Analysis/GT/ISYE6501
+</span></span><span style="display:flex;"><span>  open .
+</span></span><span style="display:flex;"><span>  open ISYE6501.Rproj
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>These are examples of basic functions. The first one, <code>explore()</code> navigates to a folder and activates a conda environment called <code>explore</code>. Then it opens up a vscode window in the folder.</p>
 <p>The second function <code>workmode()</code> navigates to another folder, opens an explorer window there, and then will open my <code>ISYE6501.Rproj</code> project in RStudio.</p>
 <p>Remember, when you&rsquo;re done with vim, type <code>:wq</code> to save your changes and exit.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">wq</span><span class="err">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span>:<span style="color:#a6e22e">wq</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><h2 id="3-add-these-functions-to-your-zshrc-file">3. Add these functions to your <code>.zshrc</code> file</h2>
 <p>After you&rsquo;re done creating the functions it&rsquo;s time to add them to the <code>.zshrc</code> file so you can call these functions from the terminal.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cd
-</span></span></span><span class="line"><span class="cl"><span class="go">vi .zshrc
-</span></span></span></code></pre></div><p>Then you want to add a line to <code>source</code> your <code>personal_macros</code> file by adding in this line to the <code>.zshrc</code> file:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> /usr/local/bin/personal_macros
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>cd
+</span></span><span style="display:flex;"><span>vi .zshrc
+</span></span></code></pre></div><p>Then you want to add a line to <code>source</code> your <code>personal_macros</code> file by adding in this line to the <code>.zshrc</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source /usr/local/bin/personal_macros
 </span></span></code></pre></div><p>Go ahead and save and exit vim:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="p">:</span><span class="nx">wq</span><span class="err">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span>:<span style="color:#a6e22e">wq</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><p>Now you can reload your terminal and the functions will be available to you! Just type <code>explore</code> or <code>workmode</code> and it&rsquo;ll run through the steps in your script.</p>
 <p>I like to create functions that follow a particular taxonomy. For work projects, I&rsquo;ll make a function for each project I&rsquo;m working on, starting with <code>work-</code> so it&rsquo;s easy to remember and I can utilize tab completion. For example, I&rsquo;ll have a <code>work-unicorn</code> function when I&rsquo;m working on the unicorn project and a <code>work-phoenix</code> function when I want to resume work on the phoenix project.</p>
 <p>Happy scripting!</p>

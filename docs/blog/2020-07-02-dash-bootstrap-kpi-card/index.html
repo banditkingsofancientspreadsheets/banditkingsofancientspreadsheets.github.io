@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -408,81 +408,81 @@ if (!doNotTrack) {
 <p>Here&rsquo;s the sketch of the starter KPI dashboard:
 <img src="/images/dbc_kpi2.png" alt="img"></p>
 <p>Python Code for your <code>app.py</code> file:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dash</span>  <span class="c1"># (version 1.19.0) pip install dash</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dash_bootstrap_components</span> <span class="k">as</span> <span class="nn">dbc</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dash_html_components</span> <span class="k">as</span> <span class="nn">html</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fontawesome_stylesheet</span> <span class="o">=</span> <span class="s2">&#34;https://use.fontawesome.com/releases/v5.8.1/css/all.css&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">dash</span><span class="o">.</span><span class="n">Dash</span><span class="p">(</span><span class="n">external_stylesheets</span><span class="o">=</span><span class="p">[</span><span class="n">dbc</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">BOOTSTRAP</span><span class="p">,</span> <span class="n">fontawesome_stylesheet</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">header</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dbc</span><span class="o">.</span><span class="n">Row</span><span class="p">(</span><span class="n">dbc</span><span class="o">.</span><span class="n">Col</span><span class="p">(</span><span class="n">html</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&#34;H1 Text&#34;</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl"><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">card</span> <span class="o">=</span> <span class="n">dbc</span><span class="o">.</span><span class="n">Card</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dbc</span><span class="o">.</span><span class="n">CardBody</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">H4</span><span class="p">(</span><span class="s2">&#34;Card title&#34;</span><span class="p">,</span> <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-title&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;$10.5 M&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-value&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">P</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;Target: $10.0 M&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;card-target&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">html</span><span class="o">.</span><span class="n">I</span><span class="p">(</span><span class="n">className</span><span class="o">=</span><span class="s2">&#34;fas fa-arrow-circle-up up&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">html</span><span class="o">.</span><span class="n">Span</span><span class="p">(</span><span class="s2">&#34; 5.5% vs Last Year&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="n">className</span><span class="o">=</span><span class="s2">&#34;up&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">                <span class="p">])</span>
-</span></span><span class="line"><span class="cl">            <span class="p">])</span>
-</span></span><span class="line"><span class="cl">        <span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">row</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dbc</span><span class="o">.</span><span class="n">CardDeck</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">                <span class="n">card</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="n">card</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="n">card</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="p">]),</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span> <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;padding&#39;</span><span class="p">:</span> <span class="s1">&#39;25px&#39;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">app</span><span class="o">.</span><span class="n">layout</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">Div</span><span class="p">([</span>
-</span></span><span class="line"><span class="cl">    <span class="n">header</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">row</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">row</span>
-</span></span><span class="line"><span class="cl"><span class="p">])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> dash  <span style="color:#75715e"># (version 1.19.0) pip install dash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> dash_bootstrap_components <span style="color:#66d9ef">as</span> dbc
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> dash_html_components <span style="color:#66d9ef">as</span> html
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fontawesome_stylesheet <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://use.fontawesome.com/releases/v5.8.1/css/all.css&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> dash<span style="color:#f92672">.</span>Dash(external_stylesheets<span style="color:#f92672">=</span>[dbc<span style="color:#f92672">.</span>themes<span style="color:#f92672">.</span>BOOTSTRAP, fontawesome_stylesheet])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>header <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>Div([
+</span></span><span style="display:flex;"><span>    dbc<span style="color:#f92672">.</span>Row(dbc<span style="color:#f92672">.</span>Col(html<span style="color:#f92672">.</span>H1(<span style="color:#e6db74">&#34;H1 Text&#34;</span>))),
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>card <span style="color:#f92672">=</span> dbc<span style="color:#f92672">.</span>Card([
+</span></span><span style="display:flex;"><span>        dbc<span style="color:#f92672">.</span>CardBody([
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>H4(<span style="color:#e6db74">&#34;Card title&#34;</span>, className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-title&#34;</span>),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>P(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;$10.5 M&#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-value&#34;</span>,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>P(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;Target: $10.0 M&#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-target&#34;</span>,
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>                html<span style="color:#f92672">.</span>Span([
+</span></span><span style="display:flex;"><span>                    html<span style="color:#f92672">.</span>I(className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-arrow-circle-up up&#34;</span>),
+</span></span><span style="display:flex;"><span>                    html<span style="color:#f92672">.</span>Span(<span style="color:#e6db74">&#34; 5.5% vs Last Year&#34;</span>,
+</span></span><span style="display:flex;"><span>                    className<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;up&#34;</span>)
+</span></span><span style="display:flex;"><span>                ])
+</span></span><span style="display:flex;"><span>            ])
+</span></span><span style="display:flex;"><span>        ])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>row <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>Div([
+</span></span><span style="display:flex;"><span>        dbc<span style="color:#f92672">.</span>CardDeck([
+</span></span><span style="display:flex;"><span>                card,
+</span></span><span style="display:flex;"><span>                card,
+</span></span><span style="display:flex;"><span>                card,
+</span></span><span style="display:flex;"><span>            ]),
+</span></span><span style="display:flex;"><span>    ], style<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;padding&#39;</span>: <span style="color:#e6db74">&#39;25px&#39;</span>}
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>layout <span style="color:#f92672">=</span> html<span style="color:#f92672">.</span>Div([
+</span></span><span style="display:flex;"><span>    header,
+</span></span><span style="display:flex;"><span>    row,
+</span></span><span style="display:flex;"><span>    row
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>run_server(host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0.0.0.0&#34;</span>, port<span style="color:#f92672">=</span><span style="color:#ae81ff">8080</span>, debug<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span></code></pre></div><p>The &lsquo;up&rsquo; arrow icon is courtesy of fontawesome, which we load with the external stylesheet. Since this is all in python it&rsquo;s simple to turn this into a function and create conditional (i.e. <code>if</code>) statements to change the icon and color scheme for your data.</p>
 <p>Here is the basic CSS styling that goes with this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-title</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">text-align</span><span class="p">:</span> <span class="kc">left</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">lighter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-value</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">2</span><span class="kt">rem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">card-target</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">font-size</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">font-weight</span><span class="p">:</span> <span class="kc">lighter</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">down</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">card</span> <span class="p">.</span><span class="nc">up</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">green</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">card</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">card-title</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">left</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">lighter</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">card-value</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">card-target</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">lighter</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">down</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">card</span> .<span style="color:#a6e22e">up</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">green</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div></div>
     <div class="post__footer">
       

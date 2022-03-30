@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -388,33 +388,33 @@ if (!doNotTrack) {
       <p>Had the hassle of trying to update Julia this weekend and I gotta say, <em>every</em> time there&rsquo;s always something I forget, so here&rsquo;s my best tips on what it takes to update your installation of Julia in Mac/Linux:</p>
 <h2 id="step-1-use-jillpyjill-to-download--install-julia">Step 1: Use <code>jill</code>/<code>pyjill</code> to Download &amp; Install Julia</h2>
 <p>I used to mess with downloading the binaries and install files directly from the <a href="https://julialang.org/downloads/">julialang site</a> and also tried homebrew, but both of these options were really clunky when it came to updating your existing installation. Instead, I just use <code>pyjill</code> (<a href="https://github.com/johnnychen94/jill.py">Github</a>), which works perfectly on OSX and Windows (note: requires python &gt;=3.6).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Install or update the latest version of jill (requires python&gt;=3.6)</span>
-</span></span><span class="line"><span class="cl">pip install jill --user -U
-</span></span><span class="line"><span class="cl"><span class="c1"># export the jill PATH somewhere, if this is your first time installing jill</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=$PATH:/home/$USERNAME/.local/bin&#39;</span> &gt;&gt; ~/.personal_macros
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.zshrc
-</span></span><span class="line"><span class="cl"><span class="c1"># Install the latest stable release</span>
-</span></span><span class="line"><span class="cl">jill install
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Install or update the latest version of jill (requires python&gt;=3.6)</span>
+</span></span><span style="display:flex;"><span>pip install jill --user -U
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># export the jill PATH somewhere, if this is your first time installing jill</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=$PATH:/home/$USERNAME/.local/bin&#39;</span> &gt;&gt; ~/.personal_macros
+</span></span><span style="display:flex;"><span>source ~/.zshrc
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install the latest stable release</span>
+</span></span><span style="display:flex;"><span>jill install
 </span></span></code></pre></div><p>Then the next time you need to update Julia, you only need to do <code>jill install</code> to get the latest.</p>
 <h2 id="step-2-remove-the-old-julia-folder-optional-linuxosx-instructions">Step 2: Remove the Old <code>.julia</code> Folder <em>(optional, linux/OSX instructions)</em></h2>
 <p>Another time sink I had was realizing that with a fresh update, I couldn&rsquo;t add packages anymore to julia because I didn&rsquo;t have root access to a folder hidden deep within the <code>.julia</code> folder in my user directory. I had to delete it and then julia worked fine after that after rebuilding the registry. This might not be as much of an issue after Julia 1.7, where they <a href="https://julialang.org/blog/2021/11/julia-1.7-highlights/#new_manifest_format">changed the manifest and how the package registry handles different Julia versions</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Go to your home directory</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Delete that sucker with prejudice</span>
-</span></span><span class="line"><span class="cl">sudo rm -rf .julia
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Go to your home directory</span>
+</span></span><span style="display:flex;"><span>cd
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete that sucker with prejudice</span>
+</span></span><span style="display:flex;"><span>sudo rm -rf .julia
 </span></span></code></pre></div><h2 id="step-3-update-jupyter-kernels">Step 3: Update Jupyter Kernels</h2>
 <p>Next we&rsquo;ll need to remove the old julia kernel from Jupyter with <code>jupyter kernelspec remove {{ kernel name }}</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># See the list of existing jupyter kernels and find your old install</span>
-</span></span><span class="line"><span class="cl">jupyter kernelspec list
-</span></span><span class="line"><span class="cl"><span class="c1"># My previous one was called julia-1.6, let&#39;s remove it</span>
-</span></span><span class="line"><span class="cl">jupyter kernelspec remove julia-1.6
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># See the list of existing jupyter kernels and find your old install</span>
+</span></span><span style="display:flex;"><span>jupyter kernelspec list
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># My previous one was called julia-1.6, let&#39;s remove it</span>
+</span></span><span style="display:flex;"><span>jupyter kernelspec remove julia-1.6
 </span></span></code></pre></div><p>Then use IJulia to add a new one. Whenever you change the Julia binary you need to have IJulia rebuild in order to register the new kernel to jupyter, so go back to Julia and go to the Pkg prompt:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="p">(</span><span class="nd">@v1</span><span class="mf">.6</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">IJulia</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nd">@v1</span><span class="mf">.6</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">build</span> <span class="n">IJulia</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-julia" data-lang="julia"><span style="display:flex;"><span>(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> add IJulia
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> build IJulia
 </span></span></code></pre></div><h2 id="step-4-update-your-libraries">Step 4. Update Your Libraries</h2>
 <p>From here on out you&rsquo;ll need to probably <code>build</code> and update your other libraries too, and if you use stuff like <code>PyCall</code>(<a href="https://github.com/JuliaPy/PyCall.jl">link</a>) where it downloads a distribution of python and hides it in your julia folder, have fun managing all of that! I&rsquo;ll do a writeup later when I figure this out a little more.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c"># A few common libraries that I install for data exploration and analysis</span>
-</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nd">@v1</span><span class="mf">.6</span><span class="p">)</span> <span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">Plots</span> <span class="n">Gadfly</span> <span class="n">DataFrames</span> <span class="n">DataFramesMeta</span> <span class="n">XLSX</span> <span class="n">CSV</span> <span class="n">RDatasets</span> <span class="n">Parquet</span> <span class="n">Pluto</span> <span class="n">Query</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-julia" data-lang="julia"><span style="display:flex;"><span><span style="color:#75715e"># A few common libraries that I install for data exploration and analysis</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">@v1</span><span style="color:#ae81ff">.6</span>) pkg<span style="color:#f92672">&gt;</span> add Plots Gadfly DataFrames DataFramesMeta XLSX CSV RDatasets Parquet Pluto Query
 </span></span></code></pre></div></div>
     <div class="post__footer">
       

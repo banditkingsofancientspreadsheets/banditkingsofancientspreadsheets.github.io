@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -396,10 +396,10 @@ if (!doNotTrack) {
 <p>Source: <a href="https://otexts.com/fpp2/">Forecasting: Principles and Practice</a></p>
 <h1 id="data-prep">Data Prep</h1>
 <p>Coerce your data to <code>ts</code> format:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">forecast</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">myts</span> <span class="o">&lt;-</span> <span class="nf">ts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1981</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">frequency</span> <span class="o">=</span> <span class="m">12</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(tidyverse)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(forecast)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>myts <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ts</span>(df, start <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">1981</span>,<span style="color:#ae81ff">1</span>), frequency <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>)
 </span></span></code></pre></div><h1 id="exploring-and-plotting-ts-data">Exploring and Plotting <code>ts</code> Data</h1>
 <ul>
 <li><code>autoplot()</code>: Useful function to plot data and forecasts</li>
@@ -417,16 +417,16 @@ if (!doNotTrack) {
 <h2 id="white-noise-and-the-ljung-box-test">White Noise and the Ljung-Box Test</h2>
 <p>White Noise is another name for a time series of iid data. Purely random. Ideally your model residuals should look like white noise.</p>
 <p>You can use the Ljung-Box test to check if a time series is white noise, here&rsquo;s an example with 24 lags:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">Box.test</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">lag</span> <span class="o">=</span> <span class="m">24</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;Lj&#34;</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">Box.test</span>(data, lag <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>, type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lj&#34;</span>)
 </span></span></code></pre></div><p>p-value &gt; 0.05 suggests data are not significantly different than white noise</p>
 <h1 id="model-selection">Model Selection</h1>
 <p>The <code>forecast</code> package includes a few common models out of the box. Fit the model and create a <code>forecast</code> object, and then use the <code>forecast()</code> function on the object and a number of <code>h</code> periods to predict.</p>
 <p>Example of the workflow:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">train</span> <span class="o">&lt;-</span> <span class="nf">window</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">start</span> <span class="o">=</span> <span class="m">1980</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">naive</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">checkresiduals</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nf">accuracy</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>train <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">window</span>(data, start <span style="color:#f92672">=</span> <span style="color:#ae81ff">1980</span>)
+</span></span><span style="display:flex;"><span>fit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">naive</span>(train)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">checkresiduals</span>(fit)
+</span></span><span style="display:flex;"><span>pred <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">forecast</span>(fit, h<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">accuracy</span>(pred, data)
 </span></span></code></pre></div><h2 id="naive-models">Naive Models</h2>
 <p>Useful to benchmark against naive and seasonal naive models.</p>
 <ul>
@@ -453,7 +453,7 @@ if (!doNotTrack) {
 <p>Backtesting with one step ahead forecasts, aka &ldquo;Time series cross validation&rdquo; can be done with a helper function <code>tsCV()</code>.</p>
 <p><code>tsCV()</code>: returns forecast errors given a <code>forecastfunction</code> that returns a <code>forecast</code> object and number of steps ahead <code>h</code>. At <code>h</code> = 1 the forecast errors will just be the model residuals.</p>
 <p>Here&rsquo;s an example using the <code>naive()</code> model, forecasting one period ahead:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">tsCV</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">forecastfunction</span> <span class="o">=</span> <span class="n">naive</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">tsCV</span>(data, forecastfunction <span style="color:#f92672">=</span> naive, h <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><h1 id="many-models">Many Models</h1>
 <h2 id="exponential-models">Exponential Models</h2>
 <ul>
@@ -487,15 +487,15 @@ if (!doNotTrack) {
 <h2 id="dynamic-regression">Dynamic Regression</h2>
 <p>Regression model with non-seasonal ARIMA errors, i.e. we allow e_t to be an ARIMA process rather than white noise.</p>
 <p>Usage example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">auto.arima</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="n">xreg_data</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="n">newxreg_data</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>fit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">auto.arima</span>(data, xreg <span style="color:#f92672">=</span> xreg_data)
+</span></span><span style="display:flex;"><span>pred <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">forecast</span>(fit, xreg <span style="color:#f92672">=</span> newxreg_data)
 </span></span></code></pre></div><h2 id="dynamic-harmonic-regression">Dynamic Harmonic Regression</h2>
 <p>Dynamic Regression with <code>K</code> fourier terms to model seasonality. With higher <code>K</code> the model becomes more flexible.</p>
 <p>Pro: Allows for any length seasonality, but assumes seasonal pattern is unchanging. <code>Arima()</code> and <code>auto.arima()</code> may run out of memory at large seasonal periods (i.e. &gt;200).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="c1"># Example with K = 1 and predict 4 periods in the future</span>
-</span></span><span class="line"><span class="cl"><span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">auto.arima</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="nf">fourier</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">1</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                  <span class="n">seasonal</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lambda</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">forecast</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">xreg</span> <span class="o">=</span> <span class="nf">fourier</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="m">4</span><span class="p">))</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#75715e"># Example with K = 1 and predict 4 periods in the future</span>
+</span></span><span style="display:flex;"><span>fit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">auto.arima</span>(data, xreg <span style="color:#f92672">=</span> <span style="color:#a6e22e">fourier</span>(data, K <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>                  seasonal <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>, lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>pred <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">forecast</span>(fit, xreg <span style="color:#f92672">=</span> <span style="color:#a6e22e">fourier</span>(data, K <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, h <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>))
 </span></span></code></pre></div><h2 id="tbats">TBATS</h2>
 <p>Automated model that combines exponential smoothing, Box-Cox transformations, and Fourier terms.
 Pro: Automated, allows for complex seasonality that changes over time.

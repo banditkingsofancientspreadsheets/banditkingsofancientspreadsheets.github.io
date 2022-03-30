@@ -15,7 +15,7 @@ Links to Jupyter Notebooks rendered in HTML and available through [nbviewer](htt
 
 ## Julia
 
-* SQL to Julia Translation for basic sorting, filtering, and aggregating of data[[ipynb]](https://github.com/banditkings/julia-examples/blob/main/Data%20Munging/SQL%20to%20Julia%20Examples.ipynb)[[html]](https://nbviewer.org/github/banditkings/julia-examples/blob/main/Data%20Munging/SQL%20to%20Julia%20Examples.ipynb)
+* SQL to Julia Translation for basic sorting, filtering, and aggregating of data [[ipynb]](https://github.com/banditkings/julia-examples/blob/main/Data%20Munging/SQL%20to%20Julia%20Examples.ipynb)[[html]](https://nbviewer.org/github/banditkings/julia-examples/blob/main/Data%20Munging/SQL%20to%20Julia%20Examples.ipynb)
 * Linear Regression with GLM [[ipynb]](https://github.com/banditkings/julia-examples/blob/main/Modeling/Linear%20Regression%20with%20Julia.ipynb) [[html]](https://nbviewer.org/github/banditkings/julia-examples/blob/main/Modeling/Linear%20Regression%20with%20Julia.ipynb)
 * A Julia Project Workflow, i.e. setting up a new environment and project scaffolding [[ipynb]](https://github.com/banditkings/julia-examples/blob/main/Workflow/A%20Julia%20Workflow.ipynb) [[html]](https://nbviewer.org/github/banditkings/julia-examples/blob/main/Workflow/A%20Julia%20Workflow.ipynb)
 * Random Sampling from Distributions in Julia [[ipynb]](https://github.com/banditkings/julia-examples/blob/main/Random%20Sampling.ipynb)[[html]](https://nbviewer.org/github/banditkings/julia-examples/blob/main/Random%20Sampling.ipynb)

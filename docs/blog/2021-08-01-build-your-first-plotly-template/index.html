@@ -55,8 +55,8 @@
     
     <link
       rel="stylesheet"
-      href="/css/custom.min.cbc3a80d7ed769cdfa08ded4b8dba03987107bb40ef14d3ff38473e03fdc8368.css"
-      integrity="sha256-y8OoDX7Xac36CN7UuNugOYcQe7QO8U0/84Rz4D/cg2g="
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
       crossorigin="anonymous"
       media="screen"
     />
@@ -395,38 +395,38 @@ if (!doNotTrack) {
       <p>I got a little lost reading the plotly docs on saving a custom plotly template, so here&rsquo;s a basic skeleton of a template inspired by <a href="https://investors.nike.com/investors/news-events-and-reports/default.aspx">Nike&rsquo;s 10K</a> that you can use to customize basic plot colors, fonts, and show you how the template is structured. I also structured the code to be a little more readible for me since I didn&rsquo;t like their use of both <code>dict</code> and their &lsquo;magic underscore notation&rsquo; which made things more confusing. When you make a template IRL they are going to be pretty verbose and magic underscore notation is not helpful.</p>
 <p>Here&rsquo;s the example. Oh, and you should save it as a file like <code>my_template.py</code> so you can share it as an internal package that people can install with pip or something:</p>
 <h3 id="my_templatepy"><code>my_template.py</code>:</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">pio</span><span class="o">.</span><span class="n">templates</span><span class="p">[</span><span class="s2">&#34;nike&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># LAYOUT</span>
-</span></span><span class="line"><span class="cl">    <span class="n">layout</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Fonts</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Note - &#39;family&#39; must be a single string, NOT a list or dict!</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;title&#39;</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;HelveticaNeue-CondensedBold, Helvetica, Sans-serif&#39;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;size&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                      <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#333&#39;</span><span class="p">},</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Colorways</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;colorway&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;#ec7424&#39;</span><span class="p">,</span> <span class="s1">&#39;#a4abab&#39;</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Keep adding others as needed below</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;hovermode&#39;</span><span class="p">:</span> <span class="s1">&#39;x unified&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># DATA</span>
-</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># Each graph object must be in a tuple or list for each trace</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">texttemplate</span> <span class="o">=</span> <span class="s1">&#39;%{value:$.2s}&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                       <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                       <span class="n">textfont</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;family&#39;</span><span class="p">:</span> <span class="s1">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                                 <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                                 <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFFFFF&#39;</span>
-</span></span><span class="line"><span class="cl">                                 <span class="p">})]</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> plotly.graph_objects <span style="color:#66d9ef">as</span> go
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> plotly.io <span style="color:#66d9ef">as</span> pio
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pio<span style="color:#f92672">.</span>templates[<span style="color:#e6db74">&#34;nike&#34;</span>] <span style="color:#f92672">=</span> go<span style="color:#f92672">.</span>layout<span style="color:#f92672">.</span>Template(
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># LAYOUT</span>
+</span></span><span style="display:flex;"><span>    layout <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Fonts</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Note - &#39;family&#39; must be a single string, NOT a list or dict!</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;title&#39;</span>:
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#39;font&#39;</span>: {<span style="color:#e6db74">&#39;family&#39;</span>: <span style="color:#e6db74">&#39;HelveticaNeue-CondensedBold, Helvetica, Sans-serif&#39;</span>, 
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">30</span>,
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#39;color&#39;</span>: <span style="color:#e6db74">&#39;#333&#39;</span>}
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;font&#39;</span>: {<span style="color:#e6db74">&#39;family&#39;</span>: <span style="color:#e6db74">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span>, 
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">16</span>,
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#39;color&#39;</span>: <span style="color:#e6db74">&#39;#333&#39;</span>},
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Colorways</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;colorway&#39;</span>: [<span style="color:#e6db74">&#39;#ec7424&#39;</span>, <span style="color:#e6db74">&#39;#a4abab&#39;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Keep adding others as needed below</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;hovermode&#39;</span>: <span style="color:#e6db74">&#39;x unified&#39;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># DATA</span>
+</span></span><span style="display:flex;"><span>    data <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Each graph object must be in a tuple or list for each trace</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;bar&#39;</span>: [go<span style="color:#f92672">.</span>Bar(texttemplate <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;%{value:$.2s}&#39;</span>,
+</span></span><span style="display:flex;"><span>                       textposition<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;outside&#39;</span>,
+</span></span><span style="display:flex;"><span>                       textfont<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;family&#39;</span>: <span style="color:#e6db74">&#39;Helvetica Neue, Helvetica, Sans-serif&#39;</span>,
+</span></span><span style="display:flex;"><span>                                 <span style="color:#e6db74">&#39;size&#39;</span>: <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>                                 <span style="color:#e6db74">&#39;color&#39;</span>: <span style="color:#e6db74">&#39;#FFFFFF&#39;</span>
+</span></span><span style="display:flex;"><span>                                 })]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><h2 id="layout-choose-fonts-and-colors">Layout: Choose Fonts and Colors</h2>
 <p>The first thing I do when building out a template <code>layout</code> is I get inspiration from a company&rsquo;s 10k/10Q financial filings and their branding to get their fonts and colors. Google &lsquo;(company name) investor relations&rsquo; and that&rsquo;ll take you to a site where they have a bunch of their financial statements and letters to shareholders and such.</p>
 <ul>
@@ -448,18 +448,18 @@ if (!doNotTrack) {
 <h2 id="protip-practice-with-built-in-plotly-datasets">Protip: Practice with built-in Plotly datasets</h2>
 <p>Plotly has a bunch of built-in datasets that you should practice with when building POC&rsquo;s, but the list is hard to find. <a href="https://plotly.com/python-api-reference/generated/plotly.data.html">Here&rsquo;s the API reference</a>.</p>
 <h2 id="finished-example">Finished Example:</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">my_template</span> <span class="c1"># Import your template here</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># load demo data</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">plotly.data</span> <span class="kn">import</span> <span class="n">tips</span>
-</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">tips</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Plot with the new template</span>
-</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;smoker&#39;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">             <span class="n">template</span><span class="o">=</span><span class="s1">&#39;nike&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Template Example&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> plotly.express <span style="color:#66d9ef">as</span> px
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> my_template <span style="color:#75715e"># Import your template here</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># load demo data</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> plotly.data <span style="color:#f92672">import</span> tips
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> tips()
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;smoker&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>, <span style="color:#e6db74">&#39;tip&#39;</span>]]<span style="color:#f92672">.</span>groupby(by<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;smoker&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>], as_index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot with the new template</span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> px<span style="color:#f92672">.</span>bar(df, x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;size&#39;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;tip&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;smoker&#39;</span>, 
+</span></span><span style="display:flex;"><span>             template<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nike&#39;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Template Example&#39;</span>)
+</span></span><span style="display:flex;"><span>fig<span style="color:#f92672">.</span>show()
 </span></span></code></pre></div><p>
 
 <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: \'local\'};</script>        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>                <div id="fe499a24-e100-447e-9c4c-117badbc9408" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("fe499a24-e100-447e-9c4c-117badbc9408")) {                    Plotly.newPlot(                        "fe499a24-e100-447e-9c4c-117badbc9408",                        [{"alignmentgroup": "True", "hovertemplate": "smoker=No<br>size=%{x}<br>tip=%{y}<extra></extra>", "legendgroup": "No", "marker": {"color": "#ec7424"}, "name": "No", "offsetgroup": "No", "orientation": "v", "showlegend": true, "textposition": "auto", "type": "bar", "x": [1, 2, 3, 4, 5, 6], "xaxis": "x", "y": [1.415, 2.4890000000000003, 3.06923076923077, 4.195769230769232, 5.046666666666667, 5.225], "yaxis": "y"}, {"alignmentgroup": "True", "hovertemplate": "smoker=Yes<br>size=%{x}<br>tip=%{y}<extra></extra>", "legendgroup": "Yes", "marker": {"color": "#a4abab"}, "name": "Yes", "offsetgroup": "Yes", "orientation": "v", "showlegend": true, "textposition": "auto", "type": "bar", "x": [1, 2, 3, 4, 5], "xaxis": "x", "y": [1.46, 2.709545454545454, 4.095, 3.9927272727272727, 2.5], "yaxis": "y"}],                        {"barmode": "relative", "legend": {"title": {"text": "smoker"}, "tracegroupgap": 0}, "template": {"data": {"bar": [{"textfont": {"color": "#FFFFFF", "family": "Helvetica Neue, Helvetica, Sans-serif", "size": 20}, "textposition": "outside", "texttemplate": "%{value:$.2s}", "type": "bar"}]}, "layout": {"colorway": ["#ec7424", "#a4abab"], "font": {"color": "#333", "family": "Helvetica Neue, Helvetica, Sans-serif", "size": 16}, "hovermode": "x unified", "title": {"font": {"color": "#333", "family": "HelveticaNeue-CondensedBold, Helvetica, Sans-serif", "size": 30}}}}, "title": {"text": "Template Example"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "size"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "tip"}}},                        {"responsive": true}                    )                };                            </script>        </div>

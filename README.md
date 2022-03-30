@@ -7,7 +7,6 @@ Followed instructions for custom CSS and downloaded the table class from bootstr
 * [Adding CSS to Markdown Tables](https://discourse.gohugo.io/t/how-to-customise-tables/15661/6)
   * Fixes issue with [this blog post](https://zwbetz.com/style-a-markdown-table-with-bootstrap-classes-in-hugo/)
 
-
 ## Theme
 
 This site uses the Anatole theme with some custom CSS added.
