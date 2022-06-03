@@ -6,7 +6,18 @@
     <description>Recent content on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dash (Plotly) tips - Latex, Google Fonts, and more</title>
+      <link>https://www.nelsontang.com/blog/2022-06-02-dash-tips/</link>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.nelsontang.com/blog/2022-06-02-dash-tips/</guid>
+      
+        <description>A few tips on making your Dash application look a little better</description>
+      
+    </item>
+    
     <item>
       <title>A SQL to Julia DataFrames Cheatsheet</title>
       <link>https://www.nelsontang.com/blog/2022-03-27-sql-to-julia/</link>
@@ -236,7 +247,7 @@ In a past career and past life (i.e. before data science), I led convoys in Kabu
       <guid>https://www.nelsontang.com/notes/</guid>
       
         <description>Notes Links to Jupyter Notebooks rendered in HTML and available through nbviewer to review key concepts. I don&amp;rsquo;t work in Julia every day so I find it useful to keep a record of basic syntax until this becomes muscle memory.
-Python  Monte Carlo is Easy and Free in Python [ipynb] [html] Waterfall Charts in Plotly for FPnA [ipynb] [html] Simple Examples of Bayesian Networks with Python pgmpy [ipynb] [nbviewer] Using pandas to create Fiscal Calendars and 52/53 (aka 4-4-5) Lookup Calendars in Python [ipynb][html]  Julia  SQL to Julia Translation for basic sorting, filtering, and aggregating of data [ipynb][html] Linear Regression with GLM [ipynb] [html] A Julia Project Workflow, i.</description>
+Python  Monte Carlo is Easy and Free in Python [ipynb] [html] Waterfall Charts in Plotly - Useful for Financial Planning and Analysis (FP&amp;amp;A) folks [ipynb] [html] Simple Examples of Bayesian Networks with Python pgmpy [ipynb] [html] Using pandas to create Fiscal Calendars and 52/53 (aka 4-4-5) Lookup Calendars in Python [ipynb][html] Time Series forecasting cheatsheet with the scikit-time (sktime) library [ipynb][html]  Julia  SQL to Julia Translation for basic sorting, filtering, and aggregating of data [ipynb][html] Linear Regression with GLM [ipynb] [html] A Julia Project Workflow, i.</description>
       
     </item>
     
