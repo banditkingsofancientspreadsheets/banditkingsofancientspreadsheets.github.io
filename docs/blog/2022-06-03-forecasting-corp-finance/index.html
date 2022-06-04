@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+  class="html"
+><head>
+  <title>
+    
+      Nelson Tang
+        |
+        Time Series Forecasting 101 for FP&amp;A
+
+
+      
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.93.3" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="author" content="Nelson Tang" />
+  <meta
+    name="description"
+    content="
+      (Of Ancient Spreadsheets)
+
+
+    "
+  />
+  
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/scss/main.min.216fc6310b4f7c9f231e929733d266580a5db369f047631153e750cd55aaf9f6.css"
+      integrity="sha256-IW/GMQtPfJ8jHpKXM9JmWApds2nwR2MRU&#43;dQzVWq&#43;fY="
+      crossorigin="anonymous"
+      type="text/css"
+    />
+
+  
+
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.31b0a1f317f55c529a460897848c97436bb138b19c399b37de70d463a8bf6ed5.css"
+    integrity="sha256-MbCh8xf1XFKaRgiXhIyXQ2uxOLGcOZs33nDUY6i/btU="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+    
+    
+    <link
+      rel="stylesheet"
+      href="/css/custom.min.a2393d23fc1e45a908154ff41c0a62867acfb3c157a85f8eb204ede1a2101bc6.css"
+      integrity="sha256-ojk9I/weRakIFU/0HApihnrPs8FXqF&#43;OsgTt4aIQG8Y="
+      crossorigin="anonymous"
+      media="screen"
+    />
+
+  
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/fontawesome.min.69685904d5c2a0c6258d03c207b778c10466edf6cea928cc0164c376b0ad0930.css"
+    integrity="sha256-aWhZBNXCoMYljQPCB7d4wQRm7fbOqSjMAWTDdrCtCTA="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/solid.min.6d585e78d28cce1200d39fb133c92ed83df01738da721d0f48fb6eac62d24e04.css"
+    integrity="sha256-bVheeNKMzhIA05&#43;xM8ku2D3wFzjach0PSPturGLSTgQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="/fontawesome/css/brands.min.6b00d96498d59caa0dbcf9b49d30d821915291f2ceb0e19248523c8607ff43fa.css"
+    integrity="sha256-awDZZJjVnKoNvPm0nTDYIZFSkfLOsOGSSFI8hgf/Q/o="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://www.nelsontang.com/blog/2022-06-03-forecasting-corp-finance/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js"
+    integrity="sha256-&#43;RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI="
+    crossorigin="anonymous"
+  ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://www.nelsontang.com/featured-image.png"/>
+
+<meta name="twitter:title" content="Time Series Forecasting 101 for FP&amp;A"/>
+<meta name="twitter:description" content="Summary of some time series forecasting models for an internal training"/>
+
+
+
+  
+  <meta property="og:title" content="Time Series Forecasting 101 for FP&amp;A" />
+<meta property="og:description" content="Summary of some time series forecasting models for an internal training" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.nelsontang.com/blog/2022-06-03-forecasting-corp-finance/" /><meta property="og:image" content="https://www.nelsontang.com/featured-image.png"/><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-06-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-06-03T00:00:00+00:00" /><meta property="og:site_name" content="Bandit Kings" />
+
+
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "blog",
+        "name": "Time Series Forecasting 101 for FP\u0026A",
+        "headline": "Time Series Forecasting 101 for FP\u0026A",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Summary of some time series forecasting models for an internal training
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.nelsontang.com\/blog\/2022-06-03-forecasting-corp-finance\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Nelson Tang"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-06-03T00:00:00.00Z",
+        "datePublished": "2022-06-03T00:00:00.00Z",
+        "dateModified": "2022-06-03T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Nelson Tang",
+            "url": "https://www.nelsontang.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/www.nelsontang.com\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "https://www.nelsontang.com/featured-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "https:\/\/www.nelsontang.com\/blog\/2022-06-03-forecasting-corp-finance\/",
+        "wordCount" : "2203",
+        "genre" : [ 
+      
+      "dataviz"
+
+    ],
+        "keywords" : [ 
+      
+      "python"
+
+    
+      
+        ,
+
+      
+      "forecasting"
+
+    ]
+    }
+  </script>
+
+
+
+</head>
+<body
+    
+      class="body theme--light"
+
+    
+  >
+    <div class="wrapper">
+      <aside
+        
+          class="wrapper__sidebar"
+
+        
+      ><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="sidebar__introduction">
+      <img
+        class="sidebar__introduction-profileimage"
+        src="/profile.png"
+        alt="profile picture"
+      />
+      <h1 class="sidebar__introduction-title">
+        <a href="/">Bandit Kings</a>
+      </h1>
+      <div class="sidebar__introduction-description">
+        <p>(Of Ancient Spreadsheets)</p>
+      </div>
+    </div>
+    <ul class="sidebar__list">
+      
+        <li class="sidebar__list-item">
+          <a href="https://linkedin.com/in/tangnelson" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li class="sidebar__list-item">
+          <a href="https://github.com/banditkings/" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer__sidebar">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Nelson Tang 2022
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
+    crossorigin="anonymous"
+  ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</div>
+</aside>
+      <main
+        
+          class="wrapper__main"
+
+        
+      >
+        <header class="header"><div
+  class="
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+    <span aria-hidden="true" class="navbar-burger__line"></span>
+  </a>
+  <nav class="nav">
+    <ul class="nav__list" id="navMenu">
+      
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/"
+            
+            title=""
+            >Home</a
+          >
+        </li>
+
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/blog"
+            
+            title=""
+            >Archives</a
+          >
+        </li>
+
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/about"
+            
+            title=""
+            >About</a
+          >
+        </li>
+
+      
+        
+        <li class="nav__list-item">
+          <a
+            
+            href="/notes"
+            
+            title=""
+            >Notebooks</a
+          >
+        </li>
+
+      
+    </ul>
+    <ul class="nav__list nav__list--end">
+      
+      
+    </ul>
+  </nav>
+</div>
+</header>
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    
+    <div class="post__content">
+      <h1>Time Series Forecasting 101 for FP&amp;A</h1>
+      
+        <ul class="post__meta">
+          <li class="post__meta-item">
+            <em class="fas fa-calendar-day post__meta-icon"></em>
+            <span class="post__meta-text"
+              >
+                Fri, Jun 3, 2022
+
+
+              
+            </span>
+          </li>
+          <li class="post__meta-item">
+            <em class="fas fa-stopwatch post__meta-icon"></em>
+            <span class="post__meta-text">11-minute read</span>
+          </li>
+        </ul>
+
+      <h2 id="who-this-is-for">Who this is for?</h2>
+<p>People with no prior exposure to time series analysis, but may have taken a statistics class or two. Goal is to help you recognize what time series forecasting is and share examples of time series forecasting models used in practice today without using any math.</p>
+<h2 id="what-is-time-series-forecasting">What is Time Series Forecasting?</h2>
+<p><strong>Time Series</strong> is <a href="https://en.wikipedia.org/wiki/Time_series">data that&rsquo;s indexed by time</a>. In finance, we encounter time series all the time - think of our stock price throughout the course of a week, or a revenue forecast, our historical weekly spending data, etc.</p>
+<p><strong>Time Series Forecasting</strong> aims to predict future periods based on available information, and because of the time-based nature of the data, people have had to create novel ways of analyzing and dealing with how the signal changes over time.</p>
+<h2 id="a-trivial-example-scenario-">A (trivial) example scenario 🍕</h2>
+<p>Let&rsquo;s say you&rsquo;re a new FP&amp;A analyst and you&rsquo;re in charge of managing the budget for your finance team. One day your manager comes in and asks for your best guess as to what next month&rsquo;s spending is going to be. The team&rsquo;s been working really hard the last few months, so if you&rsquo;re trending under budget then maybe the team can celebrate with an offsite pizza party. What approach would you take?</p>
+<h2 id="tried-and-true-baselines">Tried and True Baselines</h2>
+<p>If you&rsquo;ve been in Finance for any length of time, you&rsquo;ll typically encounter two simple approaches to forecasting: asking experts and applying a simple rule of thumb in excel.</p>
+<h3 id="judgmental-forecasts">Judgmental Forecasts</h3>
+<p><strong>Judgmental Forecasts</strong> are important to recognize because they&rsquo;re everywhere within Finance. It&rsquo;s forecasting based on human intuition and expert opinion - <a href="https://en.wikipedia.org/wiki/List_of_cognitive_biases">which has its flaws</a> but <em><a href="https://www.sciencedirect.com/science/article/abs/pii/S0169207012001161">can</a></em> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169207012000842">be useful</a>. I won&rsquo;t go into much detail on this since Decision Quality (DQ) and the field of decision analysis covers this in greater depth.</p>
+<h3 id="shortcuts-and-rules-of-thumb-heuristics">Shortcuts and &lsquo;rules of thumb&rsquo; (heuristics)</h3>
+<p>More quantitative than judgmental forecasts, <strong>heuristics</strong> are shortcuts that rely on assumptions and/or simple math to create a forecast. This includes our common &lsquo;Linearity&rsquo; models, simple moving averages, and even a back-of-the-envelope financial model you might build in excel where the inputs are ultimately based on human intuition and opinion. While these approaches can be very accurate, they&rsquo;re often <strong>point forecasts</strong> and you might not be able to quantify how certain you are in that exact point forecast. In the case of an excel-based financial model, the reasons behind the human inputs are not implicit, resulting in a model that can make you overconfident in the actual forecast or in its ability to support good decision making if the underlying assumptions were flawed (aka <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in, garbage out</a>).</p>
+<h2 id="can-we-do-better">Can We Do Better?</h2>
+<p>In the example scenario, the stakes are low: if you get the forecast wrong, you lose out on a little pizza 🍕. But if the stakes are higher and you have a wealth of available data, can you get a faster, more accurate, and more informative forecast?</p>
+<p>Advances in computing in the last 80 years have led to new methods in forecasting, starting from simple statistical methods from the 1950&rsquo;s all the way to the new machine learning and neural network driven approaches of the last 20 years. I&rsquo;ll highlight a few here:</p>
+<p><img src="/images/timeseries/forecast_models.png" alt="img"></p>
+<p>Below, I&rsquo;ll give a <em>brief</em> summary of what these are so you can identify when to use them and what they look like, with a heavier emphasis on the classical techniques and more of a high level mention of the rest. We&rsquo;ll be applying these different forecasting methods against the count of monthly international air passengers from 1949-1960 from the classic Box-Jenkins ARIMA paper.</p>
+<h2 id="classic-time-series-forecasts">Classic Time Series Forecasts</h2>
+<h3 id="exponential-smoothing-holt-winters">Exponential Smoothing (Holt-Winters)</h3>
+<p>Exponential Smoothing (sometimes called the Holt-Winters model) is a family of fast, classic methods from the late 1950&rsquo;s that can make reasonably good forecasts with a minimal amount of data and is very quick and simple to calculate.</p>
+<p>It starts with &lsquo;Simple&rsquo; exponential smoothing, which is like a weighted moving average. But the way that the data is weighted decays <em>exponentially</em> the further in the past that you go, so that more recent data is weighted much, much more than data from the distant past.</p>
+<p>Here&rsquo;s an example of a Simple Exponential Smoothing forecast:</p>
+<p><img src="/images/timeseries/simple_exp_smoothing.png" alt="img"></p>
+<p>Notice that in this case, we&rsquo;ve modeled a 1-year monthly forecast (12 steps ahead), and simple exponential smoothing just results in a straight line.
+You can modify the Exponential Smoothing Model to incorporate a trend - essentially you add a slope to the line:</p>
+<p><img src="/images/timeseries/double_exp_smoothing.png" alt="img"></p>
+<p>Which gets a slightly better fit. Now we notice that there are clear repetitive peaks and valleys in this signal starting around 1952 and onwards, indicating that there is higher travel from June-August of each year, corresponding with summer in the Northern hemisphere. Once again, Exponential Smoothing can incorporate both the increasing trend <em>and</em> this seasonal component:</p>
+<p><img src="/images/timeseries/triple_exp_smoothing.png" alt="img"></p>
+<p>This final model is also called Triple Exponential Smoothing, and is a great example of the power of time series models. You may have noticed that this model is a combination of three different things: the weighted moving average, the linear trend, and the seasonality. With the rest of the examples, you should think of each forecasting model as a combination of multiple underlying building blocks then you can decompose and tweak to get the best forecast possible.</p>
+<p>What does it mean to have a &lsquo;good&rsquo; forecast? A &lsquo;good&rsquo; (accurate) model should closely approximate the curve of the actual/historical data during your testing, indicating that it&rsquo;s a good <em>fit</em> for the data during your test. I&rsquo;ll summarize model evaluation later, but <a href="https://otexts.com/fpp3/accuracy.html">if you&rsquo;re interested you can read this summary here</a> to get a preview.</p>
+<h3 id="autoregressive-integrated-moving-average-arima">Autoregressive Integrated Moving Average (ARIMA)</h3>
+<p>ARIMA stands for Autoregressive Integrated Moving Average, and similarly to Exponential Smoothing it performs very well on a small amount of data and is fast. It was state of the art for the 1970&rsquo;s and still performs very well to this day. Traditionally, ARIMA also required the use of an analyst to use their business acumen to specify some of the parameters in this model, but more recently automated techniques made this less necessary.</p>
+<blockquote>
+<p><strong>AutoRegression</strong>
+What is &ldquo;AutoRegression&rdquo;? Think of it as another fancy weighted average, similar to what we saw with Simple Exponential Smoothing. Only this time, the weights aren&rsquo;t necessarily decaying the further back in time you go - the weights are free to vary, and you use the math behind Linear Regression to calculate the weights based on the data.</p>
+</blockquote>
+<p>Unlike Exponential Smoothing, ARIMA relies on statistical assumptions in the underlying data, and violation of these assumptions will result in a less predictive model. However, in terms of prediction accuracy you can often get a better fit with ARIMA.</p>
+<p>Here&rsquo;s an example of ARIMA on the Air Passengers set:</p>
+<p><img src="/images/timeseries/autoarima.png" alt="img"></p>
+<p>Note the implementation of the model I used here includes a 90% <strong>Prediction Interval</strong>. A <a href="https://otexts.com/fpp3/prediction-intervals.html">Prediction Interval</a> has a different interpretation than a traditional Confidence Interval - a prediction interval describes the probability of the future data point while a confidence interval describes how confident you should be of a true statistical parameter (i.e. the population mean) being contained within that interval. and depending on the model it might not make any assumptions about the underlying distribution of the data.</p>
+<h2 id="time-series-regression">Time Series Regression</h2>
+<p>Regression in a time series context has some important considerations and differences than the classic Ordinary Least Squares (OLS) Linear Regression that you may have learned in a long-forgotten statistics class. In fact, some of the basic assumptions in Linear Regression are violated in the time series setting (depending on how you use it), but with careful use and some tweaks regression models have many applications in modern time series forecasting.</p>
+<h3 id="linear-regression">Linear Regression</h3>
+<p>You can turn any time series into a linear regression problem by using time as a <em>feature</em> or <em>predictor</em> in your model. For instance, you can simply fit a linear trendline (even in excel) to data by using linear regression to estimate the average response based on time:</p>
+<p><img src="/images/timeseries/linear_trend.png" alt="img"></p>
+<p>And of course, if you have additional predictors or features you can add them to the model as well, similar to how you would do multiple linear regression. The benefit of using this kind of model is that you can incorporate additional information and other key drivers to improve the accuracy of the model and make it easier to explain the model to stakeholders and use it in decision making. The downside is that predictive accuracy on these models might not be as good as other time series methods, and the forecasts are highly dependent on your ability to identify good &lsquo;key drivers&rsquo;, which is challenging in practice.</p>
+<h3 id="dynamic-regression-arimax">Dynamic Regression (ARIMAX)</h3>
+<p>Dynamic Regression, to include ARIMA with eXogenous variables (exogenous means data that&rsquo;s not part of the signal you&rsquo;re trying to predict), is a way to combine the predictive accuracy of ARIMA with the explainability of your regression models. ARIMAX is a different kind of combination of models than you&rsquo;ve seen - it&rsquo;s actually a combination of two models that are calculated in a <em>sequence</em>.</p>
+<p><strong>Steps in ARIMAX:</strong></p>
+<ol>
+<li>First, fit a linear regression model to a set of historical predictor variables/features</li>
+<li>Calculate the residuals, which is the difference between the model&rsquo;s predictions and the historical actuals in the data</li>
+<li>Finally, fit an ARIMA model that best predicts the residuals</li>
+<li>To create a forecast, you feed in <em>forecasted</em> variables/features to the regression model, and then add in the fitted ARIMA model</li>
+</ol>
+<blockquote>
+<p>The key thing to watch out for in ARIMAX (and all regression models) is the idea of <strong>leakage</strong> : when data that you wouldn&rsquo;t have known in advance is used to build the model. So the forecast depends on getting a very good forecast of the features that you&rsquo;re feeding into the model. And <em>those</em> forecasts might themselves be the result of another time series forecasting process that has its own uncertainty and prediction intervals, and these errors can cascade throughout your model in ways you might not expect.</p>
+</blockquote>
+<h3 id="decision-trees">Decision Trees</h3>
+<p>More specifically, tree-based methods like Random Forest and their most sophisticated variants like eXtreme Gradient Boosting (XGBoost). These are very popular in competition and tend to outperform more complex models on tabular data. Think of these as more flexible models that can fit hundreds of mini-regression models and adapt to nonlinearities, while still being relatively fast, and they should be a go-to model after first trying the classical statistical models.</p>
+<p>However, due to the stochastic (random) nature of these models, you aren&rsquo;t guaranteed to get the same results every time you run the model. But these models can handle non linearity in the data and can automatically find the best predictors/variables to include in the model and help you understand what&rsquo;s happening under the hood.</p>
+<h2 id="advanced-methods">Advanced Methods</h2>
+<p>I won&rsquo;t cover these in much depth, but are still worth a mention:</p>
+<h3 id="prophet">Prophet</h3>
+<p>Facebook open sourced their &lsquo;Prophet&rsquo; model, which is intended to be an automated, scalable forecasting model that is suitable for a business analyst to run.</p>
+<p><img src="/images/timeseries/fbprophet.png" alt="img"></p>
+<p>You can think of Prophet as a fancy combination of several underlying components:</p>
+<ol>
+<li>A piece-wise linear trend component (meaning it partitions the data into multiple periods and fits a different line to each period)</li>
+<li>Any seasonal patterns (including any combination of daily, monthly, yearly, weekly, and custom patterns)</li>
+<li>Holiday effects</li>
+</ol>
+<p>While Prophet is state of the art for situations in which you have a lot of <em>daily</em> data (i.e. user activity on a website), in the context of corporate finance where data comes in on a weekly, monthly, or quarterly basis, Prophet does not perform very well.</p>
+<h3 id="vector-autoregression">Vector Autoregression</h3>
+<p>Vector Autoregression is an example of a <em>multivariate</em> model in which you have multiple parallel time series and you want to simultaneously forecast for them. Or, you want to understand how each of the variables and time series influence each other.</p>
+<h3 id="neural-networks">Neural Networks</h3>
+<p>Neural networks have made a tremendous splash in computer vision and language modeling, and within time series data they can be used for vast quantities of data. The key with neural networks is their ability to handle nonlinear relationships, but they require a large amount of data in order to be useful. In practice, corporate finance deals with smaller quantities of tabular data (i.e. data that looks like it came out of table in a spreadsheet) where simpler methods still perform well.</p>
+<h2 id="lots-of-models">Lots of Models!</h2>
+<p>So in our short time together we&rsquo;ve only scratched the surface - there are a bounty of models and novel approaches out there, including judgmental forecasts and rules of thumb that we use today. How do we compare them all?</p>
+<h2 id="how-do-we-know-what-better-looks-like">How do we know what &lsquo;Better&rsquo; looks like?</h2>
+<p>In other words, how do you measure and evaluate model performance? Turns out that&rsquo;s a question without a straightforward answer, and it&rsquo;s up to you as the analyst to interpret the results and arrive at a reasonable conclusion. In a future post I&rsquo;ll discuss the most common ways of measuring forecast performance and talk about the pitfalls and benefits of each approach.</p>
+<h2 id="further-reference">Further Reference</h2>
+<ul>
+<li>
+<p>If you want to learn more, the <strong>best</strong> introductory resource I can point you towards is Hyndman&rsquo;s free online textbook <em><a href="https://otexts.com/fpp3/">Forecasting: Principles and Practice</a></em>, now in its 3rd edition</p>
+</li>
+<li>
+<p>If you prefer an intermediate resource with Python examples, I highly recommend <a href="https://www.amazon.com/Practical-Time-Analysis-Prediction-Statistics/dp/1492041653/ref=asc_df_1492041653/?tag=hyprod-20&amp;linkCode=df0&amp;hvadid=385609353592&amp;hvpos=&amp;hvnetw=g&amp;hvrand=548942229704282103&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9032828&amp;hvtargid=pla-575006547733&amp;psc=1&amp;tag=&amp;ref=&amp;adgrpid=77500930054&amp;hvpone=&amp;hvptwo=&amp;hvadid=385609353592&amp;hvpos=&amp;hvnetw=g&amp;hvrand=548942229704282103&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9032828&amp;hvtargid=pla-575006547733">Practical Time Series Analysis by Aileen Nielsen</a></p>
+</li>
+</ul>
+</div>
+    <div class="post__footer">
+      
+        <span><a class="category" href="/categories/dataviz/">dataviz</a></span>
+
+
+
+
+      
+
+      
+        <span><a class="tag" href="/tags/python/">python</a><a class="tag" href="/tags/forecasting/">forecasting</a></span>
+
+
+
+
+      
+    </div>
+
+    
+  </div>
+
+
+      </main>
+    </div><footer class="footer footer__base">
+  <ul class="footer__list">
+    <li class="footer__item">
+      &copy;
+      
+        Nelson Tang 2022
+
+      
+    </li>
+    
+  </ul>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.a3fd0638ada4e3cec287e49a604b4a828cfef33a669afe60b96575761fff5cf3.js"
+    integrity="sha256-o/0GOK2k487Ch&#43;SaYEtKgoz&#43;8zpmmv5guWV1dh//XPM="
+    crossorigin="anonymous"
+  ></script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-e/4/LvThKH1gwzXhdbY2AsjR3rm7LHWyhIG5C0jiRfn8AN2eTN5ILeztWw0H9jmN" crossorigin="anonymous"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-147973039-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+</html>

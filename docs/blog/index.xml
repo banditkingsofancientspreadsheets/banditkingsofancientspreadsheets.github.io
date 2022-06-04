@@ -6,7 +6,18 @@
     <description>Recent content in Blogs on Bandit Kings</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.nelsontang.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time Series Forecasting 101 for FP&amp;A</title>
+      <link>https://www.nelsontang.com/blog/2022-06-03-forecasting-corp-finance/</link>
+      <pubDate>Fri, 03 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.nelsontang.com/blog/2022-06-03-forecasting-corp-finance/</guid>
+      
+        <description>Summary of some time series forecasting models for an internal training</description>
+      
+    </item>
+    
     <item>
       <title>Dash (Plotly) tips - Latex, Google Fonts, and more</title>
       <link>https://www.nelsontang.com/blog/2022-06-02-dash-tips/</link>
