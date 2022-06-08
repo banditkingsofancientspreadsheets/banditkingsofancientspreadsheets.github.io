@@ -58,7 +58,7 @@ The first thing I do when building out a template `layout` is I get inspiration 
   * Open their site in Chrome, highlight the font text and then hit 'inspect' to get the Styles for `font-family`, etc.
 
 * **Colors**: I will take a screenshot and run it through a color picker site like [imagecolorpicker.com](https://imagecolorpicker.com) that will try to get the hex codes ordered from left to right based on the proportion of the color in the image. These would then go to your `colorway` as items in a list in a similar order.
-  * Alternatively, here's a great article on [How to make a color palette from 1 color](https://medium.com/@greggunn/how-to-make-your-own-color-palettes-712959fbf021)
+  * Alternatively, here's a great article on [How to make a color palette from 1 color](https://medium.com/@greggunn/how-to-make-your-own-color-palettes-712959fbf021) or [this shorter article from Kaggle](https://www.kaggle.com/competitions/AI4Code/discussion/327996)
 
 There's a ton of other options to choose from in the `layout` section, [check the official layout Docs](https://plotly.com/python/reference/layout/).
 
