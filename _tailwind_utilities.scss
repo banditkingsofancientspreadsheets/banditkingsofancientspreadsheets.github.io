@@ -1,0 +1,182 @@
+// Line height utilities
+$line-heights: (
+    11: 2.75rem,
+    12: 3rem,
+    13: 3.25rem,
+    14: 3.5rem,
+);
+
+@each $key, $value in $line-heights {
+    .lh-#{$key} {
+        line-height: $value;
+    }
+}
+
+// Custom spacing utility
+.spacing-9-16 {
+    padding-bottom: 56.25%;
+}
+
+// Additional spacing utilities (if needed)
+$spacings: (
+    0: 0,
+    1: 0.25rem,
+    2: 0.5rem,
+    3: 0.75rem,
+    4: 1rem,
+    5: 1.25rem,
+    6: 1.5rem,
+    8: 2rem,
+    10: 2.5rem,
+    12: 3rem,
+    16: 4rem,
+    20: 5rem,
+    24: 6rem,
+    32: 8rem,
+    40: 10rem,
+    48: 12rem,
+    56: 14rem,
+    64: 16rem,
+);
+
+@each $key, $value in $spacings {
+    .m-#{$key} {
+        margin: $value;
+    }
+
+    .mx-#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+    }
+
+    .my-#{$key} {
+        margin-top: $value;
+        margin-bottom: $value;
+    }
+
+    .mt-#{$key} {
+        margin-top: $value;
+    }
+
+    .mr-#{$key} {
+        margin-right: $value;
+    }
+
+    .mb-#{$key} {
+        margin-bottom: $value;
+    }
+
+    .ml-#{$key} {
+        margin-left: $value;
+    }
+
+    .p-#{$key} {
+        padding: $value;
+    }
+
+    .px-#{$key} {
+        padding-left: $value;
+        padding-right: $value;
+    }
+
+    .py-#{$key} {
+        padding-top: $value;
+        padding-bottom: $value;
+    }
+
+    .pt-#{$key} {
+        padding-top: $value;
+    }
+
+    .pr-#{$key} {
+        padding-right: $value;
+    }
+
+    .pb-#{$key} {
+        padding-bottom: $value;
+    }
+
+    .pl-#{$key} {
+        padding-left: $value;
+    }
+}
+
+// Responsive variants (if needed)
+$breakpoints: (
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+);
+
+@each $breakpoint, $value in $breakpoints {
+    @media (min-width: $value) {
+        @each $key, $spacing in $spacings {
+            .#{$breakpoint}\:m-#{$key} {
+                margin: $spacing;
+            }
+
+            .#{$breakpoint}\:mx-#{$key} {
+                margin-left: $spacing;
+                margin-right: $spacing;
+            }
+
+            .#{$breakpoint}\:my-#{$key} {
+                margin-top: $spacing;
+                margin-bottom: $spacing;
+            }
+
+            .#{$breakpoint}\:mt-#{$key} {
+                margin-top: $spacing;
+            }
+
+            .#{$breakpoint}\:mr-#{$key} {
+                margin-right: $spacing;
+            }
+
+            .#{$breakpoint}\:mb-#{$key} {
+                margin-bottom: $spacing;
+            }
+
+            .#{$breakpoint}\:ml-#{$key} {
+                margin-left: $spacing;
+            }
+
+            .#{$breakpoint}\:p-#{$key} {
+                padding: $spacing;
+            }
+
+            .#{$breakpoint}\:px-#{$key} {
+                padding-left: $spacing;
+                padding-right: $spacing;
+            }
+
+            .#{$breakpoint}\:py-#{$key} {
+                padding-top: $spacing;
+                padding-bottom: $spacing;
+            }
+
+            .#{$breakpoint}\:pt-#{$key} {
+                padding-top: $spacing;
+            }
+
+            .#{$breakpoint}\:pr-#{$key} {
+                padding-right: $spacing;
+            }
+
+            .#{$breakpoint}\:pb-#{$key} {
+                padding-bottom: $spacing;
+            }
+
+            .#{$breakpoint}\:pl-#{$key} {
+                padding-left: $spacing;
+            }
+        }
+
+        @each $key, $lh in $line-heights {
+            .#{$breakpoint}\:lh-#{$key} {
+                line-height: $lh;
+            }
+        }
+    }
+}

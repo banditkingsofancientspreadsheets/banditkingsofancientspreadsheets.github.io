@@ -11,6 +11,9 @@ images:
     '/static/images/scipy_optim/revenue_dist.png',
   ]
 layout: PostLayout
+format: 
+    html:
+        html-math-method: katex
 # canonicalUrl:
 ---
 

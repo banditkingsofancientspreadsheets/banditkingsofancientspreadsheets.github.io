@@ -73,10 +73,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -132,8 +134,22 @@ cookieconsent.run({
 </script> 
   
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -165,7 +181,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -201,6 +217,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -236,7 +253,20 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On This Page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#price-elasticity-of-demand" id="toc-price-elasticity-of-demand" class="nav-link active" data-scroll-target="#price-elasticity-of-demand">Price Elasticity of demand</a></li>
+  <li><a href="#aside-how-to-interpret-a-log-log-regression-coefficient" id="toc-aside-how-to-interpret-a-log-log-regression-coefficient" class="nav-link" data-scroll-target="#aside-how-to-interpret-a-log-log-regression-coefficient">Aside: How to interpret a Log-Log Regression Coefficient</a></li>
+  <li><a href="#optimization-for-a-single-product" id="toc-optimization-for-a-single-product" class="nav-link" data-scroll-target="#optimization-for-a-single-product">Optimization for a single product</a></li>
+  <li><a href="#optimization-with-multiple-products" id="toc-optimization-with-multiple-products" class="nav-link" data-scroll-target="#optimization-with-multiple-products">Optimization with Multiple Products</a></li>
+  <li><a href="#optimize-multiple-products-with-uncertainty-in-our-elasiticity-coefficients" id="toc-optimize-multiple-products-with-uncertainty-in-our-elasiticity-coefficients" class="nav-link" data-scroll-target="#optimize-multiple-products-with-uncertainty-in-our-elasiticity-coefficients">Optimize Multiple Products with Uncertainty in our Elasiticity Coefficients</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -255,8 +285,8 @@ window.Quarto = {
 </ol>
 <section id="price-elasticity-of-demand" class="level2">
 <h2 class="anchored" data-anchor-id="price-elasticity-of-demand">Price Elasticity of demand</h2>
-<p>First - a refresher on price elasticity of demand. Let’s say that we have a demand curve <span class="math inline">\(Q = \alpha P^{\beta}\)</span> which describes the demand <span class="math inline">\(Q\)</span> you would see for any given price <span class="math inline">\(P\)</span>. <span class="math inline">\(\beta\)</span> is our price elasticity coefficient, and <span class="math inline">\(\alpha\)</span> represents the intercept (aka the amount of total demand for the product if the price was zero).</p>
-<p>Below we’ll create some simulated data with an elasticity coefficient <span class="math inline">\(\beta=-1.7\)</span> and <span class="math inline">\(\alpha=2000\)</span> and show both the demand and revenue curves:</p>
+<p>First - a refresher on price elasticity of demand. Let’s say that we have a demand curve <span class="math inline">Q = \alpha P^{\beta}</span> which describes the demand <span class="math inline">Q</span> you would see for any given price <span class="math inline">P</span>. <span class="math inline">\beta</span> is our price elasticity coefficient, and <span class="math inline">\alpha</span> represents the intercept (aka the amount of total demand for the product if the price was zero).</p>
+<p>Below we’ll create some simulated data with an elasticity coefficient <span class="math inline">\beta=-1.7</span> and <span class="math inline">\alpha=2000</span> and show both the demand and revenue curves:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -306,30 +336,30 @@ window.Quarto = {
 </section>
 <section id="aside-how-to-interpret-a-log-log-regression-coefficient" class="level2">
 <h2 class="anchored" data-anchor-id="aside-how-to-interpret-a-log-log-regression-coefficient">Aside: How to interpret a Log-Log Regression Coefficient</h2>
-<p>Recall that we can decompose the price elasticity of demand function <span class="math inline">\(Q = \alpha P^{\beta}\)</span> into the sum of log terms and solve for the coefficient <span class="math inline">\(\beta\)</span> in a log-log regression:</p>
-<p><span class="math display">\[
+<p>Recall that we can decompose the price elasticity of demand function <span class="math inline">Q = \alpha P^{\beta}</span> into the sum of log terms and solve for the coefficient <span class="math inline">\beta</span> in a log-log regression:</p>
+<p><span class="math display">
 \begin{aligned}
 Q &amp;= \alpha P^{\beta} \\
 \rightarrow \quad \log(Q) &amp;= \beta \log(P) + \log(\alpha)
 \end{aligned}
-\]</span></p>
-<p>A common interpretation of <span class="math inline">\(\beta\)</span> regression coefficient in a log-log model is that a <span class="math inline">\(1\%\)</span> change in your predictor is associated with a <span class="math inline">\(\beta \%\)</span> change in your outcome variable. So in this example, with <span class="math inline">\(\beta=-1.7\)</span>, we would say that a <span class="math inline">\(1\%\)</span> change in price would lead to a <span class="math inline">\(-1.7\%\)</span> change in demand. It’s important to note here that this is only an approximation, and moreover this only holds true for an exactly <span class="math inline">\(1\%\)</span> increase in price. So it would not be accurate to say that a <span class="math inline">\(10\%\)</span> increase in price would lead to a <span class="math inline">\(-17\%\)</span> change in demand, nor would it be true that lowering the price <span class="math inline">\(-1\%\)</span> would lead to a <span class="math inline">\(1.7\%\)</span> <em>increase</em> in demand!</p>
+</span></p>
+<p>A common interpretation of <span class="math inline">\beta</span> regression coefficient in a log-log model is that a <span class="math inline">1\%</span> change in your predictor is associated with a <span class="math inline">\beta \%</span> change in your outcome variable. So in this example, with <span class="math inline">\beta=-1.7</span>, we would say that a <span class="math inline">1\%</span> change in price would lead to a <span class="math inline">-1.7\%</span> change in demand. It’s important to note here that this is only an approximation, and moreover this only holds true for an exactly <span class="math inline">1\%</span> increase in price. So it would not be accurate to say that a <span class="math inline">10\%</span> increase in price would lead to a <span class="math inline">-17\%</span> change in demand, nor would it be true that lowering the price <span class="math inline">-1\%</span> would lead to a <span class="math inline">1.7\%</span> <em>increase</em> in demand!</p>
 <section id="calculating-impact" class="level3">
 <h3 class="anchored" data-anchor-id="calculating-impact">Calculating impact</h3>
-<p>The formula for a percentage change associated with a <span class="math inline">\(d\)</span>% change in price (holding everything else constant) is given by the following formula:</p>
-<p><span class="math display">\[
+<p>The formula for a percentage change associated with a <span class="math inline">d</span>% change in price (holding everything else constant) is given by the following formula:</p>
+<p><span class="math display">
 \begin{aligned}
 \text{pct change in outcome} = e^{\beta \log(1 + d)} - 1
 \end{aligned}
-\]</span></p>
-<p>where <span class="math inline">\(d\)</span> is the % change in price.</p>
-<p>For example, if we wanted to estimate the percent change in demand <span class="math inline">\(Q\)</span> from a <span class="math inline">\(-10\%\)</span> decrease (aka <span class="math inline">\(d=-0.1\)</span>) in price for a product with <span class="math inline">\(\beta=-1.7\)</span>, this would be:</p>
-<p><span class="math display">\[
+</span></p>
+<p>where <span class="math inline">d</span> is the % change in price.</p>
+<p>For example, if we wanted to estimate the percent change in demand <span class="math inline">Q</span> from a <span class="math inline">-10\%</span> decrease (aka <span class="math inline">d=-0.1</span>) in price for a product with <span class="math inline">\beta=-1.7</span>, this would be:</p>
+<p><span class="math display">
 \begin{aligned}
 e^{-1.7 \log(0.9)} - 1 \approx 0.196
 \end{aligned}
-\]</span></p>
-<p>which would correspond to a ~<span class="math inline">\(19.6\%\)</span> increase in sales.</p>
+</span></p>
+<p>which would correspond to a ~<span class="math inline">19.6\%</span> increase in sales.</p>
 <p><strong>Notice that this isn’t symmetric</strong>, so a 10 percentage point price <em>increase</em> for the same product would be associated with a 15% sales <em>decrease</em>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_change(coef:<span class="bu">float</span>, d:<span class="bu">float</span>)<span class="op">-&gt;</span><span class="bu">float</span>:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
@@ -343,25 +373,25 @@ e^{-1.7 \log(0.9)} - 1 \approx 0.196
 </section>
 <section id="optimization-for-a-single-product" class="level2">
 <h2 class="anchored" data-anchor-id="optimization-for-a-single-product">Optimization for a single product</h2>
-<p>Next we’ll take our baby steps into the <code>scipy.optimize.minimize</code> function where we try to find the price that maximizes revenue (minimizes negative revenue) for a <em>single</em> product, using the same <span class="math inline">\(\beta=-1.7, \alpha=2000\)</span>.</p>
+<p>Next we’ll take our baby steps into the <code>scipy.optimize.minimize</code> function where we try to find the price that maximizes revenue (minimizes negative revenue) for a <em>single</em> product, using the same <span class="math inline">\beta=-1.7, \alpha=2000</span>.</p>
 <p>They key components for any optimization problem are:</p>
 <ol type="1">
 <li>An objective function</li>
 <li>Constraints</li>
 </ol>
-<p>We already specified our objective function <code>revenue</code> earlier in code, but now let’s write it out explicitly. We’re looking to maximize the revenue function <span class="math inline">\(P \times Q\)</span>:</p>
-<p><span class="math display">\[
+<p>We already specified our objective function <code>revenue</code> earlier in code, but now let’s write it out explicitly. We’re looking to maximize the revenue function <span class="math inline">P \times Q</span>:</p>
+<p><span class="math display">
 \begin{aligned}
 \argmax_P P Q &amp;= \argmin_P -P Q\\
 \text{where} \quad Q &amp;=\alpha P ^{\beta}
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Which is just our <code>revenue</code> function in math terms. Next, we’ll specify our constraints for this problem.</p>
 <section id="adding-inequality-constraints" class="level3">
 <h3 class="anchored" data-anchor-id="adding-inequality-constraints">Adding Inequality Constraints</h3>
 <p>While <code>scipy</code> has stuff like <code>LinearConstraint</code>, I’m going to use a bunch of <em>inequality constraints</em> that must be either a dictionary or list of dictionaries.</p>
-<p>An inequality constraint should be a function of the form <span class="math inline">\(C_j(x) \ge 0\)</span>. So if we want to say that <span class="math inline">\(x \ge 10\)</span>, then subtract from both sides to get <span class="math inline">\(x - 10 \ge 0\)</span>.</p>
-<p>Then, we’ll need to create a python function that returns <span class="math inline">\(x-10\)</span>, and feed that in to our constraint dictionary, i.e:</p>
+<p>An inequality constraint should be a function of the form <span class="math inline">C_j(x) \ge 0</span>. So if we want to say that <span class="math inline">x \ge 10</span>, then subtract from both sides to get <span class="math inline">x - 10 \ge 0</span>.</p>
+<p>Then, we’ll need to create a python function that returns <span class="math inline">x-10</span>, and feed that in to our constraint dictionary, i.e:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">-</span> <span class="dv">10</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -462,28 +492,28 @@ e^{-1.7 \log(0.9)} - 1 \approx 0.196
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>multiple_product_revenue(prices, intercepts, coefs) <span class="co"># -5943.07</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Which is the same as:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \argmin_P \sum_{i=0}^{2} -P_iQ_i
 \end{aligned}
-\]</span></p>
+</span></p>
 <section id="adding-constraints" class="level3">
 <h3 class="anchored" data-anchor-id="adding-constraints">Adding Constraints</h3>
 <p>In this case, we want to specify that the prices should follow some tiering logic, where each subsequent product should be priced higher than the previous one. For example, a ‘Hi-potion’ should be priced at least $5 higher than the ‘Potion’, and the ‘Mega Potion’ should be priced at least $5 higher than ‘Hi-Potion’.</p>
 <p>Following the inequality constraints, this would like:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 x_2 \ge x_1 + 10 \rightarrow \quad x_2 - x_1 - 10 &amp;\ge 0\\
 x_1 \ge x_0 + 10 \rightarrow \quad x_1 - x_0 - 10 &amp;\ge 0
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>We also need to specify some upper and lower bounds on this too, otherwise for highly elastic products the optimum will be too low, and conversely for highly inelastic products we want an upper bound or the optimizer will recommend an infinite price.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 x_0 \ge 10 \rightarrow \quad x_0 - 10 &amp;\ge 0\\
 x_2 \le 60 \rightarrow \quad 60 - x_2 &amp;\ge 0\\
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>We’ll add the rest of the constraints as <code>lambda</code> functions and then add all of the constraints as a list of dictionaries:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple Constraints should be a list of dictionaries and we can use lambda functions instead</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -538,7 +568,7 @@ x_2 \le 60 \rightarrow \quad 60 - x_2 &amp;\ge 0\\
 <figcaption>img</figcaption>
 </figure>
 </div>
-<p>Next we’ll need to restate our objective function because instead of having a list of 3 coefficients, now we have 1000 samples from each of the coefficient distributions in a <span class="math inline">\((1000, 3)\)</span> array, where each row represents a sample of each of the coefficients and each column is a different coefficient/product.</p>
+<p>Next we’ll need to restate our objective function because instead of having a list of 3 coefficients, now we have 1000 samples from each of the coefficient distributions in a <span class="math inline">(1000, 3)</span> array, where each row represents a sample of each of the coefficients and each column is a different coefficient/product.</p>
 <p>Since each row is a distinct combination of samples from these three distributions, we can calculate sales for each of the 1000 combinations of coefficients and get the average for a given product price scenario.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> uncertain_revenues(prices:List[<span class="bu">float</span>],</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                       coef_samples:np.ndarray,</span>
@@ -565,7 +595,7 @@ x_2 \le 60 \rightarrow \quad 60 - x_2 &amp;\ge 0\\
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>total_revenues</span>
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span>agg_func(total_revenues)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Before we run this optimization problem, we can look at the distribution of total sales with our new coefficient samples and baseline prices (<span class="math inline">\(P=[10,20,30]\)</span>)</p>
+<p>Before we run this optimization problem, we can look at the distribution of total sales with our new coefficient samples and baseline prices (<span class="math inline">P=[10,20,30]</span>)</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>total_revenues <span class="op">=</span> uncertain_revenues(prices, coef_samples, intercepts, agg_func<span class="op">=</span><span class="st">'None'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
@@ -581,7 +611,7 @@ x_2 \le 60 \rightarrow \quad 60 - x_2 &amp;\ge 0\\
 <figcaption>img</figcaption>
 </figure>
 </div>
-<p>Note that the average sales is quite a bit higher than if we had just used the point estimates for the <span class="math inline">\(\beta\)</span> price elasticity coefficients at the same prices.</p>
+<p>Note that the average sales is quite a bit higher than if we had just used the point estimates for the <span class="math inline">\beta</span> price elasticity coefficients at the same prices.</p>
 <p>Finally, we take our new total revenue function <code>uncertain_revenues</code> and plug it in to the <code>scipy.optimize.minimize</code> function with the same constraints as before:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>uncertain_res <span class="op">=</span> minimize(uncertain_revenues, x0<span class="op">=</span>prices,</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                         args<span class="op">=</span>(coef_samples, intercepts, np.mean),</span>
@@ -658,6 +688,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

@@ -4,14 +4,15 @@ date: '2023-12-29'
 categories: ['python']
 draft: false
 summary: A friendly introduction to `scan` with JAX and numpyro
-images:
-  [
-    '/static/images/scan_jax/scan_components.png',
-    '/static/images/scan_jax/scan.gif',
-    '/static/images/scan_jax/scan_fig1.png',
-    '/static/images/scan_jax/scan_fig2.png',
-    '/static/images/scan_jax/scan_fig3.png',
-  ]
+image: '/static/images/scan_jax/scan_components.png'
+# images:
+#   [
+#     '/static/images/scan_jax/scan_components.png',
+#     '/static/images/scan_jax/scan.gif',
+#     '/static/images/scan_jax/scan_fig1.png',
+#     '/static/images/scan_jax/scan_fig2.png',
+#     '/static/images/scan_jax/scan_fig3.png',
+#   ]
 layout: PostLayout
 # canonicalUrl:
 ---

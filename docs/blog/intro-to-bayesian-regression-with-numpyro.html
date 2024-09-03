@@ -73,10 +73,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -165,7 +167,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -201,6 +203,7 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -236,7 +239,24 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On This Page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#a-quick-example-of-bayesian-regression-with-numpyro" id="toc-a-quick-example-of-bayesian-regression-with-numpyro" class="nav-link active" data-scroll-target="#a-quick-example-of-bayesian-regression-with-numpyro">A Quick Example of Bayesian Regression with <code>numpyro</code></a>
+  <ul class="collapse">
+  <li><a href="#why-does-this-exist" id="toc-why-does-this-exist" class="nav-link" data-scroll-target="#why-does-this-exist">Why does this exist?</a></li>
+  </ul></li>
+  <li><a href="#our-simulated-data" id="toc-our-simulated-data" class="nav-link" data-scroll-target="#our-simulated-data">0. Our Simulated Data</a></li>
+  <li><a href="#specify-the-model-on-paper" id="toc-specify-the-model-on-paper" class="nav-link" data-scroll-target="#specify-the-model-on-paper">1. Specify the model on paper</a></li>
+  <li><a href="#specify-the-model-in-numpyro" id="toc-specify-the-model-in-numpyro" class="nav-link" data-scroll-target="#specify-the-model-in-numpyro">2. Specify the model in <code>numpyro</code></a></li>
+  <li><a href="#inference-with-mcmc-and-nuts" id="toc-inference-with-mcmc-and-nuts" class="nav-link" data-scroll-target="#inference-with-mcmc-and-nuts">3. Inference with <code>MCMC</code> and <code>NUTS</code></a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">4. Results</a></li>
+  <li><a href="#full-code" id="toc-full-code" class="nav-link" data-scroll-target="#full-code">Full Code</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -261,37 +281,6 @@ window.Quarto = {
 <p>However, as a prerequisite to learning <code>numpyro</code> we also need some understanding of <code>jax</code>, <code>xarray</code>, and <code>pyro</code>. You also need to know <code>arviz</code> for handy plotting of bayesian models, but luckily <code>arviz</code> is compatible with other PPL’s.</p>
 <p>I’m assuming you already understand linear regression but want to implement a Bayesian regression using <code>numpyro</code>.</p>
 <p>To keep this short I’ll be mainly focusing on <code>numpyro</code> usage rather than the theory.</p>
-<ul>
-<li><a href="#a-quick-example-of-bayesian-regression-with-numpyro">A Quick Example of Bayesian Regression with <code>numpyro</code></a>
-<ul>
-<li><a href="#why-does-this-exist">Why does this exist?</a>
-<ul>
-<li><a href="#learning-the-code">Learning the code</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#0-our-simulated-data">0. Our Simulated Data</a></li>
-<li><a href="#1-specify-the-model-on-paper">1. Specify the model on paper</a>
-<ul>
-<li><a href="#starting-from-the-additive-error-model">Starting from the additive error model</a></li>
-<li><a href="#telling-the-data-story-with-a-joint-probability-distribution">Telling the data story with a joint probability distribution</a></li>
-<li><a href="#add-in-our-priors-to-our-model">Add in our priors to our model</a></li>
-</ul></li>
-<li><a href="#2-specify-the-model-in-numpyro">2. Specify the model in <code>numpyro</code></a>
-<ul>
-<li><a href="#specify-priors-with-numpyrosample-and-numpyrodistributions">Specify priors with <code>numpyro.sample()</code> and <code>numpyro.distributions</code></a></li>
-<li><a href="#view-the-model-with-render_model">View the Model with <code>render_model()</code></a></li>
-<li><a href="#pymc-as-a-contrast"><code>pymc</code> as a contrast</a></li>
-</ul></li>
-<li><a href="#3-inference-with-mcmc-and-nuts">3. Inference with <code>MCMC</code> and <code>NUTS</code></a></li>
-<li><a href="#4-results">4. Results</a>
-<ul>
-<li><a href="#get-a-summary-table-with-print_summary-or-azsummary">Get a summary table with <code>.print_summary()</code> or <code>az.summary()</code></a></li>
-<li><a href="#inspect-the-trace-with-azplot_trace">Inspect the trace with <code>az.plot_trace()</code></a></li>
-<li><a href="#posterior-predictive">Posterior Predictive</a></li>
-<li><a href="#plot-the-fitted-regression-line-with-azplot_lm">Plot the fitted regression line with <code>az.plot_lm</code></a></li>
-</ul></li>
-<li><a href="#full-code">Full Code</a></li>
-</ul>
 </section>
 </section>
 </section>
@@ -603,6 +592,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

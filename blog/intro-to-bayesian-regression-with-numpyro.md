@@ -38,26 +38,6 @@ I'm assuming you already understand linear regression but want to implement a Ba
 
 To keep this short I'll be mainly focusing on `numpyro` usage rather than the theory.
 
-- [A Quick Example of Bayesian Regression with `numpyro`](#a-quick-example-of-bayesian-regression-with-numpyro)
-  - [Why does this exist?](#why-does-this-exist)
-    - [Learning the code](#learning-the-code)
-- [0. Our Simulated Data](#0-our-simulated-data)
-- [1. Specify the model on paper](#1-specify-the-model-on-paper)
-  - [Starting from the additive error model](#starting-from-the-additive-error-model)
-  - [Telling the data story with a joint probability distribution](#telling-the-data-story-with-a-joint-probability-distribution)
-  - [Add in our priors to our model](#add-in-our-priors-to-our-model)
-- [2. Specify the model in `numpyro`](#2-specify-the-model-in-numpyro)
-  - [Specify priors with `numpyro.sample()` and `numpyro.distributions`](#specify-priors-with-numpyrosample-and-numpyrodistributions)
-  - [View the Model with `render_model()`](#view-the-model-with-render_model)
-  - [`pymc` as a contrast](#pymc-as-a-contrast)
-- [3. Inference with `MCMC` and `NUTS`](#3-inference-with-mcmc-and-nuts)
-- [4. Results](#4-results)
-  - [Get a summary table with `.print_summary()` or `az.summary()`](#get-a-summary-table-with-print_summary-or-azsummary)
-  - [Inspect the trace with `az.plot_trace()`](#inspect-the-trace-with-azplot_trace)
-  - [Posterior Predictive](#posterior-predictive)
-  - [Plot the fitted regression line with `az.plot_lm`](#plot-the-fitted-regression-line-with-azplot_lm)
-- [Full Code](#full-code)
-
 # 0. Our Simulated Data
 
 We'll use a toy dataset for this simple linear regression example, borrowed from the `pymc` example from [GLM:Linear Regression](https://www.pymc.io/projects/docs/en/stable/learn/core_notebooks/GLM_linear.html)

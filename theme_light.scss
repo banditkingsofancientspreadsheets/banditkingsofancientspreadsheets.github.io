@@ -1,0 +1,10 @@
+@import 'variables';
+@import 'tailwind_utilities';
+
+/*-- scss:defaults --*/
+$font-family-sans-serif: $font-sans;
+$font-family-monospace: 'Fira Code', monospace;
+
+// Primary color (using teal)
+// $primary: $teal-600;
+$primary: $gray-700;

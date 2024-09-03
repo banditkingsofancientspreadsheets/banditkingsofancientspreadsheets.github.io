@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'tailwind_utilities';
+
+/*-- scss:defaults --*/
+$font-family-sans-serif: $font-sans;
+$font-family-monospace: 'Fira Code', monospace;
+
+// Base document colors
+$body-bg: $gray-800;
+$body-color: $gray-50;
+$link-color: $teal-500;
+
+// Code blocks
+$code-block-bg-alpha: -.7;
