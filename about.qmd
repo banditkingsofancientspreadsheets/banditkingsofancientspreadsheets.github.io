@@ -1,0 +1,32 @@
+---
+title: "Nelson Tang"
+image: /static/logo/logo.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/tangnelson/
+    - icon: github
+      text: Github
+      href: https://github.com/banditkings
+
+---
+
+# Why Am I Writing This?
+
+In a previous career, I found myself leading convoys in Kabul during one of the deadliest years of the war. There were plenty of threats - especially bad guys hoping to hurt us and anyone nearby. As a convoy commander, I was ultimately responsible for my team's safety, and I relied heavily on our route-planning strategy to steer clear of danger.
+
+We were lucky, I made it home and everyone under my command made it home safely...but was it because I was a good decision maker?
+
+_Was I really equipped to make sound decisions in such high-stakes situations?_
+
+After years of reflection, I realized that I relied too heavily on instinct and intuition. I didn't acknowledge the potential benefits of quantitative methods to help me form more effective strategies, spot alternative options, and better understand uncertainty and risk. Undoing this mental model has been a long and arduous process.
+
+Today, I'm searching for advice and strategies I could have given my younger self, and to be a better decision maker as a mountaineer. What models can I use to make more effective decisions and manage risk?
+
+I'll try to share the insights I've gained, along with other tips and tricks that come my way. If you're willing to lend a hand, let's connect and navigate this journey together.
+
+# Why Bandit Kings?
+
+Oh, and if you're wondering about the name of this website, ["Bandit Kings" was inspired by a Koei game](https://en.wikipedia.org/wiki/Bandit_Kings_of_Ancient_China) that simulated historical events in ancient China - a game that was, in turn, influenced by the classic novel, ["The Water Margin."](https://en.wikipedia.org/wiki/Water_Margin) The book is also responsible for the creation of the fantastic [Suikoden](https://en.wikipedia.org/wiki/Suikoden) series.

@@ -1,0 +1,18 @@
+---
+title: "Latest Posts"
+listing:
+  contents: blog
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: True
+# margin-header: |
+#   ![Logo image](/static/logo/logo.png)
+---
+
+### On a journey to use data and science to help people make better decisions.
+
+---

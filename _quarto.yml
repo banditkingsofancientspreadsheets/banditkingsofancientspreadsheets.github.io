@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "banditkings"
+  navbar:
+    logo: /static/logo/logo.svg
+    right:
+      - about.qmd
+      - notes.md
+      - icon: github
+        href: https://github.com/banditkings
+  favicon: /static/logo/logo.svg
+  site-url: "https://www.nelsontang.com"
+  google-analytics: 
+    tracking-id: "G-R6SHJFF7F7"
+    anonymize-ip: true
+  cookie-consent: true
+    # type: express
+    # style: headline
+    # palette: dark
+format:
+  html:
+    theme: 
+      light: cosmo
+      # dark: darkly
+    css: styles.css
+
+execute:
+  freeze: auto
