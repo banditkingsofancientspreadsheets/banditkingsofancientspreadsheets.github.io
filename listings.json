@@ -1,0 +1,29 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/blog/revenue-optimization-with-scipy.html",
+      "/blog/intro-to-bayesian-regression-with-numpyro.html",
+      "/blog/a-friendly-introduction-to-scan-with-jax.html",
+      "/blog/2022-12-22-color-palette-from-gif-in-julia.html",
+      "/blog/2022-06-08-Time-Series-Forecasting-102-Finance.html",
+      "/blog/2022-06-03-Time-Series-Forecasting-101-Finance.html",
+      "/blog/2022-06-02-dash-tips.html",
+      "/blog/2022-03-27-sql-to-julia.html",
+      "/blog/2022-02-20-fiscal-5253-workweek-calendars-in-pandas.html",
+      "/blog/2021-11-27-updating-julia.html",
+      "/blog/2021-11-25-pandas-conditional-merging.html",
+      "/blog/2021-08-01-build-your-first-plotly-template.html",
+      "/blog/2021-05-08-dev-environment-in-wsl.html",
+      "/blog/2021-04-16-plotly-in-markdown.html",
+      "/blog/2020-12-28-tie-fighter-error-charts-in-python.html",
+      "/blog/2020-11-13-quick-bash-scripting.html",
+      "/blog/2020-08-16-dash-clean-line-chart.html",
+      "/blog/2020-07-02-dash-bootstrap-kpi-card.html",
+      "/blog/2020-06-30-quick-pnl-dataframe.html",
+      "/blog/2020-01-26-time-series-forecasting-in-r.html",
+      "/blog/2019-10-19-odbc-in-osx.html",
+      "/blog/2019-08-05-Fast-Excel-with-the-Quick-Access-Toolbar.html"
+    ]
+  }
+]
