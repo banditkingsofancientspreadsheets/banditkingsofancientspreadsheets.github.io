@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-06-03">
+
+<title>Time Series Forecasting 101 for Finance Analysts – banditkings</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">banditkings</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Time Series Forecasting 101 for Finance Analysts</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">dataviz</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 3, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="who-this-is-for" class="level2">
+<h2 class="anchored" data-anchor-id="who-this-is-for">Who this is for?</h2>
+<p>People with no prior exposure to time series analysis, but may have taken a statistics class or two. Goal is to help you recognize what time series forecasting is and share examples of time series forecasting models used in practice today without using any math.</p>
+</section>
+<section id="what-is-time-series-forecasting" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-time-series-forecasting">What is Time Series Forecasting?</h2>
+<p><strong>Time Series</strong> is <a href="https://en.wikipedia.org/wiki/Time_series">data that’s indexed by time</a>. In finance, we encounter time series all the time - think of our stock price throughout the course of a week, or a revenue forecast, our historical weekly spending data, etc.</p>
+<p><strong>Time Series Forecasting</strong> aims to predict future periods based on available information, and because of the time-based nature of the data, people have had to create novel ways of analyzing and dealing with how the signal changes over time.</p>
+</section>
+<section id="a-trivial-example-scenario" class="level2">
+<h2 class="anchored" data-anchor-id="a-trivial-example-scenario">A (trivial) example scenario 🍕</h2>
+<p>Let’s say you’re a new FP&amp;A analyst and you’re in charge of managing the budget for your finance team. One day your manager comes in and asks for your best guess as to what next month’s spending is going to be. The team’s been working really hard the last few months, so if you’re trending under budget then maybe the team can celebrate with an offsite pizza party. What approach would you take?</p>
+</section>
+<section id="tried-and-true-baselines" class="level2">
+<h2 class="anchored" data-anchor-id="tried-and-true-baselines">Tried and True Baselines</h2>
+<p>If you’ve been in Finance for any length of time, you’ll typically encounter two simple approaches to forecasting: asking experts and applying a simple rule of thumb in excel.</p>
+<section id="judgmental-forecasts" class="level3">
+<h3 class="anchored" data-anchor-id="judgmental-forecasts">Judgmental Forecasts</h3>
+<p><strong>Judgmental Forecasts</strong> are important to recognize because they’re everywhere within Finance. It’s forecasting based on human intuition and expert opinion - <a href="https://en.wikipedia.org/wiki/List_of_cognitive_biases">which has its flaws</a> but <em><a href="https://www.sciencedirect.com/science/article/abs/pii/S0169207012001161">can</a></em> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169207012000842">be useful</a>. I won’t go into much detail on this since Decision Quality (DQ) and the field of decision analysis covers this in greater depth.</p>
+</section>
+<section id="shortcuts-and-rules-of-thumb-heuristics" class="level3">
+<h3 class="anchored" data-anchor-id="shortcuts-and-rules-of-thumb-heuristics">Shortcuts and ‘rules of thumb’ (heuristics)</h3>
+<p>More quantitative than judgmental forecasts, <strong>heuristics</strong> are shortcuts that rely on assumptions and/or simple math to create a forecast. This includes our common ‘Linearity’ models, simple moving averages, and even a back-of-the-envelope financial model you might build in excel where the inputs are ultimately based on human intuition and opinion. While these approaches can be very accurate, they’re often <strong>point forecasts</strong> and you might not be able to quantify how certain you are in that exact point forecast. In the case of an excel-based financial model, the reasons behind the human inputs are not implicit, resulting in a model that can make you overconfident in the actual forecast or in its ability to support good decision making if the underlying assumptions were flawed (aka <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in, garbage out</a>).</p>
+</section>
+</section>
+<section id="can-we-do-better" class="level2">
+<h2 class="anchored" data-anchor-id="can-we-do-better">Can We Do Better?</h2>
+<p>In the example scenario, the stakes are low: if you get the forecast wrong, you lose out on a little pizza 🍕. But if the stakes are higher and you have a wealth of available data, can you get a faster, more accurate, and more informative forecast?</p>
+<p>Advances in computing in the last 80 years have led to new methods in forecasting, starting from simple statistical methods from the 1950’s all the way to the new machine learning and neural network driven approaches of the last 20 years. I’ll highlight a few here:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/forecast_models.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>Below, I’ll give a <em>brief</em> summary of what these are so you can identify when to use them and what they look like, with a heavier emphasis on the classical techniques and more of a high level mention of the rest. We’ll be applying these different forecasting methods against the count of monthly international air passengers from 1949-1960 from the classic Box-Jenkins ARIMA paper.</p>
+</section>
+<section id="classic-time-series-forecasts" class="level2">
+<h2 class="anchored" data-anchor-id="classic-time-series-forecasts">Classic Time Series Forecasts</h2>
+<section id="exponential-smoothing-holt-winters" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-smoothing-holt-winters">Exponential Smoothing (Holt-Winters)</h3>
+<p>Exponential Smoothing (sometimes called the Holt-Winters model) is a family of fast, classic methods from the late 1950’s that can make reasonably good forecasts with a minimal amount of data and is very quick and simple to calculate.</p>
+<p>It starts with ‘Simple’ exponential smoothing, which is like a weighted moving average. But the way that the data is weighted decays <em>exponentially</em> the further in the past that you go, so that more recent data is weighted much, much more than data from the distant past.</p>
+<p>Here’s an example of a Simple Exponential Smoothing forecast:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/simple_exp_smoothing.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>Notice that in this case, we’ve modeled a 1-year monthly forecast (12 steps ahead), and simple exponential smoothing just results in a straight line. You can modify the Exponential Smoothing Model to incorporate a trend - essentially you add a slope to the line:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/double_exp_smoothing.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>Which gets a slightly better fit. Now we notice that there are clear repetitive peaks and valleys in this signal starting around 1952 and onwards, indicating that there is higher travel from June-August of each year, corresponding with summer in the Northern hemisphere. Once again, Exponential Smoothing can incorporate both the increasing trend <em>and</em> this seasonal component:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/triple_exp_smoothing.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>This final model is also called Triple Exponential Smoothing, and is a great example of the power of time series models. You may have noticed that this model is a combination of three different things: the weighted moving average, the linear trend, and the seasonality. With the rest of the examples, you should think of each forecasting model as a combination of multiple underlying building blocks then you can decompose and tweak to get the best forecast possible.</p>
+<p>What does it mean to have a ‘good’ forecast? A ‘good’ (accurate) model should closely approximate the curve of the actual/historical data during your testing, indicating that it’s a good <em>fit</em> for the data during your test. I’ll summarize model evaluation later, but <a href="https://otexts.com/fpp3/accuracy.html">if you’re interested you can read this summary here</a> to get a preview.</p>
+</section>
+<section id="autoregressive-integrated-moving-average-arima" class="level3">
+<h3 class="anchored" data-anchor-id="autoregressive-integrated-moving-average-arima">Autoregressive Integrated Moving Average (ARIMA)</h3>
+<p>ARIMA stands for Autoregressive Integrated Moving Average, and similarly to Exponential Smoothing it performs very well on a small amount of data and is fast. It was state of the art for the 1970’s and still performs very well to this day. Traditionally, ARIMA also required the use of an analyst to use their business acumen to specify some of the parameters in this model, but more recently automated techniques made this less necessary.</p>
+<blockquote class="blockquote">
+<p><strong>AutoRegression</strong> What is “AutoRegression”? Think of it as another fancy weighted average, similar to what we saw with Simple Exponential Smoothing. Only this time, the weights aren’t necessarily decaying the further back in time you go - the weights are free to vary, and you use the math behind Linear Regression to calculate the weights based on the data.</p>
+</blockquote>
+<p>Unlike Exponential Smoothing, ARIMA relies on statistical assumptions in the underlying data, and violation of these assumptions will result in a less predictive model. However, in terms of prediction accuracy you can often get a better fit with ARIMA.</p>
+<p>Here’s an example of ARIMA on the Air Passengers set:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/autoarima.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>Note the implementation of the model I used here includes a 90% <strong>Prediction Interval</strong>. A <a href="https://otexts.com/fpp3/prediction-intervals.html">Prediction Interval</a> has a different interpretation than a traditional Confidence Interval - a prediction interval describes the probability of the future data point while a confidence interval describes how confident you should be of a true statistical parameter (i.e.&nbsp;the population mean) being contained within that interval. and depending on the model it might not make any assumptions about the underlying distribution of the data.</p>
+</section>
+</section>
+<section id="time-series-regression" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-regression">Time Series Regression</h2>
+<p>Regression in a time series context has some important considerations and differences than the classic Ordinary Least Squares (OLS) Linear Regression that you may have learned in a long-forgotten statistics class. In fact, some of the basic assumptions in Linear Regression are violated in the time series setting (depending on how you use it), but with careful use and some tweaks regression models have many applications in modern time series forecasting.</p>
+<section id="linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="linear-regression">Linear Regression</h3>
+<p>You can turn any time series into a linear regression problem by using time as a <em>feature</em> or <em>predictor</em> in your model. For instance, you can simply fit a linear trendline (even in excel) to data by using linear regression to estimate the average response based on time:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/linear_trend.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>And of course, if you have additional predictors or features you can add them to the model as well, similar to how you would do multiple linear regression. The benefit of using this kind of model is that you can incorporate additional information and other key drivers to improve the accuracy of the model and make it easier to explain the model to stakeholders and use it in decision making. The downside is that predictive accuracy on these models might not be as good as other time series methods, and the forecasts are highly dependent on your ability to identify good ‘key drivers’, which is challenging in practice.</p>
+</section>
+<section id="dynamic-regression-arimax" class="level3">
+<h3 class="anchored" data-anchor-id="dynamic-regression-arimax">Dynamic Regression (ARIMAX)</h3>
+<p>Dynamic Regression, to include ARIMA with eXogenous variables (exogenous means data that’s not part of the signal you’re trying to predict), is a way to combine the predictive accuracy of ARIMA with the explainability of your regression models. ARIMAX is a different kind of combination of models than you’ve seen - it’s actually a combination of two models that are calculated in a <em>sequence</em>.</p>
+<p><strong>Steps in ARIMAX:</strong></p>
+<ol type="1">
+<li>First, fit a linear regression model to a set of historical predictor variables/features</li>
+<li>Calculate the residuals, which is the difference between the model’s predictions and the historical actuals in the data</li>
+<li>Finally, fit an ARIMA model that best predicts the residuals</li>
+<li>To create a forecast, you feed in <em>forecasted</em> variables/features to the regression model, and then add in the fitted ARIMA model</li>
+</ol>
+<blockquote class="blockquote">
+<p>The key thing to watch out for in ARIMAX (and all regression models) is the idea of <strong>leakage</strong> : when data that you wouldn’t have known in advance is used to build the model. So the forecast depends on getting a very good forecast of the features that you’re feeding into the model. And <em>those</em> forecasts might themselves be the result of another time series forecasting process that has its own uncertainty and prediction intervals, and these errors can cascade throughout your model in ways you might not expect.</p>
+</blockquote>
+</section>
+<section id="decision-trees" class="level3">
+<h3 class="anchored" data-anchor-id="decision-trees">Decision Trees</h3>
+<p>More specifically, tree-based methods like Random Forest and their most sophisticated variants like eXtreme Gradient Boosting (XGBoost). These are very popular in competition and tend to outperform more complex models on tabular data. Think of these as more flexible models that can fit hundreds of mini-regression models and adapt to nonlinearities, while still being relatively fast, and they should be a go-to model after first trying the classical statistical models.</p>
+<p>However, due to the stochastic (random) nature of these models, you aren’t guaranteed to get the same results every time you run the model. But these models can handle non linearity in the data and can automatically find the best predictors/variables to include in the model and help you understand what’s happening under the hood.</p>
+</section>
+</section>
+<section id="advanced-methods" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-methods">Advanced Methods</h2>
+<p>I won’t cover these in much depth, but are still worth a mention:</p>
+<section id="prophet" class="level3">
+<h3 class="anchored" data-anchor-id="prophet">Prophet</h3>
+<p>Facebook open sourced their ‘Prophet’ model, which is intended to be an automated, scalable forecasting model that is suitable for a business analyst to run.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../static/images/timeseries/fbprophet.png" class="img-fluid figure-img"></p>
+<figcaption>img</figcaption>
+</figure>
+</div>
+<p>You can think of Prophet as a fancy combination of several underlying components:</p>
+<ol type="1">
+<li>A piece-wise linear trend component (meaning it partitions the data into multiple periods and fits a different line to each period)</li>
+<li>Any seasonal patterns (including any combination of daily, monthly, yearly, weekly, and custom patterns)</li>
+<li>Holiday effects</li>
+</ol>
+<p>While Prophet is state of the art for situations in which you have a lot of <em>daily</em> data (i.e.&nbsp;user activity on a website), in the context of corporate finance where data comes in on a weekly, monthly, or quarterly basis, Prophet does not perform very well.</p>
+</section>
+<section id="vector-autoregression" class="level3">
+<h3 class="anchored" data-anchor-id="vector-autoregression">Vector Autoregression</h3>
+<p>Vector Autoregression is an example of a <em>multivariate</em> model in which you have multiple parallel time series and you want to simultaneously forecast for them. Or, you want to understand how each of the variables and time series influence each other.</p>
+</section>
+<section id="neural-networks" class="level3">
+<h3 class="anchored" data-anchor-id="neural-networks">Neural Networks</h3>
+<p>Neural networks have made a tremendous splash in computer vision and language modeling, and within time series data they can be used for vast quantities of data. The key with neural networks is their ability to handle nonlinear relationships, but they require a large amount of data in order to be useful. In practice, corporate finance deals with smaller quantities of tabular data (i.e.&nbsp;data that looks like it came out of table in a spreadsheet) where simpler methods still perform well.</p>
+</section>
+</section>
+<section id="lots-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="lots-of-models">Lots of Models!</h2>
+<p>So in our short time together we’ve only scratched the surface - there are a bounty of models and novel approaches out there, including judgmental forecasts and rules of thumb that we use today. How do we compare them all?</p>
+</section>
+<section id="how-do-we-know-what-better-looks-like" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-we-know-what-better-looks-like">How do we know what ‘Better’ looks like?</h2>
+<p>In other words, how do you measure and evaluate model performance? Turns out that’s a question without a straightforward answer, and it’s up to you as the analyst to interpret the results and arrive at a reasonable conclusion. In a future post I’ll discuss the most common ways of measuring forecast performance and talk about the pitfalls and benefits of each approach.</p>
+</section>
+<section id="further-reference" class="level2">
+<h2 class="anchored" data-anchor-id="further-reference">Further Reference</h2>
+<ul>
+<li><p>If you want to learn more, the <strong>best</strong> introductory resource I can point you towards is Hyndman’s free online textbook <em><a href="https://otexts.com/fpp3/">Forecasting: Principles and Practice</a></em>, now in its 3rd edition</p></li>
+<li><p>If you prefer an intermediate resource with Python examples, I highly recommend <a href="https://www.amazon.com/Practical-Time-Analysis-Prediction-Statistics/dp/1492041653/ref=asc_df_1492041653/?tag=hyprod-20&amp;linkCode=df0&amp;hvadid=385609353592&amp;hvpos=&amp;hvnetw=g&amp;hvrand=548942229704282103&amp;hvpone=&amp;hvptwo=&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9032828&amp;hvtargid=pla-575006547733&amp;psc=1&amp;tag=&amp;ref=&amp;adgrpid=77500930054&amp;hvpone=&amp;hvptwo=&amp;hvadid=385609353592&amp;hvpos=&amp;hvnetw=g&amp;hvrand=548942229704282103&amp;hvqmt=&amp;hvdev=c&amp;hvdvcmdl=&amp;hvlocint=&amp;hvlocphy=9032828&amp;hvtargid=pla-575006547733">Practical Time Series Analysis by Aileen Nielsen</a></p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
