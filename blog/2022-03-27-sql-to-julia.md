@@ -2,7 +2,7 @@
 title: 'A SQL to Julia DataFrames Cheatsheet'
 date: 2022-03-27
 categories: [julia, modeling]
-summary: 'What would common SQL expressions look like in Julia DataFrames and Julia DataFramesMeta?'
+description: 'What would common SQL expressions look like in Julia DataFrames and Julia DataFramesMeta?'
 aliases:
   - /SQL-to-Julia
 canonicalUrl: https://www.nelsontang.com/blog/2022-03-27-sql-to-julia

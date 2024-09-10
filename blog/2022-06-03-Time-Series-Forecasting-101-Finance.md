@@ -2,7 +2,7 @@
 title: 'Time Series Forecasting 101 for Finance Analysts'
 date: 2022-06-03
 categories: [python, forecasting]
-summary: 'Part 1 of a first-time training around time series forecasting aimed at Finance Analysts in my company, focused on identifying types of models used in modern forecasting.'
+description: 'Part 1 of a first-time training around time series forecasting aimed at Finance Analysts in my company, focused on identifying types of models used in modern forecasting.'
 aliases:
   - /time-series-forecasting-101-finance
 canonicalUrl: https://www.nelsontang.com/blog/time-series-forecasting-101-finance

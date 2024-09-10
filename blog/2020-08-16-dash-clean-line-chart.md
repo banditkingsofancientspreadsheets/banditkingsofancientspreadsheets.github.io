@@ -3,7 +3,7 @@ title: 'Clean Sparkline-style Line Chart for Dash Cards'
 date: 2020-08-16
 tags: [dash, plotly, python]
 categories: [dataviz]
-summary: 'Code snippet to create a clean line chart to go in a Dash Card.'
+description: 'Code snippet to create a clean line chart to go in a Dash Card.'
 images: ['/static/images/clean_line_chart.png']
 ---
 

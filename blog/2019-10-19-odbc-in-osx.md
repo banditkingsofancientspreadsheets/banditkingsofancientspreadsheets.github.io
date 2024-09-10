@@ -3,7 +3,7 @@ title: 'How to set up ODBC in Mac OS to connect to MS SQL Server for use with Py
 date: 2019-10-19
 tags: [r, python, workflow]
 categories: [workflow]
-summary: "My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is **really** easy on Windows with its' built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019."
+description: "My local data mart runs on MS SQL Server, and I want to pull data directly into R or Python for data analysis. This is **really** easy on Windows with its' built-in ODBC manager, but I spent a weekend figuring out how to do this after switching to OSX. A lot of documentation out there is old (from 2012), so I decided to make this for anyone still looking for an answer in 2019."
 canonicalUrl: https://www.nelsontang.com/blog/2019-10-19-odbc-in-osx
 ---
 

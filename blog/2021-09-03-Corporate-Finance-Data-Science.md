@@ -3,7 +3,7 @@ title: 'How Data Science Can Be Applied to Corporate Finance'
 date: '2021-09-03'
 tags: [applied data science]
 categories: [projects]
-summary: 'In which I meander through the work of finance data scientists and how data science can be applied to corporate finance.'
+description: 'In which I meander through the work of finance data scientists and how data science can be applied to corporate finance.'
 aliases:
   - /Corporate-Finance-Data-Science
 draft: true

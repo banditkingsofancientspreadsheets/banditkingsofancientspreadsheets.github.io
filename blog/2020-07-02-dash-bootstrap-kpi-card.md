@@ -2,7 +2,7 @@
 title: 'KPI Card with Dash Bootstrap Components'
 date: 2020-07-02
 categories: [dataviz, python]
-summary: 'Code snippet to create a starter KPI card with Dash Bootstrap Components'
+description: 'Code snippet to create a starter KPI card with Dash Bootstrap Components'
 aliases:
   - /Dash-Bootstrap-KPI-Card/
 images: ['/static/images/dbc/dbc_kpi1.png', '/static/images/dbc/dbc_kpi2.png']

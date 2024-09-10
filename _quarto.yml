@@ -9,6 +9,8 @@ website:
     right:
       - text: "About"
         href: about.qmd
+      - text: "Blog"
+        href: index.qmd
       - notes.md
       - icon: github
         href: https://github.com/banditkings

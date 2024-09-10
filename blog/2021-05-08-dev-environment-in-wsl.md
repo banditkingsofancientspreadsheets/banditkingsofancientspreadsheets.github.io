@@ -3,7 +3,7 @@ title: 'Getting Started with WSL for Data Analysis'
 date: 2021-05-08
 tags: [python]
 categories: [workflow]
-summary: 'My steps for a fresh install of Windows Subsystem for Linux for Data Analysis'
+description: 'My steps for a fresh install of Windows Subsystem for Linux for Data Analysis'
 images: ['/static/images/wsl2_test.png']
 canonicalUrl: https://www.nelsontang.com/blog/2021-05-08-dev-environment-in-wsl
 ---

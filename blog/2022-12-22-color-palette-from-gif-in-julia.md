@@ -2,7 +2,7 @@
 title: 'Creating Color Palettes from Animated GIFs with Julia'
 date: 2022-12-22
 categories: [julia, data visualization]
-summary: 'How to automatically generate custom color palettes for data visualization from animated GIFs with Julia'
+description: 'How to automatically generate custom color palettes for data visualization from animated GIFs with Julia'
 images:
   [
     '/static/images/palettes/existing_solutions.png',

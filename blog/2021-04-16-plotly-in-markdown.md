@@ -3,7 +3,7 @@ title: 'Adding Plotly Charts to Markdown'
 date: 2021-04-16
 categories: [python, dataviz, workflow]
 format: html
-summary: 'Quick reference that shows options to add plotly charts to a markdown document'
+description: 'Quick reference that shows options to add plotly charts to a markdown document'
 aliases:
   - /plotly-in-markdown/
 images: ['/static/images/plotly_in_markdown.png']

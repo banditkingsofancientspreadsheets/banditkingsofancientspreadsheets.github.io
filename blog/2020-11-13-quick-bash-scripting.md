@@ -2,7 +2,7 @@
 title: 'Quick Bash Script for Complete Newbies'
 date: 2020-11-13
 categories: [workflow]
-summary: 'Basic shell scripting for everyday productivity.'
+description: 'Basic shell scripting for everyday productivity.'
 ---
 
 At work or grad school, I have to juggle a lot of projects and it always takes me a while to remember which directory I was in and what I named the project environment. I wanted 'shortcuts' in the terminal that would automate the things I was typing out manually each time. To do this, I saved these custom functions and `source` them into `.zshrc`.

@@ -6,13 +6,17 @@ authors = ["Nelson Tang <nelson.tang.17@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10.12"
+python = ">=3.10.12,<3.13"
 numpy = "^1.24.3"
 pandas = "^2.0.1"
 scikit-learn = "^1.2.2"
 fastparquet = "^2023.4.0"
 statsmodels = "^0.14.0"
 polars = "^1.0"
+pyro-ppl = "^1.9.1"
+numpyro = "^0.15.2"
+pymc = "^5.16.2"
+pystan = "^3.10.0"
 
 [tool.poetry.group.dev]
 optional = true

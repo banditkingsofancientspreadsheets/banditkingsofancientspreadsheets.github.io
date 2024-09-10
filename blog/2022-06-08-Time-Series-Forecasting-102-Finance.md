@@ -2,7 +2,7 @@
 title: 'Time Series Forecasting 102 for Finance Analysts'
 date: 2022-06-08
 categories: [python, forecasting]
-summary: 'Part 2 of a first-time training around time series forecasting aimed at Finance Analysts in my company, focused on model evaluation.'
+description: 'Part 2 of a first-time training around time series forecasting aimed at Finance Analysts in my company, focused on model evaluation.'
 aliases:
   - /time-series-forecasting-102-finance
 images:

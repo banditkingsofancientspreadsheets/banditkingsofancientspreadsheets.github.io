@@ -2,7 +2,6 @@
 title: "'Tie Fighter' Errorbar Charts in Python with Plotnine and Altair"
 date: 2020-12-28
 categories: [python, dataviz]
-summary: "ggplot2 for Python is definitely a thing. Oh, and Altair's ok too."
 canonicalUrl: https://www.nelsontang.com/tie-fighter-error-charts-in-python
 images:
   [

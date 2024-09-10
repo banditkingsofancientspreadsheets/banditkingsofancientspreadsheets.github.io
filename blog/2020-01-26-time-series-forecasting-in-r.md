@@ -3,7 +3,7 @@ title: 'Time Series Cheat Sheet in R'
 date: 2020-01-26
 tags: [forecasting, r]
 categories: [modeling]
-summary: 'Getting started using the `forecast` package for time series data in R, as quickly as possible and no explanations.'
+description: 'Getting started using the `forecast` package for time series data in R, as quickly as possible and no explanations.'
 aliases:
   - /time-series-forecasting-in-r/
 canonicalUrl: https://www.nelsontang.com/blog/2020-01-26-time-series-forecasting-in-r

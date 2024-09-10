@@ -3,18 +3,16 @@ title: Revenue Optimization with Price Elasticities and Scipy
 date: '2024-02-23'
 categories: ['python', 'optimization', 'modeling']
 draft: false
-summary: An introductory example of revenue optimization using the `minimize` function from `scipy.optimize`
+description: An introductory example of revenue optimization using the `minimize` function from `scipy.optimize`
 images:
   [
     '/static/images/scipy_optim/demand_curves.png',
     '/static/images/scipy_optim/coef_dist.png',
     '/static/images/scipy_optim/revenue_dist.png',
   ]
-layout: PostLayout
 format: 
     html:
         html-math-method: katex
-# canonicalUrl:
 ---
 
 - See also: [Scipy Optimization Manual](https://docs.scipy.org/doc/scipy/tutorial/optimize.html)

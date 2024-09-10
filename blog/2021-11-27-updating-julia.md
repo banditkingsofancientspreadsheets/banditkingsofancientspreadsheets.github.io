@@ -2,7 +2,7 @@
 title: 'Updating Your Julia Installation (Feb 2023)'
 date: 2021-11-27
 categories: [julia, workflow]
-summary: 'What it takes to update from a previous install of Julia on Mac/Linux'
+description: 'What it takes to update from a previous install of Julia on Mac/Linux'
 aliases:
   - /updating-julia
 canonicalUrl: https://www.nelsontang.com/blog/2021-11-27-updating-julia

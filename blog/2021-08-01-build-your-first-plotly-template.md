@@ -3,7 +3,7 @@ title: 'Making a Basic Corporate Plotly Template'
 date: '2021-08-01'
 tags: [python, plotly]
 categories: [dataviz]
-summary: 'TLDR on how to make a corporate themed plotly template'
+description: 'TLDR on how to make a corporate themed plotly template'
 image: '/static/images/plotly_template_example.gif'
 canonicalUrl: https://www.nelsontang.com/blog/2021-08-01-build...irst-plotly-template
 ---

@@ -3,7 +3,7 @@ title: A friendly introduction to scan with JAX
 date: '2023-12-29'
 categories: ['python']
 draft: false
-summary: A friendly introduction to `scan` with JAX and numpyro
+description: A friendly introduction to `scan` with JAX and numpyro
 image: '/static/images/scan_jax/scan_components.png'
 # images:
 #   [

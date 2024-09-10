@@ -3,7 +3,7 @@ title: 'Make a Basic PnL Dataframe in Pandas'
 date: 2020-06-30
 tags: [python, workflow]
 categories: [workflow]
-summary: 'Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas'
+description: 'Code snippet to create a PnL (Profit and Loss Statement) Dataframe in Pandas'
 aliases:
   - /quick-pnl-dataframe/
 canonicalUrl: https://www.nelsontang.com/blog/2020-06-30-quick-pnl-dataframe

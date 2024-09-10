@@ -3,7 +3,7 @@ title: Bayesian Regression with numpyro
 date: '2024-02-16'
 categories: ['python', 'bayesian stats', 'modeling']
 draft: false
-summary: A simple example of regression with `numpyro`
+description: A simple example of regression with `numpyro`
 images:
   [
     '/static/images/numpyro_regression/sim_data.png',
