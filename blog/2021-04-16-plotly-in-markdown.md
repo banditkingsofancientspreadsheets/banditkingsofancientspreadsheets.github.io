@@ -52,7 +52,7 @@ helps you avoid creating a huge html document and from including 3MB of the plot
 - **Jekyll**: When I was using **Jekyll**, I could paste in the raw html directly into markdown and it would parse it.
 - **Hugo**: Check your Hugo template, but you'll need to use or make a shortcode for raw html, like this example from ["Make with Hugo"](https://makewithhugo.com/shortcode-add-raw-html/):
 
-> **Note**: I've since migrated my blog from Jekyll and Hugo so including this as a static image for now. Just make sure that your flavor of markdown supports raw html.
+> **Note**: Make sure that your flavor of markdown supports raw html.
 
 Here's the output, copied and pasted into a markdown document
 

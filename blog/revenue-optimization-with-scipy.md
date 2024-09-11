@@ -4,12 +4,7 @@ date: '2024-02-23'
 categories: ['python', 'optimization', 'modeling']
 draft: false
 description: An introductory example of revenue optimization using the `minimize` function from `scipy.optimize`
-images:
-  [
-    '/static/images/scipy_optim/demand_curves.png',
-    '/static/images/scipy_optim/coef_dist.png',
-    '/static/images/scipy_optim/revenue_dist.png',
-  ]
+image: '/static/images/scipy_optim/demand_curves.png'
 format: 
     html:
         html-math-method: katex
@@ -345,7 +340,7 @@ for i in range(3):
 f.suptitle("Elasticity Coefficient Distributions");
 ```
 
-![img](/static/images/scipy_optim/coef_dist.png)
+![Elasticity Coefficient Distributions](/static/images/scipy_optim/coef_dist.png)
 
 Next we'll need to restate our objective function because instead of having a list of 3 coefficients, now we have 1000 samples from each of the coefficient distributions in a $(1000, 3)$ array, where each row represents a sample of each of the coefficients and each column is a different coefficient/product.
 
@@ -393,7 +388,7 @@ plt.legend()
 plt.title("Distribution of Total Revenues for P=[10,20,30] with Coefficient Uncertainty");
 ```
 
-![img](/static/images/scipy_optim/revenue_dist.png)
+![Revenue Distribution](/static/images/scipy_optim/revenue_dist.png)
 
 Note that the average sales is quite a bit higher than if we had just used the point estimates for the $\beta$ price elasticity coefficients at the same prices.
 

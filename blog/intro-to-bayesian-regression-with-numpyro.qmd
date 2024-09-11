@@ -4,13 +4,7 @@ date: '2024-02-16'
 categories: ['python', 'bayesian stats', 'modeling']
 draft: false
 description: A simple example of regression with `numpyro`
-images:
-  [
-    '/static/images/numpyro_regression/sim_data.png',
-    '/static/images/numpyro_regression/numpyro_reg_graph.svg',
-    '/static/images/numpyro_regression/plot_trace.png',
-    '/static/images/numpyro_regression/plot_lm.png',
-  ]
+image: '/static/images/numpyro_regression/plot_lm.png'
 layout: PostLayout
 # canonicalUrl:
 ---
@@ -61,7 +55,7 @@ plt.plot(x, true_regression_line, c='r', label='True Regression Line')
 plt.legend();
 ```
 
-![img](/static/images/numpyro_regression/sim_data.png)
+![Simulated Data](/static/images/numpyro_regression/sim_data.png)
 
 # 1. Specify the model on paper
 
@@ -151,11 +145,13 @@ We can use the `numpyro.render_model()` function to display the graphical model 
 numpyro.render_model(numpyro_model, model_args=(x,y))
 ```
 
-![img](/static/images/numpyro_regression/numpyro_reg_graph.svg)
+![Rendered Model](/static/images/numpyro_regression/numpyro_reg_graph.svg)
 
 Light circles represent the unobserved/latent variables in our model, and we're interested in their posterior distribuitons. The dark circle represents our observed variables.
 
-### `pymc` as a contrast
+::: {.callout-note collapse=true}
+
+### Click here to see the same model in `pymc`
 
 For those curious how the same model looks in `pymc`:
 
@@ -173,6 +169,8 @@ with pm.Model() as model:
 ```
 
 Which is just a little less verbose than our `numpyro` model when it comes to specification.
+
+:::
 
 # 3. Inference with `MCMC` and `NUTS`
 
@@ -250,7 +248,7 @@ We need to check to see how well our MCMC sampler performed. Aside from the `n_e
 az.plot_trace(mcmc, var_names=['intercept', 'slope', 'sigma'], figsize=(9,9));
 ```
 
-![img](/static/images/numpyro_regression/plot_trace.png)
+![az.plot_trace output](/static/images/numpyro_regression/plot_trace.png)
 
 The plots on the left show the samples from the posterior distribution for each chain and the plots on the right trace the path of our sampler across the posterior distribution. The plots of right should lack a distinctive trend and ideally shouldn't have long flat lines going left to right. We see our happy fuzzy caterpillars on the right so our MCMC performed well, and if we saw something different it would indicate that something is wrong (poor prior specification, for instance).
 
@@ -289,7 +287,7 @@ az.plot_lm(y='y', idata=idata, y_model='mu', kind_pp='hdi',
            kind_model='hdi', figsize=(6,6), textsize=9)
 ```
 
-![img](/static/images/numpyro_regression/plot_lm.png)
+![az.plot_lm() output](/static/images/numpyro_regression/plot_lm.png)
 
 Here we set the plot to display the `hdi` or the 90% highest density interval that captures our uncertainty in our parameter estimates (aka the _epistemic_ uncertainty).
 

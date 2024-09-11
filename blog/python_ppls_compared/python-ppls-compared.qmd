@@ -195,7 +195,6 @@ Inference in `numpyro` is similar to `pyro`, with the exception of the added ste
 
 ```{python}
 # | output: false
-# | echo: false
 # Inference
 nuts_kernel = NUTS(numpyro_model)
 mcmc = MCMC(nuts_kernel, num_chains=2, num_warmup=1000, num_samples=1000)

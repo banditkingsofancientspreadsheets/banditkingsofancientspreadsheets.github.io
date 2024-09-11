@@ -207,6 +207,10 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../notes.html"> 
 <span class="menu-text">Notebooks</span></a>
   </li>  
@@ -571,7 +575,7 @@ x_2 \le 60 \rightarrow \quad 60 - x_2 &amp;\ge 0\\
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../static/images/scipy_optim/coef_dist.png" class="img-fluid figure-img"></p>
-<figcaption>img</figcaption>
+<figcaption>Elasticity Coefficient Distributions</figcaption>
 </figure>
 </div>
 <p>Next we’ll need to restate our objective function because instead of having a list of 3 coefficients, now we have 1000 samples from each of the coefficient distributions in a <span class="math inline">(1000, 3)</span> array, where each row represents a sample of each of the coefficients and each column is a different coefficient/product.</p>
@@ -614,7 +618,7 @@ x_2 \le 60 \rightarrow \quad 60 - x_2 &amp;\ge 0\\
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../static/images/scipy_optim/revenue_dist.png" class="img-fluid figure-img"></p>
-<figcaption>img</figcaption>
+<figcaption>Revenue Distribution</figcaption>
 </figure>
 </div>
 <p>Note that the average sales is quite a bit higher than if we had just used the point estimates for the <span class="math inline">\beta</span> price elasticity coefficients at the same prices.</p>
